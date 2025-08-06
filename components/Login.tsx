@@ -18,7 +18,7 @@ const Login = () => {
             alt="Logo"
             width={160}
             height={140}
-            className="shadow-xl rounded-full"
+            className="rounded-full"
           />
         </div>
         <div>
@@ -39,16 +39,8 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <Link href="/home" className="w-full h-12 text-lg">
-          <Button
-            className="w-full h-12 text-lg"
-            style={{
-              background:
-                "linear-gradient(90deg,rgba(55, 156, 196, 1) 0%, rgba(122, 250, 131, 1) 81%, rgba(158, 252, 35, 1) 100%)",
-            }}
-          >
-            Entrar
-          </Button>
+        <Link href="/terminal" className="w-full h-12 text-lg">
+          <Button className="w-full h-12 text-lg bg-gray-800">Entrar</Button>
         </Link>
       </div>
     </div>

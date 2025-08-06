@@ -9,16 +9,16 @@ interface FooterProps {
 const Footer = ({ className = "" }: FooterProps) => {
   return (
     <div
-      className={`bg-green-500 flex items-center justify-center h-20 ${className}`}
+      className={`bg-gray-800 flex items-center justify-center h-20 ${className}`}
     >
       <div className="flex items-center justify-between gap-20">
-        <Link href="/home">
+        <Link href="/terminal">
           <Home className="w-9 h-9 text-white" />
         </Link>
-        <Link href="/links/abastecimento">
+        <Link href="/abastecimento">
           <Fuel className="w-9 h-9 text-white" />
         </Link>
-        <Link href="/links/falhas">
+        <Link href="/falhas">
           <TriangleAlert className="w-9 h-9 text-white" />
         </Link>
       </div>

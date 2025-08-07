@@ -1,5 +1,6 @@
 import {
-  Bus,
+  Building2,
+  BusFront,
   Cable,
   ChevronUp,
   LayoutDashboard,
@@ -37,23 +38,28 @@ import Image from "next/image";
 const items = [
   {
     title: "Dashboard",
-    url: "#", // mude aqui para sua rota real
+    url: "/admin/", // mude aqui para sua rota real
     icon: LayoutDashboard,
   },
   {
     title: "Eletroposto",
-    url: "#",
+    url: "/admin/eletroposto",
     icon: Cable,
   },
   {
-    title: "Operador",
-    url: "#",
+    title: "Usuários",
+    url: "/admin/usuarios",
     icon: User,
   },
   {
-    title: "Ônibus",
-    url: "#",
-    icon: Bus,
+    title: "Veículos",
+    url: "/admin/veiculos",
+    icon: BusFront,
+  },
+  {
+    title: "Consorciada",
+    url: "/admin/consorciada",
+    icon: Building2,
   },
   {
     title: "Configurações",

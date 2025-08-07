@@ -105,20 +105,20 @@ const Falhas = () => {
 
                       <div className="flex flex-col items-start gap-3">
                         <div className="flex items-center gap-10 mt-3">
-                          <h1 className="bg-white shadow-lg p-2 rounded-lg">
+                          <h1 className="bg-white  p-2 rounded-lg">
                             <strong>Data:</strong> {falha.data}
                           </h1>
-                          <h1 className="bg-white shadow-lg p-2 rounded-lg">
+                          <h1 className="bg-white  p-2 rounded-lg">
                             <strong>Hora:</strong> {falha.hora}
                           </h1>
                         </div>
-                        <h1 className="bg-white shadow-lg p-2 rounded-lg">
+                        <h1 className="bg-white  p-2 rounded-lg">
                           <strong>Status:</strong> {falha.status}
                         </h1>
-                        <h1 className="bg-white shadow-lg p-2 rounded-lg">
+                        <h1 className="bg-white  p-2 rounded-lg">
                           <strong>Operador:</strong> {falha.operador}
                         </h1>
-                        <h1 className="bg-white shadow-lg p-2 rounded-lg text-justify">
+                        <h1 className="bg-white  p-2 rounded-lg text-justify">
                           <strong>Descrição:</strong> {falha.descricao}
                         </h1>
                       </div>

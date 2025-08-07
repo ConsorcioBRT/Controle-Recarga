@@ -14,7 +14,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { TriangleAlert } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -166,7 +165,7 @@ const Abastecimento = () => {
                                   </SelectTrigger>
                                   <SelectContent>
                                     <SelectItem value="interrompimento">
-                                      Interrompimento
+                                      Interrupção
                                     </SelectItem>
                                     <SelectItem value="carga-rapida">
                                       Carga Rápida
@@ -242,10 +241,12 @@ const DialogSteps = () => {
     setOdometro(valorFormatado);
   }
 
+  /*
   // Na hora de salvar no banco, irá salvar sem pontuação
   function getValorOdometroParaSalvar() {
     return odometro.replace(/\./g, "");
   }
+ */
 
   return (
     // Aqui onde irá fazer todo a parte do front-end, onde vai apenas chamar lá em cima, no primeiro Return
@@ -259,7 +260,7 @@ const DialogSteps = () => {
                 <Button
                   key={carregador}
                   onClick={() => setCarregadorSelecionado(carregador)}
-                  className={`p-3 rounded border h-12 ${
+                  className={`p-3 rounded border h-12 text-black ${
                     carregadorSelecionado === carregador
                       ? "bg-gray-500 text-white"
                       : "bg-gray-300"
@@ -280,7 +281,7 @@ const DialogSteps = () => {
                 <Button
                   key={conector}
                   onClick={() => setConectorSelecionado(conector)}
-                  className={`p-3 rounded border h-12 ${
+                  className={`p-3 rounded border h-12 text-black ${
                     conectorSelecionado === conector
                       ? "bg-gray-500 text-white"
                       : "bg-gray-300"

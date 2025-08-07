@@ -1,12 +1,12 @@
-import Administrador from "@/components/Administrador";
+import Dashboard from "@/components/Dashboard";
 import React from "react";
 
-const AdministracaoPage = () => {
+const DashboardPage = () => {
   return (
     <div>
-      <Administrador />
+      <Dashboard />
     </div>
   );
 };
 
-export default AdministracaoPage;
+export default DashboardPage;

@@ -2,7 +2,7 @@
 
 import { Label } from "@radix-ui/react-label";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -14,6 +14,29 @@ import { Button } from "./ui/button";
 import Header from "./Header";
 
 const Home = () => {
+  const [eletroposto, setEletroposto] = useState<{ UndRdz: string }[]>([]);
+  const baseUrl =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : "http:localhost:3000";
+
+  useEffect(() => {
+    async function fetchConsorciadas() {
+      try {
+        const res = await fetch(`${baseUrl}/api/eletroposto`);
+        if (!res.ok) {
+          throw new Error("Erro ao buscar consorciadas");
+        }
+        const data = await res.json();
+        setEletroposto(data);
+      } catch (error) {
+        console.error("Erro:", error);
+      }
+    }
+
+    fetchConsorciadas();
+  });
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Texto seja bem-vindo */}
@@ -26,14 +49,11 @@ const Home = () => {
               <SelectValue placeholder="Eletropostos" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="cruzeiro">Cruzeiro</SelectItem>
-              <SelectItem value="hp">Garagem HP</SelectItem>
-              <SelectItem value="metrobus">Garagem Metrobus</SelectItem>
-              <SelectItem value="ra">Garagem RA</SelectItem>
-              <SelectItem value="isidoria">Isidória</SelectItem>
-              <SelectItem value="paulo">Paulo Garcia</SelectItem>
-              <SelectItem value="recanto">Recanto do Bosque</SelectItem>
-              <SelectItem value="veiga">Veiga Jardim</SelectItem>
+              {eletroposto.map((ele, index) => (
+                <SelectItem key={index} value={ele.UndRdz}>
+                  {ele.UndRdz}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { Separator } from "./ui/separator";
 import {
@@ -45,26 +45,24 @@ const Abastecimento = () => {
     setOdometro(valorFormatado);
   }
 
-  const veiculos = [
-    { id: "6", onibusId: "1201" },
-    { id: "7", onibusId: "1202" },
-    { id: "8", onibusId: "1203" },
-    { id: "9", onibusId: "1204" },
-    { id: "10", onibusId: "1205" },
-    { id: "11", onibusId: "1206" },
-    { id: "12", onibusId: "20805" },
-    { id: "13", onibusId: "20806" },
-    { id: "14", onibusId: "20807" },
-    { id: "15", onibusId: "20808" },
-    { id: "16", onibusId: "20809" },
-    { id: "17", onibusId: "20810" },
-    { id: "18", onibusId: "50900" },
-    { id: "19", onibusId: "50901" },
-    { id: "20", onibusId: "50902" },
-    { id: "21", onibusId: "50903" },
-    { id: "22", onibusId: "50904" },
-    { id: "23", onibusId: "50905" },
-  ];
+  const [veiculos, setVeiculos] = useState<{ Onibus: string }[]>([]);
+
+  useEffect(() => {
+    async function fetchVeiculos() {
+      try {
+        const res = await fetch("http://localhost:3000/api/veiculos");
+        if (!res.ok) {
+          throw new Error("Erro ao buscar veículos");
+        }
+        const data = await res.json();
+        setVeiculos(data);
+      } catch (error) {
+        console.error("Erro:", error);
+      }
+    }
+
+    fetchVeiculos();
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
@@ -88,7 +86,7 @@ const Abastecimento = () => {
                       variant="outline"
                       className="inline-flex items-center justify-center rounded-full text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white"
                     >
-                      {item.onibusId}
+                      {item.Onibus}
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="max-w-sm w-full rounded-xl p-6">
@@ -97,7 +95,7 @@ const Abastecimento = () => {
                         <Zap className="text-blue-500" />
                         Finalizar Recarga - Ônibus{" "}
                         <span className="bg-blue-500 text-white p-1 rounded-full">
-                          {item.onibusId}
+                          {item.Onibus}
                         </span>
                       </DialogTitle>
                     </DialogHeader>
@@ -380,7 +378,7 @@ const DialogSteps = () => {
             <div className="grid gap-3">
               <Label className="flex items-center gap-2">
                 <Gauge className="w-4 h-4" />
-                Confirme  o Odômetro (km):
+                Confirme o Odômetro (km):
               </Label>
               <Input
                 id="odometro"

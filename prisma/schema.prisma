@@ -239,16 +239,15 @@ model VwLogin {
 
 /// View: vw_onibus
 model VwOnibus {
-  EqpItmId Int
+  EqpItmId Int @id
   Onibus   String
 
   @@map("vw_onibus")
-  @@ignore
 }
 
 /// View: vw_posto_recarga
 model VwPostoRecarga {
-  UndId       Int
+  UndId       Int @id
   PostoRecarga String
   Latitude    String?
   Longitude   String?
@@ -256,7 +255,6 @@ model VwPostoRecarga {
   Carregador  String?
 
   @@map("vw_posto_recarga")
-  @@ignore
 }
 
 // View: vw_situacao_recarga

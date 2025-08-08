@@ -14,7 +14,9 @@ import Header from "./Header";
 import { useRouter } from "next/navigation";
 
 const Home = () => {
-  const [eletroposto, setEletroposto] = useState<{ UndRdz: string }[]>([]);
+  const [eletroposto, setEletroposto] = useState<{ PostoRecarga: string }[]>(
+    []
+  );
   const [postoSelecionado, setPostoSelecionado] = useState("");
   const router = useRouter();
   const baseUrl =
@@ -62,8 +64,8 @@ const Home = () => {
             </SelectTrigger>
             <SelectContent>
               {eletroposto.map((ele, index) => (
-                <SelectItem key={index} value={ele.UndRdz}>
-                  {ele.UndRdz}
+                <SelectItem key={index} value={ele.PostoRecarga}>
+                  {ele.PostoRecarga}
                 </SelectItem>
               ))}
             </SelectContent>

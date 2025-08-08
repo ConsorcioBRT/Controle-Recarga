@@ -3,15 +3,18 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const postos = await prisma.vwPostoRecarga.findMany({
+    const consorciadas = await prisma.vwOnibus.findMany({
+      select: {
+        EqpItmId: true,
+        Onibus: true,
+      },
       orderBy: {
-        PostoRecarga: "asc",
+        Onibus: "asc",
       },
     });
-
-    return NextResponse.json(postos);
+    return NextResponse.json(consorciadas);
   } catch (error) {
-    console.error("Erro ao buscar postos de recarga:", error);
+    console.error("Erro ao buscar Usuários:", error);
     return new NextResponse("Erro interno do servidor", { status: 500 });
   }
 }

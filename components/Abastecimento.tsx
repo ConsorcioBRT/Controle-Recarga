@@ -23,14 +23,14 @@ import {
 } from "./ui/select";
 import { Textarea } from "./ui/textarea";
 import Footer from "./Footer";
+import { Battery, Circle, Fuel, Gauge, PlugZap, Zap } from "lucide-react";
 
-const transportesLivres = [106, 107, 108, 109, 110, 201, 320];
 const transportesCarregando = [350, 360];
 const carregadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const conectores = ["direito", "esquerdo", "ambos"];
+const conectores = ["1", "2", "ambos"];
 
 const Abastecimento = () => {
-  const [carregando, setCarregando] = useState<number[]>([]);
+  const [carregando] = useState<number[]>([]);
   const [resposta, setResposta] = useState("");
   const [odometro, setOdometro] = useState("");
 
@@ -45,34 +45,59 @@ const Abastecimento = () => {
     setOdometro(valorFormatado);
   }
 
+  const veiculos = [
+    { id: "6", onibusId: "1201" },
+    { id: "7", onibusId: "1202" },
+    { id: "8", onibusId: "1203" },
+    { id: "9", onibusId: "1204" },
+    { id: "10", onibusId: "1205" },
+    { id: "11", onibusId: "1206" },
+    { id: "12", onibusId: "20805" },
+    { id: "13", onibusId: "20806" },
+    { id: "14", onibusId: "20807" },
+    { id: "15", onibusId: "20808" },
+    { id: "16", onibusId: "20809" },
+    { id: "17", onibusId: "20810" },
+    { id: "18", onibusId: "50900" },
+    { id: "19", onibusId: "50901" },
+    { id: "20", onibusId: "50902" },
+    { id: "21", onibusId: "50903" },
+    { id: "22", onibusId: "50904" },
+    { id: "23", onibusId: "50905" },
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       <main className="flex-grow">
         <Header />
         {/* Corpo da Página */}
-        <div className="mt-5 mx-8">
+        <div className="mt-5 mx-5">
           {/* Onibus Livres */}
-          <div>
-            <span className="text-lg font-semibold text-gray-700">
-              Ônibus Livres
-            </span>
+          <div className="max-h-64 overflow-y-auto">
+            <div className="flex items-center gap-2">
+              <Circle className="w-3 h-3 text-blue-500 bg-blue-500 rounded-full" />
+              <span className="text-lg font-semibold text-gray-700">
+                Ônibus Livres ({veiculos.length})
+              </span>
+            </div>
             <div className="grid grid-cols-4 sm:grid-cols-2 gap-4 mt-5">
-              {transportesLivres.map((item, index) => (
+              {veiculos.map((item, index) => (
                 <Dialog key={index}>
                   <DialogTrigger asChild>
                     <Button
                       variant="outline"
-                      className="rounded-lg p-7 bg-gray-800 text-white"
+                      className="inline-flex items-center justify-center rounded-full text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white"
                     >
-                      {item}
+                      {item.onibusId}
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="max-w-sm w-full rounded-xl p-6">
                     <DialogHeader className="flex items-start">
-                      <DialogTitle>
-                        - Ônibus{" "}
-                        <span className="bg-gray-800 text-white p-1 rounded-sm">
-                          {item}
+                      <DialogTitle className="flex items-center gap-2">
+                        <Zap className="text-blue-500" />
+                        Finalizar Recarga - Ônibus{" "}
+                        <span className="bg-blue-500 text-white p-1 rounded-full">
+                          {item.onibusId}
                         </span>
                       </DialogTitle>
                     </DialogHeader>
@@ -88,9 +113,12 @@ const Abastecimento = () => {
 
           {/* Onibus Carregando */}
           <div className="mt-2">
-            <span className="text-lg font-semibold text-gray-700">
-              Ônibus Carregando
-            </span>
+            <div className="flex items-center gap-2">
+              <Circle className="w-3 h-3 text-yellow-500 bg-yellow-500 rounded-full" />
+              <span className="text-lg font-semibold text-gray-700">
+                Ônibus Carregando ({transportesCarregando.length})
+              </span>
+            </div>
             <div className="mt-3 ml-1">
               {carregando.length === 1 ? (
                 <p className="text-gray-500 text-sm italic">
@@ -104,24 +132,26 @@ const Abastecimento = () => {
                         <DialogTrigger asChild>
                           <Button
                             variant="outline"
-                            className="rounded-lg p-7 bg-gray-800 text-white"
+                            className="inline-flex items-center justify-center rounded-full text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-yellow-500 text-white"
                           >
                             {item}
                           </Button>
                         </DialogTrigger>
                         <DialogContent className="max-w-sm w-full rounded-xl p-6">
                           <DialogHeader className="flex items-start">
-                            <DialogTitle>
-                              Ônibus{" "}
-                              <span className="bg-gray-800 text-white p-1 rounded-lg">
+                            <DialogTitle className="flex items-center gap-2">
+                              <Zap className="text-yellow-500" />
+                              Finalizar Recarga - Ônibus{" "}
+                              <span className="bg-yellow-500 text-white p-1 rounded-full">
                                 {item}
                               </span>
                             </DialogTitle>
                           </DialogHeader>
                           <div className="grid gap-4 mt-6">
                             <div className="grid gap-3">
-                              <Label htmlFor="percentual-final">
-                                Percentual Final
+                              <Label className="flex items-center gap-2">
+                                <Battery className="w-4 h-4" />
+                                Percentual Final (%)
                               </Label>
                               <Input
                                 id="percentual-final"
@@ -130,11 +160,20 @@ const Abastecimento = () => {
                               />
                             </div>
                             <div className="grid gap-3">
-                              <Label htmlFor="kw">KW/h utilizados</Label>
+                              <Label
+                                htmlFor="kw"
+                                className="flex items-center gap-2"
+                              >
+                                <Zap className="w-4 h-4" />
+                                Energia Utilizada (kw/h)
+                              </Label>
                               <Input id="kw" name="kw" type="number" />
                             </div>
                             <div className="grid gap-3">
-                              <Label htmlFor="username-1">Odômetro</Label>
+                              <Label className="flex items-center gap-2">
+                                <Gauge className="w-4 h-4" />
+                                Odômetro (km)
+                              </Label>
                               <Input
                                 id="odometro"
                                 type="text"
@@ -208,6 +247,22 @@ const Abastecimento = () => {
               )}
             </div>
           </div>
+
+          {/* Contagem de Ônibus Livres e Carregando */}
+          <section className="grid grid-cols-2 gap-3 mt-8">
+            <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm">
+              <div className="text-2xl font-bold text-blue-500">
+                {veiculos.length}
+              </div>
+              <div className="text-sm text-muted-foreground">Disponíveis</div>
+            </div>
+            <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm">
+              <div className="text-2xl font-bold text-yellow-500">
+                {transportesCarregando.length}
+              </div>
+              <div className="text-sm text-muted-foreground">Carregando</div>
+            </div>
+          </section>
         </div>
       </main>
       <Footer className="fixed bottom-0 w-full" />
@@ -254,16 +309,19 @@ const DialogSteps = () => {
       <div className="grid gap-4 mt-6">
         {step === 1 && (
           <div className="flex flex-col gap-3">
-            <Label>Escolha um Carregador</Label>
-            <div className="grid grid-cols-3 gap-3">
+            <Label className="flex items-center gap-2">
+              <Fuel className="w-4 h-4" />
+              Escolha um Carregador:
+            </Label>
+            <div className="grid grid-cols-5 gap-3">
               {carregadores.map((carregador) => (
                 <Button
                   key={carregador}
                   onClick={() => setCarregadorSelecionado(carregador)}
-                  className={`p-3 rounded border h-12 text-black ${
+                  className={`inline-flex items-center justify-center rounded-full text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white ${
                     carregadorSelecionado === carregador
                       ? "bg-gray-500 text-white"
-                      : "bg-gray-300"
+                      : "bg-blue-500"
                   }`}
                 >
                   {carregador}
@@ -275,16 +333,19 @@ const DialogSteps = () => {
 
         {step === 2 && (
           <div className="flex flex-col gap-3">
-            <Label>Escolha um Carregador</Label>
+            <Label className="flex items-center gap-2">
+              <PlugZap />
+              Escolha um Conector:
+            </Label>
             <div className="grid grid-cols-3 gap-3">
               {conectores.map((conector) => (
                 <Button
                   key={conector}
                   onClick={() => setConectorSelecionado(conector)}
-                  className={`p-3 rounded border h-12 text-black ${
+                  className={`inline-flex items-center justify-center rounded-full text-base font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white ${
                     conectorSelecionado === conector
                       ? "bg-gray-500 text-white"
-                      : "bg-gray-300"
+                      : "bg-blue-500"
                   }`}
                 >
                   {conector}
@@ -297,11 +358,30 @@ const DialogSteps = () => {
         {step === 3 && (
           <>
             <div className="grid gap-3">
-              <Label>Percentual Inicial</Label>
+              <Label className="flex items-center gap-2">
+                <Battery className="w-4 h-4" />
+                Percentual Inicial (%):
+              </Label>
               <Input id="percentual" type="number" />
             </div>
             <div className="grid gap-3">
-              <Label>Odômetro</Label>
+              <Label className="flex items-center gap-2">
+                <Gauge className="w-4 h-4" />
+                Odômetro (km):
+              </Label>
+              <Input
+                id="odometro"
+                type="text"
+                value={odometro}
+                onChange={handleOdometroChange}
+                placeholder="0"
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label className="flex items-center gap-2">
+                <Gauge className="w-4 h-4" />
+                Confirme  o Odômetro (km):
+              </Label>
               <Input
                 id="odometro"
                 type="text"
@@ -335,7 +415,7 @@ const DialogSteps = () => {
           {step < 3 ? (
             <Button
               type="button"
-              className="w-full h-14 bg-gray-800 text-lg font-bold"
+              className="w-full h-14 bg-blue-500 text-lg font-bold"
               onClick={() => {
                 if (step === 1 && !carregadorSelecionado) {
                   alert("Selecione um carregador.");
@@ -353,7 +433,7 @@ const DialogSteps = () => {
           ) : (
             <Button
               type="submit"
-              className="w-full h-14 bg-gray-800 text-lg font-bold"
+              className="w-full h-14 bg-blue-500 text-lg font-bold"
             >
               Carregar
             </Button>

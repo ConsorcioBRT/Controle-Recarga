@@ -160,30 +160,6 @@ model frn {
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model rcg {
-  RcgId    Int       @id @default(autoincrement())
-  RcgIdOrg Int
-  EmpId    Int
-  DtaOpe   DateTime  @db.Date
-  UndId    Int
-  VclId    Int
-  CrrId    Int
-  CrrCnc   Int
-  DtaIni   DateTime  @db.DateTime(0)
-  DtaFin   DateTime? @db.DateTime(0)
-  SocIni   Int?
-  SocFin   Int?
-  RcgKwh   Float?    @db.Float
-  OdoIni   Float?    @db.Float
-  OdoFin   Float?    @db.Float
-  SttRcgId Int       @default(5)
-  SttId    Int       @default(1)
-  UsrIdAlt Int
-  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel   String?   @db.VarChar(250)
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model stt {
   SttId    Int      @id @default(autoincrement())
   SttNme   String   @db.VarChar(50)
@@ -222,83 +198,26 @@ model usr_tpo {
   MtvDel    String?  @db.VarChar(250)
 }
 
-/// View: vw_login
-model VwLogin {
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model rcg {
+  RcgId    Int       @id @default(autoincrement())
+  RcgIdOrg Int
   EmpId    Int
-  Empresa  String
-  UsrId    Int
-  Usuario  String
-  Iniciais String
-  Foto     String?
-  Login    String
-  Senha    String
-
-  @@map("vw_login")
-  @@ignore
-}
-
-/// View: vw_onibus
-model VwOnibus {
-  EqpItmId Int
-  Onibus   String
-
-  @@map("vw_onibus")
-  @@ignore
-}
-
-/// View: vw_posto_recarga
-model VwPostoRecarga {
-  UndId       Int
-  PostoRecarga String
-  Latitude    String?
-  Longitude   String?
-  EqpItmId    Int?
-  Carregador  String?
-
-  @@map("vw_posto_recarga")
-  @@ignore
-}
-
-// View: vw_situacao_recarga
-model VwSituacaoRecarga {
-  SttId               Int
-  Stuacao_Recarga     String
-
-  @@map("vw_situacao_recarga")
-  @@ignore
-}
-
-/// View: vw_usuario
-model VwUsuario {
-  EmpId     Int
-  EmpRdz    String
-  UsrTpoId  Int
-  UsrTpoNme String
-  UsrId     Int
-  UsrNme    String
-  UsrLgn    String
-  UsrCpf    String
-  UsrEml    String
-  UsrPwd    String
-  UsrFto    String?
-  SttId     Int
-  SttNme    String
-  UsrAlt    String
-  DtaAlt    DateTime
-
-  @@map("vw_usuario")
-  @@ignore
-}
-
-/// View: vw_usuario_tipo
-model VwUsuarioTipo {
-  UsrTpoId  Int
-  UsrTpoNme String
-  SttId     Int
-  SttNme    String
-  UsrAlt    String
-  DtaAlt    DateTime
-
-  @@map("vw_usuario_tipo")
-  @@ignore
+  DtaOpe   DateTime  @db.Date
+  UndId    Int
+  VclId    Int
+  CrrId    Int
+  CrrCnc   Int
+  DtaIni   DateTime  @db.DateTime(0)
+  DtaFin   DateTime? @db.DateTime(0)
+  SocIni   Int?
+  SocFin   Int?
+  RcgKwh   Float?    @db.Float
+  OdoIni   Float?    @db.Float
+  OdoFin   Float?    @db.Float
+  SttRcgId Int       @default(5)
+  SttId    Int       @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
+  MtvDel   String?   @db.VarChar(250)
 }

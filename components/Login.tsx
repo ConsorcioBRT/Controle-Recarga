@@ -5,9 +5,46 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, User } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+interface Usuario {
+  UsrNme: string;
+  UsrCpf: string;
+  UsrEml: string;
+  UsrId: number;
+  UsrTpoId: number;
+}
 
 const Login = () => {
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+  const router = useRouter();
+
+  const handleLogin = async () => {
+    try {
+      const res = await fetch("/api/usuarios");
+      const users: Usuario[] = await res.json();
+
+      const userFound = users.find(
+        (u) =>
+          (u.UsrEml === usuario ||
+            u.UsrNme === usuario ||
+            u.UsrCpf === usuario) &&
+          senha === "123456"
+      );
+
+      if (userFound) {
+        localStorage.setItem("usuarioLogado", JSON.stringify(userFound));
+        router.push("/terminal");
+      } else {
+        alert("Usuário ou senha inválidos!");
+      }
+    } catch (error) {
+      console.log("Erro no login:", error);
+    }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       {/* Div onde irá ficar o forms de login e senha */}
@@ -24,7 +61,12 @@ const Login = () => {
         <div>
           <Label className="text-lg font-bold">Usuário</Label>
           <div className="relative w-64">
-            <Input type="email" className="h-12 w-64" />
+            <Input
+              type="text"
+              value={usuario}
+              onChange={(e) => setUsuario(e.target.value)}
+              className="h-12 w-64"
+            />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
               <User />
             </div>
@@ -33,15 +75,24 @@ const Login = () => {
         <div>
           <Label className="text-lg font-bold">Senha</Label>
           <div className="relative w-64">
-            <Input type="password" className="h-12 w-64" />
+            <Input
+              type="password"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              className="h-12 w-64"
+            />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
               <Lock />
             </div>
           </div>
         </div>
-        <Link href="/terminal" className="w-full h-12 text-lg">
-          <Button className="w-full h-12 text-lg bg-gray-800">Entrar</Button>
-        </Link>
+
+        <Button
+          onClick={handleLogin}
+          className="w-full h-12 text-lg bg-gray-800"
+        >
+          Entrar
+        </Button>
       </div>
     </div>
   );

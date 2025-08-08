@@ -1,7 +1,6 @@
 "use client";
 
 import { Label } from "@radix-ui/react-label";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
   Select,
@@ -12,9 +11,12 @@ import {
 } from "@/components/ui/select";
 import { Button } from "./ui/button";
 import Header from "./Header";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const [eletroposto, setEletroposto] = useState<{ UndRdz: string }[]>([]);
+  const [postoSelecionado, setPostoSelecionado] = useState("");
+  const router = useRouter();
   const baseUrl =
     typeof window !== "undefined"
       ? window.location.origin
@@ -35,7 +37,17 @@ const Home = () => {
     }
 
     fetchConsorciadas();
-  });
+  }, []);
+
+  // Função para salvar e navegar
+  const handleProximo = () => {
+    if (postoSelecionado) {
+      localStorage.setItem("eletropostoSelecionado", postoSelecionado);
+      router.push("/abastecimento");
+    } else {
+      alert("Por favor, selecione um Eletroposto");
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
@@ -44,7 +56,7 @@ const Home = () => {
       <div className="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-xl p-8 mt-40">
         <div className="flex flex-col items-start justify-center">
           <Label className="text-xl mb-3">Qual o seu Eletroposto?</Label>
-          <Select>
+          <Select onValueChange={(value) => setPostoSelecionado(value)}>
             <SelectTrigger className="bg-white h-14 w-72 mb-10">
               <SelectValue placeholder="Eletropostos" />
             </SelectTrigger>
@@ -57,9 +69,12 @@ const Home = () => {
             </SelectContent>
           </Select>
         </div>
-        <Link href="/abastecimento">
-          <Button className="h-14 w-72 text-lg bg-gray-800">Entrar</Button>
-        </Link>
+        <Button
+          className="h-14 w-72 text-lg bg-gray-800"
+          onClick={handleProximo}
+        >
+          Próximo
+        </Button>
       </div>
     </div>
   );

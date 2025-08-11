@@ -13,16 +13,21 @@ import { Button } from "./ui/button";
 import Header from "./Header";
 import { useRouter } from "next/navigation";
 
+type Eletroposto = {
+  UndId: number;
+  PostoRecarga: string;
+};
+
 const Home = () => {
-  const [eletroposto, setEletroposto] = useState<{ PostoRecarga: string }[]>(
-    []
-  );
-  const [postoSelecionado, setPostoSelecionado] = useState("");
+  const [postos, setPostos] = useState<Eletroposto[]>([]);
+  const [postosUnicos, setPostosUnicos] = useState<Eletroposto[]>([]);
+  const [contagem, setContagem] = useState<Record<number, number>>({});
+  const [postoSelecionado, setPostoSelecionado] = useState<number | null>(null);
   const router = useRouter();
   const baseUrl =
     typeof window !== "undefined"
       ? window.location.origin
-      : "http:localhost:3000";
+      : "http://localhost:3000";
 
   useEffect(() => {
     async function fetchConsorciadas() {
@@ -31,24 +36,50 @@ const Home = () => {
         if (!res.ok) {
           throw new Error("Erro ao buscar consorciadas");
         }
-        const data = await res.json();
-        setEletroposto(data);
+        const data: Eletroposto[] = await res.json();
+
+        // Vai calcular a contagem e criar uma lista única
+        const counts: Record<number, number> = {};
+        const map = new Map<number, Eletroposto>();
+
+        data.forEach((item) => {
+          const id = item.UndId;
+          counts[id] = (counts[id] || 0) + 1;
+          // salva a primeira ocorrência para usar o nome no select
+          if (!map.has(id)) map.set(id, item);
+        });
+
+        setPostos(data);
+        setPostosUnicos(Array.from(map.values()));
+        setContagem(counts);
       } catch (error) {
         console.error("Erro:", error);
       }
     }
 
     fetchConsorciadas();
-  }, []);
+  }, [baseUrl]);
 
   // Função para salvar e navegar
   const handleProximo = () => {
-    if (postoSelecionado) {
-      localStorage.setItem("eletropostoSelecionado", postoSelecionado);
-      router.push("/abastecimento");
-    } else {
+    if (!postoSelecionado) {
       alert("Por favor, selecione um Eletroposto");
+      return;
     }
+
+    const posto = postosUnicos.find((p) => p.UndId === postoSelecionado);
+    const qtd = contagem[postoSelecionado] || 0;
+
+    // Irá salvar no LocalStorage
+    localStorage.setItem(
+      "eletropostoSelecionado",
+      JSON.stringify({
+        UndId: postoSelecionado,
+        PostoRecarga: posto?.PostoRecarga ?? "",
+        Contagem: qtd,
+      })
+    );
+    router.push("/abastecimento");
   };
 
   return (
@@ -58,13 +89,13 @@ const Home = () => {
       <div className="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-xl p-8 mt-40">
         <div className="flex flex-col items-start justify-center">
           <Label className="text-xl mb-3">Qual o seu Eletroposto?</Label>
-          <Select onValueChange={(value) => setPostoSelecionado(value)}>
+          <Select onValueChange={(value) => setPostoSelecionado(Number(value))}>
             <SelectTrigger className="bg-white h-14 w-72 mb-10">
               <SelectValue placeholder="Eletropostos" />
             </SelectTrigger>
             <SelectContent>
-              {eletroposto.map((ele, index) => (
-                <SelectItem key={index} value={ele.PostoRecarga}>
+              {postosUnicos.map((ele) => (
+                <SelectItem key={ele.UndId} value={String(ele.UndId)}>
                   {ele.PostoRecarga}
                 </SelectItem>
               ))}

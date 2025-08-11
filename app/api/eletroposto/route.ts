@@ -4,6 +4,10 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const postos = await prisma.vwPostoRecarga.findMany({
+      select: {
+        UndId: true,
+        PostoRecarga: true,
+      },
       orderBy: {
         PostoRecarga: "asc",
       },

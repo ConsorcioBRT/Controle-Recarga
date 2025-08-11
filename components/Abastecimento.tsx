@@ -26,7 +26,6 @@ import Footer from "./Footer";
 import { Battery, Circle, Fuel, Gauge, PlugZap, Zap } from "lucide-react";
 
 const transportesCarregando = [350, 360];
-const carregadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const conectores = ["1", "2", "ambos"];
 
 const Abastecimento = () => {
@@ -46,11 +45,15 @@ const Abastecimento = () => {
   }
 
   const [veiculos, setVeiculos] = useState<{ Onibus: string }[]>([]);
+  const baseUrl =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : "http:localhost:3000";
 
   useEffect(() => {
     async function fetchVeiculos() {
       try {
-        const res = await fetch("http://localhost:3000/api/veiculos");
+        const res = await fetch(`${baseUrl}/api/veiculos`);
         if (!res.ok) {
           throw new Error("Erro ao buscar veículos");
         }
@@ -62,7 +65,7 @@ const Abastecimento = () => {
     }
 
     fetchVeiculos();
-  }, []);
+  }, [baseUrl]);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
@@ -71,14 +74,14 @@ const Abastecimento = () => {
         {/* Corpo da Página */}
         <div className="mt-5 mx-5">
           {/* Onibus Livres */}
-          <div className="max-h-64 overflow-y-auto">
+          <div>
             <div className="flex items-center gap-2">
               <Circle className="w-3 h-3 text-blue-500 bg-blue-500 rounded-full" />
               <span className="text-lg font-semibold text-gray-700">
                 Ônibus Livres ({veiculos.length})
               </span>
             </div>
-            <div className="grid grid-cols-4 sm:grid-cols-2 gap-4 mt-5">
+            <div className="grid grid-cols-4 sm:grid-cols-2 gap-4 mt-5 max-h-52 overflow-y-auto">
               {veiculos.map((item, index) => (
                 <Dialog key={index}>
                   <DialogTrigger asChild>
@@ -282,6 +285,22 @@ const DialogSteps = () => {
     null
   );
   const [odometro, setOdometro] = useState("");
+  const [contagem, setContagem] = useState<number | null>(null);
+
+  useEffect(() => {
+    const eletropostoSelecionado = localStorage.getItem(
+      "eletropostoSelecionado"
+    );
+    if (eletropostoSelecionado) {
+      const obj = JSON.parse(eletropostoSelecionado);
+      setContagem(obj.Contagem ?? null);
+    }
+  }, []);
+
+  // Aqui irá gerar o botões baseado nas contagens
+  const botoes = contagem
+    ? Array.from({ length: contagem }, (_, i) => i + 1)
+    : [];
 
   function formatarNumero(valor: string) {
     const semLetras = valor.replace(/\D/g, ""); // aqui não irá permitir letrar, apenas números
@@ -312,17 +331,17 @@ const DialogSteps = () => {
               Escolha um Carregador:
             </Label>
             <div className="grid grid-cols-5 gap-3">
-              {carregadores.map((carregador) => (
+              {botoes.map((qtd) => (
                 <Button
-                  key={carregador}
-                  onClick={() => setCarregadorSelecionado(carregador)}
+                  key={qtd}
+                  onClick={() => setCarregadorSelecionado(qtd)}
                   className={`inline-flex items-center justify-center rounded-full text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white ${
-                    carregadorSelecionado === carregador
+                    carregadorSelecionado === qtd
                       ? "bg-gray-500 text-white"
                       : "bg-blue-500"
                   }`}
                 >
-                  {carregador}
+                  {qtd}
                 </Button>
               ))}
             </div>

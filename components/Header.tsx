@@ -10,9 +10,17 @@ interface Usuario {
   UsrTpoId: number;
 }
 
+type EletropostoSelecionado = {
+  UndId: number;
+  PostoRecarga: string;
+  Contagem: number;
+};
+
 const Header = () => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [eletroposto, setEletroposto] = useState("");
+  const [eletroposto, setEletroposto] = useState<EletropostoSelecionado | null>(
+    null
+  );
 
   useEffect(() => {
     const userData = localStorage.getItem("usuarioLogado");
@@ -21,7 +29,7 @@ const Header = () => {
     }
     const posto = localStorage.getItem("eletropostoSelecionado");
     if (posto) {
-      setEletroposto(posto);
+      setEletroposto(JSON.parse(posto));
     }
   }, []);
 
@@ -39,7 +47,7 @@ const Header = () => {
           {eletroposto && (
             <span className="text-sm text-white flex items-center gap-1">
               <MapPin className="w-4 h-4" />
-              {eletroposto}
+              {eletroposto.PostoRecarga}
             </span>
           )}
         </div>

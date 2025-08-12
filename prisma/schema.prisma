@@ -161,26 +161,28 @@ model frn {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model rcg {
-  RcgId    Int       @id @default(autoincrement())
-  RcgIdOrg Int
-  EmpId    Int
-  DtaOpe   DateTime  @db.Date
-  UndId    Int
-  VclId    Int
-  CrrId    Int
-  CrrCnc   Int
-  DtaIni   DateTime  @db.DateTime(0)
-  DtaFin   DateTime? @db.DateTime(0)
-  SocIni   Int?
-  SocFin   Int?
-  RcgKwh   Float?    @db.Float
-  OdoIni   Float?    @db.Float
-  OdoFin   Float?    @db.Float
-  SttRcgId Int       @default(5)
-  SttId    Int       @default(1)
-  UsrIdAlt Int
-  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel   String?   @db.VarChar(250)
+  RcgId    Int       @id @default(autoincrement()) // Identificador Recarga
+  RcgIdOrg Int?      // Identificador Recarga Origem (nullable)
+  EmpId    Int       // Identificador Empresa
+  DtaOpe   DateTime  @db.Date                   // Data Operacao
+  UndId    Int       // Identificador da Unidade
+  VclId    Int       // Identificador Veiculo
+  CrrId    Int       // Identificador Carregador
+  CrrCnc   Int       // Identificador Conector
+  DtaIni   DateTime  @db.DateTime(0)              // Data Inicio
+  DtaFin   DateTime? @db.DateTime(0)              // Data Final (nullable)
+  SocIni   Int?                                   // Bateria inicial (nullable)
+  SocFin   Int?                                   // Bateria Final (nullable)
+  RcgKwh   Float?   @db.Float                      // Recarga kWh (nullable)
+  OdoIni   Float?   @db.Float                      // Odometro inicial (nullable)
+  OdoFin   Float?   @db.Float                      // Odometro Final (nullable)
+  SttRcgId Int      @default(5)                   // Status Recarga (default 5)
+  FlhId    Int      @default(0)                   // Identificador de falha (default 0)
+  FlhDsc   String?  @db.VarChar(250)              // Falha descrição (nullable)
+  SttId    Int      @default(1)                   // Status Registro (default 1)
+  UsrIdAlt Int                                    // Id Usuário que cadastrou
+  DtaAlt   DateTime @default(now()) @updatedAt    // Data Cadastro (timestamp com atualização automática)
+  MtvDel   String?  @db.VarChar(250)              // Motivo da delecao (nullable)
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -222,6 +224,16 @@ model usr_tpo {
   MtvDel    String?  @db.VarChar(250)
 }
 
+/// View: vw_carregador
+model VwCarregador {
+  UndId       Int
+  EqpItmId    Int
+  Carregador  String?
+
+  @@id([UndId, EqpItmId])
+  @@map("vw_carregador")
+}
+
 /// View: vw_login
 model VwLogin {
   EmpId    Int
@@ -241,6 +253,7 @@ model VwLogin {
 model VwOnibus {
   EqpItmId Int @id
   Onibus   String
+  Situacao String
 
   @@map("vw_onibus")
 }

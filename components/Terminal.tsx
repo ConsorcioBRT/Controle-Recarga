@@ -32,7 +32,7 @@ const Home = () => {
   useEffect(() => {
     async function fetchConsorciadas() {
       try {
-        const res = await fetch(`${baseUrl}/api/eletroposto`);
+        const res = await fetch(`/api/eletroposto`);
         if (!res.ok) {
           throw new Error("Erro ao buscar consorciadas");
         }
@@ -58,7 +58,7 @@ const Home = () => {
     }
 
     fetchConsorciadas();
-  }, [baseUrl]);
+  }, []);
 
   // Função para salvar e navegar
   const handleProximo = () => {

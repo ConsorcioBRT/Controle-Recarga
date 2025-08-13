@@ -1,55 +1,90 @@
+import { Prisma } from "@/lib/generated/prisma";
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function PUT(request: Request) {
   try {
     const {
-      RcgId,
-      SocFin,
-      OdoFin,
+      RcgId, // ID da recarga que você quer atualizar
       DtaFin,
-      UsrIdAlt,
-      SttRcgId = 6, // exemplo: 1 = Livre
-      SttId = 1,
+      SocFin,
+      RcgKwh,
+      OdoFin,
+      FlhId,
+      FlhDsc,
     } = await request.json();
 
-    // Validação simples
-    if (
-      RcgId === undefined ||
-      RcgId === null ||
-      SocFin === undefined ||
-      SocFin === null ||
-      OdoFin === undefined ||
-      OdoFin === null ||
-      DtaFin === undefined ||
-      DtaFin === null ||
-      UsrIdAlt === undefined ||
-      UsrIdAlt === null
-    ) {
+    if (!RcgId) {
       return NextResponse.json(
-        { error: "Campos obrigatórios ausentes" },
+        { error: "RcgId é obrigatório" },
         { status: 400 }
       );
     }
 
-    // Atualiza a recarga para finalizar
+    // Busca a recarga existente
+    const recargaExistente = await prisma.rcg.findUnique({
+      where: { RcgId: Number(RcgId) },
+    });
+
+    if (!recargaExistente) {
+      return NextResponse.json(
+        { error: "Recarga não encontrada" },
+        { status: 404 }
+      );
+    }
+
+    // Atualiza apenas os campos que estavam nulos ou zero
+    const dadosAtualizados: Partial<Prisma.rcgUpdateInput> = {};
+
+    if (recargaExistente.DtaFin === null && DtaFin)
+      dadosAtualizados.DtaFin = new Date(DtaFin);
+    if (
+      (recargaExistente.SocFin === null || recargaExistente.SocFin === 0) &&
+      SocFin
+    )
+      dadosAtualizados.SocFin = Number(SocFin);
+    if (
+      (recargaExistente.RcgKwh === null || recargaExistente.RcgKwh === 0) &&
+      RcgKwh
+    )
+      dadosAtualizados.RcgKwh = Number(RcgKwh);
+    if (
+      (recargaExistente.OdoFin === null || recargaExistente.OdoFin === 0) &&
+      OdoFin
+    )
+      dadosAtualizados.OdoFin = Number(OdoFin);
+    if (recargaExistente.SttRcgId === 5) {
+      dadosAtualizados.SttRcgId = 6; // altera pra 6 se necessário
+    }
+
+    if (
+      (recargaExistente.FlhId === null || recargaExistente.FlhId === 0) &&
+      FlhId
+    )
+      dadosAtualizados.FlhId = Number(FlhId);
+    if (
+      (recargaExistente.FlhDsc === null || recargaExistente.FlhDsc === "") &&
+      FlhDsc
+    )
+      dadosAtualizados.FlhDsc = FlhDsc;
+
+    if (Object.keys(dadosAtualizados).length === 0) {
+      return NextResponse.json(
+        { message: "Nenhum campo para atualizar" },
+        { status: 400 }
+      );
+    }
+
     const recargaAtualizada = await prisma.rcg.update({
       where: { RcgId: Number(RcgId) },
-      data: {
-        SocFin: Number(SocFin),
-        OdoFin: Number(OdoFin),
-        DtaFin: new Date(DtaFin),
-        UsrIdAlt: Number(UsrIdAlt),
-        SttRcgId: Number(SttRcgId), // Status final (ex: Livre)
-        SttId: Number(SttId),
-      },
+      data: dadosAtualizados,
     });
 
     return NextResponse.json(recargaAtualizada);
   } catch (error) {
-    console.error("Erro ao finalizar recarga:", error);
+    console.error("Erro ao atualizar recarga:", error);
     return NextResponse.json(
-      { error: "Erro interno ao finalizar recarga" },
+      { error: "Erro interno ao atualizar recarga" },
       { status: 500 }
     );
   }

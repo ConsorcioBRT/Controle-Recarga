@@ -21,6 +21,8 @@ export async function GET() {
         OdoIni: true,
         OdoFin: true,
         SttRcgId: true,
+        FlhId: true,
+        FlhDsc: true,
         SttId: true,
         UsrIdAlt: true,
         MtvDel: true,

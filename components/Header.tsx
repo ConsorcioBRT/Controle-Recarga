@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback } from "./ui/avatar";
 import { MapPin } from "lucide-react";
 
 interface Usuario {
@@ -37,7 +37,6 @@ const Header = () => {
     <div className="w-full bg-gray-800 rounded-b-3xl shadow-md p-5 flex flex-col items-start hover:shadow-lg transition">
       <div className="flex items-center gap-3">
         <Avatar>
-          <AvatarImage src="https://github.com/leerob.png" alt="@shadcn" />
           <AvatarFallback>{usuario?.UsrNme?.[0] ?? "U"}</AvatarFallback>
         </Avatar>
         <div className="flex flex-col items-start">

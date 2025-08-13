@@ -1,0 +1,365 @@
+import React, { useEffect, useState } from "react";
+import { Label } from "./ui/label";
+import { Battery, Fuel, Gauge, PlugZap } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { DialogClose, DialogFooter } from "./ui/dialog";
+
+{
+  /* Função para Passar as Etapas de Ônibus Livres */
+}
+
+const conectores = ["1", "2", "ambos"];
+
+type Carregador = {
+  UndId: number;
+  EqpItmId: number;
+  Carregador: string;
+};
+
+const DialogSteps = ({
+  veiculo,
+  iniciarCarregamento,
+}: {
+  veiculo: { Onibus: string };
+  iniciarCarregamento: (v: { Onibus: string }) => void;
+}) => {
+  const [step, setStep] = useState(1);
+  const [conectorSelecionado] = useState<string | null>(null);
+  /* const [setOdometro] = useState(""); */
+  const [formData, setFormData] = useState({
+    carregador: null as number | null,
+    conector: null as string | null,
+    percentualInicial: "",
+    odometro: "",
+    odometroConfirme: "",
+  });
+  const [carregadores, setCarregadores] = useState<Carregador[]>([]);
+  const odometroValido = formData.odometro === formData.odometroConfirme;
+  const [formConfirmacao, setFormConfirmacao] = useState<
+    typeof formData | null
+  >(null);
+  const carregadorSelecionado = carregadores.find(
+    (c) => c.EqpItmId === formData.carregador
+  );
+
+  useEffect(() => {
+    if (step === 4) {
+      const dados = localStorage.getItem("formDataConfirmacao");
+      if (dados) {
+        setFormConfirmacao(JSON.parse(dados));
+      }
+    }
+  }, [step]);
+
+  useEffect(() => {
+    const eletropostoJson = localStorage.getItem("eletropostoSelecionado");
+    const eletroposto = eletropostoJson ? JSON.parse(eletropostoJson) : null;
+    const UndId = eletroposto?.UndId;
+    if (!UndId) return;
+
+    fetch(`/api/carregadores?undId=${UndId}`)
+      .then((r) => r.json())
+      .then((data: Carregador[]) => {
+        setCarregadores(data.filter((c) => c && c.EqpItmId != null));
+      })
+      .catch(console.error);
+  }, []);
+
+  // Aqui irá gerar o botões baseado nos carregadores
+  const botoes = carregadores;
+
+  function pegarDadosDoLocalStorage() {
+    // Aqui irá pegar unidade
+    const eletropostoJson = localStorage.getItem("eletropostoSelecionado");
+    const eletroposto = eletropostoJson ? JSON.parse(eletropostoJson) : null;
+    const UndId = eletroposto?.UndId ?? null;
+
+    // pegar veículo que você deve salvar antes no localStorage na chave "veiculoSelecionado"
+    const veiculoJson = localStorage.getItem("veiculoSelecionado");
+    const veiculo = veiculoJson ? JSON.parse(veiculoJson) : null;
+    const VclId = veiculo?.EqpItmId ?? null;
+
+    // pegar usuário logado
+    const usuarioJson = localStorage.getItem("usuarioLogado");
+    const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
+    const UsrIdAlt = usuario?.UsrId ?? null;
+
+    return { UndId, VclId, UsrIdAlt };
+  }
+
+  async function enviarRecargaInicial(formData: {
+    carregador: number | null;
+    conector: string | null;
+    percentualInicial: string;
+    odometro: string;
+    odometroConfirme: string;
+  }) {
+    try {
+      // Pegando valores do localStorage
+      const { UndId, VclId, UsrIdAlt } = pegarDadosDoLocalStorage();
+
+      if (!UndId || !VclId || !UsrIdAlt) {
+        alert("Faltam dados no localStorage: UndId, VclId ou UsrIdAlt");
+        return;
+      }
+
+      // Data atual para DtaIni e DtaOpe
+      const agora = new Date().toISOString();
+
+      // Montar dados para enviar
+      const dadosParaEnviar = {
+        UndId,
+        VclId: Number(VclId),
+        CrrId: formData.carregador,
+        CrrCnc: formData.conector === "ambos" ? 0 : Number(formData.conector),
+        DtaIni: agora,
+        DtaOpe: agora,
+        SocIni: Number(formData.percentualInicial),
+        OdoIni: Number(formData.odometro.replace(/\./g, "")),
+        UsrIdAlt,
+        RcgIdOrg: 0,
+        EmpId: 1,
+        SttRcgId: 5,
+        SttId: 1,
+      };
+
+      console.log("Dados enviados para a API:", dadosParaEnviar);
+
+      const resposta = await fetch("/api/recarga/inicial", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dadosParaEnviar),
+      });
+
+      if (!resposta.ok) {
+        const erro = await resposta.json();
+        alert(
+          "Erro ao salvar recarga: " + (erro.error || JSON.stringify(erro))
+        );
+        return;
+      }
+
+      const dadosResposta = await resposta.json();
+      alert("Recarga inicial criada com sucesso! ID: " + dadosResposta.RcgId);
+      iniciarCarregamento(veiculo);
+    } catch (error) {
+      alert("Erro ao enviar recarga: " + error);
+    }
+  }
+
+  return (
+    // Aqui onde irá fazer todo a parte do front-end, onde vai apenas chamar lá em cima, no primeiro Return
+    <>
+      <div className="grid gap-4 mt-6">
+        {step === 1 && (
+          <div className="flex flex-col gap-3">
+            <Label className="flex items-center gap-2">
+              <Fuel className="w-4 h-4" />
+              Escolha um Carregador:
+            </Label>
+            <div className="grid grid-cols-5 gap-20">
+              {botoes
+                .filter(
+                  (item): item is Carregador => !!item && item.EqpItmId != null
+                )
+                .map((item) => (
+                  <Button
+                    key={item.EqpItmId}
+                    onClick={() =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        carregador: item.EqpItmId,
+                      }))
+                    }
+                    className={`inline-flex items-center justify-center rounded-full text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-20 w-20 bg-blue-500 text-white ${
+                      formData.carregador === item.EqpItmId
+                        ? "bg-gray-500 text-white"
+                        : "bg-blue-500"
+                    }`}
+                  >
+                    {item.Carregador}
+                  </Button>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {step === 2 && (
+          <div className="flex flex-col gap-3">
+            <Label className="flex items-center gap-2">
+              <PlugZap />
+              Escolha um Conector:
+            </Label>
+            <div className="grid grid-cols-3 gap-3">
+              {conectores.map((conector) => (
+                <Button
+                  key={conector}
+                  onClick={() => setFormData((prev) => ({ ...prev, conector }))}
+                  className={`inline-flex items-center justify-center rounded-full text-base font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white ${
+                    conectorSelecionado === conector
+                      ? "bg-gray-500 text-white"
+                      : "bg-blue-500"
+                  }`}
+                >
+                  {conector}
+                </Button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {step === 3 && (
+          <>
+            <div className="grid gap-3">
+              <Label className="flex items-center gap-2">
+                <Battery className="w-4 h-4" />
+                Percentual Inicial (%):
+              </Label>
+              <Input
+                id="percentual"
+                type="number"
+                value={formData.percentualInicial} // aqui irá ser o final e quando reiniciar ele passa a ser inicial
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    percentualInicial: e.target.value,
+                  }))
+                }
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label className="flex items-center gap-2">
+                <Gauge className="w-4 h-4" />
+                Odômetro (km):
+              </Label>
+              <Input
+                id="odometro"
+                type="text"
+                value={formData.odometro}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, odometro: e.target.value }))
+                }
+                placeholder="0"
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label className="flex items-center gap-2">
+                <Gauge className="w-4 h-4" />
+                Confirme o Odômetro (km):
+              </Label>
+              <Input
+                id="odometroConfirme"
+                type="text"
+                value={formData.odometroConfirme}
+                onChange={(e) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    odometroConfirme: e.target.value,
+                  }))
+                }
+                placeholder="0"
+              />
+              {!odometroValido && (
+                <p className="text-red-600 text-sm mt-1">
+                  Os odômetros devem ser iguais
+                </p>
+              )}
+            </div>
+          </>
+        )}
+
+        {step === 4 && formConfirmacao && (
+          <div className="p-4 border rounded shadow">
+            <h2 className="text-lg font-bold mb-4">Confirme os dados:</h2>
+            <p>
+              <strong>Carregador:</strong>{" "}
+              {carregadorSelecionado ? carregadorSelecionado.Carregador : "N/A"}
+            </p>
+            <p>
+              <strong>Conector:</strong> {formConfirmacao.conector}
+            </p>
+            <p>
+              <strong>Percentual Inicial:</strong>{" "}
+              {formConfirmacao.percentualInicial} %
+            </p>
+            <p>
+              <strong>Odômetro:</strong> {formConfirmacao.odometro} km
+            </p>
+          </div>
+        )}
+      </div>
+
+      <DialogFooter>
+        <div className="flex items-center justify-between mt-4 gap-4">
+          {step > 1 ? (
+            <Button
+              variant="outline"
+              className="w-full h-14"
+              onClick={() => setStep(step - 1)}
+            >
+              Voltar
+            </Button>
+          ) : (
+            <DialogClose asChild>
+              <Button variant="outline" className="w-full h-14">
+                Cancelar
+              </Button>
+            </DialogClose>
+          )}
+
+          {step < 4 ? (
+            <Button
+              type="button"
+              className="w-full h-14 bg-blue-500 text-lg font-bold"
+              onClick={() => {
+                if (step === 1 && !formData.carregador) {
+                  alert("Selecione um carregador.");
+                  return;
+                }
+                if (step === 2 && !formData.conector) {
+                  alert("Selecione um conector.");
+                  return;
+                }
+                if (step === 3) {
+                  const odometroValido =
+                    formData.odometro === formData.odometroConfirme;
+                  if (!odometroValido) {
+                    alert("Os odômetros não coincidem.");
+                    return;
+                  }
+                  // Salva os dados no localStorage antes de ir para step 4
+                  localStorage.setItem(
+                    "formDataConfirmacao",
+                    JSON.stringify(formData)
+                  );
+                }
+
+                setStep(step + 1);
+              }}
+            >
+              Próximo
+            </Button>
+          ) : (
+            // Botão Carregar na step 4
+            <Button
+              type="submit"
+              onClick={() => {
+                if (!formConfirmacao) {
+                  alert("Nenhum dado para enviar");
+                  return;
+                }
+                enviarRecargaInicial(formConfirmacao);
+              }}
+              className="w-full h-14 bg-blue-500 text-lg font-bold"
+            >
+              Carregar
+            </Button>
+          )}
+        </div>
+      </DialogFooter>
+    </>
+  );
+};
+
+export default DialogSteps;

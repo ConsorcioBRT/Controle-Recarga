@@ -58,7 +58,7 @@ const Home = () => {
     }
 
     fetchConsorciadas();
-  }, []);
+  }, [baseUrl]);
 
   // Função para salvar e navegar
   const handleProximo = () => {

@@ -26,14 +26,21 @@ type FormRecargaFinal = {
   odometro: string;
   energia: string;
   houveFalha: string;
-  descricaoFalha: string;
+  descricaoFalha?: string;
 };
-const DialogStepsCarregando = ({
-  item,
-  finalizarRecarga,
-}: {
+
+type Props = {
   item: OnibusCarregando;
   finalizarRecarga: (item: OnibusCarregando, dados: FormRecargaFinal) => void;
+  reiniciarRecarga?: boolean;
+  iniciarNovamente?: (item: OnibusCarregando) => void; // aqui será onde vai chamar o DialogSteps
+};
+
+const DialogStepsCarregando: React.FC<Props> = ({
+  item,
+  finalizarRecarga,
+  reiniciarRecarga = false,
+  iniciarNovamente,
 }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormRecargaFinal>({
@@ -166,10 +173,16 @@ const DialogStepsCarregando = ({
             </Button>
           ) : (
             <Button
-              onClick={() => finalizarRecarga(item, formData)}
+              onClick={() => {
+                if (reiniciarRecarga && iniciarNovamente) {
+                  iniciarNovamente(item); // abre o DialogSteps para reiniciar
+                } else {
+                  finalizarRecarga(item, formData);
+                }
+              }}
               className="w-full h-14 bg-yellow-500 text-lg font-bold"
             >
-              Finalizar
+              {reiniciarRecarga ? "Reiniciar" : "Finalizar"}
             </Button>
           )}
         </div>

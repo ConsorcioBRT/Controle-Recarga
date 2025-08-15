@@ -48,15 +48,14 @@ export async function PUT(request: Request) {
       RcgKwh
     )
       dadosAtualizados.RcgKwh = Number(RcgKwh);
+
+    // Aqui vai atualizar o OdoFin se caso ele não estiver preenchido no POST
     if (
       (recargaExistente.OdoFin === null || recargaExistente.OdoFin === 0) &&
       OdoFin
-    )
+    ) {
       dadosAtualizados.OdoFin = Number(OdoFin);
-    if (recargaExistente.SttRcgId === 5) {
-      dadosAtualizados.SttRcgId = 6; // altera pra 6 se necessário
     }
-
     if (
       (recargaExistente.FlhId === null || recargaExistente.FlhId === 0) &&
       FlhId
@@ -67,6 +66,18 @@ export async function PUT(request: Request) {
       FlhDsc
     )
       dadosAtualizados.FlhDsc = FlhDsc;
+
+    let criarNovaRecarga = false;
+
+    // Aqui vai ser a regra de quando der Problema
+    if (FlhId === 1) {
+      dadosAtualizados.SttRcgId = 7;
+      dadosAtualizados.RcgIdOrg = recargaExistente.RcgId;
+      criarNovaRecarga = true;
+    } else if (recargaExistente.SttRcgId === 5) {
+      // Aqui é pra se caso estiver iniciando, finaliza
+      dadosAtualizados.SttRcgId = 6;
+    }
 
     if (Object.keys(dadosAtualizados).length === 0) {
       return NextResponse.json(
@@ -80,6 +91,23 @@ export async function PUT(request: Request) {
       data: dadosAtualizados,
     });
 
+    // Aqui vai ser quando precisar criar uma nova Recarga (quando houver problema)
+    if (criarNovaRecarga) {
+      await prisma.rcg.create({
+        data: {
+          UndId: recargaExistente.UndId,
+          VclId: recargaExistente.VclId,
+          EmpId: recargaExistente.EmpId,
+          DtaOpe: recargaExistente.DtaOpe,
+          DtaIni: new Date(), // início da nova recarga
+          OdoIni: recargaAtualizada.OdoFin || recargaExistente.OdoFin || recargaExistente.OdoIni,
+          UsrIdAlt: recargaExistente.UsrIdAlt,
+          RcgIdOrg: recargaExistente.RcgId,
+          SttRcgId: 5, // iniciando
+          SttId: 1,
+        },
+      });
+    }
     return NextResponse.json(recargaAtualizada);
   } catch (error) {
     console.error("Erro ao atualizar recarga:", error);

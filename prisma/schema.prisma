@@ -167,8 +167,8 @@ model rcg {
   DtaOpe   DateTime  @db.Date                   // Data Operacao
   UndId    Int       // Identificador da Unidade
   VclId    Int       // Identificador Veiculo
-  CrrId    Int       // Identificador Carregador
-  CrrCnc   Int       // Identificador Conector
+  CrrId    Int?       // Identificador Carregador
+  CrrCnc   Int?       // Identificador Conector
   DtaIni   DateTime  @db.DateTime(0)              // Data Inicio
   DtaFin   DateTime? @db.DateTime(0)              // Data Final (nullable)
   SocIni   Int?                                   // Bateria inicial (nullable)

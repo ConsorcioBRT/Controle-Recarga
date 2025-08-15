@@ -27,13 +27,16 @@ type FormRecargaFinal = {
 const Abastecimento = () => {
   const [livres, setLivres] = useState<{ Onibus: string }[]>([]);
   const [carregando, setCarregando] = useState<
-    { Onibus: string; RcgId?: number }[]
+    { Onibus: string; RcgId?: number; FlhId?: number }[]
   >([]);
   const [odometro] = useState<{ [key: string]: string }>({});
   const [percentualFinal] = useState<{
     [key: string]: string;
   }>({});
   const [energia] = useState<{ [key: string]: string }>({});
+  const [reiniciarVeiculo, setReiniciarVeiculo] = useState<Veiculo | null>(
+    null
+  );
 
   const baseUrl =
     typeof window !== "undefined"
@@ -98,7 +101,7 @@ const Abastecimento = () => {
     }
 
     try {
-      const response = await fetch("/api/recarga/final", {
+      const response = await fetch("/api/recarga", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -207,7 +210,7 @@ const Abastecimento = () => {
                   Nenhum ônibus carregando
                 </p>
               ) : (
-                <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5 max-h-40 overflow-y-auto">
+                <div className="grid grid-cols-4 sm:grid-cols-2 gap-1 mt-5">
                   {carregando.map((item, index) => (
                     <Dialog key={index}>
                       <DialogTrigger asChild>
@@ -232,10 +235,21 @@ const Abastecimento = () => {
                               </span>
                             </DialogTitle>
                           </DialogHeader>
-                          <DialogStepsCarregando
-                            item={item}
-                            finalizarRecarga={finalizarRecargaAdapter}
-                          />
+                          {reiniciarVeiculo?.Onibus === item.Onibus ? (
+                            <DialogSteps
+                              veiculo={item}
+                              iniciarCarregamento={iniciarCarregamento}
+                            />
+                          ) : (
+                            <DialogStepsCarregando
+                              item={item}
+                              finalizarRecarga={finalizarRecargaAdapter}
+                              reiniciarRecarga={item.FlhId === 1}
+                              iniciarNovamente={(veiculo) =>
+                                setReiniciarVeiculo(veiculo)
+                              }
+                            />
+                          )}
                         </DialogContent>
                       </form>
                     </Dialog>

@@ -88,6 +88,23 @@ const DialogSteps = ({
     return { UndId, VclId, UsrIdAlt };
   }
 
+  type RecargaPayload = {
+    UndId: number;
+    VclId: number;
+    CrrId: number | null;
+    CrrCnc: number;
+    DtaIni: string;
+    DtaOpe: string;
+    SocIni: number;
+    UsrIdAlt: number;
+    RcgIdOrg: number;
+    EmpId: number;
+    SttRcgId: number;
+    SttId: number;
+    OdoIni?: number | null;
+    OdoFin?: number | null;
+  };
+
   async function enviarRecargaInicial(formData: {
     carregador: number | null;
     conector: string | null;
@@ -104,11 +121,20 @@ const DialogSteps = ({
         return;
       }
 
+      // Aqui vai buscar a última recarga do veículo
+      const ultimaRecargaResp = await fetch(
+        `/api/recarga/ultima?VclId=${VclId}`
+      );
+      const ultimaRecarga = ultimaRecargaResp.ok
+        ? await ultimaRecargaResp.json()
+        : null;
+
       // Data atual para DtaIni e DtaOpe
       const agora = new Date().toISOString();
+      const odometroValor = Number(formData.odometro.replace(/\./g, ""));
 
       // Montar dados para enviar
-      const dadosParaEnviar = {
+      const dadosParaEnviar: RecargaPayload = {
         UndId,
         VclId: Number(VclId),
         CrrId: formData.carregador,
@@ -116,7 +142,6 @@ const DialogSteps = ({
         DtaIni: agora,
         DtaOpe: agora,
         SocIni: Number(formData.percentualInicial),
-        OdoIni: Number(formData.odometro.replace(/\./g, "")),
         UsrIdAlt,
         RcgIdOrg: 0,
         EmpId: 1,
@@ -124,9 +149,24 @@ const DialogSteps = ({
         SttId: 1,
       };
 
+      if (!ultimaRecarga) {
+        // Se for a primeira vez, o OdoIni será nulo e o OdoFin recebe o valor informado
+        dadosParaEnviar.OdoIni = null;
+        dadosParaEnviar.OdoFin = odometroValor;
+      } else if (ultimaRecarga.SttRcgId === 7) {
+        dadosParaEnviar.OdoIni =
+          ultimaRecarga.OdoFin ?? ultimaRecarga.OdoIni ?? null;
+        dadosParaEnviar.OdoFin = odometroValor;
+        dadosParaEnviar.RcgIdOrg = ultimaRecarga.RcgId;
+      } else {
+        // Aqui será a recarga normal
+        dadosParaEnviar.OdoIni = ultimaRecarga.OdoFin ?? null;
+        dadosParaEnviar.OdoFin = odometroValor;
+      }
+
       console.log("Dados enviados para a API:", dadosParaEnviar);
 
-      const resposta = await fetch("/api/recarga/inicial", {
+      const resposta = await fetch("/api/recarga", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dadosParaEnviar),

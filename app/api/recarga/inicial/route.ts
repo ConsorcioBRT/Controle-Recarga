@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       DtaIni,
       DtaOpe,
       SocIni,
-      OdoIni,
+      OdoFin,
       UsrIdAlt,
       RcgIdOrg, // pegando do front
       EmpId, // pegando do front
@@ -67,8 +67,8 @@ export async function POST(request: Request) {
       DtaOpe === null ||
       SocIni === undefined ||
       SocIni === null ||
-      OdoIni === undefined ||
-      OdoIni === null ||
+      OdoFin === undefined ||
+      OdoFin === null ||
       UsrIdAlt === undefined ||
       UsrIdAlt === null ||
       RcgIdOrg === undefined ||
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
         DtaIni: new Date(DtaIni),
         DtaOpe: new Date(DtaOpe),
         SocIni: Number(SocIni),
-        OdoIni: Number(OdoIni),
+        OdoIni: Number(OdoFin),
         UsrIdAlt: Number(UsrIdAlt),
         RcgIdOrg: Number(RcgIdOrg),
         EmpId: Number(EmpId),

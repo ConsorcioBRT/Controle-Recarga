@@ -49,7 +49,6 @@ export async function POST(request: Request) {
       SocIni,
       OdoFin,
       UsrIdAlt,
-      RcgIdOrg,
       EmpId,
     } = await request.json();
 
@@ -61,7 +60,6 @@ export async function POST(request: Request) {
       SocIni === undefined ||
       OdoFin === undefined ||
       !UsrIdAlt ||
-      RcgIdOrg === undefined ||
       !EmpId
     ) {
       return NextResponse.json(
@@ -74,6 +72,12 @@ export async function POST(request: Request) {
       where: { VclId: Number(VclId) },
       orderBy: { DtaIni: "desc" },
     });
+
+    // Aqui se a última recarga terminar com erro, usar ele como orgigem
+    let rcgIdOrgNovo = 0;
+    if (ultimaRecarga && ultimaRecarga.SttRcgId === 7) {
+      rcgIdOrgNovo = ultimaRecarga.RcgId;
+    }
     // Aqui será a criação da Nova Recarga
     const novaRecarga = await prisma.rcg.create({
       data: {
@@ -87,10 +91,11 @@ export async function POST(request: Request) {
         OdoIni: ultimaRecarga?.OdoFin || null, // se não houver anterior, fica null
         OdoFin: OdoFin !== undefined ? Number(OdoFin) : null,
         UsrIdAlt: Number(UsrIdAlt),
-        RcgIdOrg: RcgIdOrg ? Number(RcgIdOrg) : 0,
+        RcgIdOrg: rcgIdOrgNovo,
         EmpId: Number(EmpId),
         SttRcgId: 5,
         SttId: 1,
+        FlhId: 0,
       },
     });
     return NextResponse.json(novaRecarga);
@@ -106,8 +111,10 @@ export async function POST(request: Request) {
 // Aqui será o PUT
 export async function PUT(request: Request) {
   try {
-    const { RcgId, DtaFin, SocFin, RcgKwh, OdoFin, FlhId, FlhDsc } =
-      await request.json();
+    const body = await request.json();
+    console.log("Dados recebidos no PUT:", body);
+
+    const { RcgId, DtaFin, SocFin, RcgKwh, OdoFin, FlhId, FlhDsc } = body;
 
     if (!RcgId) {
       return NextResponse.json(
@@ -119,6 +126,7 @@ export async function PUT(request: Request) {
     const recargaExistente = await prisma.rcg.findUnique({
       where: { RcgId: Number(RcgId) },
     });
+    console.log("Recarga encontrada:", recargaExistente);
 
     if (!recargaExistente) {
       return NextResponse.json(
@@ -154,25 +162,18 @@ export async function PUT(request: Request) {
       dadosAtualizados.OdoFin = Number(OdoFin);
     }
 
-    if (
-      FlhId !== undefined &&
-      (!recargaExistente.FlhId || recargaExistente.FlhId === 0)
-    ) {
-      dadosAtualizados.FlhId = Number(FlhId);
+    if (FlhId === 1) {
+      // finalizada com erro
+      dadosAtualizados.FlhId = 1;
+      dadosAtualizados.SttRcgId = 7;
+    } else if (recargaExistente.SttRcgId === 5) {
+      // finalizada normalmente
+      dadosAtualizados.FlhId = 0;
+      dadosAtualizados.SttRcgId = 6;
     }
 
     if (FlhDsc && !recargaExistente.FlhDsc) {
       dadosAtualizados.FlhDsc = FlhDsc;
-    }
-
-    let criarNovaRecarga = false;
-
-    if (FlhId === 1) {
-      dadosAtualizados.SttRcgId = 7; // aqui vai ser quando der erro
-      dadosAtualizados.RcgIdOrg = recargaExistente.RcgId;
-      criarNovaRecarga = true;
-    } else if (recargaExistente.SttRcgId === 5) {
-      dadosAtualizados.SttRcgId = 6; // aqui vai ser pra finalizar normalmente
     }
 
     const recargaAtualizada = await prisma.rcg.update({
@@ -180,26 +181,8 @@ export async function PUT(request: Request) {
       data: dadosAtualizados,
     });
 
-    if (criarNovaRecarga) {
-      await prisma.rcg.create({
-        data: {
-          UndId: recargaExistente.UndId,
-          VclId: recargaExistente.VclId,
-          EmpId: recargaExistente.EmpId,
-          DtaOpe: recargaExistente.DtaOpe,
-          DtaIni: new Date(),
-          OdoIni:
-            recargaAtualizada.OdoFin ||
-            recargaExistente.OdoFin ||
-            recargaExistente.OdoIni,
-          UsrIdAlt: recargaExistente.UsrIdAlt,
-          RcgIdOrg: recargaExistente.RcgId,
-          SttRcgId: 5,
-          SttId: 1,
-        },
-      });
-    }
-    return NextResponse.json(recargaAtualizada);
+    console.log("Recarga atualizada:", recargaAtualizada);
+    return NextResponse.json({ recargaAtualizada });
   } catch (error) {
     console.error("Erro ao atualizar recarga:", error);
     return NextResponse.json(

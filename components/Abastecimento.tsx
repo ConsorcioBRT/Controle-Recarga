@@ -14,8 +14,9 @@ import Footer from "./Footer";
 import { Circle, Zap } from "lucide-react";
 import DialogStepsCarregando from "./DialogStepsCarregando";
 import DialogSteps from "./DialogSteps";
+import { useRouter } from "next/navigation";
 
-type Veiculo = { Onibus: string; RcgId?: number };
+type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
   percentualFinal: string;
   odometro: string;
@@ -37,6 +38,7 @@ const Abastecimento = () => {
   const [reiniciarVeiculo, setReiniciarVeiculo] = useState<Veiculo | null>(
     null
   );
+  const router = useRouter();
 
   const baseUrl =
     typeof window !== "undefined"
@@ -76,6 +78,7 @@ const Abastecimento = () => {
   function iniciarCarregamento(veiculo: { Onibus: string }) {
     setLivres((prev) => prev.filter((v) => v.Onibus !== veiculo.Onibus));
     setCarregando((prev) => [...prev, veiculo]);
+    window.location.reload();
   }
 
   // Adapter para DialogStepsCarregando
@@ -87,9 +90,27 @@ const Abastecimento = () => {
     );
   }
 
+  // Função para reiniciar a recarga
+  function iniciarNovamente(item: Veiculo) {
+    fetch("/api/recarga", {
+      method: "POST", // cria nova recarga
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ Onibus: item.Onibus }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const novoItem = { ...item, RcgId: data.RcgId, FlhId: 0 };
+        setCarregando((prev) =>
+          prev.map((v) => (v.Onibus === item.Onibus ? novoItem : v))
+        );
+        setReiniciarVeiculo(novoItem);
+      })
+      .catch((err) => console.error("Erro ao reiniciar recarga:", err));
+  }
+
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>,
-    onibusItem: { Onibus: string; RcgId?: number },
+    onibusItem: Veiculo,
     dados?: FormRecargaFinal
   ) {
     e.preventDefault();
@@ -122,25 +143,53 @@ const Abastecimento = () => {
             : odometro[onibusItem.Onibus]
             ? Number(odometro[onibusItem.Onibus].replace(/\./g, ""))
             : null,
-          FlhId: dados?.houveFalha === "sim" ? 1 : null,
+          FlhId: dados?.houveFalha === "sim" ? 1 : 0,
           FlhDsc: dados?.descricaoFalha ?? null,
           SttRcgId: 6,
           SttId: 1,
-          UsrIdAlt: 123, // ajuste conforme usuário logado
+          UsrIdAlt: 123,
         }),
       });
 
-      if (!response.ok) throw new Error("Erro ao finalizar recarga");
+      const result = await response.json();
+
+      // Recarga principal atualizada
+      const recargaAtualizada =
+        result.novaRecargaCriada || result.recargaAtualizada;
+
+      // Nova recarga em caso de falha
+      const novaRecarga = result.novaRecarga || null;
+
+      // Atualiza lista de carregando
+      setCarregando((prev) => {
+        const listaAtualizada = prev.map((v) =>
+          v.Onibus === onibusItem.Onibus ? recargaAtualizada : v
+        );
+
+        if (novaRecarga) {
+          listaAtualizada.push(novaRecarga); // adiciona nova recarga
+          setReiniciarVeiculo({
+            Onibus: novaRecarga.Onibus,
+            RcgId: novaRecarga.RcgId,
+            FlhId: novaRecarga.FlhId,
+          });
+        }
+
+        return listaAtualizada.filter(Boolean);
+      });
+
+      // Atualiza lista de livres
+      setLivres((prev) => {
+        if (!novaRecarga) {
+          return [...prev, onibusItem];
+        }
+        return prev;
+      });
 
       alert("Recarga finalizada com sucesso!");
-
-      // Atualizar listas (remove do carregando e adiciona no livres)
-      setCarregando((prev) =>
-        prev.filter((v) => v.Onibus !== onibusItem.Onibus)
-      );
-      setLivres((prev) => [...prev, onibusItem]);
+      window.location.reload();
     } catch (error) {
-      console.error(error);
+      console.error("Erro no HandleSubmit:", error);
       alert("Erro ao finalizar recarga");
     }
   }
@@ -224,34 +273,25 @@ const Abastecimento = () => {
                           {item.Onibus}
                         </Button>
                       </DialogTrigger>
-                      <form onSubmit={(e) => handleSubmit(e, item)}>
-                        <DialogContent className="max-w-sm w-full rounded-xl p-6">
-                          <DialogHeader className="flex items-start">
-                            <DialogTitle className="flex items-center gap-2">
-                              <Zap className="text-yellow-500" />
-                              Finalizar Recarga - Ônibus{" "}
-                              <span className="bg-yellow-500 text-white p-1 rounded-full">
-                                {item.Onibus}
-                              </span>
-                            </DialogTitle>
-                          </DialogHeader>
-                          {reiniciarVeiculo?.Onibus === item.Onibus ? (
-                            <DialogSteps
-                              veiculo={item}
-                              iniciarCarregamento={iniciarCarregamento}
-                            />
-                          ) : (
-                            <DialogStepsCarregando
-                              item={item}
-                              finalizarRecarga={finalizarRecargaAdapter}
-                              reiniciarRecarga={item.FlhId === 1}
-                              iniciarNovamente={(veiculo) =>
-                                setReiniciarVeiculo(veiculo)
-                              }
-                            />
-                          )}
-                        </DialogContent>
-                      </form>
+
+                      <DialogContent className="max-w-sm w-full rounded-xl p-6">
+                        <DialogHeader className="flex items-start">
+                          <DialogTitle className="flex items-center gap-2">
+                            <Zap className="text-yellow-500" />
+                            Finalizar Recarga - Ônibus{" "}
+                            <span className="bg-yellow-500 text-white p-1 rounded-full">
+                              {item.Onibus}
+                            </span>
+                          </DialogTitle>
+                        </DialogHeader>
+
+                        <DialogStepsCarregando
+                          item={item}
+                          finalizarRecarga={finalizarRecargaAdapter}
+                          reiniciarRecarga={item.FlhId === 1}
+                          iniciarNovamente={iniciarNovamente}
+                        />
+                      </DialogContent>
                     </Dialog>
                   ))}
                 </div>

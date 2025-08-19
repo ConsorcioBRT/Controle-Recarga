@@ -8,7 +8,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model cbt {
   CbtId    Int      @id @default(autoincrement())
   CbtNme   String   @db.VarChar(50)
@@ -20,7 +19,6 @@ model cbt {
   @@index([CbtNme], map: "IdxU_EqpFbr")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model emp {
   EmpId     Int      @id @default(autoincrement())
   EmpNme    String   @db.VarChar(150)
@@ -56,7 +54,6 @@ model emp {
   MtvDel    String?  @db.VarChar(250)
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model emp_und {
   EmpId    Int
   UndId    Int      @id @default(autoincrement())
@@ -72,7 +69,6 @@ model emp_und {
   MtvDel   String?  @db.VarChar(250)
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model eqp_fbr {
   EqpFbrId  Int      @id @default(autoincrement())
   EqpFbrNme String   @db.VarChar(50)
@@ -84,7 +80,6 @@ model eqp_fbr {
   @@index([EqpFbrNme], map: "IdxU_EqpFbr")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model eqp_itm {
   FrnId        Int
   EqpTpoId     Int
@@ -107,7 +102,6 @@ model eqp_itm {
   @@index([EqpItmTmh], map: "IdxU_EqpItmTmh")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model eqp_loc {
   EqpTpoId Int
   EqpItmId Int
@@ -120,7 +114,6 @@ model eqp_loc {
   @@id([EqpItmId, UndId])
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model eqp_mdl {
   EqpTpoId  Int
   EqpFbrId  Int
@@ -134,7 +127,6 @@ model eqp_mdl {
   @@index([EqpMdlNme], map: "IdxU_EqpMdl")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model eqp_tpo {
   EqpTpoId  Int      @id @default(autoincrement())
   EqpTpoNme String   @db.VarChar(50)
@@ -146,7 +138,6 @@ model eqp_tpo {
   @@index([EqpTpoNme], map: "IdxU_EqpTpo")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model frn {
   FrnId    Int      @id @default(autoincrement())
   FrnNme   String   @db.VarChar(50)
@@ -159,7 +150,6 @@ model frn {
   @@index([FrnNme], map: "IdxU_Frn")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model rcg {
   RcgId    Int       @id @default(autoincrement()) // Identificador Recarga
   RcgIdOrg Int?      // Identificador Recarga Origem (nullable)
@@ -185,7 +175,6 @@ model rcg {
   MtvDel   String?  @db.VarChar(250)              // Motivo da delecao (nullable)
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model stt {
   SttId    Int      @id @default(autoincrement())
   SttNme   String   @db.VarChar(50)
@@ -197,7 +186,6 @@ model stt {
   @@index([SttNme], map: "IdxU_Stt")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model usr {
   EmpId    Int
   UsrTpoId Int
@@ -214,7 +202,6 @@ model usr {
   MtvDel   String?  @db.VarChar(250)
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model usr_tpo {
   UsrTpoId  Int      @id @default(autoincrement())
   UsrTpoNme String   @unique(map: "IdxU_UsrTpo") @db.VarChar(50)

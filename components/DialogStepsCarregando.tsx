@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import {
@@ -19,6 +19,7 @@ import { Button } from "./ui/button";
 type OnibusCarregando = {
   Onibus: string;
   RcgId?: number;
+  odometroPreenchido?: boolean;
 };
 
 type FormRecargaFinal = {
@@ -51,7 +52,46 @@ const DialogStepsCarregando: React.FC<Props> = ({
     descricaoFalha: "",
   });
 
+  const [odometroPreenchido, setOdometroPreenchido] = useState(
+    item.odometroPreenchido ?? false
+  );
+
+  useEffect(() => {
+    // Aqui vai pegar o odômetro do LocalStorage
+    const dadosLocal = localStorage.getItem("formDataConfirmação");
+    if (dadosLocal) {
+      const dados = JSON.parse(dadosLocal);
+      if (dados.odometro) {
+        setFormData((prev) => ({
+          ...prev,
+          odometro: dados.odometro,
+        }));
+        setOdometroPreenchido(true);
+      }
+    }
+  }, []);
+
+  const odometroObrigatorio = !item.odometroPreenchido;
   const odometroValido = formData.odometro !== "";
+
+  const handleProximo = () => {
+    // Step 1 - Percentual
+    if (step === 1 && !formData.percentualFinal) {
+      return alert("Preencha o percentual");
+    }
+
+    // Step 3 - Odômetro (só se for obrigatório)
+    if (step === 3 && odometroObrigatorio && !odometroValido) {
+      return alert("Preencha o odômetro");
+    }
+
+    // Vai pular o Step 3 se já tiver o odômetro preenchido
+    if (step === 2 && !odometroObrigatorio) {
+      setStep(4);
+    } else {
+      setStep(step + 1);
+    }
+  };
 
   return (
     <div className="grid gap-4 mt-6">
@@ -87,7 +127,7 @@ const DialogStepsCarregando: React.FC<Props> = ({
       )}
 
       {/* STEP 3: Odômetro */}
-      {step === 3 && (
+      {step === 3 && odometroObrigatorio && (
         <div className="grid gap-3">
           <Label>Odômetro (km)</Label>
           <Input
@@ -161,13 +201,7 @@ const DialogStepsCarregando: React.FC<Props> = ({
           {step < 4 ? (
             <Button
               className="w-full h-14 bg-yellow-500 text-lg font-bold"
-              onClick={() => {
-                if (step === 1 && !formData.percentualFinal)
-                  return alert("Preencha o percentual");
-                if (step === 3 && !odometroValido)
-                  return alert("Preencha o odômetro");
-                setStep(step + 1);
-              }}
+              onClick={handleProximo}
             >
               Próximo
             </Button>

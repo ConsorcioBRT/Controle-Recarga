@@ -14,7 +14,6 @@ import Footer from "./Footer";
 import { Circle, Zap } from "lucide-react";
 import DialogStepsCarregando from "./DialogStepsCarregando";
 import DialogSteps from "./DialogSteps";
-import { useRouter } from "next/navigation";
 
 type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
@@ -24,6 +23,7 @@ type FormRecargaFinal = {
   houveFalha: string;
   descricaoFalha?: string;
   forcarSttRcgId6?: boolean;
+  DtaFin?: string;
 };
 
 const Abastecimento = () => {
@@ -114,7 +114,7 @@ const Abastecimento = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           RcgId: onibusItem.RcgId,
-          DtaFin: new Date().toISOString(),
+          DtaFin: dados?.DtaFin ?? new Date().toISOString(),
           SocFin: dados?.percentualFinal
             ? Number(dados.percentualFinal)
             : percentualFinal[onibusItem.Onibus]
@@ -175,9 +175,7 @@ const Abastecimento = () => {
       });
 
       alert("Recarga finalizada com sucesso!");
-      if (!dados?.houveFalha) {
-        window.location.reload();
-      }
+      window.location.reload();
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
       alert("Erro ao finalizar recarga");

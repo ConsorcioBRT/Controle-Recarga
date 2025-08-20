@@ -11,6 +11,10 @@ import {
 import { Textarea } from "./ui/textarea";
 import { DialogClose, DialogFooter } from "./ui/dialog";
 import { Button } from "./ui/button";
+import { Calendar } from "./ui/calendar";
+import { Popover } from "./ui/popover";
+import { PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
+import { format } from "date-fns";
 
 {
   /* Função para Passar as Etapas de Ônibus Carregando */
@@ -29,6 +33,7 @@ type FormRecargaFinal = {
   houveFalha: string;
   descricaoFalha?: string;
   forcarSttRcgId6?: boolean;
+  DtaFin?: string;
 };
 
 type Props = {
@@ -51,6 +56,7 @@ const DialogStepsCarregando: React.FC<Props> = ({
     houveFalha: "",
     descricaoFalha: "",
   });
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   const [odometroPreenchido, setOdometroPreenchido] = useState(
     item.odometroPreenchido ?? false
@@ -142,9 +148,60 @@ const DialogStepsCarregando: React.FC<Props> = ({
           )}
         </div>
       )}
-
-      {/* STEP 4: Falhas */}
+      {/* STEP 4: Calendário */}
       {step === 4 && (
+        <div className="grid gap-3">
+          <Label>Dia da Finalização:</Label>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                className="w-full justify-start text-left font-normal"
+              >
+                {date ? format(date, "dd/MM/yyyy") : "Selecione uma data"}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0">
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={(d) => {
+                  if (!d) return;
+                  const novaData = new Date(d);
+                  if (date) {
+                    novaData.setHours(date.getHours());
+                    novaData.setMinutes(date.getMinutes());
+                  }
+                  setDate(novaData);
+                }}
+              />
+            </PopoverContent>
+          </Popover>
+          <Label>Hora da Finalização:</Label>
+          <Input
+            type="time"
+            value={
+              date
+                ? `${String(date.getHours()).padStart(2, "0")}:${String(
+                    date.getMinutes()
+                  ).padStart(2, "0")}`
+                : ""
+            }
+            onChange={(e) => {
+              if (!date) return;
+              const [h, m] = e.target.value.split(":").map(Number);
+              const novaData = new Date(date);
+              novaData.setHours(h);
+              novaData.setMinutes(m);
+              setDate(novaData);
+            }}
+            className="p-2 border rounded"
+          />
+        </div>
+      )}
+
+      {/* STEP 5: Falhas */}
+      {step === 5 && (
         <div className="grid gap-3">
           <Label>Houve Falhas?</Label>
           <Select
@@ -198,7 +255,7 @@ const DialogStepsCarregando: React.FC<Props> = ({
             </DialogClose>
           )}
 
-          {step < 4 ? (
+          {step < 5 ? (
             <Button
               className="w-full h-14 bg-yellow-500 text-lg font-bold"
               onClick={handleProximo}
@@ -210,8 +267,11 @@ const DialogStepsCarregando: React.FC<Props> = ({
               {/* Botão de Finalizar */}
               <Button
                 onClick={() => {
+                  if (!date)
+                    return alert("Selecione o Dia e Hora da finalização!");
                   finalizarRecarga(item, {
                     ...formData,
+                    DtaFin: date.toISOString(),
                     forcarSttRcgId6: true,
                   });
                 }}
@@ -224,9 +284,12 @@ const DialogStepsCarregando: React.FC<Props> = ({
               {iniciarNovamente && (
                 <Button
                   onClick={() => {
+                    if (!date)
+                      return alert("Selecione o Dia e Hora da finalização!");
                     // Vai chamar a função do Finalizar
                     finalizarRecarga(item, {
                       ...formData,
+                      DtaFin: date.toISOString(),
                       houveFalha: "sim",
                       descricaoFalha:
                         formData.descricaoFalha || "Reinício de recarga",

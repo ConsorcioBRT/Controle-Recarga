@@ -41,16 +41,8 @@ export async function GET() {
 // Aqui será o POST
 export async function POST(request: Request) {
   try {
-    const {
-      UndId,
-      VclId,
-      CrrId,
-      CrrCnc,
-      SocIni,
-      OdoFin,
-      UsrIdAlt,
-      EmpId,
-    } = await request.json();
+    const { UndId, VclId, CrrId, CrrCnc, SocIni, OdoFin, UsrIdAlt, EmpId } =
+      await request.json();
 
     if (
       !UndId ||
@@ -114,7 +106,16 @@ export async function PUT(request: Request) {
     const body = await request.json();
     console.log("Dados recebidos no PUT:", body);
 
-    const { RcgId, DtaFin, SocFin, RcgKwh, OdoFin, FlhId, FlhDsc } = body;
+    const {
+      RcgId,
+      DtaFin,
+      SocFin,
+      RcgKwh,
+      OdoFin,
+      FlhId,
+      FlhDsc,
+      forcarSttRcgId6,
+    } = body;
 
     if (!RcgId) {
       return NextResponse.json(
@@ -174,6 +175,19 @@ export async function PUT(request: Request) {
 
     if (FlhDsc && !recargaExistente.FlhDsc) {
       dadosAtualizados.FlhDsc = FlhDsc;
+    }
+
+    if (forcarSttRcgId6) {
+      dadosAtualizados.SttRcgId = 6;
+      dadosAtualizados.FlhId = FlhId || 0;
+    } else if (FlhId === 1) {
+      // finalizada com erro
+      dadosAtualizados.FlhId = 1;
+      dadosAtualizados.SttRcgId = 7;
+    } else if (recargaExistente.SttRcgId === 5) {
+      // finalizada normalmente
+      dadosAtualizados.FlhId = 0;
+      dadosAtualizados.SttRcgId = 6;
     }
 
     const recargaAtualizada = await prisma.rcg.update({

@@ -23,6 +23,7 @@ type FormRecargaFinal = {
   energia: string;
   houveFalha: string;
   descricaoFalha?: string;
+  forcarSttRcgId6?: boolean;
 };
 
 const Abastecimento = () => {
@@ -38,7 +39,6 @@ const Abastecimento = () => {
   const [reiniciarVeiculo, setReiniciarVeiculo] = useState<Veiculo | null>(
     null
   );
-  const router = useRouter();
 
   const baseUrl =
     typeof window !== "undefined"
@@ -92,20 +92,7 @@ const Abastecimento = () => {
 
   // Função para reiniciar a recarga
   function iniciarNovamente(item: Veiculo) {
-    fetch("/api/recarga", {
-      method: "POST", // cria nova recarga
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ Onibus: item.Onibus }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const novoItem = { ...item, RcgId: data.RcgId, FlhId: 0 };
-        setCarregando((prev) =>
-          prev.map((v) => (v.Onibus === item.Onibus ? novoItem : v))
-        );
-        setReiniciarVeiculo(novoItem);
-      })
-      .catch((err) => console.error("Erro ao reiniciar recarga:", err));
+    setReiniciarVeiculo(item); // aqui vai abrir o DialogSteps
   }
 
   async function handleSubmit(
@@ -145,9 +132,10 @@ const Abastecimento = () => {
             : null,
           FlhId: dados?.houveFalha === "sim" ? 1 : 0,
           FlhDsc: dados?.descricaoFalha ?? null,
-          SttRcgId: 6,
+          //SttRcgId: 6,
           SttId: 1,
           UsrIdAlt: 123,
+          forcarSttRcgId6: Boolean(dados?.forcarSttRcgId6),
         }),
       });
 
@@ -187,7 +175,9 @@ const Abastecimento = () => {
       });
 
       alert("Recarga finalizada com sucesso!");
-      window.location.reload();
+      if (!dados?.houveFalha) {
+        window.location.reload();
+      }
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
       alert("Erro ao finalizar recarga");

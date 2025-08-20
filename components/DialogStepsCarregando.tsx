@@ -28,6 +28,7 @@ type FormRecargaFinal = {
   energia: string;
   houveFalha: string;
   descricaoFalha?: string;
+  forcarSttRcgId6?: boolean;
 };
 
 type Props = {
@@ -40,7 +41,6 @@ type Props = {
 const DialogStepsCarregando: React.FC<Props> = ({
   item,
   finalizarRecarga,
-  reiniciarRecarga = false,
   iniciarNovamente,
 }) => {
   const [step, setStep] = useState(1);
@@ -206,18 +206,40 @@ const DialogStepsCarregando: React.FC<Props> = ({
               Próximo
             </Button>
           ) : (
-            <Button
-              onClick={() => {
-                if (reiniciarRecarga && iniciarNovamente) {
-                  iniciarNovamente(item); // abre o DialogSteps para reiniciar
-                } else {
-                  finalizarRecarga(item, formData);
-                }
-              }}
-              className="w-full h-14 bg-yellow-500 text-lg font-bold"
-            >
-              {reiniciarRecarga ? "Reiniciar" : "Finalizar"}
-            </Button>
+            <div className="flex gap-4 w-full">
+              {/* Botão de Finalizar */}
+              <Button
+                onClick={() => {
+                  finalizarRecarga(item, {
+                    ...formData,
+                    forcarSttRcgId6: true,
+                  });
+                }}
+                className="w-full h-14 bg-yellow-500 text-lg font-bold"
+              >
+                Finalizar
+              </Button>
+
+              {/* Botão de Reiniciar */}
+              {iniciarNovamente && (
+                <Button
+                  onClick={() => {
+                    // Vai chamar a função do Finalizar
+                    finalizarRecarga(item, {
+                      ...formData,
+                      houveFalha: "sim",
+                      descricaoFalha:
+                        formData.descricaoFalha || "Reinício de recarga",
+                    });
+                    // depois vai chamar a criação de nova recarga
+                    iniciarNovamente(item);
+                  }}
+                  className="flex-1 h-14 bg-red-500 text-lg font-bold"
+                >
+                  Reiniciar
+                </Button>
+              )}
+            </div>
           )}
         </div>
       </DialogFooter>

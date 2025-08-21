@@ -1,5 +1,5 @@
 "use client";
-import { AlertTriangle, Fuel, Home } from "lucide-react";
+import { AlertTriangle, Fuel, History, Home } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
@@ -31,9 +31,9 @@ const Footer = ({ className = "" }: FooterProps) => {
           <span className={linkClasses("/abastecimento")}>Recarga</span>
         </Link>
 
-        <Link href="/falhas" className="flex flex-col items-center">
-          <AlertTriangle className={`w-5 h-5 ${linkClasses("/falhas")}`} />
-          <span className={linkClasses("/falhas")}>Falhas</span>
+        <Link href="/historico" className="flex flex-col items-center">
+          <History className={`w-5 h-5 ${linkClasses("/historico")}`} />
+          <span className={linkClasses("/historico")}>Histórico</span>
         </Link>
       </div>
     </div>

@@ -64,7 +64,7 @@ const DialogStepsCarregando: React.FC<Props> = ({
 
   useEffect(() => {
     // Aqui vai pegar o odômetro do LocalStorage
-    const dadosLocal = localStorage.getItem("formDataConfirmação");
+    const dadosLocal = localStorage.getItem("formDataConfirmacao");
     if (dadosLocal) {
       const dados = JSON.parse(dadosLocal);
       if (dados.odometro) {
@@ -77,7 +77,12 @@ const DialogStepsCarregando: React.FC<Props> = ({
     }
   }, []);
 
-  const odometroObrigatorio = !item.odometroPreenchido;
+  // Aqui vai salvar sempre o formData quando mudar
+  useEffect(() => {
+    localStorage.setItem("formDataConfirmacao", JSON.stringify(formData));
+  }, [formData]);
+
+  const odometroObrigatorio = !odometroPreenchido;
   const odometroValido = formData.odometro !== "";
 
   const handleProximo = () => {

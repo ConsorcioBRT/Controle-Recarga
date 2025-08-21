@@ -18,7 +18,7 @@ import {
 import Footer from "./Footer";
 import { Separator } from "./ui/separator";
 
-const Falhas = () => {
+const Historico = () => {
   const falhas = [
     {
       onibus: "1012",
@@ -71,12 +71,12 @@ const Falhas = () => {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         <div className="flex items-center justify-center mt-10 mb-10">
-          <h1 className="text-2xl">Relatório de Falhas</h1>
+          <h1 className="text-2xl">Histórico de Recargas</h1>
         </div>
-        {/* Histórico de Falhas */}
+        {/* Histórico de Recargas */}
         <div className="mt-5 mx-8">
           <Table>
-            <TableCaption>Lista de Falhas recentes.</TableCaption>
+            <TableCaption>Lista de Recargas recentes.</TableCaption>
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px]">Ônibus</TableHead>
@@ -100,7 +100,7 @@ const Falhas = () => {
                     <DialogHeader>
                       <DialogTitle>
                         Resumo da Falha - Ônibus {falha.onibus}
-                        <Separator className="mt-2"/>
+                        <Separator className="mt-2" />
                       </DialogTitle>
 
                       <div className="flex flex-col items-start gap-3">
@@ -135,4 +135,4 @@ const Falhas = () => {
   );
 };
 
-export default Falhas;
+export default Historico;

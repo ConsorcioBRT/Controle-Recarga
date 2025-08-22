@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -23,23 +24,21 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("/api/usuarios");
-      const users: Usuario[] = await res.json();
+      const res = await fetch("/api/usuarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario, senha }),
+      });
 
-      const userFound = users.find(
-        (u) =>
-          (u.UsrEml === usuario ||
-            u.UsrNme === usuario ||
-            u.UsrCpf === usuario) &&
-          senha === "123456"
-      );
-
-      if (userFound) {
-        localStorage.setItem("usuarioLogado", JSON.stringify(userFound));
-        router.push("/terminal");
-      } else {
-        alert("Usuário ou senha inválidos!");
+      if (!res.ok) {
+        const err = await res.json();
+        alert(err.message);
+        return;
       }
+
+      const userLogged: Usuario = await res.json();
+      localStorage.setItem("usuarioLogado", JSON.stringify(userLogged));
+      router.push("/terminal");
     } catch (error) {
       console.log("Erro no login:", error);
     }
@@ -85,6 +84,12 @@ const Login = () => {
               <Lock />
             </div>
           </div>
+        </div>
+
+        <div>
+          <Link href="/trocarSenha">
+            <span className="text-sm text-blue-800">Esqueci sua senha?</span>
+          </Link>
         </div>
 
         <Button

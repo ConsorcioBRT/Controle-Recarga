@@ -1,5 +1,5 @@
 "use client";
-import { AlertTriangle, Fuel, History, Home } from "lucide-react";
+import { Fuel, History, Home } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";

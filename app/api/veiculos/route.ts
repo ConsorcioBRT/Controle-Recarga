@@ -1,14 +1,24 @@
 import prisma from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // Buscar todos os ônibus da view
+    const { searchParams } = new URL(request.url);
+    const eqpItmId = searchParams.get("EqpItmId");
+
+    // Buscar todos os ônibus da view ou filtra por EqpItmId
     const onibus = await prisma.vwOnibus.findMany({
+      where: eqpItmId ? { EqpItmId: Number(eqpItmId) } : undefined,
       select: {
         EqpItmId: true,
         Onibus: true,
         Situacao: true,
+        Data_Operacao: true,
+        UndId: true,
+        PostoRecarga: true,
+        Bateria: true,
+        Odometro: true,
+        Carga_kWh: true,
       },
       orderBy: { Onibus: "asc" },
     });

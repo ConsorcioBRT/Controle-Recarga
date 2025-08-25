@@ -40,14 +40,9 @@ type Props = {
   item: OnibusCarregando;
   finalizarRecarga: (item: OnibusCarregando, dados: FormRecargaFinal) => void;
   reiniciarRecarga?: boolean;
-  iniciarNovamente?: (item: OnibusCarregando) => void; // aqui será onde vai chamar o DialogSteps
 };
 
-const DialogStepsCarregando: React.FC<Props> = ({
-  item,
-  finalizarRecarga,
-  iniciarNovamente,
-}) => {
+const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormRecargaFinal>({
     percentualFinal: "",
@@ -99,9 +94,9 @@ const DialogStepsCarregando: React.FC<Props> = ({
     // Vai pular o Step 3 se já tiver o odômetro preenchido
     if (step === 2 && !odometroObrigatorio) {
       setStep(4);
-    } else {
-      setStep(step + 1);
+      return;
     }
+    setStep(step + 1);
   };
 
   return (
@@ -286,27 +281,24 @@ const DialogStepsCarregando: React.FC<Props> = ({
               </Button>
 
               {/* Botão de Reiniciar */}
-              {iniciarNovamente && (
-                <Button
-                  onClick={() => {
-                    if (!date)
-                      return alert("Selecione o Dia e Hora da finalização!");
-                    // Vai chamar a função do Finalizar
-                    finalizarRecarga(item, {
-                      ...formData,
-                      DtaFin: date.toISOString(),
-                      houveFalha: "sim",
-                      descricaoFalha:
-                        formData.descricaoFalha || "Reinício de recarga",
-                    });
-                    // depois vai chamar a criação de nova recarga
-                    iniciarNovamente(item);
-                  }}
-                  className="flex-1 h-14 bg-red-500 text-lg font-bold"
-                >
-                  Reiniciar
-                </Button>
-              )}
+
+              <Button
+                onClick={() => {
+                  if (!date)
+                    return alert("Selecione o Dia e Hora da finalização!");
+                  // Vai chamar a função do Finalizar
+                  finalizarRecarga(item, {
+                    ...formData,
+                    DtaFin: date.toISOString(),
+                    houveFalha: "sim",
+                    descricaoFalha:
+                      formData.descricaoFalha || "Reinício de recarga",
+                  });
+                }}
+                className="flex-1 h-14 bg-red-500 text-lg font-bold"
+              >
+                Reiniciar
+              </Button>
             </div>
           )}
         </div>

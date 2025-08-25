@@ -11,6 +11,18 @@ import { DialogClose, DialogFooter } from "./ui/dialog";
 
 const conectores = ["1", "2", "ambos"];
 
+type DadosOnibus = {
+  EqpItmId: number;
+  Onibus: string;
+  Situacao: string;
+  Data_Operacao: string | null;
+  UndId: number | null;
+  PostoRecarga: string | null;
+  Bateria: number | null;
+  Odometro: number | null;
+  Carga_kWh: number | null;
+};
+
 type Carregador = {
   UndId: number;
   EqpItmId: number;
@@ -36,18 +48,45 @@ const DialogSteps = ({
   });
   const [carregadores, setCarregadores] = useState<Carregador[]>([]);
   const odometroValido = formData.odometro === formData.odometroConfirme;
+
   const [formConfirmacao, setFormConfirmacao] = useState<
     typeof formData | null
   >(null);
   const carregadorSelecionado = carregadores.find(
     (c) => c.EqpItmId === formData.carregador
   );
+  const [dadosOnibus, setDadosOnibus] = useState<DadosOnibus | null>(null);
+  const [erroOdometro, setErroOdometro] = useState<string | null>(null);
+  const odometroMaiorOuIgual =
+    Number(formData.odometro) >= (dadosOnibus?.Odometro ?? 0);
+  const [erroOdometroConfirme, setErroOdometroConfirme] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     if (step === 4) {
       const dados = localStorage.getItem("formDataConfirmacao");
       if (dados) {
         setFormConfirmacao(JSON.parse(dados));
+      }
+    }
+  }, [step]);
+
+  useEffect(() => {
+    if (step === 3) {
+      const veiculoJson = localStorage.getItem("veiculoSelecionado");
+      const veiculo = veiculoJson ? JSON.parse(veiculoJson) : null;
+      const eqpItmId = veiculo?.EqpItmId ?? null;
+
+      if (eqpItmId) {
+        fetch(`/api/veiculos?EqpItmId=${eqpItmId}`)
+          .then((r) => r.json())
+          .then((data: DadosOnibus[]) => {
+            if (data.length > 0) {
+              setDadosOnibus(data[0]);
+            }
+          })
+          .catch(console.error);
       }
     }
   }, [step]);
@@ -251,6 +290,36 @@ const DialogSteps = ({
 
         {step === 3 && (
           <>
+            {dadosOnibus && (
+              <div className="p-4 border rounded shadow mb-4">
+                <h2 className="text-lg font-bold mb-2">Última recarga</h2>
+                <p>
+                  <strong>Ônibus:</strong> {dadosOnibus.Onibus}
+                </p>
+                <p>
+                  <strong>Situação:</strong> {dadosOnibus.Situacao}
+                </p>
+                <p>
+                  <strong>Data:</strong>{" "}
+                  {dadosOnibus.Data_Operacao
+                    ? new Date(dadosOnibus.Data_Operacao).toLocaleString()
+                    : "—"}
+                </p>
+                <p>
+                  <strong>Unidade:</strong> {dadosOnibus.PostoRecarga ?? "—"}
+                </p>
+                <p>
+                  <strong>Soc Final:</strong> {dadosOnibus.Bateria ?? "—"}%
+                </p>
+                <p>
+                  <strong>Odômetro Final:</strong> {dadosOnibus.Odometro ?? "—"}{" "}
+                  km
+                </p>
+                <p>
+                  <strong>Total Kwh:</strong> {dadosOnibus.Carga_kWh ?? "—"}
+                </p>
+              </div>
+            )}
             <div className="grid gap-3">
               <Label className="flex items-center gap-2">
                 <Battery className="w-4 h-4" />
@@ -275,13 +344,28 @@ const DialogSteps = ({
               </Label>
               <Input
                 id="odometro"
-                type="text"
+                type="number"
                 value={formData.odometro}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, odometro: e.target.value }))
                 }
+                onBlur={() => {
+                  const valorNumerico = Number(formData.odometro);
+                  const anterior = dadosOnibus?.Odometro ?? 0;
+
+                  if (!isNaN(valorNumerico) && valorNumerico < anterior) {
+                    setErroOdometro(
+                      `O odômetro não pode ser menor que o anterior (${anterior} km)`
+                    );
+                  } else {
+                    setErroOdometro(null);
+                  }
+                }}
                 placeholder="0"
               />
+              {erroOdometro && (
+                <p className="text-red-600 text-sm mt-1">{erroOdometro}</p>
+              )}
             </div>
             <div className="grid gap-3">
               <Label className="flex items-center gap-2">
@@ -290,7 +374,7 @@ const DialogSteps = ({
               </Label>
               <Input
                 id="odometroConfirme"
-                type="text"
+                type="number"
                 value={formData.odometroConfirme}
                 onChange={(e) =>
                   setFormData((prev) => ({
@@ -298,11 +382,18 @@ const DialogSteps = ({
                     odometroConfirme: e.target.value,
                   }))
                 }
+                onBlur={() => {
+                  if (formData.odometroConfirme !== formData.odometro) {
+                    setErroOdometroConfirme("Os odômetros devem ser iguais");
+                  } else {
+                    setErroOdometroConfirme(null);
+                  }
+                }}
                 placeholder="0"
               />
-              {!odometroValido && (
+              {erroOdometroConfirme && (
                 <p className="text-red-600 text-sm mt-1">
-                  Os odômetros devem ser iguais
+                  {erroOdometroConfirme}
                 </p>
               )}
             </div>
@@ -352,6 +443,7 @@ const DialogSteps = ({
             <Button
               type="button"
               className="w-full h-14 bg-blue-500 text-lg font-bold"
+              disabled={!(odometroValido && odometroMaiorOuIgual)}
               onClick={() => {
                 if (step === 1 && !formData.carregador) {
                   alert("Selecione um carregador.");
@@ -362,19 +454,12 @@ const DialogSteps = ({
                   return;
                 }
                 if (step === 3) {
-                  const odometroValido =
-                    formData.odometro === formData.odometroConfirme;
-                  if (!odometroValido) {
-                    alert("Os odômetros não coincidem.");
-                    return;
-                  }
                   // Salva os dados no localStorage antes de ir para step 4
                   localStorage.setItem(
                     "formDataConfirmacao",
                     JSON.stringify(formData)
                   );
                 }
-
                 setStep(step + 1);
               }}
             >

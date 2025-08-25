@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Aqui não vai enviar a senha no front
-    const { UsrPwd, ...userComSenha } = user;
+    const { ...userComSenha } = user;
 
     return NextResponse.json(userComSenha);
   } catch (error) {

@@ -36,9 +36,6 @@ const Abastecimento = () => {
     [key: string]: string;
   }>({});
   const [energia] = useState<{ [key: string]: string }>({});
-  const [reiniciarVeiculo, setReiniciarVeiculo] = useState<Veiculo | null>(
-    null
-  );
 
   const baseUrl =
     typeof window !== "undefined"
@@ -88,11 +85,6 @@ const Abastecimento = () => {
       item,
       dados
     );
-  }
-
-  // Função para reiniciar a recarga
-  function iniciarNovamente(item: Veiculo) {
-    setReiniciarVeiculo(item); // aqui vai abrir o DialogSteps
   }
 
   async function handleSubmit(
@@ -156,11 +148,6 @@ const Abastecimento = () => {
 
         if (novaRecarga) {
           listaAtualizada.push(novaRecarga); // adiciona nova recarga
-          setReiniciarVeiculo({
-            Onibus: novaRecarga.Onibus,
-            RcgId: novaRecarga.RcgId,
-            FlhId: novaRecarga.FlhId,
-          });
         }
 
         return listaAtualizada.filter(Boolean);
@@ -277,7 +264,6 @@ const Abastecimento = () => {
                           item={item}
                           finalizarRecarga={finalizarRecargaAdapter}
                           reiniciarRecarga={item.FlhId === 1}
-                          iniciarNovamente={iniciarNovamente}
                         />
                       </DialogContent>
                     </Dialog>

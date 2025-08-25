@@ -19,7 +19,6 @@ type Eletroposto = {
 };
 
 const Home = () => {
-  const [postos, setPostos] = useState<Eletroposto[]>([]);
   const [postosUnicos, setPostosUnicos] = useState<Eletroposto[]>([]);
   const [contagem, setContagem] = useState<Record<number, number>>({});
   const [postoSelecionado, setPostoSelecionado] = useState<number | null>(null);
@@ -49,7 +48,6 @@ const Home = () => {
           if (!map.has(id)) map.set(id, item);
         });
 
-        setPostos(data);
         setPostosUnicos(Array.from(map.values()));
         setContagem(counts);
       } catch (error) {

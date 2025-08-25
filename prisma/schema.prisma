@@ -67,6 +67,8 @@ model emp_und {
   UsrIdAlt Int
   DtaAlt   DateTime @default(now()) @db.Timestamp(0)
   MtvDel   String?  @db.VarChar(250)
+
+  @@index([UndId], map: "idx_emp_und")
 }
 
 model eqp_fbr {
@@ -100,6 +102,7 @@ model eqp_itm {
   @@index([EqpItmCdg], map: "IdxU_EqpItmCdg")
   @@index([EqpItmPlc], map: "IdxU_EqpItmPlc")
   @@index([EqpItmTmh], map: "IdxU_EqpItmTmh")
+  @@index([SttId, EqpTpoId], map: "idx_eqp_itm_stt_tpo")
 }
 
 model eqp_loc {
@@ -151,28 +154,31 @@ model frn {
 }
 
 model rcg {
-  RcgId    Int       @id @default(autoincrement()) // Identificador Recarga
-  RcgIdOrg Int?      // Identificador Recarga Origem (nullable)
-  EmpId    Int       // Identificador Empresa
-  DtaOpe   DateTime  @db.Date                   // Data Operacao
-  UndId    Int       // Identificador da Unidade
-  VclId    Int       // Identificador Veiculo
-  CrrId    Int?       // Identificador Carregador
-  CrrCnc   Int?       // Identificador Conector
-  DtaIni   DateTime  @db.DateTime(0)              // Data Inicio
-  DtaFin   DateTime? @db.DateTime(0)              // Data Final (nullable)
-  SocIni   Int?                                   // Bateria inicial (nullable)
-  SocFin   Int?                                   // Bateria Final (nullable)
-  RcgKwh   Float?   @db.Float                      // Recarga kWh (nullable)
-  OdoIni   Float?   @db.Float                      // Odometro inicial (nullable)
-  OdoFin   Float?   @db.Float                      // Odometro Final (nullable)
-  SttRcgId Int      @default(5)                   // Status Recarga (default 5)
-  FlhId    Int      @default(0)                   // Identificador de falha (default 0)
-  FlhDsc   String?  @db.VarChar(250)              // Falha descrição (nullable)
-  SttId    Int      @default(1)                   // Status Registro (default 1)
-  UsrIdAlt Int                                    // Id Usuário que cadastrou
-  DtaAlt   DateTime @default(now()) @updatedAt    // Data Cadastro (timestamp com atualização automática)
-  MtvDel   String?  @db.VarChar(250)              // Motivo da delecao (nullable)
+  RcgId    Int       @id @default(autoincrement())
+  RcgIdOrg Int?
+  EmpId    Int
+  DtaOpe   DateTime  @db.Date
+  UndId    Int
+  VclId    Int
+  CrrId    Int
+  CrrCnc   Int
+  DtaIni   DateTime  @db.DateTime(0)
+  DtaFin   DateTime? @db.DateTime(0)
+  SocIni   Int?
+  SocFin   Int?
+  RcgKwh   Float?    @db.Float
+  OdoIni   Float?    @db.Float
+  OdoFin   Float?    @db.Float
+  SttRcgId Int       @default(5)
+  FlhId    Int       @default(0)
+  FlhDsc   String?   @db.VarChar(250)
+  SttId    Int       @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+  MtvDel   String?   @db.VarChar(250)
+
+  @@index([SttRcgId, VclId], map: "idx_rcg_stt5_vcl")
+  @@index([SttRcgId, VclId, UndId, DtaOpe], map: "idx_rcg_stt_vcl_und_dta")
 }
 
 model stt {
@@ -211,36 +217,17 @@ model usr_tpo {
   MtvDel    String?  @db.VarChar(250)
 }
 
-/// View: vw_carregador
-model VwCarregador {
-  UndId       Int
-  EqpItmId    Int
-  Carregador  String?
-
-  @@id([UndId, EqpItmId])
-  @@map("vw_carregador")
-}
-
-/// View: vw_login
-model VwLogin {
-  EmpId    Int
-  Empresa  String
-  UsrId    Int
-  Usuario  String
-  Iniciais String
-  Foto     String?
-  Login    String
-  Senha    String
-
-  @@map("vw_login")
-  @@ignore
-}
-
 /// View: vw_onibus
 model VwOnibus {
-  EqpItmId Int @id
+  EqpItmId Int      @id            // ID único para Prisma
   Onibus   String
   Situacao String
+  Data_Operacao   DateTime? @db.DateTime  // pode ser nulo se não tiver recarga
+  UndId    Int?                      // pode ser nulo se não tiver unidade
+  PostoRecarga   String?                   // pode ser nulo
+  Bateria   Int?                      // pode ser nulo
+  Odometro   Float?                    // pode ser nulo
+  Carga_kWh Float?                    // pode ser nulo
 
   @@map("vw_onibus")
 }
@@ -257,46 +244,12 @@ model VwPostoRecarga {
   @@map("vw_posto_recarga")
 }
 
-// View: vw_situacao_recarga
-model VwSituacaoRecarga {
-  SttId               Int
-  Stuacao_Recarga     String
+/// View: vw_carregador
+model VwCarregador {
+  UndId       Int
+  EqpItmId    Int
+  Carregador  String?
 
-  @@map("vw_situacao_recarga")
-  @@ignore
-}
-
-/// View: vw_usuario
-model VwUsuario {
-  EmpId     Int
-  EmpRdz    String
-  UsrTpoId  Int
-  UsrTpoNme String
-  UsrId     Int
-  UsrNme    String
-  UsrLgn    String
-  UsrCpf    String
-  UsrEml    String
-  UsrPwd    String
-  UsrFto    String?
-  SttId     Int
-  SttNme    String
-  UsrAlt    String
-  DtaAlt    DateTime
-
-  @@map("vw_usuario")
-  @@ignore
-}
-
-/// View: vw_usuario_tipo
-model VwUsuarioTipo {
-  UsrTpoId  Int
-  UsrTpoNme String
-  SttId     Int
-  SttNme    String
-  UsrAlt    String
-  DtaAlt    DateTime
-
-  @@map("vw_usuario_tipo")
-  @@ignore
+  @@id([UndId, EqpItmId])
+  @@map("vw_carregador")
 }

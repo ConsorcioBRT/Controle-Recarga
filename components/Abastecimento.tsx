@@ -28,13 +28,9 @@ type FormRecargaFinal = {
 
 const Abastecimento = () => {
   const [livres, setLivres] = useState<{ Onibus: string }[]>([]);
-  const [carregando, setCarregando] = useState<
-    { Onibus: string; RcgId?: number; FlhId?: number }[]
-  >([]);
+  const [carregando, setCarregando] = useState<Veiculo[]>([]);
   const [odometro] = useState<{ [key: string]: string }>({});
-  const [percentualFinal] = useState<{
-    [key: string]: string;
-  }>({});
+  const [percentualFinal] = useState<{ [key: string]: string }>({});
   const [energia] = useState<{ [key: string]: string }>({});
 
   const baseUrl =
@@ -64,18 +60,19 @@ const Abastecimento = () => {
     }
 
     fetchVeiculos();
-  }, [baseUrl]);
+    const interval = setInterval(fetchVeiculos, 15000); // a cada 15s
+    return () => clearInterval(interval);
+  }, []);
 
   // Irá salvar o veículo no localStorage
-  function selecionarVeiculo(veiculo: { Onibus: string }) {
+  function selecionarVeiculo(veiculo: Veiculo) {
     localStorage.setItem("veiculoSelecionado", JSON.stringify(veiculo));
   }
 
   // Aqui vai iniciar o Carregamento
-  function iniciarCarregamento(veiculo: { Onibus: string }) {
+  function iniciarCarregamento(veiculo: Veiculo) {
     setLivres((prev) => prev.filter((v) => v.Onibus !== veiculo.Onibus));
     setCarregando((prev) => [...prev, veiculo]);
-    window.location.reload();
   }
 
   // Adapter para DialogStepsCarregando
@@ -141,28 +138,15 @@ const Abastecimento = () => {
       const novaRecarga = result.novaRecarga || null;
 
       // Atualiza lista de carregando
-      setCarregando((prev) => {
-        const listaAtualizada = prev.map((v) =>
-          v.Onibus === onibusItem.Onibus ? recargaAtualizada : v
-        );
+      setCarregando((prev) =>
+        prev
+          .map((v) => (v.Onibus === onibusItem.Onibus ? recargaAtualizada : v))
+          .concat(novaRecarga ? [novaRecarga] : [])
+      );
 
-        if (novaRecarga) {
-          listaAtualizada.push(novaRecarga); // adiciona nova recarga
-        }
-
-        return listaAtualizada.filter(Boolean);
-      });
-
-      // Atualiza lista de livres
-      setLivres((prev) => {
-        if (!novaRecarga) {
-          return [...prev, onibusItem];
-        }
-        return prev;
-      });
+      setLivres((prev) => (!novaRecarga ? [...prev, onibusItem] : prev));
 
       alert("Recarga finalizada com sucesso!");
-      window.location.reload();
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
       alert("Erro ao finalizar recarga");

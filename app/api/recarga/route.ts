@@ -108,6 +108,11 @@ export async function POST(request: Request) {
         FlhId: 0,
       },
     });
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/realtime/publish`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tipo: "iniciar", Onibus: VclId }),
+    });
     return NextResponse.json(novaRecarga);
   } catch (error) {
     console.error("Erro ao criar recarga:", error);
@@ -208,6 +213,15 @@ export async function PUT(request: Request) {
     });
 
     console.log("Recarga atualizada:", recargaAtualizada);
+
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/realtime/publish`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tipo: "finalizar",
+        Onibus: recargaAtualizada.VclId,
+      }),
+    });
     return NextResponse.json({ recargaAtualizada });
   } catch (error) {
     console.error("Erro ao atualizar recarga:", error);

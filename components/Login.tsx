@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, User } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -84,12 +83,6 @@ const Login = () => {
               <Lock />
             </div>
           </div>
-        </div>
-
-        <div>
-          <Link href="/trocarSenha">
-            <span className="text-sm text-blue-800">Esqueci sua senha?</span>
-          </Link>
         </div>
 
         <Button

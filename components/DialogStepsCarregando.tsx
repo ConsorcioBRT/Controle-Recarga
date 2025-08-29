@@ -108,12 +108,15 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
           <Input
             type="number"
             value={formData.percentualFinal}
-            onChange={(e) =>
-              setFormData((prev) => ({
-                ...prev,
-                percentualFinal: e.target.value,
-              }))
-            }
+            onChange={(e) => {
+              const value = e.target.value;
+              if (
+                value === "" ||
+                (Number(value) >= 0 && Number(value) <= 100)
+              ) {
+                setFormData((prev) => ({ ...prev, percentualFinal: value }));
+              }
+            }}
           />
         </div>
       )}
@@ -123,11 +126,29 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
         <div className="grid gap-3">
           <Label>Energia Utilizada (kWh)</Label>
           <Input
-            type="number"
+            type="text"
             value={formData.energia}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, energia: e.target.value }))
-            }
+            onChange={(e) => {
+              let value = e.target.value;
+
+              value = value.replace(/[^\d,]/g, ""); // Aqui remove o que não for número
+
+              // Divide parte inteira e decimal
+              const [integer, decimal] = value.split(",");
+
+              // Formata parte inteira com separador de milhar
+              const formattedInteger = integer.replace(
+                /\B(?=(\d{3})+(?!\d))/g,
+                "."
+              );
+
+              // Monta novamente
+              let formattedValue = formattedInteger;
+              if (decimal !== undefined) {
+                formattedValue += "," + decimal;
+              }
+              setFormData((prev) => ({ ...prev, energia: formattedValue }));
+            }}
           />
         </div>
       )}
@@ -264,41 +285,47 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             </Button>
           ) : (
             <div className="flex gap-4 w-full">
+              <DialogClose asChild>
+                {/* Botão de Reiniciar */}
+                <Button
+                  onClick={() => {
+                    if (!date)
+                      return alert("Selecione o Dia e Hora da finalização!");
+                    // Vai chamar a função do Finalizar
+                    const payload: FormRecargaFinal = {
+                      ...formData,
+                      energia: formData.energia.replace(",", "."),
+                      DtaFin: date.toISOString(),
+                      houveFalha: "sim",
+                      descricaoFalha:
+                        formData.descricaoFalha || "Reinício de recarga",
+                    };
+
+                    finalizarRecarga(item, payload);
+                  }}
+                  className="flex-1 h-14 bg-red-500 text-lg font-bold"
+                >
+                  Reiniciar
+                </Button>
+              </DialogClose>
+
               {/* Botão de Finalizar */}
-              <Button
-                onClick={() => {
-                  if (!date)
-                    return alert("Selecione o Dia e Hora da finalização!");
-                  finalizarRecarga(item, {
-                    ...formData,
-                    DtaFin: date.toISOString(),
-                    forcarSttRcgId6: true,
-                  });
-                }}
-                className="w-full h-14 bg-yellow-500 text-lg font-bold"
-              >
-                Finalizar
-              </Button>
-
-              {/* Botão de Reiniciar */}
-
-              <Button
-                onClick={() => {
-                  if (!date)
-                    return alert("Selecione o Dia e Hora da finalização!");
-                  // Vai chamar a função do Finalizar
-                  finalizarRecarga(item, {
-                    ...formData,
-                    DtaFin: date.toISOString(),
-                    houveFalha: "sim",
-                    descricaoFalha:
-                      formData.descricaoFalha || "Reinício de recarga",
-                  });
-                }}
-                className="flex-1 h-14 bg-red-500 text-lg font-bold"
-              >
-                Reiniciar
-              </Button>
+              <DialogClose asChild>
+                <Button
+                  onClick={() => {
+                    if (!date)
+                      return alert("Selecione o Dia e Hora da finalização!");
+                    finalizarRecarga(item, {
+                      ...formData,
+                      DtaFin: date.toISOString(),
+                      forcarSttRcgId6: true,
+                    });
+                  }}
+                  className="w-full h-14 bg-yellow-500 text-lg font-bold"
+                >
+                  Finalizar
+                </Button>
+              </DialogClose>
             </div>
           )}
         </div>

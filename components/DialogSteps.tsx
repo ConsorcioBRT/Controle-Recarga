@@ -4,6 +4,7 @@ import { Battery, Fuel, Gauge, PlugZap } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { DialogClose, DialogFooter } from "./ui/dialog";
+import { toast } from "sonner";
 
 {
   /* Função para Passar as Etapas de Ônibus Livres */
@@ -47,8 +48,6 @@ const DialogSteps = ({
     odometroConfirme: "",
   });
   const [carregadores, setCarregadores] = useState<Carregador[]>([]);
-  const odometroValido = formData.odometro === formData.odometroConfirme;
-
   const [formConfirmacao, setFormConfirmacao] = useState<
     typeof formData | null
   >(null);
@@ -59,6 +58,7 @@ const DialogSteps = ({
   const [erroOdometro, setErroOdometro] = useState<string | null>(null);
   const odometroMaiorOuIgual =
     Number(formData.odometro) >= (dadosOnibus?.Odometro ?? 0);
+  const odometroValido = formData.odometro === formData.odometroConfirme;
   const [erroOdometroConfirme, setErroOdometroConfirme] = useState<
     string | null
   >(null);
@@ -67,7 +67,8 @@ const DialogSteps = ({
     if (step === 4) {
       const dados = localStorage.getItem("formDataConfirmacao");
       if (dados) {
-        setFormConfirmacao(JSON.parse(dados));
+        const parsed = JSON.parse(dados);
+        setFormConfirmacao(parsed);
       }
     }
   }, [step]);
@@ -156,7 +157,7 @@ const DialogSteps = ({
       const { UndId, VclId, UsrIdAlt } = pegarDadosDoLocalStorage();
 
       if (!UndId || !VclId || !UsrIdAlt) {
-        alert("Faltam dados no localStorage: UndId, VclId ou UsrIdAlt");
+        toast.error("Faltam dados no localStorage: UndId, VclId ou UsrIdAlt");
         return;
       }
 
@@ -204,6 +205,8 @@ const DialogSteps = ({
       }
 
       console.log("Dados enviados para a API:", dadosParaEnviar);
+      console.log("Odômetro formatado:", formData.odometro);
+      console.log("Odômetro numérico:", odometroValor);
 
       const resposta = await fetch("/api/recarga", {
         method: "POST",
@@ -213,17 +216,21 @@ const DialogSteps = ({
 
       if (!resposta.ok) {
         const erro = await resposta.json();
-        alert(
+        toast.error(
           "Erro ao salvar recarga: " + (erro.error || JSON.stringify(erro))
         );
         return;
       }
 
       const dadosResposta = await resposta.json();
-      alert("Recarga inicial criada com sucesso! ID: " + dadosResposta.RcgId);
+      toast.success(`Recarga Iniciada! ID: ${dadosResposta.RcgId}`, {
+        duration: 5000,
+        description: "Seus dados foram salvor com sucesso.",
+        className: "text-lg px-6 py-4 mb-20",
+      });
       iniciarCarregamento(veiculo);
     } catch (error) {
-      alert("Erro ao enviar recarga: " + error);
+      toast.error("Erro ao enviar recarga: " + (error as Error).message);
     }
   }
 
@@ -294,29 +301,34 @@ const DialogSteps = ({
               <div className="p-4 border rounded shadow mb-4">
                 <h2 className="text-lg font-bold mb-2">Última recarga</h2>
                 <p>
-                  <strong>Ônibus:</strong> {dadosOnibus.Onibus}
+                  <strong className="text-xs">Ônibus:</strong>{" "}
+                  {dadosOnibus.Onibus}
                 </p>
                 <p>
-                  <strong>Situação:</strong> {dadosOnibus.Situacao}
+                  <strong className="text-xs">Situação:</strong>{" "}
+                  {dadosOnibus.Situacao}
                 </p>
                 <p>
-                  <strong>Data:</strong>{" "}
+                  <strong className="text-xs">Data:</strong>{" "}
                   {dadosOnibus.Data_Operacao
                     ? new Date(dadosOnibus.Data_Operacao).toLocaleString()
                     : "—"}
                 </p>
                 <p>
-                  <strong>Unidade:</strong> {dadosOnibus.PostoRecarga ?? "—"}
+                  <strong className="text-xs">Unidade:</strong>{" "}
+                  {dadosOnibus.PostoRecarga ?? "—"}
                 </p>
                 <p>
-                  <strong>Soc Final:</strong> {dadosOnibus.Bateria ?? "—"}%
+                  <strong className="text-xs">Soc Final:</strong>{" "}
+                  {dadosOnibus.Bateria ?? "—"}%
                 </p>
                 <p>
-                  <strong>Odômetro Final:</strong> {dadosOnibus.Odometro ?? "—"}{" "}
-                  km
+                  <strong className="text-xs">Odômetro Final:</strong>{" "}
+                  {dadosOnibus.Odometro ?? "—"} km
                 </p>
                 <p>
-                  <strong>Total Kwh:</strong> {dadosOnibus.Carga_kWh ?? "—"}
+                  <strong className="text-xs">Total Kwh:</strong>{" "}
+                  {dadosOnibus.Carga_kWh ?? "—"}
                 </p>
               </div>
             )}
@@ -329,12 +341,15 @@ const DialogSteps = ({
                 id="percentual"
                 type="number"
                 value={formData.percentualInicial} // aqui irá ser o final e quando reiniciar ele passa a ser inicial
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    percentualInicial: e.target.value,
-                  }))
-                }
+                onChange={(e) => {
+                  const value = Number(e.target.value);
+                  if (value >= 0 && value <= 100) {
+                    setFormData((prev) => ({
+                      ...prev,
+                      percentualInicial: e.target.value,
+                    }));
+                  }
+                }}
               />
             </div>
             <div className="grid gap-3">
@@ -344,7 +359,7 @@ const DialogSteps = ({
               </Label>
               <Input
                 id="odometro"
-                type="number"
+                type="text"
                 value={formData.odometro}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, odometro: e.target.value }))
@@ -374,7 +389,7 @@ const DialogSteps = ({
               </Label>
               <Input
                 id="odometroConfirme"
-                type="number"
+                type="text"
                 value={formData.odometroConfirme}
                 onChange={(e) =>
                   setFormData((prev) => ({
@@ -467,19 +482,21 @@ const DialogSteps = ({
             </Button>
           ) : (
             // Botão Carregar na step 4
-            <Button
-              type="submit"
-              onClick={() => {
-                if (!formConfirmacao) {
-                  alert("Nenhum dado para enviar");
-                  return;
-                }
-                enviarRecargaInicial(formConfirmacao);
-              }}
-              className="w-full h-14 bg-blue-500 text-lg font-bold"
-            >
-              Carregar
-            </Button>
+            <DialogClose asChild>
+              <Button
+                type="submit"
+                onClick={() => {
+                  if (!formConfirmacao) {
+                    alert("Nenhum dado para enviar");
+                    return;
+                  }
+                  enviarRecargaInicial(formConfirmacao);
+                }}
+                className="w-full h-14 bg-blue-500 text-lg font-bold"
+              >
+                Carregar
+              </Button>
+            </DialogClose>
           )}
         </div>
       </DialogFooter>

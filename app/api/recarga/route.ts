@@ -74,7 +74,7 @@ export async function POST(request: Request) {
       orderBy: { DtaIni: "desc" },
     });
 
-    // Aqui se a última recarga terminar com erro, usar ele como orgigem
+    // Aqui se a última recarga terminar com erro, usar ele como origem
     let rcgIdOrgNovo = 0;
     let dtaOpeNovo = new Date();
     if (ultimaRecarga) {
@@ -98,20 +98,20 @@ export async function POST(request: Request) {
         DtaIni: agora,
         DtaOpe: dtaOpeNovo,
         SocIni: Number(SocIni),
-        OdoIni: ultimaRecarga?.OdoFin || null, // se não houver anterior, fica null
-        OdoFin: OdoFin !== undefined ? Number(OdoFin) : null,
+        OdoIni: ultimaRecarga?.OdoFin
+          ? new Prisma.Decimal(Number(ultimaRecarga.OdoFin).toFixed(1))
+          : null, // se não houver anterior, fica null
+        OdoFin:
+          OdoFin !== undefined
+            ? new Prisma.Decimal(Number(OdoFin).toFixed(1))
+            : null,
         UsrIdAlt: Number(UsrIdAlt),
-        RcgIdOrg: rcgIdOrgNovo,
+        RcgIdOrg: rcgIdOrgNovo || null,
         EmpId: Number(EmpId),
         SttRcgId: 5,
         SttId: 1,
         FlhId: 0,
       },
-    });
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/realtime/publish`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tipo: "iniciar", Onibus: VclId }),
     });
     return NextResponse.json(novaRecarga);
   } catch (error) {
@@ -159,7 +159,18 @@ export async function PUT(request: Request) {
       );
     }
 
-    const dadosAtualizados: Partial<Prisma.rcgUpdateInput> = {};
+    type DadosAtualizadosType = {
+      DtaFin?: Date;
+      SocFin?: number;
+      RcgKwh?: Prisma.Decimal;
+      OdoFin?: Prisma.Decimal;
+      FlhDsc?: string;
+      SttRcgId?: number;
+      FlhId?: number;
+      RcgIdOrg?: number;
+    };
+
+    const dadosAtualizados: DadosAtualizadosType = {};
 
     if (DtaFin && !recargaExistente.DtaFin) {
       dadosAtualizados.DtaFin = new Date(DtaFin);
@@ -174,16 +185,16 @@ export async function PUT(request: Request) {
 
     if (
       RcgKwh !== undefined &&
-      (!recargaExistente.RcgKwh || recargaExistente.RcgKwh === 0)
+      (!recargaExistente.RcgKwh || recargaExistente.RcgKwh.toNumber() === 0)
     ) {
-      dadosAtualizados.RcgKwh = Number(RcgKwh);
+      dadosAtualizados.RcgKwh = new Prisma.Decimal(Number(RcgKwh).toFixed(3));
     }
 
     if (
       OdoFin !== undefined &&
-      (!recargaExistente.OdoFin || recargaExistente.OdoFin === 0)
+      (!recargaExistente.OdoFin || recargaExistente.OdoFin.toNumber() === 0)
     ) {
-      dadosAtualizados.OdoFin = Number(OdoFin);
+      dadosAtualizados.OdoFin = new Prisma.Decimal(Number(OdoFin).toFixed(1));
     }
 
     if (FlhDsc && !recargaExistente.FlhDsc) {
@@ -193,6 +204,9 @@ export async function PUT(request: Request) {
     if (forcarSttRcgId6) {
       dadosAtualizados.SttRcgId = 6; // aqui vai atualiazr normalmente sem erro
       dadosAtualizados.FlhId = FlhId || 0;
+      if (!recargaExistente.RcgIdOrg) {
+        dadosAtualizados.RcgIdOrg = recargaExistente.RcgId;
+      }
     } else if (FlhId === 1) {
       // finalizada com erro
       dadosAtualizados.FlhId = 1;
@@ -213,15 +227,6 @@ export async function PUT(request: Request) {
     });
 
     console.log("Recarga atualizada:", recargaAtualizada);
-
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/realtime/publish`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        tipo: "finalizar",
-        Onibus: recargaAtualizada.VclId,
-      }),
-    });
     return NextResponse.json({ recargaAtualizada });
   } catch (error) {
     console.error("Erro ao atualizar recarga:", error);

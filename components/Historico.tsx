@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -18,58 +20,41 @@ import {
 import Footer from "./Footer";
 import { Separator } from "./ui/separator";
 
+type OnibusComRecarga = {
+  EqpItmId: number;
+  Onibus: string;
+  Situacao: string;
+  Data_Operacao: string;
+  UndId: number;
+  PostoRecarga: string | null;
+  Bateria: number | null;
+  Odometro: number | null;
+  Carga_kWh: number | null;
+  RcgId: number | null;
+};
+
 const Historico = () => {
-  const falhas = [
-    {
-      onibus: "1012",
-      status: "Recarga Rápida",
-      data: "10/08/2026",
-      descricao:
-        "Falha ao tentar recarregar durante a rota 32B. Sistema reiniciou automaticamente após 5 minutos.",
-      operador: "Flávio Augusto",
-      hora: "00:45",
-    },
-    {
-      onibus: "1015",
-      status: "Bateria Fraca",
-      data: "12/08/2026",
-      descricao:
-        "O sistema identificou falha crítica no módulo de bateria. Ônibus precisou retornar à garagem.",
-      operador: "José Augusto",
-      hora: "10:05",
-    },
-    {
-      onibus: "1021",
-      status: "GPS Desativado",
-      data: "13/08/2026",
-      descricao:
-        "O GPS do ônibus parou de funcionar após perda de sinal em área urbana.",
-      operador: "Maria Clara",
-      hora: "05:07",
-    },
-    {
-      onibus: "1009",
-      status: "Sistema Travado",
-      data: "14/08/2026",
-      descricao:
-        "Interface do painel congelou durante o trajeto. Reinicialização forçada pelo motorista.",
-      operador: "Carlos Eduardo",
-      hora: "08:56",
-    },
-    {
-      onibus: "1018",
-      status: "Conexão Perdida",
-      data: "15/08/2026",
-      descricao:
-        "O sistema perdeu conexão com o servidor central por mais de 10 minutos.",
-      operador: "Aline Souza",
-      hora: "14:23",
-    },
-  ];
+  const [onibus, setOnibus] = useState<OnibusComRecarga[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchOnibus() {
+      try {
+        const res = await fetch("/api/veiculos");
+        const data = await res.json();
+        setOnibus(data);
+      } catch (error) {
+        console.error("Erro ao buscar ônibus", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchOnibus();
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-grow">
+      <main className="flex-grow mb-16">
         <div className="flex items-center justify-center mt-10 mb-10">
           <h1 className="text-2xl">Histórico de Recargas</h1>
         </div>
@@ -81,51 +66,88 @@ const Historico = () => {
               <TableRow>
                 <TableHead className="w-[100px]">Ônibus</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead>Eletroposto</TableHead>
                 <TableHead>Data</TableHead>
-                <TableHead>Hora</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {falhas.map((falha, index) => (
-                <Dialog key={index}>
-                  <DialogTrigger asChild>
-                    <TableRow>
-                      <TableCell className="text-xs">{falha.onibus}</TableCell>
-                      <TableCell className="text-xs">{falha.status}</TableCell>
-                      <TableCell className="text-xs">{falha.data}</TableCell>
-                      <TableCell className="text-xs">{falha.hora}</TableCell>
-                    </TableRow>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-sm w-full rounded-xl p-6">
-                    <DialogHeader>
-                      <DialogTitle>
-                        Resumo da Falha - Ônibus {falha.onibus}
-                        <Separator className="mt-2" />
-                      </DialogTitle>
+              {loading ? (
+                <TableRow>
+                  <TableCell colSpan={4}>Carregando ...</TableCell>
+                </TableRow>
+              ) : onibus.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={4}>Nenhum ônibus encontrado</TableCell>
+                </TableRow>
+              ) : (
+                onibus.map((item, index) => (
+                  <Dialog key={index}>
+                    <DialogTrigger asChild>
+                      <TableRow>
+                        <TableCell className="text-xs">{item.Onibus}</TableCell>
+                        <TableCell className="text-xs">
+                          {item.Situacao}
+                        </TableCell>
+                        <TableCell className="text-xs">
+                          {item.PostoRecarga}
+                        </TableCell>
+                        <TableCell className="text-xs">
+                          {item.Data_Operacao
+                            ? new Date(item.Data_Operacao).toLocaleDateString(
+                                "pt-BR",
+                                {
+                                  timeZone: "UTC",
+                                }
+                              )
+                            : "—"}
+                        </TableCell>
+                      </TableRow>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-sm w-full rounded-xl p-6">
+                      <DialogHeader>
+                        <DialogTitle>
+                          Resumo da Recarga - Ônibus {item.Onibus}
+                          <Separator className="mt-2" />
+                        </DialogTitle>
 
-                      <div className="flex flex-col items-start gap-3">
-                        <div className="flex items-center gap-10 mt-3">
+                        <div className="flex flex-col items-start gap-3">
+                          <div className="flex items-center gap-10 mt-3">
+                            <h1 className="bg-white  p-2 rounded-lg">
+                              <strong>Ônibus:</strong> {item.Onibus}
+                            </h1>
+                            <h1 className="bg-white  p-2 rounded-lg">
+                              <strong>Data:</strong>{" "}
+                              {item.Data_Operacao
+                                ? new Date(
+                                    item.Data_Operacao
+                                  ).toLocaleDateString("pt-BR", {
+                                    timeZone: "UTC",
+                                  })
+                                : "—"}
+                            </h1>
+                          </div>
                           <h1 className="bg-white  p-2 rounded-lg">
-                            <strong>Data:</strong> {falha.data}
+                            <strong>Status:</strong> {item.Situacao}
                           </h1>
                           <h1 className="bg-white  p-2 rounded-lg">
-                            <strong>Hora:</strong> {falha.hora}
+                            <strong>Eletroposto:</strong> {item.PostoRecarga}
+                          </h1>
+                          <h1 className="bg-white  p-2 rounded-lg text-justify">
+                            <strong>Bateria:</strong> {item.Bateria} %
+                          </h1>
+                          <h1 className="bg-white  p-2 rounded-lg text-justify">
+                            <strong>Odômetro:</strong> {item.Odometro}
+                          </h1>
+                          <h1 className="bg-white  p-2 rounded-lg text-justify">
+                            <strong>Carga Utilizada:</strong> {item.Carga_kWh}{" "}
+                            kWh
                           </h1>
                         </div>
-                        <h1 className="bg-white  p-2 rounded-lg">
-                          <strong>Status:</strong> {falha.status}
-                        </h1>
-                        <h1 className="bg-white  p-2 rounded-lg">
-                          <strong>Operador:</strong> {falha.operador}
-                        </h1>
-                        <h1 className="bg-white  p-2 rounded-lg text-justify">
-                          <strong>Descrição:</strong> {falha.descricao}
-                        </h1>
-                      </div>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              ))}
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
+                ))
+              )}
             </TableBody>
           </Table>
         </div>

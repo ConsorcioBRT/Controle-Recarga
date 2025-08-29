@@ -14,6 +14,7 @@ import Footer from "./Footer";
 import { Circle, Zap } from "lucide-react";
 import DialogStepsCarregando from "./DialogStepsCarregando";
 import DialogSteps from "./DialogSteps";
+import { toast } from "sonner";
 
 type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
@@ -60,7 +61,7 @@ const Abastecimento = () => {
     }
 
     fetchVeiculos();
-    const interval = setInterval(fetchVeiculos, 15000); // a cada 15s
+    const interval = setInterval(fetchVeiculos, 2000); // a cada 15s
     return () => clearInterval(interval);
   }, []);
 
@@ -146,10 +147,13 @@ const Abastecimento = () => {
 
       setLivres((prev) => (!novaRecarga ? [...prev, onibusItem] : prev));
 
-      alert("Recarga finalizada com sucesso!");
+      toast.success("Recarga finalizada com sucesso!", {
+        duration: 6000,
+        className: "text-3xl mb-20",
+      });
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
-      alert("Erro ao finalizar recarga");
+      toast.error("Erro ao finalizar recarga");
     }
   }
 
@@ -218,7 +222,7 @@ const Abastecimento = () => {
                   Nenhum ônibus carregando
                 </p>
               ) : (
-                <div className="grid grid-cols-4 sm:grid-cols-2 gap-1 mt-5">
+                <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
                   {carregando.map((item, index) => (
                     <Dialog key={index}>
                       <DialogTrigger asChild>

@@ -1,5 +1,6 @@
 "use client";
 
+import { login } from "@/app/(auth)/login/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,7 @@ interface Usuario {
   UsrEml: string;
   UsrId: number;
   UsrTpoId: number;
+  UsrLgn: string;
 }
 
 const Login = () => {
@@ -36,6 +38,17 @@ const Login = () => {
       }
 
       const userLogged: Usuario = await res.json();
+
+      // Determina qual campo foi usado para login: email, CPF ou login
+      const campoLogin =
+        usuario === userLogged.UsrEml
+          ? userLogged.UsrEml
+          : usuario === userLogged.UsrCpf
+          ? userLogged.UsrCpf
+          : userLogged.UsrLgn;
+
+      // chama a função de setar o cookie
+      await login({ usuario: campoLogin, senha });
       localStorage.setItem("usuarioLogado", JSON.stringify(userLogged));
       router.push("/terminal");
     } catch (error) {

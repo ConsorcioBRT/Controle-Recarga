@@ -4,7 +4,7 @@ import { Battery, Fuel, Gauge, PlugZap } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { DialogClose, DialogFooter } from "./ui/dialog";
-import { toast } from "sonner";
+import { toast } from "react-hot-toast";
 
 {
   /* Função para Passar as Etapas de Ônibus Livres */
@@ -224,8 +224,7 @@ const DialogSteps = ({
 
       const dadosResposta = await resposta.json();
       toast.success(`Recarga Iniciada! ID: ${dadosResposta.RcgId}`, {
-        duration: 5000,
-        description: "Seus dados foram salvor com sucesso.",
+        duration: 7000,
         className: "text-lg px-6 py-4 mb-20",
       });
       iniciarCarregamento(veiculo);
@@ -298,15 +297,11 @@ const DialogSteps = ({
         {step === 3 && (
           <>
             {dadosOnibus && (
-              <div className="p-4 border rounded shadow mb-4">
+              <div className="p-4 border rounded shadow mb-4 bg-white">
                 <h2 className="text-lg font-bold mb-2">Última recarga</h2>
                 <p>
                   <strong className="text-xs">Ônibus:</strong>{" "}
                   {dadosOnibus.Onibus}
-                </p>
-                <p>
-                  <strong className="text-xs">Situação:</strong>{" "}
-                  {dadosOnibus.Situacao}
                 </p>
                 <p>
                   <strong className="text-xs">Data:</strong>{" "}
@@ -328,7 +323,7 @@ const DialogSteps = ({
                 </p>
                 <p>
                   <strong className="text-xs">Total Kwh:</strong>{" "}
-                  {dadosOnibus.Carga_kWh ?? "—"}
+                  {dadosOnibus.Carga_kWh ?? "—"} kwh
                 </p>
               </div>
             )}
@@ -350,6 +345,7 @@ const DialogSteps = ({
                     }));
                   }
                 }}
+                className="bg-white"
               />
             </div>
             <div className="grid gap-3">
@@ -377,6 +373,7 @@ const DialogSteps = ({
                   }
                 }}
                 placeholder="0"
+                className="bg-white"
               />
               {erroOdometro && (
                 <p className="text-red-600 text-sm mt-1">{erroOdometro}</p>
@@ -405,6 +402,7 @@ const DialogSteps = ({
                   }
                 }}
                 placeholder="0"
+                className="bg-white"
               />
               {erroOdometroConfirme && (
                 <p className="text-red-600 text-sm mt-1">

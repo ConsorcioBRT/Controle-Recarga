@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import { LogOut, MapPin } from "lucide-react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 interface Usuario {
   UsrNme: string;
@@ -9,6 +10,19 @@ interface Usuario {
   UsrEml: string;
   UsrId: number;
   UsrTpoId: number;
+}
+
+interface Veiculo {
+  EqpItmId: number;
+  Onibus: string;
+  Situacao: string;
+  Data_Operacao: string;
+  UndId: number;
+  PostoRecarga: string;
+  Bateria: number;
+  Odometro: number;
+  Carga_kWh: number;
+  Capacidade_Termica: number;
 }
 
 type EletropostoSelecionado = {
@@ -36,8 +50,51 @@ const Header = () => {
   }, []);
 
   const handleLogout = async () => {
-    localStorage.removeItem("usuarioLogado"); // Vai limpar o localStorage
-    router.push("/");
+    // Aqui vai pegar o Veículo da api
+    const response = await fetch("/api/veiculos");
+    const onibus: Veiculo[] = await response.json();
+
+    // Vai verificar se tem recarga iniciada
+    const recargaAberta = onibus.some(
+      (v: Veiculo) => v.Situacao === "INICIADA"
+    );
+
+    // Se caso houver recarga iniciada, vai mostrar um aviso
+    if (recargaAberta) {
+      // Mostra o toast e espera o clique no botão
+      toast.custom((t) => (
+        <div className="bg-white text-black p-4 rounded shadow-lg flex flex-col gap-2">
+          <span>Ainda possui recarga em aberto!</span>
+          <button
+            className="bg-gray-800 text-white px-4 py-2 rounded font-bold"
+            onClick={async () => {
+              toast.dismiss(t.id); // fecha o toast
+              // Executa o logout após o clique
+              await fetch("/api/logout");
+              localStorage.removeItem("formDataConfirmacao");
+              localStorage.removeItem("usuarioLogado");
+              localStorage.removeItem("eletropostoSelecionado");
+              localStorage.removeItem("veiculoSelecionado");
+              router.push("/");
+            }}
+          >
+            OK
+          </button>
+        </div>
+      ));
+      return; // impede que o logout continue até o clique
+    }
+
+    try {
+      await fetch("/api/logout"); // chama a api para apagar o cookie
+      localStorage.removeItem("formDataConfirmacao"); // Vai limpar o Confirmação do localStorage
+      localStorage.removeItem("usuarioLogado"); // Vai limpar o Usuários do localStorage
+      localStorage.removeItem("eletropostoSelecionado"); // Vai limpar o Eletroposto do localStorage
+      localStorage.removeItem("veiculoSelecionado"); // Vai limpar o Veículo do localStorage
+      router.push("/");
+    } catch (error) {
+      console.error("Erro no logout:", error);
+    }
   };
 
   return (

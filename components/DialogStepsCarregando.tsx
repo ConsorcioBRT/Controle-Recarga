@@ -52,10 +52,13 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
     descricaoFalha: "",
   });
   const [date, setDate] = React.useState<Date | undefined>(new Date());
-
   const [odometroPreenchido, setOdometroPreenchido] = useState(
     item.odometroPreenchido ?? false
   );
+  const veiculoSelecionado = JSON.parse(
+    localStorage.getItem("veiculoSelecionado") || "{}"
+  );
+  const odometroLocalStorage = veiculoSelecionado.Odometro || "";
 
   useEffect(() => {
     // Aqui vai pegar o odômetro do LocalStorage
@@ -86,16 +89,29 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
       return alert("Preencha o percentual");
     }
 
-    // Step 3 - Odômetro (só se for obrigatório)
-    if (step === 3 && odometroObrigatorio && !odometroValido) {
-      return alert("Preencha o odômetro");
+    // Step 2 - Energia utilizada
+    if (step === 2 && !formData.energia) {
+      return alert("Preencha a energia utilizada");
     }
 
-    // Vai pular o Step 3 se já tiver o odômetro preenchido
+    // Step 3 - Odômetro (só se for obrigatório)
+    if (step === 3) {
+      if (odometroObrigatorio && !odometroValido) {
+        return alert("Preencha o odômetro");
+      }
+      // Se não for obrigatório, pula direto para o Step 4
+      if (!odometroObrigatorio) {
+        setStep(4);
+        return;
+      }
+    }
+
+    // Pula Step 3 se odômetro não for obrigatório
     if (step === 2 && !odometroObrigatorio) {
       setStep(4);
       return;
     }
+
     setStep(step + 1);
   };
 
@@ -117,6 +133,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                 setFormData((prev) => ({ ...prev, percentualFinal: value }));
               }
             }}
+            className="bg-white"
           />
         </div>
       )}
@@ -149,6 +166,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
               }
               setFormData((prev) => ({ ...prev, energia: formattedValue }));
             }}
+            className="bg-white"
           />
         </div>
       )}
@@ -156,7 +174,12 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
       {/* STEP 3: Odômetro */}
       {step === 3 && odometroObrigatorio && (
         <div className="grid gap-3">
-          <Label>Odômetro (km)</Label>
+          <div className="flex items-center gap-2">
+            <Label>Odômetro (km):</Label>
+            <span className="text-gray-800">{odometroLocalStorage} km</span>
+          </div>
+
+          <Label>Coloque o odômetro novamente:</Label>
           <Input
             type="text"
             value={formData.odometro}
@@ -164,11 +187,9 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
               setFormData((prev) => ({ ...prev, odometro: e.target.value }))
             }
           />
-          {!odometroValido && (
-            <p className="text-red-600">Informe o odômetro</p>
-          )}
         </div>
       )}
+
       {/* STEP 4: Calendário */}
       {step === 4 && (
         <div className="grid gap-3">
@@ -216,7 +237,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
               novaData.setMinutes(m);
               setDate(novaData);
             }}
-            className="p-2 border rounded"
+            className="p-2 border rounded bg-white w-full"
           />
         </div>
       )}
@@ -231,7 +252,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
               setFormData((prev) => ({ ...prev, houveFalha: val }))
             }
           >
-            <SelectTrigger>
+            <SelectTrigger className="bg-white">
               <SelectValue placeholder="Selecione" />
             </SelectTrigger>
             <SelectContent>
@@ -251,6 +272,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                     descricaoFalha: e.target.value,
                   }))
                 }
+                className="bg-white"
               />
             </>
           )}

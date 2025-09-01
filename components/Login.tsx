@@ -7,6 +7,7 @@ import { Lock, User } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 interface Usuario {
   UsrNme: string;
@@ -24,21 +25,32 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("/api/usuarios", {
+      const loginPromise = fetch("/api/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, senha }),
+      }).then(async (res) => {
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.message); // rejeita a promise
+        }
+        return res.json(); // resolve a promise
       });
 
-      if (!res.ok) {
-        const err = await res.json();
-        alert(err.message);
-        return;
-      }
+      const data = await toast.promise(
+        loginPromise,
+        {
+          loading: "Validando login...",
+          success: "Login validado com sucesso!",
+          error: (err) => `Erro: ${err.message}`,
+        },
+        {
+          duration: 5000, // 5 segundos
+          className: "text-xl p-2",
+        }
+      );
 
-      const data = await res.json();
       const userLogged: Usuario = data.user;
-
       localStorage.setItem("usuarioLogado", JSON.stringify(userLogged));
       router.push("/terminal");
     } catch (error) {
@@ -49,7 +61,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       {/* Div onde irá ficar o forms de login e senha */}
-      <div className="flex flex-col gap-6 p-6 w-80 items-center justify-center shadow-xl rounded-xl">
+      <div className="flex flex-col gap-6 p-6 w-80 items-center justify-center shadow-xl rounded-xl bg-white">
         <div>
           <Image
             src="/image/brtgo_logo.jpg"
@@ -66,7 +78,7 @@ const Login = () => {
               type="text"
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
-              className="h-12 w-64"
+              className="h-12 w-64 bg-gray-100"
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
               <User />
@@ -80,7 +92,7 @@ const Login = () => {
               type="password"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              className="h-12 w-64"
+              className="h-12 w-64 bg-gray-100"
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
               <Lock />

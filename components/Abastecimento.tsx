@@ -14,7 +14,7 @@ import Footer from "./Footer";
 import { Circle, Zap } from "lucide-react";
 import DialogStepsCarregando from "./DialogStepsCarregando";
 import DialogSteps from "./DialogSteps";
-import { toast } from "sonner";
+import { toast } from "react-hot-toast";
 
 type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
@@ -149,7 +149,7 @@ const Abastecimento = () => {
 
       toast.success("Recarga finalizada com sucesso!", {
         duration: 6000,
-        className: "text-3xl mb-20",
+        className: "text-lg mb-20",
       });
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
@@ -185,7 +185,7 @@ const Abastecimento = () => {
                       {item.Onibus}
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-sm w-full rounded-xl p-6">
+                  <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
                     <DialogHeader className="flex items-start">
                       <DialogTitle className="flex items-center gap-2">
                         <Zap className="text-blue-500" />
@@ -237,7 +237,7 @@ const Abastecimento = () => {
                         </Button>
                       </DialogTrigger>
 
-                      <DialogContent className="max-w-sm w-full rounded-xl p-6">
+                      <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
                         <DialogHeader className="flex items-start">
                           <DialogTitle className="flex items-center gap-2">
                             <Zap className="text-yellow-500" />

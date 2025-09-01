@@ -27,7 +27,6 @@ export async function GET() {
 
 // Aqui será o POST - Usando a criptografia
 const ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || "access-secret";
-const REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || "refresh-secret";
 export async function POST(request: NextRequest) {
   try {
     const { usuario, senha } = await request.json();
@@ -70,16 +69,6 @@ export async function POST(request: NextRequest) {
       { expiresIn: "15m" }
     );
 
-    // Gera o Token por 7 dias
-    const refreshToken = jwt.sign(
-      {
-        id: user.UsrId,
-        email: user.UsrEml,
-      },
-      REFRESH_SECRET,
-      { expiresIn: "7d" }
-    );
-
     const response = NextResponse.json({
       message: "Login realizado com sucesso",
       user: userSemSenha,
@@ -91,13 +80,6 @@ export async function POST(request: NextRequest) {
       secure: process.env.NODE_ENV === "production",
       path: "/",
       maxAge: 60 * 15, // 15min
-    });
-
-    response.cookies.set("refreshToken", refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 7, // 7 dias
     });
 
     return response;

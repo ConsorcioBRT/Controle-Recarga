@@ -1,5 +1,5 @@
 "use client";
-import { Check, Fuel, History, Home } from "lucide-react";
+import { Fuel, Home } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
@@ -34,16 +34,20 @@ const Footer = ({ className = "" }: FooterProps) => {
         </Link>
 
         {/* Histórico */}
+        {/*
         <Link href="/historico" className="flex flex-col items-center">
           <History className={`w-5 h-5 ${linkClasses("/historico")}`} />
           <span className={linkClasses("/historico")}>Histórico</span>
         </Link>
+        */}
 
         {/* CheckList */}
+        {/*
         <Link href="/checklist" className="flex flex-col items-center">
           <Check className={`w-5 h-5 ${linkClasses("/checklist")}`} />
           <span className={linkClasses("/checklist")}>CheckList</span>
         </Link>
+         */}
       </div>
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import { LogOut, MapPin } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { logout } from "@/app/(auth)/login/actions";
 
 interface Usuario {
   UsrNme: string;
@@ -37,9 +36,8 @@ const Header = () => {
   }, []);
 
   const handleLogout = async () => {
-    await logout();
     localStorage.removeItem("usuarioLogado"); // Vai limpar o localStorage
-    router.push("/login");
+    router.push("/");
   };
 
   return (

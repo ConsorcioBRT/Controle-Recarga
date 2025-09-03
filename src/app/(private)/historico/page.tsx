@@ -1,4 +1,4 @@
-import Historico from "@/components/Historico";
+import Historico from "@/src/components/Historico";
 import React from "react";
 
 const HistoricoPage = () => {

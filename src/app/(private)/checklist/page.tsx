@@ -1,4 +1,4 @@
-import CheckList from "@/components/CheckList";
+import CheckList from "@/src/components/CheckList";
 import React from "react";
 
 const CheckListPage = () => {

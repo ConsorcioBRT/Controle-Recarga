@@ -1,4 +1,4 @@
-import Abastecimento from "@/components/Abastecimento";
+import Abastecimento from "@/src/components/Abastecimento";
 import React from "react";
 
 const AbastecimentoPage = () => {

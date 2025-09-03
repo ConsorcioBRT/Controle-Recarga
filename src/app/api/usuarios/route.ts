@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import prisma from "@/lib/prisma";
+import prisma from "@/src/lib/prisma";
 import jwt from "jsonwebtoken";
 
 export async function GET() {
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 15, // 15min
+      maxAge: 60 * 30, // 30min (é sempre considerado em segundos)
     });
 
     return response;

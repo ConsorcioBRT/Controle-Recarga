@@ -1,5 +1,5 @@
-import { Prisma } from "@/lib/generated/prisma";
-import prisma from "@/lib/prisma";
+import { Prisma } from "@/src/lib/generated/prisma";
+import prisma from "@/src/lib/prisma";
 import { NextResponse } from "next/server";
 
 // Aqui será o GET
@@ -38,8 +38,6 @@ export async function GET() {
   }
 }
 
-// Aqui será o POST
-
 // Aqui vai ser para a Data da Operação ser sempre o dia anterior quando for 00h até 4:59h
 function ajustarDtaOpe(dtaIni: Date, dtaOpep: Date) {
   const hora = dtaIni.getHours();
@@ -48,10 +46,13 @@ function ajustarDtaOpe(dtaIni: Date, dtaOpep: Date) {
   }
   return dtaOpep;
 }
+
+// Aqui será o POST
 export async function POST(request: Request) {
   try {
+    const body = await request.json();
     const { UndId, VclId, CrrId, CrrCnc, SocIni, OdoFin, UsrIdAlt, EmpId } =
-      await request.json();
+      body;
 
     if (
       !UndId ||

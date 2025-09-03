@@ -1,4 +1,4 @@
-import Terminal from "@/components/Terminal";
+import Terminal from "@/src/components/Terminal";
 import React from "react";
 
 const TerminalPage = () => {

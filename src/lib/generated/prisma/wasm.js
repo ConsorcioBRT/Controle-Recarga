@@ -348,6 +348,7 @@ exports.Prisma.Psq_tpoScalarFieldEnum = {
 };
 
 exports.Prisma.VwOnibusScalarFieldEnum = {
+  RcgIdOrg: 'RcgIdOrg',
   EqpItmId: 'EqpItmId',
   Onibus: 'Onibus',
   Situacao: 'Situacao',

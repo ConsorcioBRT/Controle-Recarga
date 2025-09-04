@@ -10,6 +10,7 @@ export async function GET(request: NextRequest) {
     const onibus = await prisma.vwOnibus.findMany({
       where: eqpItmId ? { EqpItmId: Number(eqpItmId) } : undefined,
       select: {
+        RcgIdOrg: true,
         EqpItmId: true,
         Onibus: true,
         Situacao: true,
@@ -19,6 +20,7 @@ export async function GET(request: NextRequest) {
         Bateria: true,
         Odometro: true,
         Carga_kWh: true,
+        Capacidade_Tecnica: true,
       },
       orderBy: { Onibus: "asc" },
     });

@@ -426,6 +426,7 @@ model psq_tpo {
 
 /// View: vw_onibus
 model VwOnibus {
+  RcgIdOrg            Int?          @map("RcgIdOrg")
   EqpItmId            Int           @id @map("EqpItmId") // ID único
   Onibus              String        @map("Onibus")
   Situacao            String        @map("Situacao")

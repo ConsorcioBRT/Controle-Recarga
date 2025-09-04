@@ -13,6 +13,7 @@ import { toast } from "react-hot-toast";
 const conectores = ["1", "2", "ambos"];
 
 type DadosOnibus = {
+  RcgIdOrg: number;
   EqpItmId: number;
   Onibus: string;
   Situacao: string;
@@ -22,6 +23,7 @@ type DadosOnibus = {
   Bateria: number | null;
   Odometro: number | null;
   Carga_kWh: number | null;
+  Capacidade_Tecnica: number;
 };
 
 type Carregador = {

@@ -22609,6 +22609,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusAvgAggregateOutputType = {
+    RcgIdOrg: number | null
     EqpItmId: number | null
     UndId: number | null
     Bateria: number | null
@@ -22618,6 +22619,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusSumAggregateOutputType = {
+    RcgIdOrg: number | null
     EqpItmId: number | null
     UndId: number | null
     Bateria: number | null
@@ -22627,6 +22629,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusMinAggregateOutputType = {
+    RcgIdOrg: number | null
     EqpItmId: number | null
     Onibus: string | null
     Situacao: string | null
@@ -22640,6 +22643,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusMaxAggregateOutputType = {
+    RcgIdOrg: number | null
     EqpItmId: number | null
     Onibus: string | null
     Situacao: string | null
@@ -22653,6 +22657,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusCountAggregateOutputType = {
+    RcgIdOrg: number
     EqpItmId: number
     Onibus: number
     Situacao: number
@@ -22668,6 +22673,7 @@ export namespace Prisma {
 
 
   export type VwOnibusAvgAggregateInputType = {
+    RcgIdOrg?: true
     EqpItmId?: true
     UndId?: true
     Bateria?: true
@@ -22677,6 +22683,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusSumAggregateInputType = {
+    RcgIdOrg?: true
     EqpItmId?: true
     UndId?: true
     Bateria?: true
@@ -22686,6 +22693,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusMinAggregateInputType = {
+    RcgIdOrg?: true
     EqpItmId?: true
     Onibus?: true
     Situacao?: true
@@ -22699,6 +22707,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusMaxAggregateInputType = {
+    RcgIdOrg?: true
     EqpItmId?: true
     Onibus?: true
     Situacao?: true
@@ -22712,6 +22721,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusCountAggregateInputType = {
+    RcgIdOrg?: true
     EqpItmId?: true
     Onibus?: true
     Situacao?: true
@@ -22812,6 +22822,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusGroupByOutputType = {
+    RcgIdOrg: number | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -22844,6 +22855,7 @@ export namespace Prisma {
 
 
   export type VwOnibusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    RcgIdOrg?: boolean
     EqpItmId?: boolean
     Onibus?: boolean
     Situacao?: boolean
@@ -22859,6 +22871,7 @@ export namespace Prisma {
 
 
   export type VwOnibusSelectScalar = {
+    RcgIdOrg?: boolean
     EqpItmId?: boolean
     Onibus?: boolean
     Situacao?: boolean
@@ -22871,12 +22884,13 @@ export namespace Prisma {
     Capacidade_Tecnica?: boolean
   }
 
-  export type VwOnibusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"EqpItmId" | "Onibus" | "Situacao" | "Data_Operacao" | "UndId" | "PostoRecarga" | "Bateria" | "Odometro" | "Carga_kWh" | "Capacidade_Tecnica", ExtArgs["result"]["vwOnibus"]>
+  export type VwOnibusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgIdOrg" | "EqpItmId" | "Onibus" | "Situacao" | "Data_Operacao" | "UndId" | "PostoRecarga" | "Bateria" | "Odometro" | "Carga_kWh" | "Capacidade_Tecnica", ExtArgs["result"]["vwOnibus"]>
 
   export type $VwOnibusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "VwOnibus"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
+      RcgIdOrg: number | null
       EqpItmId: number
       Onibus: string
       Situacao: string
@@ -22970,8 +22984,8 @@ export namespace Prisma {
      * // Get first 10 VwOnibuses
      * const vwOnibuses = await prisma.vwOnibus.findMany({ take: 10 })
      * 
-     * // Only select the `EqpItmId`
-     * const vwOnibusWithEqpItmIdOnly = await prisma.vwOnibus.findMany({ select: { EqpItmId: true } })
+     * // Only select the `RcgIdOrg`
+     * const vwOnibusWithRcgIdOrgOnly = await prisma.vwOnibus.findMany({ select: { RcgIdOrg: true } })
      * 
      */
     findMany<T extends VwOnibusFindManyArgs>(args?: SelectSubset<T, VwOnibusFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VwOnibusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -23256,6 +23270,7 @@ export namespace Prisma {
    * Fields of the VwOnibus model
    */
   interface VwOnibusFieldRefs {
+    readonly RcgIdOrg: FieldRef<"VwOnibus", 'Int'>
     readonly EqpItmId: FieldRef<"VwOnibus", 'Int'>
     readonly Onibus: FieldRef<"VwOnibus", 'String'>
     readonly Situacao: FieldRef<"VwOnibus", 'String'>
@@ -26607,6 +26622,7 @@ export namespace Prisma {
 
 
   export const VwOnibusScalarFieldEnum: {
+    RcgIdOrg: 'RcgIdOrg',
     EqpItmId: 'EqpItmId',
     Onibus: 'Onibus',
     Situacao: 'Situacao',
@@ -28624,6 +28640,7 @@ export namespace Prisma {
     AND?: VwOnibusWhereInput | VwOnibusWhereInput[]
     OR?: VwOnibusWhereInput[]
     NOT?: VwOnibusWhereInput | VwOnibusWhereInput[]
+    RcgIdOrg?: IntNullableFilter<"VwOnibus"> | number | null
     EqpItmId?: IntFilter<"VwOnibus"> | number
     Onibus?: StringFilter<"VwOnibus"> | string
     Situacao?: StringFilter<"VwOnibus"> | string
@@ -28637,6 +28654,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusOrderByWithRelationInput = {
+    RcgIdOrg?: SortOrderInput | SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -28655,6 +28673,7 @@ export namespace Prisma {
     AND?: VwOnibusWhereInput | VwOnibusWhereInput[]
     OR?: VwOnibusWhereInput[]
     NOT?: VwOnibusWhereInput | VwOnibusWhereInput[]
+    RcgIdOrg?: IntNullableFilter<"VwOnibus"> | number | null
     Onibus?: StringFilter<"VwOnibus"> | string
     Situacao?: StringFilter<"VwOnibus"> | string
     Data_Operacao?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
@@ -28667,6 +28686,7 @@ export namespace Prisma {
   }, "EqpItmId">
 
   export type VwOnibusOrderByWithAggregationInput = {
+    RcgIdOrg?: SortOrderInput | SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -28688,6 +28708,7 @@ export namespace Prisma {
     AND?: VwOnibusScalarWhereWithAggregatesInput | VwOnibusScalarWhereWithAggregatesInput[]
     OR?: VwOnibusScalarWhereWithAggregatesInput[]
     NOT?: VwOnibusScalarWhereWithAggregatesInput | VwOnibusScalarWhereWithAggregatesInput[]
+    RcgIdOrg?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
     EqpItmId?: IntWithAggregatesFilter<"VwOnibus"> | number
     Onibus?: StringWithAggregatesFilter<"VwOnibus"> | string
     Situacao?: StringWithAggregatesFilter<"VwOnibus"> | string
@@ -30549,6 +30570,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusCreateInput = {
+    RcgIdOrg?: number | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -30562,6 +30584,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusUncheckedCreateInput = {
+    RcgIdOrg?: number | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -30575,6 +30598,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusUpdateInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -30588,6 +30612,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusUncheckedUpdateInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -30601,6 +30626,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusCreateManyInput = {
+    RcgIdOrg?: number | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -30614,6 +30640,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusUpdateManyMutationInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -30627,6 +30654,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusUncheckedUpdateManyInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -32307,6 +32335,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusCountOrderByAggregateInput = {
+    RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -32320,6 +32349,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusAvgOrderByAggregateInput = {
+    RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     UndId?: SortOrder
     Bateria?: SortOrder
@@ -32329,6 +32359,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusMaxOrderByAggregateInput = {
+    RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -32342,6 +32373,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusMinOrderByAggregateInput = {
+    RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -32355,6 +32387,7 @@ export namespace Prisma {
   }
 
   export type VwOnibusSumOrderByAggregateInput = {
+    RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     UndId?: SortOrder
     Bateria?: SortOrder

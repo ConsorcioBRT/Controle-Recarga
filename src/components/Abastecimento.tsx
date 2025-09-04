@@ -246,9 +246,11 @@ const Abastecimento = () => {
                 </p>
               ) : (
                 <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
-                  {livres
+                  {[...livres, ...selecionados]
                     .filter(
-                      (l) => !carregando.find((c) => c.Onibus === l.Onibus)
+                      (l, idx, self) =>
+                        !carregando.find((c) => c.Onibus === l.Onibus) &&
+                        self.findIndex((x) => x.Onibus === l.Onibus) == idx // não fica com duplicidade
                     )
                     .map((item) => (
                       <Dialog key={item.Onibus}>

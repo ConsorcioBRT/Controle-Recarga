@@ -139,7 +139,7 @@ const DialogSteps = ({
     DtaOpe: string;
     SocIni: number;
     UsrIdAlt: number;
-    RcgIdOrg: number;
+    RcgIdOrg: number | null;
     EmpId: number;
     SttRcgId: number;
     SttId: number;
@@ -197,7 +197,7 @@ const DialogSteps = ({
         DtaOpe: dataFormatada,
         SocIni: Number(formData.percentualInicial),
         UsrIdAlt,
-        RcgIdOrg: 0,
+        RcgIdOrg: null,
         EmpId: 1,
         SttRcgId: 5,
         SttId: 1,

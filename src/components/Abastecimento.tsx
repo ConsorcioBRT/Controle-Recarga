@@ -346,6 +346,11 @@ const Abastecimento = () => {
               )}
             </div>
           </div>
+
+          {/* Botão de Fazer CheckList */}
+          <div className="mt-20 flex items-center justify-center">
+            <Button>Você possui um checklist para responder!</Button>
+          </div>
         </div>
       </main>
       <Footer className="fixed bottom-0 w-full" />

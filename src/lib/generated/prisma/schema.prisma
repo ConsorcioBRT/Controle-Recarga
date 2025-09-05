@@ -244,6 +244,7 @@ model rcg {
   FlhId                      Int       @default(0)
   FlhDsc                     String?   @db.VarChar(250)
   SttId                      Int       @default(1)
+  SttIdChk                   Int
   UsrIdAlt                   Int
   DtaAlt                     DateTime  @default(now()) @updatedAt @db.Timestamp(0)
   MtvDel                     String?   @db.VarChar(250)
@@ -390,6 +391,7 @@ model psq_rsp {
   PsqPrgId Int
   PsqRspId Int      @id @default(autoincrement())
   PsqRsp   Int
+  PsqDth   String?  @db.VarChar(250)
   SttId    Int      @default(1)
   UsrIdAlt Int
   DtaAlt   DateTime @default(now()) @db.Timestamp(0)

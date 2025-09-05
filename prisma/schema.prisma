@@ -244,6 +244,7 @@ model rcg {
   FlhId                      Int       @default(0)
   FlhDsc                     String?   @db.VarChar(250)
   SttId                      Int       @default(1)
+  SttIdChk                   Int
   UsrIdAlt                   Int
   DtaAlt                     DateTime  @default(now()) @updatedAt @db.Timestamp(0)
   MtvDel                     String?   @db.VarChar(250)
@@ -385,15 +386,16 @@ model psq_prg {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model psq_rsp {
-  PsqId    Int
-  PsqTpoId Int
-  PsqPrgId Int
-  PsqRspId Int      @id @default(autoincrement())
-  PsqRsp   Int
-  SttId    Int      @default(1)
-  UsrIdAlt Int
-  DtaAlt   DateTime @default(now()) @db.Timestamp(0)
-  MtvDel   String?  @db.VarChar(250)
+  PsqId    Int // Identificador da pesquisa
+  PsqTpoId Int // Identificador Tipo de pesquisa
+  PsqPrgId Int // Identificador pergunta da pesquisa
+  PsqRspId Int      @id @default(autoincrement()) // Identificador resposta da pesquisa
+  PsqRsp   Int // Pergunta da pesquisa
+  PsqDth   String?  @db.VarChar(250) // Detalhe da pesquisa
+  SttId    Int      @default(1) // Status Registro
+  UsrIdAlt Int // Id Usuário que cadastrou
+  DtaAlt   DateTime @default(now()) @db.Timestamp(0) // Data Cadastro
+  MtvDel   String?  @db.VarChar(250) // Motivo da delecao
   psq_tpo  psq_tpo  @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_rsp_EqpItm_CrrId")
   psq      psq      @relation(fields: [PsqId], references: [PsqId], onUpdate: Restrict, map: "FK_psq_rsp_Psq_PsqId")
   stt      stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_rsp_Stt_SttId")

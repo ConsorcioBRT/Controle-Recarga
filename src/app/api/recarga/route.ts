@@ -1,6 +1,7 @@
 import { Prisma } from "@/src/lib/generated/prisma";
 import prisma from "@/src/lib/prisma";
 import { NextResponse } from "next/server";
+import { DateTime } from "luxon";
 
 // Aqui será o GET
 export async function GET() {
@@ -26,6 +27,7 @@ export async function GET() {
         FlhId: true,
         FlhDsc: true,
         SttId: true,
+        SttIdChk: true,
         UsrIdAlt: true,
         DtaAlt: true,
         MtvDel: true,
@@ -47,12 +49,30 @@ function ajustarDtaOpe(dtaIni: Date, dtaOpep: Date) {
   return dtaOpep;
 }
 
+function parseDataBrasilia(dataStr: string): Date {
+  // dataStr = "2025-09-04 16:21:16"
+  const dt = DateTime.fromFormat(dataStr, "yyyy-MM-dd HH:mm:ss", {
+    zone: "America/Sao_Paulo",
+  });
+  return dt.toJSDate(); // Date que o Prisma entende
+}
+
 // Aqui será o POST
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { UndId, VclId, CrrId, CrrCnc, SocIni, OdoFin, UsrIdAlt, EmpId } =
-      body;
+    const {
+      UndId,
+      VclId,
+      CrrId,
+      CrrCnc,
+      SocIni,
+      OdoFin,
+      UsrIdAlt,
+      EmpId,
+      DtaIni,
+      DtaOpe,
+    } = body;
 
     if (
       !UndId ||
@@ -62,7 +82,9 @@ export async function POST(request: Request) {
       SocIni === undefined ||
       OdoFin === undefined ||
       !UsrIdAlt ||
-      !EmpId
+      !EmpId ||
+      !DtaIni ||
+      !DtaOpe
     ) {
       return NextResponse.json(
         { error: "Campos obrigatórios ausentes" },
@@ -89,30 +111,34 @@ export async function POST(request: Request) {
     const agora = new Date();
     dtaOpeNovo = ajustarDtaOpe(agora, dtaOpeNovo);
 
+    const dadosParaSalvar = {
+      UndId: Number(UndId),
+      VclId: Number(VclId),
+      CrrId: Number(CrrId),
+      CrrCnc: Number(CrrCnc),
+      DtaIni: parseDataBrasilia(DtaIni),
+      DtaOpe: dtaOpeNovo,
+      SocIni: Number(SocIni),
+      OdoIni: ultimaRecarga?.OdoFin
+        ? new Prisma.Decimal(Number(ultimaRecarga.OdoFin).toFixed(1))
+        : null, // se não houver anterior, fica null
+      OdoFin:
+        OdoFin !== undefined
+          ? new Prisma.Decimal(Number(OdoFin).toFixed(1))
+          : null,
+      UsrIdAlt: Number(UsrIdAlt),
+      RcgIdOrg: rcgIdOrgNovo || null,
+      EmpId: Number(EmpId),
+      SttRcgId: 5,
+      SttId: 1,
+      FlhId: 0,
+      SttIdChk: 0,
+    };
+    console.log("Dados que serão enviados para o banco:", dadosParaSalvar);
+
     // Aqui será a criação da Nova Recarga
     const novaRecarga = await prisma.rcg.create({
-      data: {
-        UndId: Number(UndId),
-        VclId: Number(VclId),
-        CrrId: Number(CrrId),
-        CrrCnc: Number(CrrCnc),
-        DtaIni: agora,
-        DtaOpe: dtaOpeNovo,
-        SocIni: Number(SocIni),
-        OdoIni: ultimaRecarga?.OdoFin
-          ? new Prisma.Decimal(Number(ultimaRecarga.OdoFin).toFixed(1))
-          : null, // se não houver anterior, fica null
-        OdoFin:
-          OdoFin !== undefined
-            ? new Prisma.Decimal(Number(OdoFin).toFixed(1))
-            : null,
-        UsrIdAlt: Number(UsrIdAlt),
-        RcgIdOrg: rcgIdOrgNovo || null,
-        EmpId: Number(EmpId),
-        SttRcgId: 5,
-        SttId: 1,
-        FlhId: 0,
-      },
+      data: dadosParaSalvar,
     });
     return NextResponse.json(novaRecarga);
   } catch (error) {

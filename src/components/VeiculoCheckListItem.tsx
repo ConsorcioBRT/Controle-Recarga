@@ -20,11 +20,11 @@ const VeiculoCheckListItem = ({ vehicle, onClick }: Props) => {
     <Button
       variant="ghost"
       onClick={() => onClick(vehicle.onibusId)}
-      className="w-full h-16 p-4 justify-between bg-card border border-border hover:bg-muted/50 transition-colors"
+      className="w-full h-1 p-4 justify-between bg-card border border-border hover:bg-muted/50 transition-colors"
     >
       <div className="flex items-center justify-between w-full">
         {/* ID arredondado */}
-        <div className="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+        <div className="flex-shrink-0 w-16 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
           <span className="text-sm font-semibold text-white">
             {vehicle.onibusId}
           </span>

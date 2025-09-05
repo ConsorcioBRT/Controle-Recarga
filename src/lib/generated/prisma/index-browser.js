@@ -267,6 +267,7 @@ exports.Prisma.RcgScalarFieldEnum = {
   FlhId: 'FlhId',
   FlhDsc: 'FlhDsc',
   SttId: 'SttId',
+  SttIdChk: 'SttIdChk',
   UsrIdAlt: 'UsrIdAlt',
   DtaAlt: 'DtaAlt',
   MtvDel: 'MtvDel'
@@ -332,6 +333,7 @@ exports.Prisma.Psq_rspScalarFieldEnum = {
   PsqPrgId: 'PsqPrgId',
   PsqRspId: 'PsqRspId',
   PsqRsp: 'PsqRsp',
+  PsqDth: 'PsqDth',
   SttId: 'SttId',
   UsrIdAlt: 'UsrIdAlt',
   DtaAlt: 'DtaAlt',
@@ -506,6 +508,7 @@ exports.Prisma.psq_prgOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.psq_rspOrderByRelevanceFieldEnum = {
+  PsqDth: 'PsqDth',
   MtvDel: 'MtvDel'
 };
 

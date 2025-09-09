@@ -89,7 +89,7 @@ const Login = () => {
           Contagem: qtd,
         })
       );
-      router.push("/abastecimento");
+      router.push("/checklist-eletroposto");
     } catch (error) {
       console.log("Erro no login:", error);
     }
@@ -182,6 +182,11 @@ const Login = () => {
               ))}
             </SelectContent>
           </Select>
+        </div>
+
+        {/* Esqueci a senha */}
+        <div>
+          <span className="text-blue-500 text-sm">Esqueceu a senha?</span>
         </div>
 
         <Button

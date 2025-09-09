@@ -1,7 +1,6 @@
 import { Prisma } from "@/src/lib/generated/prisma";
 import prisma from "@/src/lib/prisma";
 import { NextResponse } from "next/server";
-import { DateTime } from "luxon";
 
 // Aqui será o GET
 export async function GET() {
@@ -49,12 +48,15 @@ function ajustarDtaOpe(dtaIni: Date, dtaOpep: Date) {
   return dtaOpep;
 }
 
-function parseDataBrasilia(dataStr: string): Date {
-  // dataStr = "2025-09-04 16:21:16"
-  const dt = DateTime.fromFormat(dataStr, "yyyy-MM-dd HH:mm:ss", {
-    zone: "America/Sao_Paulo",
-  });
-  return dt.toJSDate(); // Date que o Prisma entende
+// Converte string "YYYY-MM-DD HH:mm:ss" para Date local
+function parseDataBrasilia(str: string): Date {
+  const [datePart, timePart] = str.split(" ");
+  const [year, month, day] = datePart.split("-").map(Number);
+  const [hour, minute, second] = timePart.split(":").map(Number);
+
+  // new Date(year, monthIndex, day, hour, minute, second)
+  // mês começa em 0
+  return new Date(year, month - 1, day, hour, minute, second);
 }
 
 // Aqui será o POST
@@ -137,14 +139,31 @@ export async function POST(request: Request) {
     console.log("Dados que serão enviados para o banco:", dadosParaSalvar);
 
     // Aqui será a criação da Nova Recarga
-    const novaRecarga = await prisma.rcg.create({
+    let novaRecarga = await prisma.rcg.create({
       data: dadosParaSalvar,
     });
+
+    // Ajuste do RcgIdOrg logo após a criação
+    if (!novaRecarga.RcgIdOrg) {
+      novaRecarga = await prisma.rcg.update({
+        where: { RcgId: novaRecarga.RcgId },
+        data: { RcgIdOrg: novaRecarga.RcgId },
+      });
+    }
     return NextResponse.json(novaRecarga);
   } catch (error) {
-    console.error("Erro ao criar recarga:", error);
+    console.error("Erro ao criar recarga:");
+    console.error("Mensagem:", error);
+    console.error("Stack:", error);
+    console.error("Erro completo:", JSON.stringify(error, null, 2)); // mostra todos os campos serializáveis
+
     return NextResponse.json(
-      { error: "Erro interno ao criar recarga" },
+      {
+        error: error || "Erro desconhecido",
+        stack: error,
+        meta: error || null, // Prisma costuma trazer detalhes aqui
+        code: error || null, // tipo P2032
+      },
       { status: 500 }
     );
   }

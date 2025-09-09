@@ -42,7 +42,7 @@ const Footer = ({ className = "" }: FooterProps) => {
         */}
 
         {/* CheckList */}
-        <Link href="/checklist" className="flex flex-col items-center">
+        <Link href="/checklist-onibus" className="flex flex-col items-center">
           <Check className={`w-5 h-5 ${linkClasses("/checklist")}`} />
           <span className={linkClasses("/checklist")}>CheckList</span>
         </Link>

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import VehicleChecklistItem from "./VeiculoCheckListItem";
-import VehicleChecklistDialog from "./VeiculoDialog";
+import CheckListItemOnibus from "./CheckListItemOnibus";
+import CheckListDialogOnibus from "./CheckListDialogOnibus";
 import Footer from "./Footer";
 
-const CheckList = () => {
+const CheckListOnibus = () => {
   const [selectedVehicle, setSelectedVehicle] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const veiculos = [
@@ -38,7 +38,7 @@ const CheckList = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 px-4">
           {veiculos.map((v) => (
-            <VehicleChecklistItem
+            <CheckListItemOnibus
               key={v.id}
               vehicle={v}
               onClick={handleRespond}
@@ -46,7 +46,7 @@ const CheckList = () => {
           ))}
         </div>
 
-        <VehicleChecklistDialog
+        <CheckListDialogOnibus
           vehicleId={selectedVehicle}
           isOpen={isDialogOpen}
           onClose={() => setIsDialogOpen(false)}
@@ -58,4 +58,4 @@ const CheckList = () => {
   );
 };
 
-export default CheckList;
+export default CheckListOnibus;

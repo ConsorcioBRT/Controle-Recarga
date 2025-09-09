@@ -244,7 +244,7 @@ model rcg {
   FlhId                      Int       @default(0)
   FlhDsc                     String?   @db.VarChar(250)
   SttId                      Int       @default(1)
-  SttIdChk                   Int
+  SttIdChk                   Int?
   UsrIdAlt                   Int
   DtaAlt                     DateTime  @default(now()) @updatedAt @db.Timestamp(0)
   MtvDel                     String?   @db.VarChar(250)

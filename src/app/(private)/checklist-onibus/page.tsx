@@ -1,10 +1,10 @@
-import CheckList from "@/src/components/CheckList";
+import CheckListOnibus from "@/src/components/CheckListOnibus";
 import React from "react";
 
 const CheckListPage = () => {
   return (
     <div>
-      <CheckList />
+      <CheckListOnibus />
     </div>
   );
 };

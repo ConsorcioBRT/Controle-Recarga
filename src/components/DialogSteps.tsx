@@ -143,6 +143,7 @@ const DialogSteps = ({
     EmpId: number;
     SttRcgId: number;
     SttId: number;
+    SttIdChk: number;
     OdoIni?: number | null;
     OdoFin?: number | null;
   };
@@ -201,6 +202,7 @@ const DialogSteps = ({
         EmpId: 1,
         SttRcgId: 5,
         SttId: 1,
+        SttIdChk: 0,
       };
 
       if (!ultimaRecarga) {

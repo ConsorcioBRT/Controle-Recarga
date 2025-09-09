@@ -13596,7 +13596,7 @@ export namespace Prisma {
     FlhId: number
     FlhDsc: string | null
     SttId: number
-    SttIdChk: number
+    SttIdChk: number | null
     UsrIdAlt: number
     DtaAlt: Date
     MtvDel: string | null
@@ -13732,7 +13732,7 @@ export namespace Prisma {
       FlhId: number
       FlhDsc: string | null
       SttId: number
-      SttIdChk: number
+      SttIdChk: number | null
       UsrIdAlt: number
       DtaAlt: Date
       MtvDel: string | null
@@ -27885,7 +27885,7 @@ export namespace Prisma {
     FlhId?: IntFilter<"rcg"> | number
     FlhDsc?: StringNullableFilter<"rcg"> | string | null
     SttId?: IntFilter<"rcg"> | number
-    SttIdChk?: IntFilter<"rcg"> | number
+    SttIdChk?: IntNullableFilter<"rcg"> | number | null
     UsrIdAlt?: IntFilter<"rcg"> | number
     DtaAlt?: DateTimeFilter<"rcg"> | Date | string
     MtvDel?: StringNullableFilter<"rcg"> | string | null
@@ -27920,7 +27920,7 @@ export namespace Prisma {
     FlhId?: SortOrder
     FlhDsc?: SortOrderInput | SortOrder
     SttId?: SortOrder
-    SttIdChk?: SortOrder
+    SttIdChk?: SortOrderInput | SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
     MtvDel?: SortOrderInput | SortOrder
@@ -27959,7 +27959,7 @@ export namespace Prisma {
     FlhId?: IntFilter<"rcg"> | number
     FlhDsc?: StringNullableFilter<"rcg"> | string | null
     SttId?: IntFilter<"rcg"> | number
-    SttIdChk?: IntFilter<"rcg"> | number
+    SttIdChk?: IntNullableFilter<"rcg"> | number | null
     UsrIdAlt?: IntFilter<"rcg"> | number
     DtaAlt?: DateTimeFilter<"rcg"> | Date | string
     MtvDel?: StringNullableFilter<"rcg"> | string | null
@@ -27994,7 +27994,7 @@ export namespace Prisma {
     FlhId?: SortOrder
     FlhDsc?: SortOrderInput | SortOrder
     SttId?: SortOrder
-    SttIdChk?: SortOrder
+    SttIdChk?: SortOrderInput | SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
     MtvDel?: SortOrderInput | SortOrder
@@ -28028,7 +28028,7 @@ export namespace Prisma {
     FlhId?: IntWithAggregatesFilter<"rcg"> | number
     FlhDsc?: StringNullableWithAggregatesFilter<"rcg"> | string | null
     SttId?: IntWithAggregatesFilter<"rcg"> | number
-    SttIdChk?: IntWithAggregatesFilter<"rcg"> | number
+    SttIdChk?: IntNullableWithAggregatesFilter<"rcg"> | number | null
     UsrIdAlt?: IntWithAggregatesFilter<"rcg"> | number
     DtaAlt?: DateTimeWithAggregatesFilter<"rcg"> | Date | string
     MtvDel?: StringNullableWithAggregatesFilter<"rcg"> | string | null
@@ -29825,7 +29825,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -29859,7 +29859,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -29878,7 +29878,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -29912,7 +29912,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29939,7 +29939,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -29957,7 +29957,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -29982,7 +29982,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36186,7 +36186,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -36218,7 +36218,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -36433,7 +36433,7 @@ export namespace Prisma {
     FlhId?: IntFilter<"rcg"> | number
     FlhDsc?: StringNullableFilter<"rcg"> | string | null
     SttId?: IntFilter<"rcg"> | number
-    SttIdChk?: IntFilter<"rcg"> | number
+    SttIdChk?: IntNullableFilter<"rcg"> | number | null
     UsrIdAlt?: IntFilter<"rcg"> | number
     DtaAlt?: DateTimeFilter<"rcg"> | Date | string
     MtvDel?: StringNullableFilter<"rcg"> | string | null
@@ -36693,7 +36693,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp: empCreateNestedOneWithoutRcgInput
@@ -36725,7 +36725,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -37633,7 +37633,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -37665,7 +37665,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -37694,7 +37694,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -37726,7 +37726,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -39887,7 +39887,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -39920,7 +39920,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -39943,7 +39943,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -39975,7 +39975,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -40407,7 +40407,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -40440,7 +40440,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41130,7 +41130,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -41162,7 +41162,7 @@ export namespace Prisma {
     SttRcgId?: number
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -41191,7 +41191,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -41223,7 +41223,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -42113,7 +42113,7 @@ export namespace Prisma {
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     emp_und: emp_undCreateNestedOneWithoutRcgInput
@@ -42146,7 +42146,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
@@ -44485,7 +44485,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -44565,7 +44565,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -44597,7 +44597,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44623,7 +44623,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44743,7 +44743,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -44841,7 +44841,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
@@ -44873,7 +44873,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44899,7 +44899,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45051,7 +45051,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -45076,7 +45076,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -45121,7 +45121,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -45153,7 +45153,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45179,7 +45179,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45197,7 +45197,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -45229,7 +45229,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45255,7 +45255,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45572,7 +45572,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -45590,7 +45590,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -45622,7 +45622,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45648,7 +45648,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45829,7 +45829,7 @@ export namespace Prisma {
     SttRcgId?: number
     FlhId?: number
     FlhDsc?: string | null
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -45854,7 +45854,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -46391,7 +46391,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -46423,7 +46423,7 @@ export namespace Prisma {
     SttRcgId?: IntFieldUpdateOperationsInput | number
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46449,7 +46449,7 @@ export namespace Prisma {
     SttRcgId?: IntFieldUpdateOperationsInput | number
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46467,7 +46467,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -46499,7 +46499,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46525,7 +46525,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46754,7 +46754,7 @@ export namespace Prisma {
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
-    SttIdChk: number
+    SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
   }
@@ -47128,7 +47128,7 @@ export namespace Prisma {
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
@@ -47161,7 +47161,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
@@ -47187,7 +47187,7 @@ export namespace Prisma {
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: IntFieldUpdateOperationsInput | number
+    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }

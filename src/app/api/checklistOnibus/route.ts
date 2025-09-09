@@ -1,9 +1,11 @@
 import prisma from "@/src/lib/prisma";
 import { NextResponse } from "next/server";
 
+// Vai filtrar todos as perguntas sobre os Veículos
 export async function GET() {
   try {
     const checklist = await prisma.vwChecklistCarregamento.findMany({
+      where: { PsqTpoId: 2 },
       select: {
         PsqTpoId: true,
         Tipo_Pesquisa: true,

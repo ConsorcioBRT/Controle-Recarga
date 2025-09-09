@@ -34,6 +34,7 @@ export const config = {
     "/terminal/:path*",
     "/abastecimento/:path*",
     "/historico/:path*",
-    "/checklist/:path*",
+    "/checklist-onibus/:path*",
+    "/checklist-eletroposto/:path*",
   ],
 };

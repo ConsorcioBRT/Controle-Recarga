@@ -209,7 +209,7 @@ const Abastecimento = () => {
           {/* Onibus Livres */}
           <div>
             <div className="flex items-center gap-2">
-              <Circle className="w-2 h-2 text-blue-500 bg-blue-500 rounded-full" />
+              <Circle className="w-2 h-2 text-green-500 bg-green-500 rounded-full" />
               <span className="text-base font-semibold text-gray-700">
                 Ônibus Livres ({livres.length})
               </span>
@@ -238,7 +238,7 @@ const Abastecimento = () => {
             <div className="mt-3 ml-1">
               {loading ? (
                 <div className="flex justify-center items-center h-32">
-                  <div className="w-10 h-10 border-4 border-blue-300 border-t-blue-500 rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-4 border-green-300 border-t-green-500 rounded-full animate-spin"></div>
                 </div>
               ) : livres.length === 0 && selecionados.length === 0 ? (
                 <p className="text-gray-500 text-sm italic">
@@ -260,7 +260,7 @@ const Abastecimento = () => {
                               selecionarVeiculo(item);
                             }}
                             variant="outline"
-                            className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-blue-500 text-white"
+                            className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-green-500 text-white"
                           >
                             {item.Onibus}
                           </Button>
@@ -293,7 +293,7 @@ const Abastecimento = () => {
           {/* Onibus Carregando */}
           <div className="mt-2">
             <div className="flex items-center gap-2">
-              <Circle className="w-2 h-2 text-green-500 bg-green-500 rounded-full" />
+              <Circle className="w-2 h-2 text-yellow-500 bg-yellow-500 rounded-full" />
               <span className="text-base font-semibold text-gray-700">
                 Ônibus Carregando ({carregando.length})
               </span>
@@ -317,7 +317,7 @@ const Abastecimento = () => {
                             selecionarVeiculo(item);
                           }}
                           variant="outline"
-                          className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-green-500 text-white"
+                          className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-yellow-500 text-white"
                         >
                           {item.Onibus}
                         </Button>
@@ -345,11 +345,64 @@ const Abastecimento = () => {
                 </div>
               )}
             </div>
+            <Separator className="mt-5" />
           </div>
 
-          {/* Botão de Fazer CheckList */}
-          <div className="mt-20 flex items-center justify-center">
-            <Button>Você possui um checklist para responder!</Button>
+          {/* Checklist Pendente */}
+          <div className="mt-2">
+            <div className="flex items-center gap-2">
+              <Circle className="w-2 h-2 text-red-500 bg-red-500 rounded-full" />
+              <span className="text-base font-semibold text-gray-700">
+                Checklist Pendente ({carregando.length})
+              </span>
+            </div>
+            <div className="mt-3 ml-1">
+              {loading ? (
+                <div className="flex justify-center items-center h-32">
+                  <div className="w-10 h-10 border-4 border-blue-300 border-t-blue-500 rounded-full animate-spin"></div>
+                </div>
+              ) : carregando.length === 0 ? (
+                <p className="text-gray-500 text-sm italic">
+                  Nenhum ônibus carregando
+                </p>
+              ) : (
+                <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
+                  {carregando.map((item, index) => (
+                    <Dialog key={index}>
+                      <DialogTrigger asChild>
+                        <Button
+                          onClick={() => {
+                            selecionarVeiculo(item);
+                          }}
+                          variant="outline"
+                          className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-red-500 text-white"
+                        >
+                          {item.Onibus}
+                        </Button>
+                      </DialogTrigger>
+
+                      <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
+                        <DialogHeader className="flex items-start">
+                          <DialogTitle className="flex items-center gap-2">
+                            <Zap className="text-green-500" />
+                            Finalizar Recarga - Ônibus{" "}
+                            <span className="bg-green-500 text-white p-1 rounded-full">
+                              {item.Onibus}
+                            </span>
+                          </DialogTitle>
+                        </DialogHeader>
+
+                        <DialogStepsCarregando
+                          item={item}
+                          finalizarRecarga={finalizarRecargaAdapter}
+                          reiniciarRecarga={item.FlhId === 1}
+                        />
+                      </DialogContent>
+                    </Dialog>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </main>

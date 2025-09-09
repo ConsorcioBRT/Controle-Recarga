@@ -30,7 +30,7 @@ const VeiculoDialog = ({ vehicleId, isOpen, onClose, onComplete }: Props) => {
     if (isOpen && vehicleId) {
       async function fetchChecklist() {
         try {
-          const res = await fetch("/api/checklist");
+          const res = await fetch("/api/checklistOnibus");
           if (!res.ok) throw new Error("Erro ao buscar checklist");
           const data: ChecklistAPIItem[] = await res.json();
 

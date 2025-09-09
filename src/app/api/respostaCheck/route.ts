@@ -11,6 +11,7 @@ export async function GET() {
         PsqPrgId: true,
         PsqRspId: true,
         PsqRsp: true,
+        PsqDth: true,
         SttId: true,
         UsrIdAlt: true,
         DtaAlt: true,
@@ -29,32 +30,46 @@ export async function GET() {
 // Irei criar as respostas dos CheckLists
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const {
-      PsqId,
-      PsqTpoId,
-      PsqPrgId,
-      PsqRspId,
-      PsqRsp,
-      SttId,
-      UsrIdAlt,
-      DtaAlt,
-    } = body;
+    const respostas = await request.json();
 
-    const resposta = await prisma.psq_rsp.create({
-      data: {
+    if (!Array.isArray(respostas) || respostas.length === 0) {
+      return new NextResponse("Nenhuma reposta enviada", { status: 400 });
+    }
+
+    const respostasCriadas = [];
+
+    for (const r of respostas) {
+      const {
         PsqId,
         PsqTpoId,
         PsqPrgId,
-        PsqRspId,
         PsqRsp,
+        PsqDth,
         SttId,
         UsrIdAlt,
         DtaAlt,
-      },
-    });
+      } = r;
 
-    return NextResponse.json(resposta, { status: 201 });
+      if (!PsqPrgId || PsqRsp === null) {
+        return new NextResponse("Dados incompletos", { status: 400 });
+      }
+
+      const resposta = await prisma.psq_rsp.create({
+        data: {
+          PsqId: PsqId || 1,
+          PsqTpoId: PsqTpoId || 1,
+          PsqPrgId,
+          PsqRsp,
+          PsqDth: PsqDth || "",
+          SttId: SttId || 1,
+          UsrIdAlt: UsrIdAlt || 123,
+          DtaAlt: DtaAlt ? new Date(DtaAlt) : new Date(),
+        },
+      });
+      respostasCriadas.push(resposta);
+    }
+
+    return NextResponse.json(respostasCriadas, { status: 201 });
   } catch (error) {
     console.error("Erro ao salvar resposta:", error);
     return new NextResponse("Erro interno no servidor", { status: 500 });

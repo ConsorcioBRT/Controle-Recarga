@@ -92,6 +92,13 @@ const CheckListEletroposto = () => {
 
   const handleSaveResponses = async () => {
     try {
+      const usuarioLogado = localStorage.getItem("usuarioLogado"); // buscar o usuário pelo localStorage
+      if (!usuarioLogado) {
+        throw new Error("Usuário não encontrado no localStorage");
+      }
+      const usuario = JSON.parse(usuarioLogado);
+      const UsrIdAlt = usuario.UsrId; // irá salvar o ID do usuário
+
       const respostasNao = checklist
         .filter((item) => item.answer === "no")
         .map((item) => ({
@@ -101,7 +108,7 @@ const CheckListEletroposto = () => {
           PsqRsp: 0,
           PsqDth: item.note?.trim() || "",
           SttId: 1,
-          UsrIdAlt: 123,
+          UsrIdAlt: UsrIdAlt,
           DtaAlt: new Date().toISOString(),
         }));
 
@@ -156,7 +163,11 @@ const CheckListEletroposto = () => {
 
               <div className="flex gap-4">
                 <Button
-                  className={currentItem.answer === "yes" ? "bg-green-500 text-white hover:bg-green-300" : "bg-white border hover:bg-gray-100 text-black"}
+                  className={
+                    currentItem.answer === "yes"
+                      ? "bg-green-500 text-white hover:bg-green-300"
+                      : "bg-white border hover:bg-gray-100 text-black"
+                  }
                   onClick={() => handleAnswer("yes")}
                 >
                   Sim

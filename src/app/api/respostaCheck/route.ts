@@ -50,7 +50,7 @@ export async function POST(request: Request) {
         DtaAlt,
       } = r;
 
-      if (!PsqPrgId || PsqRsp === null) {
+      if (!PsqPrgId || PsqRsp === undefined || PsqRsp === null) {
         return new NextResponse("Dados incompletos", { status: 400 });
       }
 
@@ -71,7 +71,14 @@ export async function POST(request: Request) {
 
     return NextResponse.json(respostasCriadas, { status: 201 });
   } catch (error) {
-    console.error("Erro ao salvar resposta:", error);
+    if (error instanceof Error) {
+      console.error("Erro ao salvar resposta:", error);
+      return new NextResponse(
+        JSON.stringify({ message: error.message, stack: error.stack }),
+        { status: 500 }
+      );
+    }
+    console.error("Erro desconhecido:", error);
     return new NextResponse("Erro interno no servidor", { status: 500 });
   }
 }

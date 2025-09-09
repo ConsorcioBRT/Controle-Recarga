@@ -64,22 +64,35 @@ const Header = () => {
       // Mostra o toast e espera o clique no botão
       toast.custom((t) => (
         <div className="bg-white text-black p-4 rounded shadow-lg flex flex-col gap-2">
-          <span>Ainda possui recarga em aberto!</span>
-          <button
-            className="bg-gray-800 text-white px-4 py-2 rounded font-bold"
-            onClick={async () => {
-              toast.dismiss(t.id); // fecha o toast
-              // Executa o logout após o clique
-              await fetch("/api/logout");
-              localStorage.removeItem("formDataConfirmacao");
-              localStorage.removeItem("usuarioLogado");
-              localStorage.removeItem("eletropostoSelecionado");
-              localStorage.removeItem("veiculoSelecionado");
-              router.push("/");
-            }}
-          >
-            OK
-          </button>
+          <div className="flex flex-col items-center justify-center mb-5">
+            <span className="text-sm">Ainda possui recargas em aberto!</span>
+            <span className="text-gray-600 text-sm">Deseja sair?</span>
+          </div>
+          <div className="flex justify-between gap-2 px-10">
+            <button
+              className="bg-gray-300 text-black px-4 py-2 rounded font-bold"
+              onClick={() => {
+                toast.dismiss(t.id);
+              }}
+            >
+              Não
+            </button>
+            <button
+              className="bg-gray-800 text-white px-4 py-2 rounded font-bold"
+              onClick={async () => {
+                toast.dismiss(t.id); // fecha o toast
+                // Executa o logout após o clique
+                await fetch("/api/logout");
+                localStorage.removeItem("formDataConfirmacao");
+                localStorage.removeItem("usuarioLogado");
+                localStorage.removeItem("eletropostoSelecionado");
+                localStorage.removeItem("veiculoSelecionado");
+                router.push("/");
+              }}
+            >
+              Sim
+            </button>
+          </div>
         </div>
       ));
       return; // impede que o logout continue até o clique

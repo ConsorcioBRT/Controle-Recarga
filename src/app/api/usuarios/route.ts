@@ -45,6 +45,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Aqui vai resetar a senha quando o SttId = 8
+    if (user.SttId === 8) {
+      return NextResponse.json(
+        {
+          message: "Usuário precisa resetar a senha.",
+          resetRequired: true,
+          userId: user.UsrId,
+        },
+        { status: 200 }
+      );
+    }
+
     // Aqui vai comparar a senha criptografada
     const senhaValida = await bcrypt.compare(senha, user.UsrPwd);
     if (!senhaValida) {

@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/src/components/ui/select";
 import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 interface Usuario {
   UsrNme: string;
@@ -49,11 +50,16 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, senha }),
       }).then(async (res) => {
-        if (!res.ok) {
-          const err = await res.json();
-          throw new Error(err.message); // rejeita a promise
+        const data = await res.json();
+        // Caso o backend retorne resetRequired (SttId = 8)
+        if (data.resetRequired) {
+          router.push(`/resetar-senha?userId=${data.userId}`); // redireciona para a tela de redefinir senha
+          throw new Error(data.message || "Redefinição de senha necessária");
         }
-        return res.json(); // resolve a promise
+        if (!res.ok) {
+          throw new Error(data.message); // rejeita a promise
+        }
+        return data; // resolve a promise
       });
 
       const data = await toast.promise(
@@ -171,7 +177,7 @@ const Login = () => {
         <div className="flex flex-col items-start justify-center">
           <Label className="text-lg font-bold mb-3">Eletroposto?</Label>
           <Select onValueChange={(value) => setPostoSelecionado(Number(value))}>
-            <SelectTrigger className="bg-gray-100 h-12 w-64 mb-10">
+            <SelectTrigger className="bg-gray-100 h-12 w-64">
               <SelectValue placeholder="Eletropostos" />
             </SelectTrigger>
             <SelectContent>
@@ -186,7 +192,11 @@ const Login = () => {
 
         {/* Esqueci a senha */}
         <div>
-          <span className="text-blue-500 text-sm">Esqueceu a senha?</span>
+          <Link href="/esqueceu-senha">
+            <span className="text-blue-500 text-sm underline">
+              Esqueceu a senha?
+            </span>
+          </Link>
         </div>
 
         <Button

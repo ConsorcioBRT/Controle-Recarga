@@ -1,5 +1,11 @@
-import ResetarSenha from "@/src/components/ResetarSenha";
+"use client";
+
+import dynamic from "next/dynamic";
 import React from "react";
+
+const ResetarSenha = dynamic(() => import("@/src/components/ResetarSenha"), {
+  ssr: false,
+});
 
 const RestarSenhaPage = () => {
   return (

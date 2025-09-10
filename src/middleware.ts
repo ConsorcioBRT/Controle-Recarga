@@ -36,5 +36,6 @@ export const config = {
     "/historico/:path*",
     "/checklist-onibus/:path*",
     "/checklist-eletroposto/:path*",
+    "/resetar-senha/:path*",
   ],
 };

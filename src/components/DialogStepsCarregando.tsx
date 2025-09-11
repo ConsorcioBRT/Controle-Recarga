@@ -52,13 +52,14 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
     descricaoFalha: "",
   });
   const [date, setDate] = React.useState<Date | undefined>(new Date());
-  const [odometroPreenchido, setOdometroPreenchido] = useState(
+  /* const [odometroPreenchido, setOdometroPreenchido] = useState(
     item.odometroPreenchido ?? false
   );
   const veiculoSelecionado = JSON.parse(
     localStorage.getItem("veiculoSelecionado") || "{}"
   );
   const odometroLocalStorage = veiculoSelecionado.Odometro || "";
+
 
   useEffect(() => {
     // Aqui vai pegar o odômetro do LocalStorage
@@ -74,14 +75,16 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
       }
     }
   }, []);
+  */
 
   // Aqui vai salvar sempre o formData quando mudar
   useEffect(() => {
     localStorage.setItem("formDataConfirmacao", JSON.stringify(formData));
   }, [formData]);
 
-  const odometroObrigatorio = !odometroPreenchido;
+  /* const odometroObrigatorio = !odometroPreenchido;
   const odometroValido = formData.odometro !== "";
+  */
 
   const handleProximo = () => {
     // Step 1 - Percentual
@@ -89,12 +92,12 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
       return alert("Preencha o percentual");
     }
 
-    // Step 2 - Energia utilizada
+    // Step 1 - Energia utilizada
     if (step === 1 && !formData.energia) {
       return alert("Preencha a energia utilizada");
     }
 
-    // Step 3 - Odômetro (só se for obrigatório)
+    /*/ Step 3 - Odômetro (só se for obrigatório)
     if (step === 2) {
       if (odometroObrigatorio && !odometroValido) {
         return alert("Preencha o odômetro");
@@ -106,11 +109,12 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
       }
     }
 
-    // Pula Step 3 se odômetro não for obrigatório
+    // Pula Step 2 se odômetro não for obrigatório
     if (step === 1 && !odometroObrigatorio) {
       setStep(3);
       return;
     }
+    */
 
     setStep(step + 1);
   };
@@ -165,27 +169,28 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
         </div>
       )}
 
-      {/* STEP 2: Odômetro */}
-      {step === 2 && odometroObrigatorio && (
-        <div className="grid gap-3">
-          <div className="flex items-center gap-2">
-            <Label>Odômetro (km):</Label>
-            <span className="text-gray-800">{odometroLocalStorage} km</span>
+      {/* STEP 2: Odômetro
+        {step === 2 && odometroObrigatorio && (
+          <div className="grid gap-3">
+            <div className="flex items-center gap-2">
+              <Label>Odômetro (km):</Label>
+              <span className="text-gray-800">{odometroLocalStorage} km</span>
+            </div>
+
+            <Label>Coloque o odômetro novamente:</Label>
+            <Input
+              type="text"
+              value={formData.odometro}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, odometro: e.target.value }))
+              }
+            />
           </div>
+        )}
+      */}
 
-          <Label>Coloque o odômetro novamente:</Label>
-          <Input
-            type="text"
-            value={formData.odometro}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, odometro: e.target.value }))
-            }
-          />
-        </div>
-      )}
-
-      {/* STEP 3: Calendário */}
-      {step === 3 && (
+      {/* STEP 2: Calendário */}
+      {step === 2 && (
         <div className="grid gap-3">
           <Label>Dia da Finalização:</Label>
           <Popover>
@@ -236,8 +241,8 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
         </div>
       )}
 
-      {/* STEP 4: Falhas */}
-      {step === 4 && (
+      {/* STEP 3: Falhas */}
+      {step === 3 && (
         <div className="grid gap-3">
           <Label>Houve Falhas?</Label>
           <Select
@@ -292,7 +297,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             </DialogClose>
           )}
 
-          {step < 4 ? (
+          {step < 3 ? (
             <Button
               className="w-full h-14 bg-gray-900 text-lg font-bold"
               onClick={handleProximo}

@@ -14,7 +14,6 @@ import Footer from "./Footer";
 import { Circle, Zap } from "lucide-react";
 import DialogStepsCarregando from "./DialogStepsCarregando";
 import DialogSteps from "./DialogSteps";
-import { toast } from "react-hot-toast";
 import {
   Select,
   SelectContent,
@@ -190,13 +189,10 @@ const Abastecimento = () => {
 
       setLivres((prev) => (!novaRecarga ? [...prev, onibusItem] : prev));
 
-      toast.success("Recarga finalizada com sucesso!", {
-        duration: 6000,
-        className: "text-lg mb-20",
-      });
+      console.log("Recarga finalizada com sucesso!");
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
-      toast.error("Erro ao finalizar recarga");
+      console.error("Erro ao finalizar recarga");
     }
   }
 
@@ -268,9 +264,9 @@ const Abastecimento = () => {
                         <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
                           <DialogHeader className="flex items-start">
                             <DialogTitle className="flex items-center gap-2">
-                              <Zap className="text-blue-500" />
+                              <Zap className="text-green-500" />
                               Iniciar Recarga - Ônibus{" "}
-                              <span className="bg-blue-500 text-white p-1 rounded-full">
+                              <span className="bg-green-500 text-white p-1 rounded-full">
                                 {item.Onibus}
                               </span>
                             </DialogTitle>
@@ -326,9 +322,9 @@ const Abastecimento = () => {
                       <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
                         <DialogHeader className="flex items-start">
                           <DialogTitle className="flex items-center gap-2">
-                            <Zap className="text-green-500" />
+                            <Zap className="text-yellow-500" />
                             Finalizar Recarga - Ônibus{" "}
-                            <span className="bg-green-500 text-white p-1 rounded-full">
+                            <span className="bg-yellow-500 text-white p-1 rounded-full">
                               {item.Onibus}
                             </span>
                           </DialogTitle>

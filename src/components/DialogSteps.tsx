@@ -4,7 +4,6 @@ import { Battery, Fuel, Gauge, PlugZap } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { DialogClose, DialogFooter } from "./ui/dialog";
-import { toast } from "react-hot-toast";
 
 {
   /* Função para Passar as Etapas de Ônibus Livres */
@@ -170,7 +169,7 @@ const DialogSteps = ({
       const { UndId, VclId, UsrIdAlt } = pegarDadosDoLocalStorage();
 
       if (!UndId || !VclId || !UsrIdAlt) {
-        toast.error("Faltam dados no localStorage: UndId, VclId ou UsrIdAlt");
+        console.error("Faltam dados no localStorage: UndId, VclId ou UsrIdAlt");
         return;
       }
 
@@ -232,20 +231,17 @@ const DialogSteps = ({
 
       if (!resposta.ok) {
         const erro = await resposta.json();
-        toast.error(
+        console.error(
           "Erro ao salvar recarga: " + (erro.error || JSON.stringify(erro))
         );
         return;
       }
 
       const dadosResposta = await resposta.json();
-      toast.success(`Recarga Iniciada! ID: ${dadosResposta.RcgId}`, {
-        duration: 7000,
-        className: "text-lg px-6 py-4 mb-20",
-      });
+      console.log(`Recarga Iniciada! ID: ${dadosResposta.RcgId}`);
       iniciarCarregamento(veiculo);
     } catch (error) {
-      toast.error("Erro ao enviar recarga: " + (error as Error).message);
+      console.error("Erro ao enviar recarga: " + (error as Error).message);
     }
   }
 
@@ -273,10 +269,10 @@ const DialogSteps = ({
                         carregador: item.EqpItmId,
                       }))
                     }
-                    className={`inline-flex items-center justify-center rounded-full text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-20 w-20 bg-blue-500 text-white ${
+                    className={`inline-flex items-center justify-center rounded-full text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-20 w-20 bg-white text-black ${
                       formData.carregador === item.EqpItmId
                         ? "bg-gray-500 text-white"
-                        : "bg-blue-500"
+                        : "bg-white"
                     }`}
                   >
                     {item.Carregador}
@@ -297,10 +293,10 @@ const DialogSteps = ({
                 <Button
                   key={conector}
                   onClick={() => setFormData((prev) => ({ ...prev, conector }))}
-                  className={`inline-flex items-center justify-center rounded-full text-base font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16 bg-blue-500 text-white ${
+                  className={`inline-flex items-center justify-center rounded-full text-sm font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-16 w-16  ${
                     conectorSelecionado === conector
                       ? "bg-gray-500 text-white"
-                      : "bg-blue-500"
+                      : "bg-white text-black hover:text-white"
                   }`}
                 >
                   {conector}
@@ -316,11 +312,18 @@ const DialogSteps = ({
               <div className="p-4 border rounded shadow mb-4 bg-white">
                 <h2 className="text-lg font-bold mb-2">Última recarga</h2>
                 <p>
-                  <strong className="text-xs">Ônibus:</strong>{" "}
-                  {dadosOnibus.Onibus}
+                  <strong className="text-xs">Data:</strong>{" "}
+                  {dadosOnibus.Data_Operacao
+                    ? new Date(dadosOnibus.Data_Operacao).toLocaleDateString(
+                        "pt-BR",
+                        {
+                          timeZone: "UTC",
+                        }
+                      )
+                    : "—"}
                 </p>
                 <p>
-                  <strong className="text-xs">Data:</strong>{" "}
+                  <strong className="text-xs">Hora:</strong>{" "}
                   {dadosOnibus.Data_Operacao
                     ? new Date(dadosOnibus.Data_Operacao).toLocaleDateString(
                         "pt-BR",
@@ -476,7 +479,7 @@ const DialogSteps = ({
           {step < 4 ? (
             <Button
               type="button"
-              className="w-full h-14 bg-blue-500 text-lg font-bold"
+              className="w-full h-14 bg-gray-900 text-lg font-bold"
               disabled={!(odometroValido && odometroMaiorOuIgual)}
               onClick={() => {
                 if (step === 1 && !formData.carregador) {
@@ -511,9 +514,9 @@ const DialogSteps = ({
                   }
                   enviarRecargaInicial(formConfirmacao);
                 }}
-                className="w-full h-14 bg-blue-500 text-lg font-bold"
+                className="w-full h-14 bg-green-500 text-lg font-bold"
               >
-                Carregar
+                Iniciar
               </Button>
             </DialogClose>
           )}

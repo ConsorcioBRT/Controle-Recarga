@@ -90,25 +90,25 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
     }
 
     // Step 2 - Energia utilizada
-    if (step === 2 && !formData.energia) {
+    if (step === 1 && !formData.energia) {
       return alert("Preencha a energia utilizada");
     }
 
     // Step 3 - Odômetro (só se for obrigatório)
-    if (step === 3) {
+    if (step === 2) {
       if (odometroObrigatorio && !odometroValido) {
         return alert("Preencha o odômetro");
       }
       // Se não for obrigatório, pula direto para o Step 4
       if (!odometroObrigatorio) {
-        setStep(4);
+        setStep(3);
         return;
       }
     }
 
     // Pula Step 3 se odômetro não for obrigatório
-    if (step === 2 && !odometroObrigatorio) {
-      setStep(4);
+    if (step === 1 && !odometroObrigatorio) {
+      setStep(3);
       return;
     }
 
@@ -135,12 +135,6 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             }}
             className="bg-white"
           />
-        </div>
-      )}
-
-      {/* STEP 2: Energia */}
-      {step === 2 && (
-        <div className="grid gap-3">
           <Label>Energia Utilizada (kWh)</Label>
           <Input
             type="text"
@@ -171,8 +165,8 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
         </div>
       )}
 
-      {/* STEP 3: Odômetro */}
-      {step === 3 && odometroObrigatorio && (
+      {/* STEP 2: Odômetro */}
+      {step === 2 && odometroObrigatorio && (
         <div className="grid gap-3">
           <div className="flex items-center gap-2">
             <Label>Odômetro (km):</Label>
@@ -190,8 +184,8 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
         </div>
       )}
 
-      {/* STEP 4: Calendário */}
-      {step === 4 && (
+      {/* STEP 3: Calendário */}
+      {step === 3 && (
         <div className="grid gap-3">
           <Label>Dia da Finalização:</Label>
           <Popover>
@@ -242,8 +236,8 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
         </div>
       )}
 
-      {/* STEP 5: Falhas */}
-      {step === 5 && (
+      {/* STEP 4: Falhas */}
+      {step === 4 && (
         <div className="grid gap-3">
           <Label>Houve Falhas?</Label>
           <Select
@@ -298,38 +292,40 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             </DialogClose>
           )}
 
-          {step < 5 ? (
+          {step < 4 ? (
             <Button
-              className="w-full h-14 bg-green-500 text-lg font-bold"
+              className="w-full h-14 bg-gray-900 text-lg font-bold"
               onClick={handleProximo}
             >
               Próximo
             </Button>
           ) : (
             <div className="flex gap-4 w-full">
-              <DialogClose asChild>
-                {/* Botão de Reiniciar */}
-                <Button
-                  onClick={() => {
-                    if (!date)
-                      return alert("Selecione o Dia e Hora da finalização!");
-                    // Vai chamar a função do Finalizar
-                    const payload: FormRecargaFinal = {
-                      ...formData,
-                      energia: formData.energia.replace(",", "."),
-                      DtaFin: date.toISOString(),
-                      houveFalha: "sim",
-                      descricaoFalha:
-                        formData.descricaoFalha || "Reinício de recarga",
-                    };
+              {formData.houveFalha === "sim" && (
+                <DialogClose asChild>
+                  {/* Botão de Reiniciar */}
+                  <Button
+                    onClick={() => {
+                      if (!date)
+                        return alert("Selecione o Dia e Hora da finalização!");
+                      // Vai chamar a função do Finalizar
+                      const payload: FormRecargaFinal = {
+                        ...formData,
+                        energia: formData.energia.replace(",", "."),
+                        DtaFin: date.toISOString(),
+                        houveFalha: "sim",
+                        descricaoFalha:
+                          formData.descricaoFalha || "Reinício de recarga",
+                      };
 
-                    finalizarRecarga(item, payload);
-                  }}
-                  className="flex-1 h-14 bg-red-500 text-lg font-bold"
-                >
-                  Reiniciar
-                </Button>
-              </DialogClose>
+                      finalizarRecarga(item, payload);
+                    }}
+                    className="flex-1 h-14 bg-red-500 text-lg font-bold"
+                  >
+                    Reiniciar
+                  </Button>
+                </DialogClose>
+              )}
 
               {/* Botão de Finalizar */}
               <DialogClose asChild>
@@ -343,7 +339,12 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                       forcarSttRcgId6: true,
                     });
                   }}
-                  className="w-full h-14 bg-green-500 text-lg font-bold"
+                  disabled={!["sim", "nao"].includes(formData.houveFalha)}
+                  className={`w-full h-14 text-lg font-bold ${
+                    !["sim", "nao"].includes(formData.houveFalha)
+                      ? "bg-gray-400 text-black cursor-not-allowed"
+                      : "bg-yellow-500"
+                  }`}
                 >
                   Finalizar
                 </Button>

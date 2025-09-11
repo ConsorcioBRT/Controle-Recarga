@@ -14,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import { toast } from "react-hot-toast";
 import Link from "next/link";
 
 interface Usuario {
@@ -38,42 +37,29 @@ const Login = () => {
   const [postosUnicos, setPostosUnicos] = useState<Eletroposto[]>([]);
   const [contagem, setContagem] = useState<Record<number, number>>({});
   const [postoSelecionado, setPostoSelecionado] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
   const baseUrl =
     typeof window !== "undefined"
       ? window.location.origin
       : "http://localhost:3000";
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
-      const loginPromise = fetch("/api/usuarios", {
+      const res = await fetch("/api/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, senha }),
-      }).then(async (res) => {
-        const data = await res.json();
-        // Caso o backend retorne resetRequired (SttId = 8)
-        if (data.resetRequired) {
-          router.push(`/resetar-senha?userId=${data.userId}`); // redireciona para a tela de redefinir senha
-          throw new Error(data.message || "Redefinição de senha necessária");
-        }
-        if (!res.ok) {
-          throw new Error(data.message); // rejeita a promise
-        }
-        return data; // resolve a promise
       });
-
-      const data = await toast.promise(
-        loginPromise,
-        {
-          loading: "Validando login...",
-          success: "Login validado com sucesso!",
-          error: (err) => `Erro: ${err.message}`,
-        },
-        {
-          duration: 5000, // 5 segundos
-          className: "text-xl p-2",
-        }
-      );
+      const data = await res.json();
+      // Caso o backend retorne resetRequired (SttId = 8)
+      if (data.resetRequired) {
+        router.push(`/resetar-senha?userId=${data.userId}`); // redireciona para a tela de redefinir senha
+        throw new Error(data.message || "Redefinição de senha necessária");
+      }
+      if (!res.ok) {
+        throw new Error(data.message); // rejeita a promise
+      }
       // Irá salvar o usuário no "usuarioLogado"
       const userLogged: Usuario = data.user;
       localStorage.setItem("usuarioLogado", JSON.stringify(userLogged));
@@ -98,6 +84,8 @@ const Login = () => {
       router.push("/checklist-eletroposto");
     } catch (error) {
       console.log("Erro no login:", error);
+    } finally {
+      setLoading(false); // vai desativar o loading do botão
     }
   };
 
@@ -203,7 +191,13 @@ const Login = () => {
           onClick={handleLogin}
           className="w-full h-12 text-lg bg-gray-800"
         >
-          Entrar
+          {loading ? (
+            <div className="flex justify-center items-center h-20">
+              <div className="w-5 h-5 border-4 border-blue-300 border-t-blue-500 rounded-full animate-spin"></div>
+            </div>
+          ) : (
+            "Entrar"
+          )}
         </Button>
       </div>
     </div>

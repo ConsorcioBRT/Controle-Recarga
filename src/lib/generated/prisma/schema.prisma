@@ -348,7 +348,6 @@ model usr_tpo {
   @@index([SttId], map: "Idx_UsrTpo_SttId")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model psq {
   PsqId    Int       @id @default(autoincrement())
   Psq      String    @db.VarChar(100)
@@ -364,7 +363,6 @@ model psq {
   @@index([UsrIdAlt], map: "FK_Psq_Usr_UsrId")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model psq_prg {
   PsqTpoId Int
   PsqPrgId Int       @id @default(autoincrement())
@@ -384,7 +382,6 @@ model psq_prg {
   @@index([UsrIdAlt], map: "FK_psq_prg_Usr_UsrId")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model psq_rsp {
   PsqId    Int // Identificador da pesquisa
   PsqTpoId Int // Identificador Tipo de pesquisa
@@ -409,7 +406,6 @@ model psq_rsp {
   @@index([PsqPrgId], map: "FK_psq_rsp_psq_prg_PsqPrgId")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model psq_tpo {
   PsqTpoId Int       @id @default(autoincrement())
   PsqTpo   String    @db.VarChar(100)
@@ -435,9 +431,18 @@ model VwOnibus {
   Data_Operacao      DateTime? @map("Data_Operacao") @db.DateTime
   UndId              Int?      @map("UndId")
   PostoRecarga       String?   @map("PostoRecarga")
+  CrrId              Int?      @map("CrrId")
+  Carregador         String?   @map("Carregador")
+  DataInicio         DateTime? @map("DataInicio") @db.DateTime
+  DataFinal          DateTime? @map("DataFinal") @db.DateTime
+  BateriaInicio      Int?      @map("BateriaInicio")
   Bateria            Int?      @map("Bateria")
-  Odometro           Float?    @map("Odometro")
+  BateriaEntregue    Int?      @map("BateriaEntregue")
   Carga_kWh          Decimal?  @map("Carga_kWh") @db.Decimal(10, 3)
+  OdometroInicio     Float?    @map("OdometroInicio")
+  Odometro           Float?    @map("Odometro")
+  KmRodado           Float?    @map("KmRodado")
+  Checklist          String?   @map("Checklist")
   Capacidade_Tecnica Decimal   @map("Capacidade_Tecnica") @db.Decimal(10, 3)
 
   @@map("vw_onibus")

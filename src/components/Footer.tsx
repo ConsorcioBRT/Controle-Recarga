@@ -1,5 +1,5 @@
 "use client";
-import { Check, Fuel, Home } from "lucide-react";
+import { Fuel } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
@@ -22,10 +22,12 @@ const Footer = ({ className = "" }: FooterProps) => {
     >
       <div className="flex items-center justify-between gap-6">
         {/* Menu */}
+        {/*
         <Link href="/terminal" className="flex flex-col items-center">
           <Home className={`w-5 h-5 ${linkClasses("/terminal")}`} />
           <span className={linkClasses("/terminal")}>Menu</span>
         </Link>
+        */}
 
         {/* Recarga */}
         <Link href="/abastecimento" className="flex flex-col items-center">
@@ -42,10 +44,12 @@ const Footer = ({ className = "" }: FooterProps) => {
         */}
 
         {/* CheckList */}
+        {/*
         <Link href="/checklist-onibus" className="flex flex-col items-center">
           <Check className={`w-5 h-5 ${linkClasses("/checklist")}`} />
           <span className={linkClasses("/checklist")}>CheckList</span>
         </Link>
+        */}
       </div>
     </div>
   );

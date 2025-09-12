@@ -17,9 +17,18 @@ export async function GET(request: NextRequest) {
         Data_Operacao: true,
         UndId: true,
         PostoRecarga: true,
+        CrrId: true,
+        Carregador: true,
+        DataInicio: true,
+        DataFinal: true,
+        BateriaInicio: true,
         Bateria: true,
+        BateriaEntregue: true,
+        OdometroInicio: true,
         Odometro: true,
+        KmRodado: true,
         Carga_kWh: true,
+        Checklist: true,
         Capacidade_Tecnica: true,
       },
       orderBy: { Onibus: "asc" },
@@ -56,7 +65,7 @@ export async function GET(request: NextRequest) {
 export async function PUT(request: Request) {
   try {
     const body = await request.json();
-    const { RcgId, novoStatus } = body;
+    const { RcgId, novoStatus, novoSttIdChk } = body;
 
     if (!RcgId || novoStatus === undefined) {
       return new NextResponse("Parâmetros inválidos", { status: 400 });
@@ -65,7 +74,7 @@ export async function PUT(request: Request) {
     // Atualizar status na tabela rcg
     const atualizado = await prisma.rcg.update({
       where: { RcgId },
-      data: { SttRcgId: novoStatus },
+      data: { SttRcgId: novoStatus, SttIdChk: novoSttIdChk },
     });
 
     return NextResponse.json({

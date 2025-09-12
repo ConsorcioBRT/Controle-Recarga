@@ -21,6 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
+import DialogStepsChecklist from "./DialogStepsChecklist";
 
 type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
@@ -36,6 +37,7 @@ type FormRecargaFinal = {
 const Abastecimento = () => {
   const [livres, setLivres] = useState<{ Onibus: string }[]>([]);
   const [carregando, setCarregando] = useState<Veiculo[]>([]);
+  const [checklistPendente, setChecklistPendente] = useState<Veiculo[]>([]);
   const [odometro] = useState<{ [key: string]: string }>({});
   const [percentualFinal] = useState<{ [key: string]: string }>({});
   const [energia] = useState<{ [key: string]: string }>({});
@@ -80,13 +82,22 @@ const Abastecimento = () => {
         );
 
         const carregandoFiltrados = data.filter(
-          (item: { Situacao: string; UndId: number }) =>
+          (item: { Situacao: string; UndId: number; Checklist: string }) =>
             item.Situacao === "INICIADA" &&
+            item.Checklist === "REALIZADO" &&
+            (!postoSelecionado || item.UndId === postoSelecionado)
+        );
+
+        const checkListPendente = data.filter(
+          (item: { Situacao: string; UndId: number; Checklist: string }) =>
+            item.Situacao === "INICIADA" &&
+            item.Checklist === "PENDENTE" &&
             (!postoSelecionado || item.UndId === postoSelecionado)
         );
 
         setLivres(livresFiltrados);
         setCarregando(carregandoFiltrados);
+        setChecklistPendente(checkListPendente);
       } catch (error) {
         console.error(error);
       } finally {
@@ -126,6 +137,37 @@ const Abastecimento = () => {
       dados
     );
   }
+
+  /*
+  async function handleChecklist(onibusItem: Veiculo, novoValor: number) {
+    if (!onibusItem.RcgId) {
+      alert("RcgId não encontrado para esse ônibus");
+      return;
+    }
+    try {
+      const response = await fetch("/api/recarga/checklist", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          RcgId: onibusItem.RcgId,
+          SttIdChk: novoValor,
+        }),
+      });
+      if (!response.ok) throw new Error("Erro ao atualizar checklist");
+
+      const result = await response.json();
+      // Atualiza sua lista de ônibus no estado, se precisar
+      setCarregando((prev) =>
+        prev.map((v) =>
+          v.Onibus === onibusItem.Onibus ? { ...v, ...result.atualizado } : v
+        )
+      );
+      console.log("Checklist atualizado com sucesso!");
+    } catch (error) {
+      console.error("Erro no handleChecklist:", error);
+    }
+  }
+  */
 
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>,
@@ -297,7 +339,7 @@ const Abastecimento = () => {
             <div className="mt-3 ml-1">
               {loading ? (
                 <div className="flex justify-center items-center h-32">
-                  <div className="w-10 h-10 border-4 border-blue-300 border-t-blue-500 rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-4 border-yellow-300 border-t-yellow-500 rounded-full animate-spin"></div>
                 </div>
               ) : carregando.length === 0 ? (
                 <p className="text-gray-500 text-sm italic">
@@ -345,25 +387,26 @@ const Abastecimento = () => {
           </div>
 
           {/* Checklist Pendente */}
+          {/*
           <div className="mt-2">
             <div className="flex items-center gap-2">
               <Circle className="w-2 h-2 text-red-500 bg-red-500 rounded-full" />
               <span className="text-base font-semibold text-gray-700">
-                Checklist Pendente ({carregando.length})
+                Checklist Pendente ({checklistPendente.length})
               </span>
             </div>
             <div className="mt-3 ml-1">
               {loading ? (
                 <div className="flex justify-center items-center h-32">
-                  <div className="w-10 h-10 border-4 border-blue-300 border-t-blue-500 rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-4 border-red-300 border-t-red-500 rounded-full animate-spin"></div>
                 </div>
-              ) : carregando.length === 0 ? (
+              ) : checklistPendente.length === 0 ? (
                 <p className="text-gray-500 text-sm italic">
-                  Nenhum ônibus carregando
+                  Nenhum checklist pendente
                 </p>
               ) : (
                 <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
-                  {carregando.map((item, index) => (
+                  {checklistPendente.map((item, index) => (
                     <Dialog key={index}>
                       <DialogTrigger asChild>
                         <Button
@@ -388,10 +431,11 @@ const Abastecimento = () => {
                           </DialogTitle>
                         </DialogHeader>
 
-                        <DialogStepsCarregando
-                          item={item}
-                          finalizarRecarga={finalizarRecargaAdapter}
-                          reiniciarRecarga={item.FlhId === 1}
+                        <DialogStepsChecklist
+                          rcgId={item.RcgId} // precisa passar o ID da recarga
+                          onChecklistDone={atualizarListaChecklistsPendentes} // callback para recarregar lista pai
+                          open={true}
+                          setOpen={() => {}} // se quiser controlar, passar estado
                         />
                       </DialogContent>
                     </Dialog>
@@ -400,6 +444,7 @@ const Abastecimento = () => {
               )}
             </div>
           </div>
+          */}
         </div>
       </main>
       <Footer className="fixed bottom-0 w-full" />

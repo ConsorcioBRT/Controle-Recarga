@@ -86,6 +86,16 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
   const odometroValido = formData.odometro !== "";
   */
 
+  // 🔹 Função para formatar a data no fuso local (Brasília)
+  function formatarDataLocal(date: Date): string {
+    const pad = (n: number) => String(n).padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
+      date.getDate()
+    )} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+      date.getSeconds()
+    )}`;
+  }
+
   const handleProximo = () => {
     // Step 1 - Percentual
     if (step === 1 && !formData.percentualFinal) {
@@ -317,7 +327,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                       const payload: FormRecargaFinal = {
                         ...formData,
                         energia: formData.energia.replace(",", "."),
-                        DtaFin: date.toISOString(),
+                        DtaFin: date ? formatarDataLocal(date) : undefined,
                         houveFalha: "sim",
                         descricaoFalha:
                           formData.descricaoFalha || "Reinício de recarga",
@@ -340,7 +350,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                       return alert("Selecione o Dia e Hora da finalização!");
                     finalizarRecarga(item, {
                       ...formData,
-                      DtaFin: date.toISOString(),
+                      DtaFin: date ? formatarDataLocal(date) : undefined,
                       forcarSttRcgId6: true,
                     });
                   }}

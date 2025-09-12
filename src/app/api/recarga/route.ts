@@ -219,7 +219,7 @@ export async function PUT(request: Request) {
     const dadosAtualizados: DadosAtualizadosType = {};
 
     if (DtaFin && !recargaExistente.DtaFin) {
-      dadosAtualizados.DtaFin = new Date(DtaFin);
+      dadosAtualizados.DtaFin = parseDataBrasilia(DtaFin);
     }
 
     if (

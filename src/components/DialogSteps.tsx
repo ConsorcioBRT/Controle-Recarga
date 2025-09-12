@@ -323,17 +323,6 @@ const DialogSteps = ({
                     : "—"}
                 </p>
                 <p>
-                  <strong className="text-xs">Hora:</strong>{" "}
-                  {dadosOnibus.Data_Operacao
-                    ? new Date(dadosOnibus.Data_Operacao).toLocaleDateString(
-                        "pt-BR",
-                        {
-                          timeZone: "UTC",
-                        }
-                      )
-                    : "—"}
-                </p>
-                <p>
                   <strong className="text-xs">Unidade:</strong>{" "}
                   {dadosOnibus.PostoRecarga ?? "—"}
                 </p>

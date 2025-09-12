@@ -357,9 +357,18 @@ exports.Prisma.VwOnibusScalarFieldEnum = {
   Data_Operacao: 'Data_Operacao',
   UndId: 'UndId',
   PostoRecarga: 'PostoRecarga',
+  CrrId: 'CrrId',
+  Carregador: 'Carregador',
+  DataInicio: 'DataInicio',
+  DataFinal: 'DataFinal',
+  BateriaInicio: 'BateriaInicio',
   Bateria: 'Bateria',
-  Odometro: 'Odometro',
+  BateriaEntregue: 'BateriaEntregue',
   Carga_kWh: 'Carga_kWh',
+  OdometroInicio: 'OdometroInicio',
+  Odometro: 'Odometro',
+  KmRodado: 'KmRodado',
+  Checklist: 'Checklist',
   Capacidade_Tecnica: 'Capacidade_Tecnica'
 };
 
@@ -520,7 +529,9 @@ exports.Prisma.psq_tpoOrderByRelevanceFieldEnum = {
 exports.Prisma.VwOnibusOrderByRelevanceFieldEnum = {
   Onibus: 'Onibus',
   Situacao: 'Situacao',
-  PostoRecarga: 'PostoRecarga'
+  PostoRecarga: 'PostoRecarga',
+  Carregador: 'Carregador',
+  Checklist: 'Checklist'
 };
 
 exports.Prisma.VwPostoRecargaOrderByRelevanceFieldEnum = {

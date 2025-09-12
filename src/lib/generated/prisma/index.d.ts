@@ -80,22 +80,22 @@ export type usr = $Result.DefaultSelection<Prisma.$usrPayload>
 export type usr_tpo = $Result.DefaultSelection<Prisma.$usr_tpoPayload>
 /**
  * Model psq
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ * 
  */
 export type psq = $Result.DefaultSelection<Prisma.$psqPayload>
 /**
  * Model psq_prg
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ * 
  */
 export type psq_prg = $Result.DefaultSelection<Prisma.$psq_prgPayload>
 /**
  * Model psq_rsp
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ * 
  */
 export type psq_rsp = $Result.DefaultSelection<Prisma.$psq_rspPayload>
 /**
  * Model psq_tpo
- * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ * 
  */
 export type psq_tpo = $Result.DefaultSelection<Prisma.$psq_tpoPayload>
 /**
@@ -22638,9 +22638,14 @@ export namespace Prisma {
     RcgIdOrg: number | null
     EqpItmId: number | null
     UndId: number | null
+    CrrId: number | null
+    BateriaInicio: number | null
     Bateria: number | null
-    Odometro: number | null
+    BateriaEntregue: number | null
     Carga_kWh: Decimal | null
+    OdometroInicio: number | null
+    Odometro: number | null
+    KmRodado: number | null
     Capacidade_Tecnica: Decimal | null
   }
 
@@ -22648,9 +22653,14 @@ export namespace Prisma {
     RcgIdOrg: number | null
     EqpItmId: number | null
     UndId: number | null
+    CrrId: number | null
+    BateriaInicio: number | null
     Bateria: number | null
-    Odometro: number | null
+    BateriaEntregue: number | null
     Carga_kWh: Decimal | null
+    OdometroInicio: number | null
+    Odometro: number | null
+    KmRodado: number | null
     Capacidade_Tecnica: Decimal | null
   }
 
@@ -22662,9 +22672,18 @@ export namespace Prisma {
     Data_Operacao: Date | null
     UndId: number | null
     PostoRecarga: string | null
+    CrrId: number | null
+    Carregador: string | null
+    DataInicio: Date | null
+    DataFinal: Date | null
+    BateriaInicio: number | null
     Bateria: number | null
-    Odometro: number | null
+    BateriaEntregue: number | null
     Carga_kWh: Decimal | null
+    OdometroInicio: number | null
+    Odometro: number | null
+    KmRodado: number | null
+    Checklist: string | null
     Capacidade_Tecnica: Decimal | null
   }
 
@@ -22676,9 +22695,18 @@ export namespace Prisma {
     Data_Operacao: Date | null
     UndId: number | null
     PostoRecarga: string | null
+    CrrId: number | null
+    Carregador: string | null
+    DataInicio: Date | null
+    DataFinal: Date | null
+    BateriaInicio: number | null
     Bateria: number | null
-    Odometro: number | null
+    BateriaEntregue: number | null
     Carga_kWh: Decimal | null
+    OdometroInicio: number | null
+    Odometro: number | null
+    KmRodado: number | null
+    Checklist: string | null
     Capacidade_Tecnica: Decimal | null
   }
 
@@ -22690,9 +22718,18 @@ export namespace Prisma {
     Data_Operacao: number
     UndId: number
     PostoRecarga: number
+    CrrId: number
+    Carregador: number
+    DataInicio: number
+    DataFinal: number
+    BateriaInicio: number
     Bateria: number
-    Odometro: number
+    BateriaEntregue: number
     Carga_kWh: number
+    OdometroInicio: number
+    Odometro: number
+    KmRodado: number
+    Checklist: number
     Capacidade_Tecnica: number
     _all: number
   }
@@ -22702,9 +22739,14 @@ export namespace Prisma {
     RcgIdOrg?: true
     EqpItmId?: true
     UndId?: true
+    CrrId?: true
+    BateriaInicio?: true
     Bateria?: true
-    Odometro?: true
+    BateriaEntregue?: true
     Carga_kWh?: true
+    OdometroInicio?: true
+    Odometro?: true
+    KmRodado?: true
     Capacidade_Tecnica?: true
   }
 
@@ -22712,9 +22754,14 @@ export namespace Prisma {
     RcgIdOrg?: true
     EqpItmId?: true
     UndId?: true
+    CrrId?: true
+    BateriaInicio?: true
     Bateria?: true
-    Odometro?: true
+    BateriaEntregue?: true
     Carga_kWh?: true
+    OdometroInicio?: true
+    Odometro?: true
+    KmRodado?: true
     Capacidade_Tecnica?: true
   }
 
@@ -22726,9 +22773,18 @@ export namespace Prisma {
     Data_Operacao?: true
     UndId?: true
     PostoRecarga?: true
+    CrrId?: true
+    Carregador?: true
+    DataInicio?: true
+    DataFinal?: true
+    BateriaInicio?: true
     Bateria?: true
-    Odometro?: true
+    BateriaEntregue?: true
     Carga_kWh?: true
+    OdometroInicio?: true
+    Odometro?: true
+    KmRodado?: true
+    Checklist?: true
     Capacidade_Tecnica?: true
   }
 
@@ -22740,9 +22796,18 @@ export namespace Prisma {
     Data_Operacao?: true
     UndId?: true
     PostoRecarga?: true
+    CrrId?: true
+    Carregador?: true
+    DataInicio?: true
+    DataFinal?: true
+    BateriaInicio?: true
     Bateria?: true
-    Odometro?: true
+    BateriaEntregue?: true
     Carga_kWh?: true
+    OdometroInicio?: true
+    Odometro?: true
+    KmRodado?: true
+    Checklist?: true
     Capacidade_Tecnica?: true
   }
 
@@ -22754,9 +22819,18 @@ export namespace Prisma {
     Data_Operacao?: true
     UndId?: true
     PostoRecarga?: true
+    CrrId?: true
+    Carregador?: true
+    DataInicio?: true
+    DataFinal?: true
+    BateriaInicio?: true
     Bateria?: true
-    Odometro?: true
+    BateriaEntregue?: true
     Carga_kWh?: true
+    OdometroInicio?: true
+    Odometro?: true
+    KmRodado?: true
+    Checklist?: true
     Capacidade_Tecnica?: true
     _all?: true
   }
@@ -22855,9 +22929,18 @@ export namespace Prisma {
     Data_Operacao: Date | null
     UndId: number | null
     PostoRecarga: string | null
+    CrrId: number | null
+    Carregador: string | null
+    DataInicio: Date | null
+    DataFinal: Date | null
+    BateriaInicio: number | null
     Bateria: number | null
-    Odometro: number | null
+    BateriaEntregue: number | null
     Carga_kWh: Decimal | null
+    OdometroInicio: number | null
+    Odometro: number | null
+    KmRodado: number | null
+    Checklist: string | null
     Capacidade_Tecnica: Decimal
     _count: VwOnibusCountAggregateOutputType | null
     _avg: VwOnibusAvgAggregateOutputType | null
@@ -22888,9 +22971,18 @@ export namespace Prisma {
     Data_Operacao?: boolean
     UndId?: boolean
     PostoRecarga?: boolean
+    CrrId?: boolean
+    Carregador?: boolean
+    DataInicio?: boolean
+    DataFinal?: boolean
+    BateriaInicio?: boolean
     Bateria?: boolean
-    Odometro?: boolean
+    BateriaEntregue?: boolean
     Carga_kWh?: boolean
+    OdometroInicio?: boolean
+    Odometro?: boolean
+    KmRodado?: boolean
+    Checklist?: boolean
     Capacidade_Tecnica?: boolean
   }, ExtArgs["result"]["vwOnibus"]>
 
@@ -22904,13 +22996,22 @@ export namespace Prisma {
     Data_Operacao?: boolean
     UndId?: boolean
     PostoRecarga?: boolean
+    CrrId?: boolean
+    Carregador?: boolean
+    DataInicio?: boolean
+    DataFinal?: boolean
+    BateriaInicio?: boolean
     Bateria?: boolean
-    Odometro?: boolean
+    BateriaEntregue?: boolean
     Carga_kWh?: boolean
+    OdometroInicio?: boolean
+    Odometro?: boolean
+    KmRodado?: boolean
+    Checklist?: boolean
     Capacidade_Tecnica?: boolean
   }
 
-  export type VwOnibusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgIdOrg" | "EqpItmId" | "Onibus" | "Situacao" | "Data_Operacao" | "UndId" | "PostoRecarga" | "Bateria" | "Odometro" | "Carga_kWh" | "Capacidade_Tecnica", ExtArgs["result"]["vwOnibus"]>
+  export type VwOnibusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgIdOrg" | "EqpItmId" | "Onibus" | "Situacao" | "Data_Operacao" | "UndId" | "PostoRecarga" | "CrrId" | "Carregador" | "DataInicio" | "DataFinal" | "BateriaInicio" | "Bateria" | "BateriaEntregue" | "Carga_kWh" | "OdometroInicio" | "Odometro" | "KmRodado" | "Checklist" | "Capacidade_Tecnica", ExtArgs["result"]["vwOnibus"]>
 
   export type $VwOnibusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "VwOnibus"
@@ -22923,9 +23024,18 @@ export namespace Prisma {
       Data_Operacao: Date | null
       UndId: number | null
       PostoRecarga: string | null
+      CrrId: number | null
+      Carregador: string | null
+      DataInicio: Date | null
+      DataFinal: Date | null
+      BateriaInicio: number | null
       Bateria: number | null
-      Odometro: number | null
+      BateriaEntregue: number | null
       Carga_kWh: Prisma.Decimal | null
+      OdometroInicio: number | null
+      Odometro: number | null
+      KmRodado: number | null
+      Checklist: string | null
       Capacidade_Tecnica: Prisma.Decimal
     }, ExtArgs["result"]["vwOnibus"]>
     composites: {}
@@ -23303,9 +23413,18 @@ export namespace Prisma {
     readonly Data_Operacao: FieldRef<"VwOnibus", 'DateTime'>
     readonly UndId: FieldRef<"VwOnibus", 'Int'>
     readonly PostoRecarga: FieldRef<"VwOnibus", 'String'>
+    readonly CrrId: FieldRef<"VwOnibus", 'Int'>
+    readonly Carregador: FieldRef<"VwOnibus", 'String'>
+    readonly DataInicio: FieldRef<"VwOnibus", 'DateTime'>
+    readonly DataFinal: FieldRef<"VwOnibus", 'DateTime'>
+    readonly BateriaInicio: FieldRef<"VwOnibus", 'Int'>
     readonly Bateria: FieldRef<"VwOnibus", 'Int'>
-    readonly Odometro: FieldRef<"VwOnibus", 'Float'>
+    readonly BateriaEntregue: FieldRef<"VwOnibus", 'Int'>
     readonly Carga_kWh: FieldRef<"VwOnibus", 'Decimal'>
+    readonly OdometroInicio: FieldRef<"VwOnibus", 'Float'>
+    readonly Odometro: FieldRef<"VwOnibus", 'Float'>
+    readonly KmRodado: FieldRef<"VwOnibus", 'Float'>
+    readonly Checklist: FieldRef<"VwOnibus", 'String'>
     readonly Capacidade_Tecnica: FieldRef<"VwOnibus", 'Decimal'>
   }
     
@@ -26657,9 +26776,18 @@ export namespace Prisma {
     Data_Operacao: 'Data_Operacao',
     UndId: 'UndId',
     PostoRecarga: 'PostoRecarga',
+    CrrId: 'CrrId',
+    Carregador: 'Carregador',
+    DataInicio: 'DataInicio',
+    DataFinal: 'DataFinal',
+    BateriaInicio: 'BateriaInicio',
     Bateria: 'Bateria',
-    Odometro: 'Odometro',
+    BateriaEntregue: 'BateriaEntregue',
     Carga_kWh: 'Carga_kWh',
+    OdometroInicio: 'OdometroInicio',
+    Odometro: 'Odometro',
+    KmRodado: 'KmRodado',
+    Checklist: 'Checklist',
     Capacidade_Tecnica: 'Capacidade_Tecnica'
   };
 
@@ -26889,7 +27017,9 @@ export namespace Prisma {
   export const VwOnibusOrderByRelevanceFieldEnum: {
     Onibus: 'Onibus',
     Situacao: 'Situacao',
-    PostoRecarga: 'PostoRecarga'
+    PostoRecarga: 'PostoRecarga',
+    Carregador: 'Carregador',
+    Checklist: 'Checklist'
   };
 
   export type VwOnibusOrderByRelevanceFieldEnum = (typeof VwOnibusOrderByRelevanceFieldEnum)[keyof typeof VwOnibusOrderByRelevanceFieldEnum]
@@ -28686,9 +28816,18 @@ export namespace Prisma {
     Data_Operacao?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
     UndId?: IntNullableFilter<"VwOnibus"> | number | null
     PostoRecarga?: StringNullableFilter<"VwOnibus"> | string | null
+    CrrId?: IntNullableFilter<"VwOnibus"> | number | null
+    Carregador?: StringNullableFilter<"VwOnibus"> | string | null
+    DataInicio?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
+    DataFinal?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
+    BateriaInicio?: IntNullableFilter<"VwOnibus"> | number | null
     Bateria?: IntNullableFilter<"VwOnibus"> | number | null
-    Odometro?: FloatNullableFilter<"VwOnibus"> | number | null
+    BateriaEntregue?: IntNullableFilter<"VwOnibus"> | number | null
     Carga_kWh?: DecimalNullableFilter<"VwOnibus"> | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: FloatNullableFilter<"VwOnibus"> | number | null
+    Odometro?: FloatNullableFilter<"VwOnibus"> | number | null
+    KmRodado?: FloatNullableFilter<"VwOnibus"> | number | null
+    Checklist?: StringNullableFilter<"VwOnibus"> | string | null
     Capacidade_Tecnica?: DecimalFilter<"VwOnibus"> | Decimal | DecimalJsLike | number | string
   }
 
@@ -28700,9 +28839,18 @@ export namespace Prisma {
     Data_Operacao?: SortOrderInput | SortOrder
     UndId?: SortOrderInput | SortOrder
     PostoRecarga?: SortOrderInput | SortOrder
+    CrrId?: SortOrderInput | SortOrder
+    Carregador?: SortOrderInput | SortOrder
+    DataInicio?: SortOrderInput | SortOrder
+    DataFinal?: SortOrderInput | SortOrder
+    BateriaInicio?: SortOrderInput | SortOrder
     Bateria?: SortOrderInput | SortOrder
-    Odometro?: SortOrderInput | SortOrder
+    BateriaEntregue?: SortOrderInput | SortOrder
     Carga_kWh?: SortOrderInput | SortOrder
+    OdometroInicio?: SortOrderInput | SortOrder
+    Odometro?: SortOrderInput | SortOrder
+    KmRodado?: SortOrderInput | SortOrder
+    Checklist?: SortOrderInput | SortOrder
     Capacidade_Tecnica?: SortOrder
     _relevance?: VwOnibusOrderByRelevanceInput
   }
@@ -28718,9 +28866,18 @@ export namespace Prisma {
     Data_Operacao?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
     UndId?: IntNullableFilter<"VwOnibus"> | number | null
     PostoRecarga?: StringNullableFilter<"VwOnibus"> | string | null
+    CrrId?: IntNullableFilter<"VwOnibus"> | number | null
+    Carregador?: StringNullableFilter<"VwOnibus"> | string | null
+    DataInicio?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
+    DataFinal?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
+    BateriaInicio?: IntNullableFilter<"VwOnibus"> | number | null
     Bateria?: IntNullableFilter<"VwOnibus"> | number | null
-    Odometro?: FloatNullableFilter<"VwOnibus"> | number | null
+    BateriaEntregue?: IntNullableFilter<"VwOnibus"> | number | null
     Carga_kWh?: DecimalNullableFilter<"VwOnibus"> | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: FloatNullableFilter<"VwOnibus"> | number | null
+    Odometro?: FloatNullableFilter<"VwOnibus"> | number | null
+    KmRodado?: FloatNullableFilter<"VwOnibus"> | number | null
+    Checklist?: StringNullableFilter<"VwOnibus"> | string | null
     Capacidade_Tecnica?: DecimalFilter<"VwOnibus"> | Decimal | DecimalJsLike | number | string
   }, "EqpItmId">
 
@@ -28732,9 +28889,18 @@ export namespace Prisma {
     Data_Operacao?: SortOrderInput | SortOrder
     UndId?: SortOrderInput | SortOrder
     PostoRecarga?: SortOrderInput | SortOrder
+    CrrId?: SortOrderInput | SortOrder
+    Carregador?: SortOrderInput | SortOrder
+    DataInicio?: SortOrderInput | SortOrder
+    DataFinal?: SortOrderInput | SortOrder
+    BateriaInicio?: SortOrderInput | SortOrder
     Bateria?: SortOrderInput | SortOrder
-    Odometro?: SortOrderInput | SortOrder
+    BateriaEntregue?: SortOrderInput | SortOrder
     Carga_kWh?: SortOrderInput | SortOrder
+    OdometroInicio?: SortOrderInput | SortOrder
+    Odometro?: SortOrderInput | SortOrder
+    KmRodado?: SortOrderInput | SortOrder
+    Checklist?: SortOrderInput | SortOrder
     Capacidade_Tecnica?: SortOrder
     _count?: VwOnibusCountOrderByAggregateInput
     _avg?: VwOnibusAvgOrderByAggregateInput
@@ -28754,9 +28920,18 @@ export namespace Prisma {
     Data_Operacao?: DateTimeNullableWithAggregatesFilter<"VwOnibus"> | Date | string | null
     UndId?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
     PostoRecarga?: StringNullableWithAggregatesFilter<"VwOnibus"> | string | null
+    CrrId?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    Carregador?: StringNullableWithAggregatesFilter<"VwOnibus"> | string | null
+    DataInicio?: DateTimeNullableWithAggregatesFilter<"VwOnibus"> | Date | string | null
+    DataFinal?: DateTimeNullableWithAggregatesFilter<"VwOnibus"> | Date | string | null
+    BateriaInicio?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
     Bateria?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
-    Odometro?: FloatNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    BateriaEntregue?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
     Carga_kWh?: DecimalNullableWithAggregatesFilter<"VwOnibus"> | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: FloatNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    Odometro?: FloatNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    KmRodado?: FloatNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    Checklist?: StringNullableWithAggregatesFilter<"VwOnibus"> | string | null
     Capacidade_Tecnica?: DecimalWithAggregatesFilter<"VwOnibus"> | Decimal | DecimalJsLike | number | string
   }
 
@@ -30630,9 +30805,18 @@ export namespace Prisma {
     Data_Operacao?: Date | string | null
     UndId?: number | null
     PostoRecarga?: string | null
+    CrrId?: number | null
+    Carregador?: string | null
+    DataInicio?: Date | string | null
+    DataFinal?: Date | string | null
+    BateriaInicio?: number | null
     Bateria?: number | null
-    Odometro?: number | null
+    BateriaEntregue?: number | null
     Carga_kWh?: Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: number | null
+    Odometro?: number | null
+    KmRodado?: number | null
+    Checklist?: string | null
     Capacidade_Tecnica: Decimal | DecimalJsLike | number | string
   }
 
@@ -30644,9 +30828,18 @@ export namespace Prisma {
     Data_Operacao?: Date | string | null
     UndId?: number | null
     PostoRecarga?: string | null
+    CrrId?: number | null
+    Carregador?: string | null
+    DataInicio?: Date | string | null
+    DataFinal?: Date | string | null
+    BateriaInicio?: number | null
     Bateria?: number | null
-    Odometro?: number | null
+    BateriaEntregue?: number | null
     Carga_kWh?: Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: number | null
+    Odometro?: number | null
+    KmRodado?: number | null
+    Checklist?: string | null
     Capacidade_Tecnica: Decimal | DecimalJsLike | number | string
   }
 
@@ -30658,9 +30851,18 @@ export namespace Prisma {
     Data_Operacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     UndId?: NullableIntFieldUpdateOperationsInput | number | null
     PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CrrId?: NullableIntFieldUpdateOperationsInput | number | null
+    Carregador?: NullableStringFieldUpdateOperationsInput | string | null
+    DataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DataFinal?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    BateriaInicio?: NullableIntFieldUpdateOperationsInput | number | null
     Bateria?: NullableIntFieldUpdateOperationsInput | number | null
-    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    BateriaEntregue?: NullableIntFieldUpdateOperationsInput | number | null
     Carga_kWh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: NullableFloatFieldUpdateOperationsInput | number | null
+    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    KmRodado?: NullableFloatFieldUpdateOperationsInput | number | null
+    Checklist?: NullableStringFieldUpdateOperationsInput | string | null
     Capacidade_Tecnica?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -30672,9 +30874,18 @@ export namespace Prisma {
     Data_Operacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     UndId?: NullableIntFieldUpdateOperationsInput | number | null
     PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CrrId?: NullableIntFieldUpdateOperationsInput | number | null
+    Carregador?: NullableStringFieldUpdateOperationsInput | string | null
+    DataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DataFinal?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    BateriaInicio?: NullableIntFieldUpdateOperationsInput | number | null
     Bateria?: NullableIntFieldUpdateOperationsInput | number | null
-    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    BateriaEntregue?: NullableIntFieldUpdateOperationsInput | number | null
     Carga_kWh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: NullableFloatFieldUpdateOperationsInput | number | null
+    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    KmRodado?: NullableFloatFieldUpdateOperationsInput | number | null
+    Checklist?: NullableStringFieldUpdateOperationsInput | string | null
     Capacidade_Tecnica?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -30686,9 +30897,18 @@ export namespace Prisma {
     Data_Operacao?: Date | string | null
     UndId?: number | null
     PostoRecarga?: string | null
+    CrrId?: number | null
+    Carregador?: string | null
+    DataInicio?: Date | string | null
+    DataFinal?: Date | string | null
+    BateriaInicio?: number | null
     Bateria?: number | null
-    Odometro?: number | null
+    BateriaEntregue?: number | null
     Carga_kWh?: Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: number | null
+    Odometro?: number | null
+    KmRodado?: number | null
+    Checklist?: string | null
     Capacidade_Tecnica: Decimal | DecimalJsLike | number | string
   }
 
@@ -30700,9 +30920,18 @@ export namespace Prisma {
     Data_Operacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     UndId?: NullableIntFieldUpdateOperationsInput | number | null
     PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CrrId?: NullableIntFieldUpdateOperationsInput | number | null
+    Carregador?: NullableStringFieldUpdateOperationsInput | string | null
+    DataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DataFinal?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    BateriaInicio?: NullableIntFieldUpdateOperationsInput | number | null
     Bateria?: NullableIntFieldUpdateOperationsInput | number | null
-    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    BateriaEntregue?: NullableIntFieldUpdateOperationsInput | number | null
     Carga_kWh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: NullableFloatFieldUpdateOperationsInput | number | null
+    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    KmRodado?: NullableFloatFieldUpdateOperationsInput | number | null
+    Checklist?: NullableStringFieldUpdateOperationsInput | string | null
     Capacidade_Tecnica?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -30714,9 +30943,18 @@ export namespace Prisma {
     Data_Operacao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     UndId?: NullableIntFieldUpdateOperationsInput | number | null
     PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CrrId?: NullableIntFieldUpdateOperationsInput | number | null
+    Carregador?: NullableStringFieldUpdateOperationsInput | string | null
+    DataInicio?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DataFinal?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    BateriaInicio?: NullableIntFieldUpdateOperationsInput | number | null
     Bateria?: NullableIntFieldUpdateOperationsInput | number | null
-    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    BateriaEntregue?: NullableIntFieldUpdateOperationsInput | number | null
     Carga_kWh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    OdometroInicio?: NullableFloatFieldUpdateOperationsInput | number | null
+    Odometro?: NullableFloatFieldUpdateOperationsInput | number | null
+    KmRodado?: NullableFloatFieldUpdateOperationsInput | number | null
+    Checklist?: NullableStringFieldUpdateOperationsInput | string | null
     Capacidade_Tecnica?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
@@ -32403,9 +32641,18 @@ export namespace Prisma {
     Data_Operacao?: SortOrder
     UndId?: SortOrder
     PostoRecarga?: SortOrder
+    CrrId?: SortOrder
+    Carregador?: SortOrder
+    DataInicio?: SortOrder
+    DataFinal?: SortOrder
+    BateriaInicio?: SortOrder
     Bateria?: SortOrder
-    Odometro?: SortOrder
+    BateriaEntregue?: SortOrder
     Carga_kWh?: SortOrder
+    OdometroInicio?: SortOrder
+    Odometro?: SortOrder
+    KmRodado?: SortOrder
+    Checklist?: SortOrder
     Capacidade_Tecnica?: SortOrder
   }
 
@@ -32413,9 +32660,14 @@ export namespace Prisma {
     RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     UndId?: SortOrder
+    CrrId?: SortOrder
+    BateriaInicio?: SortOrder
     Bateria?: SortOrder
-    Odometro?: SortOrder
+    BateriaEntregue?: SortOrder
     Carga_kWh?: SortOrder
+    OdometroInicio?: SortOrder
+    Odometro?: SortOrder
+    KmRodado?: SortOrder
     Capacidade_Tecnica?: SortOrder
   }
 
@@ -32427,9 +32679,18 @@ export namespace Prisma {
     Data_Operacao?: SortOrder
     UndId?: SortOrder
     PostoRecarga?: SortOrder
+    CrrId?: SortOrder
+    Carregador?: SortOrder
+    DataInicio?: SortOrder
+    DataFinal?: SortOrder
+    BateriaInicio?: SortOrder
     Bateria?: SortOrder
-    Odometro?: SortOrder
+    BateriaEntregue?: SortOrder
     Carga_kWh?: SortOrder
+    OdometroInicio?: SortOrder
+    Odometro?: SortOrder
+    KmRodado?: SortOrder
+    Checklist?: SortOrder
     Capacidade_Tecnica?: SortOrder
   }
 
@@ -32441,9 +32702,18 @@ export namespace Prisma {
     Data_Operacao?: SortOrder
     UndId?: SortOrder
     PostoRecarga?: SortOrder
+    CrrId?: SortOrder
+    Carregador?: SortOrder
+    DataInicio?: SortOrder
+    DataFinal?: SortOrder
+    BateriaInicio?: SortOrder
     Bateria?: SortOrder
-    Odometro?: SortOrder
+    BateriaEntregue?: SortOrder
     Carga_kWh?: SortOrder
+    OdometroInicio?: SortOrder
+    Odometro?: SortOrder
+    KmRodado?: SortOrder
+    Checklist?: SortOrder
     Capacidade_Tecnica?: SortOrder
   }
 
@@ -32451,9 +32721,14 @@ export namespace Prisma {
     RcgIdOrg?: SortOrder
     EqpItmId?: SortOrder
     UndId?: SortOrder
+    CrrId?: SortOrder
+    BateriaInicio?: SortOrder
     Bateria?: SortOrder
-    Odometro?: SortOrder
+    BateriaEntregue?: SortOrder
     Carga_kWh?: SortOrder
+    OdometroInicio?: SortOrder
+    Odometro?: SortOrder
+    KmRodado?: SortOrder
     Capacidade_Tecnica?: SortOrder
   }
 

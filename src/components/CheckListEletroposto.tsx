@@ -45,11 +45,6 @@ const CheckListEletroposto = () => {
           setIsCompleted(false);
         } catch (error) {
           console.error("Erro ao buscar checklist:", error);
-          setChecklist([
-            { id: "1", question: "Verificar óleo", answer: null },
-            { id: "2", question: "Verificar pneus", answer: null },
-            { id: "3", question: "Verificar freios", answer: null },
-          ]);
           setCurrentStep(0);
           setIsCompleted(false);
         }

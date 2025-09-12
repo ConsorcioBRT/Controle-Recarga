@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
 export async function PUT(request: Request) {
   try {
     const body = await request.json();
-    const { RcgId, novoStatus, novoSttIdChk } = body;
+    const { RcgId, novoStatus } = body;
 
     if (!RcgId || novoStatus === undefined) {
       return new NextResponse("Parâmetros inválidos", { status: 400 });
@@ -74,7 +74,7 @@ export async function PUT(request: Request) {
     // Atualizar status na tabela rcg
     const atualizado = await prisma.rcg.update({
       where: { RcgId },
-      data: { SttRcgId: novoStatus, SttIdChk: novoSttIdChk },
+      data: { SttRcgId: novoStatus },
     });
 
     return NextResponse.json({

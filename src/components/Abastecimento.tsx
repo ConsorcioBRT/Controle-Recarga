@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import DialogStepsChecklist from "./DialogStepsChecklist";
+// import DialogStepsChecklist from "./DialogStepsChecklist";
 
 type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
@@ -37,7 +37,7 @@ type FormRecargaFinal = {
 const Abastecimento = () => {
   const [livres, setLivres] = useState<{ Onibus: string }[]>([]);
   const [carregando, setCarregando] = useState<Veiculo[]>([]);
-  const [checklistPendente, setChecklistPendente] = useState<Veiculo[]>([]);
+  // const [checklistPendente, setChecklistPendente] = useState<Veiculo[]>([]);
   const [odometro] = useState<{ [key: string]: string }>({});
   const [percentualFinal] = useState<{ [key: string]: string }>({});
   const [energia] = useState<{ [key: string]: string }>({});
@@ -84,20 +84,20 @@ const Abastecimento = () => {
         const carregandoFiltrados = data.filter(
           (item: { Situacao: string; UndId: number; Checklist: string }) =>
             item.Situacao === "INICIADA" &&
-            item.Checklist === "REALIZADO" &&
             (!postoSelecionado || item.UndId === postoSelecionado)
         );
 
+        /*
         const checkListPendente = data.filter(
           (item: { Situacao: string; UndId: number; Checklist: string }) =>
             item.Situacao === "INICIADA" &&
             item.Checklist === "PENDENTE" &&
             (!postoSelecionado || item.UndId === postoSelecionado)
         );
+         */
 
         setLivres(livresFiltrados);
         setCarregando(carregandoFiltrados);
-        setChecklistPendente(checkListPendente);
       } catch (error) {
         console.error(error);
       } finally {

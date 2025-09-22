@@ -11,7 +11,7 @@ import {
 } from "@/src/components/ui/dialog";
 import { Button } from "@/src/components/ui/button";
 import Footer from "./Footer";
-import { Circle, Zap } from "lucide-react";
+import { Circle, Notebook, Zap } from "lucide-react";
 import DialogStepsCarregando from "./DialogStepsCarregando";
 import DialogSteps from "./DialogSteps";
 import {
@@ -21,7 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-// import DialogStepsChecklist from "./DialogStepsChecklist";
+import DialogStepsChecklist from "./DialogStepsChecklist";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
 type FormRecargaFinal = {
@@ -37,10 +38,13 @@ type FormRecargaFinal = {
 const Abastecimento = () => {
   const [livres, setLivres] = useState<{ Onibus: string }[]>([]);
   const [carregando, setCarregando] = useState<Veiculo[]>([]);
-  // const [checklistPendente, setChecklistPendente] = useState<Veiculo[]>([]);
+  const [checklistPendente, setChecklistPendente] = useState<Veiculo[]>([]);
   const [odometro] = useState<{ [key: string]: string }>({});
   const [percentualFinal] = useState<{ [key: string]: string }>({});
   const [energia] = useState<{ [key: string]: string }>({});
+  const [openChecklist, setOpenChecklist] = useState<{
+    [onibus: string]: boolean;
+  }>({});
   const [postoSelecionado] = useState<number | null>(() => {
     if (typeof window !== "undefined") {
       const eletro = localStorage.getItem("eletropostoSelecionado");
@@ -61,6 +65,7 @@ const Abastecimento = () => {
 
   useEffect(() => {
     let isFirstLoad = true;
+
     async function fetchVeiculos() {
       if (isFirstLoad) setLoading(true);
       try {
@@ -81,23 +86,35 @@ const Abastecimento = () => {
             (!postoSelecionado || item.UndId === postoSelecionado)
         );
 
-        const carregandoFiltrados = data.filter(
-          (item: { Situacao: string; UndId: number; Checklist: string }) =>
-            item.Situacao === "INICIADA" &&
-            (!postoSelecionado || item.UndId === postoSelecionado)
-        );
-
-        /*
-        const checkListPendente = data.filter(
+        const checklistFiltro = data.filter(
           (item: { Situacao: string; UndId: number; Checklist: string }) =>
             item.Situacao === "INICIADA" &&
             item.Checklist === "PENDENTE" &&
             (!postoSelecionado || item.UndId === postoSelecionado)
         );
-         */
 
-        setLivres(livresFiltrados);
-        setCarregando(carregandoFiltrados);
+        const carregandoFiltrados = data.filter(
+          (item: { Situacao: string; UndId: number; Checklist: string }) =>
+            item.Situacao === "INICIADA" &&
+            item.Checklist === "REALIZADO" &&
+            (!postoSelecionado || item.UndId === postoSelecionado)
+        );
+
+        // Remove veículos repetidos entre as listas
+        const livresUnicos = livresFiltrados.filter(
+          (v: Veiculo) =>
+            !carregandoFiltrados.some((c: Veiculo) => c.Onibus === v.Onibus) &&
+            !checklistFiltro.some((c: Veiculo) => c.Onibus === v.Onibus)
+        );
+
+        const carregandoUnicos = carregandoFiltrados.filter(
+          (v: Veiculo) =>
+            !checklistFiltro.some((c: Veiculo) => c.Onibus === v.Onibus)
+        );
+
+        setLivres(livresUnicos);
+        setChecklistPendente(checklistFiltro);
+        setCarregando(carregandoUnicos);
       } catch (error) {
         console.error(error);
       } finally {
@@ -126,7 +143,13 @@ const Abastecimento = () => {
   // Aqui vai iniciar o Carregamento
   function iniciarCarregamento(veiculo: Veiculo) {
     setLivres((prev) => prev.filter((v) => v.Onibus !== veiculo.Onibus));
-    setCarregando((prev) => [...prev, veiculo]);
+    setChecklistPendente((prev) =>
+      prev.filter((v) => v.Onibus !== veiculo.Onibus)
+    );
+    setCarregando((prev) => [
+      ...prev.filter((v) => v.Onibus !== veiculo.Onibus),
+      veiculo,
+    ]);
   }
 
   // Adapter para DialogStepsCarregando
@@ -135,39 +158,16 @@ const Abastecimento = () => {
       { preventDefault: () => {} } as React.FormEvent<HTMLFormElement>,
       item,
       dados
-    );
-  }
-
-  /*
-  async function handleChecklist(onibusItem: Veiculo, novoValor: number) {
-    if (!onibusItem.RcgId) {
-      alert("RcgId não encontrado para esse ônibus");
-      return;
-    }
-    try {
-      const response = await fetch("/api/recarga/checklist", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          RcgId: onibusItem.RcgId,
-          SttIdChk: novoValor,
-        }),
-      });
-      if (!response.ok) throw new Error("Erro ao atualizar checklist");
-
-      const result = await response.json();
-      // Atualiza sua lista de ônibus no estado, se precisar
-      setCarregando((prev) =>
-        prev.map((v) =>
-          v.Onibus === onibusItem.Onibus ? { ...v, ...result.atualizado } : v
-        )
+    ).then(() => {
+      setChecklistPendente((prev) =>
+        prev.filter((v) => v.Onibus !== item.Onibus)
       );
-      console.log("Checklist atualizado com sucesso!");
-    } catch (error) {
-      console.error("Erro no handleChecklist:", error);
-    }
+      setCarregando((prev) => [
+        ...prev.filter((v) => v.Onibus !== item.Onibus),
+        item,
+      ]);
+    });
   }
-  */
 
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>,
@@ -229,8 +229,6 @@ const Abastecimento = () => {
           .concat(novaRecarga ? [novaRecarga] : [])
       );
 
-      setLivres((prev) => (!novaRecarga ? [...prev, onibusItem] : prev));
-
       console.log("Recarga finalizada com sucesso!");
     } catch (error) {
       console.error("Erro no HandleSubmit:", error);
@@ -257,6 +255,16 @@ const Abastecimento = () => {
                     (v) => v.Onibus === value
                   );
                   if (onibusSelecionado) {
+                    // Adiciona no livres se ainda não existir
+                    setLivres((prev) => {
+                      const existe = prev.find(
+                        (v) => v.Onibus === onibusSelecionado.Onibus
+                      );
+                      if (existe) return prev;
+                      return [...prev, onibusSelecionado];
+                    });
+
+                    // Também marca como selecionado para o Dialog
                     selecionarVeiculo(onibusSelecionado);
                   }
                 }}
@@ -284,44 +292,59 @@ const Abastecimento = () => {
                 </p>
               ) : (
                 <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
-                  {[...livres, ...selecionados]
-                    .filter(
-                      (l, idx, self) =>
-                        !carregando.find((c) => c.Onibus === l.Onibus) &&
-                        self.findIndex((x) => x.Onibus === l.Onibus) == idx // não fica com duplicidade
-                    )
-                    .map((item) => (
-                      <Dialog key={item.Onibus}>
-                        <DialogTrigger asChild>
-                          <Button
-                            onClick={() => {
-                              selecionarVeiculo(item);
-                            }}
-                            variant="outline"
-                            className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-green-500 text-white"
-                          >
-                            {item.Onibus}
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
-                          <DialogHeader className="flex items-start">
-                            <DialogTitle className="flex items-center gap-2">
-                              <Zap className="text-green-500" />
-                              Iniciar Recarga - Ônibus{" "}
-                              <span className="bg-green-500 text-white p-1 rounded-full">
+                  <AnimatePresence>
+                    {[...livres, ...selecionados]
+                      .filter(
+                        (l, idx, self) =>
+                          !carregando.find((c) => c.Onibus === l.Onibus) &&
+                          !checklistPendente.find(
+                            (c) => c.Onibus === l.Onibus
+                          ) &&
+                          self.findIndex((x) => x.Onibus === l.Onibus) == idx // não fica com duplicidade
+                      )
+                      .map((item) => (
+                        <motion.div
+                          key={item.Onibus}
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          // exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Dialog key={item.Onibus}>
+                            <DialogTrigger asChild>
+                              <Button
+                                onClick={() => {
+                                  selecionarVeiculo(item);
+                                }}
+                                variant="outline"
+                                className="inline-flex items-center justify-center rounded-xl text-base font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-12 w-16 bg-green-500 text-white"
+                              >
                                 {item.Onibus}
-                              </span>
-                            </DialogTitle>
-                          </DialogHeader>
+                              </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
+                              <DialogHeader className="flex items-start">
+                                <DialogTitle className="flex items-center gap-2">
+                                  <Zap className="text-green-500" />
+                                  Iniciar Recarga - Ônibus{" "}
+                                  <span className="bg-green-500 text-white p-1 rounded-full">
+                                    {item.Onibus}
+                                  </span>
+                                </DialogTitle>
+                              </DialogHeader>
 
-                          {/* Parte das STEPS */}
-                          <DialogSteps
-                            veiculo={item}
-                            iniciarCarregamento={iniciarCarregamento}
-                          />
-                        </DialogContent>
-                      </Dialog>
-                    ))}
+                              {/* Parte das STEPS */}
+                              <div className="p-2 max-h-[70vh] overflow-y-auto">
+                                <DialogSteps
+                                  veiculo={item}
+                                  iniciarCarregamento={iniciarCarregamento}
+                                />
+                              </div>
+                            </DialogContent>
+                          </Dialog>
+                        </motion.div>
+                      ))}
+                  </AnimatePresence>
                 </div>
               )}
             </div>
@@ -347,39 +370,49 @@ const Abastecimento = () => {
                 </p>
               ) : (
                 <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
-                  {carregando.map((item, index) => (
-                    <Dialog key={index}>
-                      <DialogTrigger asChild>
-                        <Button
-                          onClick={() => {
-                            selecionarVeiculo(item);
-                          }}
-                          variant="outline"
-                          className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-yellow-500 text-white"
-                        >
-                          {item.Onibus}
-                        </Button>
-                      </DialogTrigger>
-
-                      <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
-                        <DialogHeader className="flex items-start">
-                          <DialogTitle className="flex items-center gap-2">
-                            <Zap className="text-yellow-500" />
-                            Finalizar Recarga - Ônibus{" "}
-                            <span className="bg-yellow-500 text-white p-1 rounded-full">
+                  <AnimatePresence>
+                    {carregando.map((item, index) => (
+                      <motion.div
+                        key={`${item.Onibus}-${item.RcgId ?? index}`}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        // exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button
+                              onClick={() => {
+                                selecionarVeiculo(item);
+                              }}
+                              variant="outline"
+                              className="inline-flex items-center justify-center rounded-xl text-base font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-12 w-16 bg-yellow-500 text-white"
+                            >
                               {item.Onibus}
-                            </span>
-                          </DialogTitle>
-                        </DialogHeader>
+                            </Button>
+                          </DialogTrigger>
 
-                        <DialogStepsCarregando
-                          item={item}
-                          finalizarRecarga={finalizarRecargaAdapter}
-                          reiniciarRecarga={item.FlhId === 1}
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  ))}
+                          <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
+                            <DialogHeader className="flex items-start">
+                              <DialogTitle className="flex items-center gap-2">
+                                <Zap className="text-yellow-500" />
+                                Finalizar Recarga - Ônibus{" "}
+                                <span className="bg-yellow-500 text-white p-1 rounded-full">
+                                  {item.Onibus}
+                                </span>
+                              </DialogTitle>
+                            </DialogHeader>
+
+                            <DialogStepsCarregando
+                              item={item}
+                              finalizarRecarga={finalizarRecargaAdapter}
+                              reiniciarRecarga={item.FlhId === 1}
+                            />
+                          </DialogContent>
+                        </Dialog>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
                 </div>
               )}
             </div>
@@ -387,7 +420,6 @@ const Abastecimento = () => {
           </div>
 
           {/* Checklist Pendente */}
-          {/*
           <div className="mt-2">
             <div className="flex items-center gap-2">
               <Circle className="w-2 h-2 text-red-500 bg-red-500 rounded-full" />
@@ -402,49 +434,79 @@ const Abastecimento = () => {
                 </div>
               ) : checklistPendente.length === 0 ? (
                 <p className="text-gray-500 text-sm italic">
-                  Nenhum checklist pendente
+                  Nenhum checklist para fazer
                 </p>
               ) : (
                 <div className="grid grid-cols-5 sm:grid-cols-2 gap-1 mt-5">
-                  {checklistPendente.map((item, index) => (
-                    <Dialog key={index}>
-                      <DialogTrigger asChild>
-                        <Button
-                          onClick={() => {
-                            selecionarVeiculo(item);
-                          }}
-                          variant="outline"
-                          className="inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-10 w-18 bg-red-500 text-white"
-                        >
-                          {item.Onibus}
-                        </Button>
-                      </DialogTrigger>
-
-                      <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
-                        <DialogHeader className="flex items-start">
-                          <DialogTitle className="flex items-center gap-2">
-                            <Zap className="text-green-500" />
-                            Finalizar Recarga - Ônibus{" "}
-                            <span className="bg-green-500 text-white p-1 rounded-full">
+                  <AnimatePresence>
+                    {checklistPendente.map((item, index) => (
+                      <motion.div
+                        key={`${item.Onibus}-${item.RcgId ?? index}`}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        // exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button
+                              onClick={() => {
+                                selecionarVeiculo(item);
+                                setOpenChecklist((prev) => ({
+                                  ...prev,
+                                  [item.Onibus]: true,
+                                }));
+                              }}
+                              variant="outline"
+                              className="inline-flex items-center justify-center rounded-xl text-base font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-12 w-16 bg-red-500 text-white"
+                            >
                               {item.Onibus}
-                            </span>
-                          </DialogTitle>
-                        </DialogHeader>
+                            </Button>
+                          </DialogTrigger>
 
-                        <DialogStepsChecklist
-                          rcgId={item.RcgId} // precisa passar o ID da recarga
-                          onChecklistDone={atualizarListaChecklistsPendentes} // callback para recarregar lista pai
-                          open={true}
-                          setOpen={() => {}} // se quiser controlar, passar estado
-                        />
-                      </DialogContent>
-                    </Dialog>
-                  ))}
+                          <DialogContent className="max-w-sm w-full rounded-xl p-6 bg-gray-100">
+                            <DialogHeader className="flex items-start">
+                              <DialogTitle className="flex items-center gap-2">
+                                <Notebook className="text-red-500" />
+                                Checklist - Ônibus{" "}
+                                <span className="bg-red-500 text-white p-1 rounded-full">
+                                  {item.Onibus}
+                                </span>
+                              </DialogTitle>
+                            </DialogHeader>
+                            {/* Aqui vai ser o DialogStepsChecklist */}
+                            <DialogStepsChecklist
+                              key={item.Onibus}
+                              veiculo={item}
+                              isOpen={!!openChecklist[item.Onibus]}
+                              onOpenChange={(open) =>
+                                setOpenChecklist((prev) => ({
+                                  ...prev,
+                                  [item.Onibus]: open,
+                                }))
+                              }
+                              onChecklistCompleted={(veiculo) => {
+                                setChecklistPendente((prev) =>
+                                  prev.filter(
+                                    (v) => v.Onibus !== veiculo.Onibus
+                                  )
+                                );
+                                setCarregando((prev) => [...prev, veiculo]);
+                                setOpenChecklist((prev) => ({
+                                  ...prev,
+                                  [veiculo.Onibus]: false,
+                                }));
+                              }}
+                            />
+                          </DialogContent>
+                        </Dialog>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
                 </div>
               )}
             </div>
           </div>
-          */}
         </div>
       </main>
       <Footer className="fixed bottom-0 w-full" />

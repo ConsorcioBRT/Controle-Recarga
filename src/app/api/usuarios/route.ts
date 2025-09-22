@@ -29,10 +29,10 @@ export async function GET() {
 const ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || "access-secret";
 export async function POST(request: NextRequest) {
   try {
-    const { usuario, senha } = await request.json();
+    const { usuario, senha, UndId, DtaOpe, TrnId } = await request.json();
 
     // Aqui vai procurar o usuário pelo nome, e-mail ou CPF
-    const user = await prisma.usr.findFirst({
+    const user = await prisma.usr.findFirst({ 
       where: {
         OR: [{ UsrEml: usuario }, { UsrCpf: usuario }, { UsrLgn: usuario }],
       },
@@ -70,6 +70,28 @@ export async function POST(request: NextRequest) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { UsrPwd, ...userSemSenha } = user;
 
+    // Aqui vai verificar se já respondeu o checklist do eletroposto
+    console.log("Usuario ID:", user.UsrId);
+    console.log("UndId selecionado:", UndId);
+
+    // Verifica se o usuário já respondeu o checklist do eletroposto
+    let jaRespondeu = false;
+    if (DtaOpe && TrnId) {
+      const resposta = await prisma.psq_rsp.findFirst({
+        where: {
+          UndId: UndId,
+          DtaOpe: new Date(DtaOpe),
+          TrnId: Number(TrnId),
+        },
+      });
+      console.log("Resposta encontrada:", resposta);
+      jaRespondeu = !!resposta;
+    }
+
+    if (!UndId) {
+      return new NextResponse("UndId não informado", { status: 400 });
+    }
+
     // Gera o Token por 15min
     const accessToken = jwt.sign(
       {
@@ -84,6 +106,7 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json({
       message: "Login realizado com sucesso",
       user: userSemSenha,
+      jaRespondeu: !!jaRespondeu,
     });
 
     // Irá salvar os tokens nos cookies

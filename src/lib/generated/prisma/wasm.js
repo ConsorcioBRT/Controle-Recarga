@@ -247,6 +247,51 @@ exports.Prisma.FrnScalarFieldEnum = {
   MtvDel: 'MtvDel'
 };
 
+exports.Prisma.PsqScalarFieldEnum = {
+  PsqId: 'PsqId',
+  Psq: 'Psq',
+  SttId: 'SttId',
+  UsrIdAlt: 'UsrIdAlt',
+  DtaAlt: 'DtaAlt',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.Psq_prgScalarFieldEnum = {
+  PsqTpoId: 'PsqTpoId',
+  PsqPrgId: 'PsqPrgId',
+  PsqPrg: 'PsqPrg',
+  PsqSqc: 'PsqSqc',
+  SttId: 'SttId',
+  UsrIdAlt: 'UsrIdAlt',
+  DtaAlt: 'DtaAlt',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.Psq_rspScalarFieldEnum = {
+  UndId: 'UndId',
+  DtaOpe: 'DtaOpe',
+  TrnId: 'TrnId',
+  PsqId: 'PsqId',
+  PsqTpoId: 'PsqTpoId',
+  PsqPrgId: 'PsqPrgId',
+  PsqRspId: 'PsqRspId',
+  PsqRsp: 'PsqRsp',
+  PsqDth: 'PsqDth',
+  SttId: 'SttId',
+  UsrIdAlt: 'UsrIdAlt',
+  DtaAlt: 'DtaAlt',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.Psq_tpoScalarFieldEnum = {
+  PsqTpoId: 'PsqTpoId',
+  PsqTpo: 'PsqTpo',
+  SttId: 'SttId',
+  UsrIdAlt: 'UsrIdAlt',
+  DtaAlt: 'DtaAlt',
+  MtvDel: 'MtvDel'
+};
+
 exports.Prisma.RcgScalarFieldEnum = {
   RcgId: 'RcgId',
   RcgIdOrg: 'RcgIdOrg',
@@ -282,6 +327,17 @@ exports.Prisma.SttScalarFieldEnum = {
   MtvDel: 'MtvDel'
 };
 
+exports.Prisma.TrnScalarFieldEnum = {
+  TrnId: 'TrnId',
+  Trn: 'Trn',
+  TrnIni: 'TrnIni',
+  TrnFin: 'TrnFin',
+  SttId: 'SttId',
+  UsrIdAlt: 'UsrIdAlt',
+  DtaAlt: 'DtaAlt',
+  MtvDel: 'MtvDel'
+};
+
 exports.Prisma.UsrScalarFieldEnum = {
   EmpId: 'EmpId',
   UsrTpoId: 'UsrTpoId',
@@ -301,48 +357,6 @@ exports.Prisma.UsrScalarFieldEnum = {
 exports.Prisma.Usr_tpoScalarFieldEnum = {
   UsrTpoId: 'UsrTpoId',
   UsrTpoNme: 'UsrTpoNme',
-  SttId: 'SttId',
-  UsrIdAlt: 'UsrIdAlt',
-  DtaAlt: 'DtaAlt',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.PsqScalarFieldEnum = {
-  PsqId: 'PsqId',
-  Psq: 'Psq',
-  SttId: 'SttId',
-  UsrIdAlt: 'UsrIdAlt',
-  DtaAlt: 'DtaAlt',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.Psq_prgScalarFieldEnum = {
-  PsqTpoId: 'PsqTpoId',
-  PsqPrgId: 'PsqPrgId',
-  PsqPrg: 'PsqPrg',
-  PsqSqc: 'PsqSqc',
-  SttId: 'SttId',
-  UsrIdAlt: 'UsrIdAlt',
-  DtaAlt: 'DtaAlt',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.Psq_rspScalarFieldEnum = {
-  PsqId: 'PsqId',
-  PsqTpoId: 'PsqTpoId',
-  PsqPrgId: 'PsqPrgId',
-  PsqRspId: 'PsqRspId',
-  PsqRsp: 'PsqRsp',
-  PsqDth: 'PsqDth',
-  SttId: 'SttId',
-  UsrIdAlt: 'UsrIdAlt',
-  DtaAlt: 'DtaAlt',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.Psq_tpoScalarFieldEnum = {
-  PsqTpoId: 'PsqTpoId',
-  PsqTpo: 'PsqTpo',
   SttId: 'SttId',
   UsrIdAlt: 'UsrIdAlt',
   DtaAlt: 'DtaAlt',
@@ -372,6 +386,20 @@ exports.Prisma.VwOnibusScalarFieldEnum = {
   Capacidade_Tecnica: 'Capacidade_Tecnica'
 };
 
+exports.Prisma.VwCarregadorScalarFieldEnum = {
+  UndId: 'UndId',
+  EqpItmId: 'EqpItmId',
+  Carregador: 'Carregador'
+};
+
+exports.Prisma.VwPesquisaPerguntaScalarFieldEnum = {
+  PsqPrgId: 'PsqPrgId',
+  PsqTpoId: 'PsqTpoId',
+  Tipo_Pesquisa: 'Tipo_Pesquisa',
+  Pergunta: 'Pergunta',
+  Sequencia: 'Sequencia'
+};
+
 exports.Prisma.VwPostoRecargaScalarFieldEnum = {
   UndId: 'UndId',
   PostoRecarga: 'PostoRecarga',
@@ -379,18 +407,12 @@ exports.Prisma.VwPostoRecargaScalarFieldEnum = {
   Longitude: 'Longitude'
 };
 
-exports.Prisma.VwCarregadorScalarFieldEnum = {
-  UndId: 'UndId',
-  EqpItmId: 'EqpItmId',
-  Carregador: 'Carregador'
-};
-
-exports.Prisma.VwChecklistCarregamentoScalarFieldEnum = {
-  PsqPrgId: 'PsqPrgId',
-  PsqTpoId: 'PsqTpoId',
-  Tipo_Pesquisa: 'Tipo_Pesquisa',
-  Pergunta: 'Pergunta',
-  Sequencia: 'Sequencia'
+exports.Prisma.VwTurnoAtualScalarFieldEnum = {
+  DtaAtu: 'DtaAtu',
+  DtaOpe: 'DtaOpe',
+  TrnId: 'TrnId',
+  InicioTurno: 'InicioTurno',
+  FimTurno: 'FimTurno'
 };
 
 exports.Prisma.SortOrder = {
@@ -481,31 +503,6 @@ exports.Prisma.frnOrderByRelevanceFieldEnum = {
   MtvDel: 'MtvDel'
 };
 
-exports.Prisma.rcgOrderByRelevanceFieldEnum = {
-  FlhDsc: 'FlhDsc',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.sttOrderByRelevanceFieldEnum = {
-  SttNme: 'SttNme',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.usrOrderByRelevanceFieldEnum = {
-  UsrNme: 'UsrNme',
-  UsrLgn: 'UsrLgn',
-  UsrCpf: 'UsrCpf',
-  UsrEml: 'UsrEml',
-  UsrPwd: 'UsrPwd',
-  UsrFto: 'UsrFto',
-  MtvDel: 'MtvDel'
-};
-
-exports.Prisma.usr_tpoOrderByRelevanceFieldEnum = {
-  UsrTpoNme: 'UsrTpoNme',
-  MtvDel: 'MtvDel'
-};
-
 exports.Prisma.psqOrderByRelevanceFieldEnum = {
   Psq: 'Psq',
   MtvDel: 'MtvDel'
@@ -526,6 +523,36 @@ exports.Prisma.psq_tpoOrderByRelevanceFieldEnum = {
   MtvDel: 'MtvDel'
 };
 
+exports.Prisma.rcgOrderByRelevanceFieldEnum = {
+  FlhDsc: 'FlhDsc',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.sttOrderByRelevanceFieldEnum = {
+  SttNme: 'SttNme',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.trnOrderByRelevanceFieldEnum = {
+  Trn: 'Trn',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.usrOrderByRelevanceFieldEnum = {
+  UsrNme: 'UsrNme',
+  UsrLgn: 'UsrLgn',
+  UsrCpf: 'UsrCpf',
+  UsrEml: 'UsrEml',
+  UsrPwd: 'UsrPwd',
+  UsrFto: 'UsrFto',
+  MtvDel: 'MtvDel'
+};
+
+exports.Prisma.usr_tpoOrderByRelevanceFieldEnum = {
+  UsrTpoNme: 'UsrTpoNme',
+  MtvDel: 'MtvDel'
+};
+
 exports.Prisma.VwOnibusOrderByRelevanceFieldEnum = {
   Onibus: 'Onibus',
   Situacao: 'Situacao',
@@ -534,19 +561,23 @@ exports.Prisma.VwOnibusOrderByRelevanceFieldEnum = {
   Checklist: 'Checklist'
 };
 
+exports.Prisma.VwCarregadorOrderByRelevanceFieldEnum = {
+  Carregador: 'Carregador'
+};
+
+exports.Prisma.VwPesquisaPerguntaOrderByRelevanceFieldEnum = {
+  Tipo_Pesquisa: 'Tipo_Pesquisa',
+  Pergunta: 'Pergunta'
+};
+
 exports.Prisma.VwPostoRecargaOrderByRelevanceFieldEnum = {
   PostoRecarga: 'PostoRecarga',
   Latitude: 'Latitude',
   Longitude: 'Longitude'
 };
 
-exports.Prisma.VwCarregadorOrderByRelevanceFieldEnum = {
-  Carregador: 'Carregador'
-};
-
-exports.Prisma.VwChecklistCarregamentoOrderByRelevanceFieldEnum = {
-  Tipo_Pesquisa: 'Tipo_Pesquisa',
-  Pergunta: 'Pergunta'
+exports.Prisma.VwTurnoAtualOrderByRelevanceFieldEnum = {
+  TrnId: 'TrnId'
 };
 
 
@@ -560,18 +591,20 @@ exports.Prisma.ModelName = {
   eqp_mdl: 'eqp_mdl',
   eqp_tpo: 'eqp_tpo',
   frn: 'frn',
-  rcg: 'rcg',
-  stt: 'stt',
-  usr: 'usr',
-  usr_tpo: 'usr_tpo',
   psq: 'psq',
   psq_prg: 'psq_prg',
   psq_rsp: 'psq_rsp',
   psq_tpo: 'psq_tpo',
+  rcg: 'rcg',
+  stt: 'stt',
+  trn: 'trn',
+  usr: 'usr',
+  usr_tpo: 'usr_tpo',
   VwOnibus: 'VwOnibus',
-  VwPostoRecarga: 'VwPostoRecarga',
   VwCarregador: 'VwCarregador',
-  VwChecklistCarregamento: 'VwChecklistCarregamento'
+  VwPesquisaPergunta: 'VwPesquisaPergunta',
+  VwPostoRecarga: 'VwPostoRecarga',
+  VwTurnoAtual: 'VwTurnoAtual'
 };
 
 /**

@@ -156,23 +156,14 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             onChange={(e) => {
               let value = e.target.value;
 
-              value = value.replace(/[^\d,]/g, ""); // Aqui remove o que não for número
+              // Remove tudo que não seja dígito ou vírgula
+              value = value.replace(/[^\d,]/g, "");
 
-              // Divide parte inteira e decimal
-              const [integer, decimal] = value.split(",");
+              // Garante que só haja uma vírgula
+              const [inteiro, decimal] = value.split(",");
+              value = inteiro + (decimal !== undefined ? "," + decimal : "");
 
-              // Formata parte inteira com separador de milhar
-              const formattedInteger = integer.replace(
-                /\B(?=(\d{3})+(?!\d))/g,
-                "."
-              );
-
-              // Monta novamente
-              let formattedValue = formattedInteger;
-              if (decimal !== undefined) {
-                formattedValue += "," + decimal;
-              }
-              setFormData((prev) => ({ ...prev, energia: formattedValue }));
+              setFormData((prev) => ({ ...prev, energia: value }));
             }}
             className="bg-white"
           />
@@ -350,6 +341,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                       return alert("Selecione o Dia e Hora da finalização!");
                     finalizarRecarga(item, {
                       ...formData,
+                      energia: formData.energia.replace(",", "."),
                       DtaFin: date ? formatarDataLocal(date) : undefined,
                       forcarSttRcgId6: true,
                     });

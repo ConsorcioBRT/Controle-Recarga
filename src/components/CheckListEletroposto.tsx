@@ -94,9 +94,21 @@ const CheckListEletroposto = () => {
       const usuario = JSON.parse(usuarioLogado);
       const UsrIdAlt = usuario.UsrId; // irá salvar o ID do usuário
 
+      const eletropostoSelecionado = localStorage.getItem(
+        "eletropostoSelecionado"
+      );
+      if (!eletropostoSelecionado) {
+        alert("Selecione um Eletroposto antes de responder o checklist");
+        return;
+      }
+      const eletroposto = JSON.parse(eletropostoSelecionado);
+      const UndId = Number(eletroposto.UndId);
+
       const respostasNao = checklist
         .filter((item) => item.answer === "no")
         .map((item) => ({
+          UndId: UndId,
+          DtaOpe: new Date(),
           PsqId: 1,
           PsqTpoId: 1,
           PsqPrgId: parseInt(item.id),
@@ -116,7 +128,7 @@ const CheckListEletroposto = () => {
       });
 
       const data = await res.text(); // pega o texto retornado do servidor
-
+      console.log("Enviando respostas:", respostasNao);
       if (!res.ok) throw new Error(data || "Erro ao salvar respostas");
 
       console.log("Respostas 'Não' salvas:", respostasNao);
@@ -131,6 +143,67 @@ const CheckListEletroposto = () => {
 
   const currentItem = checklist[currentStep];
 
+  // Aqui será para identificar se já foi respondido ou não
+  const comecouChecklist = async () => {
+    try {
+      const usuarioLogado = localStorage.getItem("usuarioLogado");
+      if (!usuarioLogado) return;
+      const usuario = JSON.parse(usuarioLogado);
+
+      const eletropostoSelecionado = localStorage.getItem(
+        "eletropostoSelecionado"
+      );
+      if (!eletropostoSelecionado) return;
+      const eletroposto = JSON.parse(eletropostoSelecionado);
+      const UndId = Number(eletroposto.UndId);
+
+      const turnoAtual = localStorage.getItem("turnoAtual");
+      if (!turnoAtual) {
+        alert("Não foi encontrado o turno atual");
+        return;
+      }
+      const turno = JSON.parse(turnoAtual);
+
+      // Aqui garante que TrnId é string (como espera o Prisma)
+      const TrnId = turno.TrnId;
+      if (!TrnId) {
+        console.error("TrnId não encontrado ou inválido!", turno);
+        return;
+      }
+
+      const body = {
+        UndId,
+        DtaOpe: new Date().toISOString(),
+        TrnId: TrnId,
+        PsqId: 1,
+        PsqTpoId: 1,
+        PsqPrgId: 999, // id reservado
+        PsqRsp: 0,
+        PsqDth: "Checklist Iniciado",
+        SttId: 5,
+        UsrIdAlt: usuario.UsrId,
+        DtaAlt: new Date().toISOString(),
+      };
+
+      const res = await fetch("/api/checklistStart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      console.log("Dados que foram enviados:", body);
+
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("Erro checklistStart:", text);
+        alert("Erro ao iniciar checklist");
+        return;
+      }
+    } catch (error) {
+      console.error("Erro no comecouChecklist:", error);
+    }
+  };
+
   return (
     <div className="h-screen flex flex-col items-center justify-center p-4">
       <div className="flex flex-col items-center justify-center">
@@ -140,7 +213,13 @@ const CheckListEletroposto = () => {
         </span>
       </div>
 
-      <Button onClick={() => setIsDialogOpen(true)} className="mb-4">
+      <Button
+        onClick={async () => {
+          await comecouChecklist();
+          setIsDialogOpen(true);
+        }}
+        className="mb-4"
+      >
         Responder Checklist
       </Button>
 

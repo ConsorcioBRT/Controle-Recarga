@@ -16,7 +16,7 @@ export function middleware(req: NextRequest) {
 
   // Se já está logado e tenta acessar a tela de login (/), irá mandar pro /terminal
   if (token && pathname === "/") {
-    return NextResponse.redirect(new URL("/terminal", req.url));
+    return NextResponse.redirect(new URL("/abastecimento", req.url));
   }
 
   // Se não tem token e tenta acessar rota protegida, irá retornar pro / (Login)

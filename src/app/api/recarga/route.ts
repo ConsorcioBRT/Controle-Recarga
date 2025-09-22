@@ -102,10 +102,12 @@ export async function POST(request: Request) {
     // Aqui se a última recarga terminar com erro, usar ele como origem
     let rcgIdOrgNovo = 0;
     let dtaOpeNovo = new Date();
+    let sttIdChkNovo = 0;
     if (ultimaRecarga) {
       if (ultimaRecarga.SttRcgId === 7 && ultimaRecarga.FlhId === 1) {
         rcgIdOrgNovo = ultimaRecarga.RcgIdOrg || ultimaRecarga.RcgId; // aqui irá salvar o RcgIdOrg atual com o RcgIdOrg anterior
         dtaOpeNovo = ultimaRecarga.DtaOpe;
+        sttIdChkNovo = ultimaRecarga.SttIdChk ?? 0;
       }
     }
 
@@ -134,9 +136,10 @@ export async function POST(request: Request) {
       SttRcgId: 5,
       SttId: 1,
       FlhId: 0,
-      SttIdChk: 0,
+      SttIdChk: sttIdChkNovo,
     };
     console.log("Dados que serão enviados para o banco:", dadosParaSalvar);
+    console.log("sttIdChkNovo calculado:", sttIdChkNovo);
 
     // Aqui será a criação da Nova Recarga
     let novaRecarga = await prisma.rcg.create({
@@ -229,10 +232,7 @@ export async function PUT(request: Request) {
       dadosAtualizados.SocFin = Number(SocFin);
     }
 
-    if (
-      RcgKwh !== undefined &&
-      (!recargaExistente.RcgKwh || recargaExistente.RcgKwh.toNumber() === 0)
-    ) {
+    if (RcgKwh !== undefined) {
       dadosAtualizados.RcgKwh = new Prisma.Decimal(Number(RcgKwh).toFixed(3));
     }
 

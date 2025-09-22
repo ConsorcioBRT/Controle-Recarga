@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // Função para pegar todos que forem checklist do Eletroposto
 export async function GET() {
   try {
-    const checklistEletroposto = await prisma.vwChecklistCarregamento.findMany({
+    const checklistEletroposto = await prisma.vwPesquisaPergunta.findMany({
       where: { PsqTpoId: 1 },
       select: {
         PsqTpoId: true,

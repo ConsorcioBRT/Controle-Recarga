@@ -224,6 +224,83 @@ model frn {
   @@index([FrnNme], map: "Idx_Frn")
 }
 
+model psq {
+  PsqId    Int       @id @default(autoincrement())
+  Psq      String    @db.VarChar(100)
+  SttId    Int       @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
+  MtvDel   String?   @db.VarChar(250)
+  stt      stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Psq_Stt_SttId")
+  usr      usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Psq_Usr_UsrId")
+  psq_rsp  psq_rsp[]
+
+  @@index([SttId], map: "FK_Psq_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_Psq_Usr_UsrId")
+}
+
+model psq_prg {
+  PsqTpoId Int
+  PsqPrgId Int       @id @default(autoincrement())
+  PsqPrg   String    @db.VarChar(100)
+  PsqSqc   Int
+  SttId    Int       @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
+  MtvDel   String?   @db.VarChar(250)
+  psq_tpo  psq_tpo   @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_prg_EqpItm_CrrId")
+  stt      stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_prg_Stt_SttId")
+  usr      usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_prg_Usr_UsrId")
+  psq_rsp  psq_rsp[]
+
+  @@index([PsqTpoId], map: "FK_psq_prg_EqpItm_CrrId")
+  @@index([SttId], map: "FK_psq_prg_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_psq_prg_Usr_UsrId")
+}
+
+model psq_rsp {
+  UndId    Int // Identificado da Unidade
+  DtaOpe   DateTime @db.Date // Data da Operação
+  TrnId    Int? // Identificador do Turno (1 para Diurno e 2 para Noturno)
+  PsqId    Int // Identificador da pesquisa
+  PsqTpoId Int // Identificador Tipo de pesquisa
+  PsqPrgId Int // Identificador pergunta da pesquisa
+  PsqRspId Int      @id @default(autoincrement()) // Identificador resposta da pesquisa
+  PsqRsp   Int // Pergunta da pesquisa
+  PsqDth   String?  @db.VarChar(250) // Detalhe da pesquisa
+  SttId    Int      @default(1) // Status Registro
+  UsrIdAlt Int // Id Usuário que cadastrou
+  DtaAlt   DateTime @default(now()) @db.Timestamp(0) // Data Cadastro
+  MtvDel   String?  @db.VarChar(250) // Motivo da delecao
+  psq_tpo  psq_tpo  @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_rsp_EqpItm_CrrId")
+  psq      psq      @relation(fields: [PsqId], references: [PsqId], onUpdate: Restrict, map: "FK_psq_rsp_Psq_PsqId")
+  stt      stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_rsp_Stt_SttId")
+  usr      usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_rsp_Usr_UsrId")
+  psq_prg  psq_prg  @relation(fields: [PsqPrgId], references: [PsqPrgId], onUpdate: Restrict, map: "FK_psq_rsp_psq_prg_PsqPrgId")
+
+  @@index([PsqTpoId], map: "FK_psq_rsp_EqpItm_CrrId")
+  @@index([PsqId], map: "FK_psq_rsp_Psq_PsqId")
+  @@index([SttId], map: "FK_psq_rsp_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_psq_rsp_Usr_UsrId")
+  @@index([PsqPrgId], map: "FK_psq_rsp_psq_prg_PsqPrgId")
+}
+
+model psq_tpo {
+  PsqTpoId Int       @id @default(autoincrement())
+  PsqTpo   String    @db.VarChar(100)
+  SttId    Int       @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
+  MtvDel   String?   @db.VarChar(250)
+  psq_prg  psq_prg[]
+  psq_rsp  psq_rsp[]
+  stt      stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_PsqTpo_Stt_SttId")
+  usr      usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_PsqTpo_Usr_UsrId")
+
+  @@index([SttId], map: "FK_PsqTpo_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_PsqTpo_Usr_UsrId")
+}
+
 model rcg {
   RcgId                      Int       @id @default(autoincrement())
   RcgIdOrg                   Int?
@@ -293,8 +370,26 @@ model stt {
   rcg_rcg_SttRcgIdTostt rcg[]     @relation("rcg_SttRcgIdTostt")
   usr                   usr[]
   usr_tpo               usr_tpo[]
+  trn                   trn[]     @relation(map: "FK_trn_Stt_SttId")
 
   @@index([SttNme], map: "Idx_Stt")
+}
+
+model trn {
+  TrnId    Int      @id @default(autoincrement()) // Identificador turno
+  Trn      String   @db.VarChar(50) // Descrição do turno
+  TrnIni   DateTime @db.Time // Início do turno
+  TrnFin   DateTime @db.Time // Final do turno
+  SttId    Int      @default(1) // Status Registro
+  UsrIdAlt Int // Id Usuário que cadastrou
+  DtaAlt   DateTime @default(now()) @updatedAt @db.Timestamp(0) // Data Cadastro
+  MtvDel   String?  @db.VarChar(250) // Motivo da deleção
+
+  stt stt @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_trn_Stt_SttId")
+  usr usr @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_trn_Usr_UsrId")
+
+  @@index([SttId], map: "FK_trn_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_trn_Usr_UsrId")
 }
 
 model usr {
@@ -328,6 +423,7 @@ model usr {
   usr_tpo   usr_tpo   @relation(fields: [UsrTpoId], references: [UsrTpoId], onUpdate: Restrict, map: "FK_Usr_UsrTpo_UsrTpoId")
   usr       usr       @relation("usrTousr", fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Usr_Usr_UsrId")
   other_usr usr[]     @relation("usrTousr")
+  trn       trn[]     @relation(map: "FK_trn_Usr_UsrId")
 
   @@index([EmpId], map: "FK_Usr_Emp_EmpId")
   @@index([UsrTpoId], map: "FK_Usr_UsrTpo_UsrTpoId")
@@ -346,80 +442,6 @@ model usr_tpo {
   stt       stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_UsrTpo_Stt_SttId")
 
   @@index([SttId], map: "Idx_UsrTpo_SttId")
-}
-
-model psq {
-  PsqId    Int       @id @default(autoincrement())
-  Psq      String    @db.VarChar(100)
-  SttId    Int       @default(1)
-  UsrIdAlt Int
-  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel   String?   @db.VarChar(250)
-  stt      stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Psq_Stt_SttId")
-  usr      usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Psq_Usr_UsrId")
-  psq_rsp  psq_rsp[]
-
-  @@index([SttId], map: "FK_Psq_Stt_SttId")
-  @@index([UsrIdAlt], map: "FK_Psq_Usr_UsrId")
-}
-
-model psq_prg {
-  PsqTpoId Int
-  PsqPrgId Int       @id @default(autoincrement())
-  PsqPrg   String    @db.VarChar(100)
-  PsqSqc   Int
-  SttId    Int       @default(1)
-  UsrIdAlt Int
-  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel   String?   @db.VarChar(250)
-  psq_tpo  psq_tpo   @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_prg_EqpItm_CrrId")
-  stt      stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_prg_Stt_SttId")
-  usr      usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_prg_Usr_UsrId")
-  psq_rsp  psq_rsp[]
-
-  @@index([PsqTpoId], map: "FK_psq_prg_EqpItm_CrrId")
-  @@index([SttId], map: "FK_psq_prg_Stt_SttId")
-  @@index([UsrIdAlt], map: "FK_psq_prg_Usr_UsrId")
-}
-
-model psq_rsp {
-  PsqId    Int // Identificador da pesquisa
-  PsqTpoId Int // Identificador Tipo de pesquisa
-  PsqPrgId Int // Identificador pergunta da pesquisa
-  PsqRspId Int      @id @default(autoincrement()) // Identificador resposta da pesquisa
-  PsqRsp   Int // Pergunta da pesquisa
-  PsqDth   String?  @db.VarChar(250) // Detalhe da pesquisa
-  SttId    Int      @default(1) // Status Registro
-  UsrIdAlt Int // Id Usuário que cadastrou
-  DtaAlt   DateTime @default(now()) @db.Timestamp(0) // Data Cadastro
-  MtvDel   String?  @db.VarChar(250) // Motivo da delecao
-  psq_tpo  psq_tpo  @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_rsp_EqpItm_CrrId")
-  psq      psq      @relation(fields: [PsqId], references: [PsqId], onUpdate: Restrict, map: "FK_psq_rsp_Psq_PsqId")
-  stt      stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_rsp_Stt_SttId")
-  usr      usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_rsp_Usr_UsrId")
-  psq_prg  psq_prg  @relation(fields: [PsqPrgId], references: [PsqPrgId], onUpdate: Restrict, map: "FK_psq_rsp_psq_prg_PsqPrgId")
-
-  @@index([PsqTpoId], map: "FK_psq_rsp_EqpItm_CrrId")
-  @@index([PsqId], map: "FK_psq_rsp_Psq_PsqId")
-  @@index([SttId], map: "FK_psq_rsp_Stt_SttId")
-  @@index([UsrIdAlt], map: "FK_psq_rsp_Usr_UsrId")
-  @@index([PsqPrgId], map: "FK_psq_rsp_psq_prg_PsqPrgId")
-}
-
-model psq_tpo {
-  PsqTpoId Int       @id @default(autoincrement())
-  PsqTpo   String    @db.VarChar(100)
-  SttId    Int       @default(1)
-  UsrIdAlt Int
-  DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel   String?   @db.VarChar(250)
-  psq_prg  psq_prg[]
-  psq_rsp  psq_rsp[]
-  stt      stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_PsqTpo_Stt_SttId")
-  usr      usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_PsqTpo_Usr_UsrId")
-
-  @@index([SttId], map: "FK_PsqTpo_Stt_SttId")
-  @@index([UsrIdAlt], map: "FK_PsqTpo_Usr_UsrId")
 }
 
 /// View: vw_onibus
@@ -448,16 +470,6 @@ model VwOnibus {
   @@map("vw_onibus")
 }
 
-/// View: vw_posto_recarga
-model VwPostoRecarga {
-  UndId        Int     @id @map("UndId")
-  PostoRecarga String  @map("PostoRecarga")
-  Latitude     String? @map("Latitude")
-  Longitude    String? @map("Longitude")
-
-  @@map("vw_posto_recarga")
-}
-
 /// View: vw_carregador
 model VwCarregador {
   UndId      Int     @map("UndId")
@@ -469,12 +481,33 @@ model VwCarregador {
 }
 
 // View de Checklist
-model VwChecklistCarregamento {
+model VwPesquisaPergunta {
   PsqPrgId      Int     @id @map("PsqPrgId")
   PsqTpoId      Int     @map("PsqTpoId")
   Tipo_Pesquisa String? @map("Tipo_Pesquisa")
   Pergunta      String? @map("Pergunta")
   Sequencia     Int?    @map("Sequencia")
 
-  @@map("vw_checklist_carregamento")
+  @@map("vw_pesquisa_pergunta")
+}
+
+/// View: vw_posto_recarga
+model VwPostoRecarga {
+  UndId        Int     @id @map("UndId")
+  PostoRecarga String  @map("PostoRecarga")
+  Latitude     String? @map("Latitude")
+  Longitude    String? @map("Longitude")
+
+  @@map("vw_posto_recarga")
+}
+
+// View de vw_turno_atual
+model VwTurnoAtual {
+  DtaAtu      DateTime @map("DtaAtu") @db.Timestamp(6)
+  DtaOpe      DateTime @map("DtaOpe") @db.Date
+  TrnId       String   @id @map("TrnId") @db.VarChar(1)
+  InicioTurno DateTime @map("InicioTurno") @db.Timestamp(6)
+  FimTurno    DateTime @map("FimTurno") @db.Timestamp(6)
+
+  @@map("vw_turno_atual")
 }

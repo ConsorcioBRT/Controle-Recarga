@@ -6,6 +6,8 @@ export async function GET() {
   try {
     const respostasCheck = await prisma.psq_rsp.findMany({
       select: {
+        DtaOpe: true,
+        TrnId: true,
         PsqId: true,
         PsqTpoId: true,
         PsqPrgId: true,
@@ -40,6 +42,9 @@ export async function POST(request: Request) {
 
     for (const r of respostas) {
       const {
+        UndId,
+        DtaOpe,
+        TrnId,
         PsqId,
         PsqTpoId,
         PsqPrgId,
@@ -56,13 +61,16 @@ export async function POST(request: Request) {
 
       const resposta = await prisma.psq_rsp.create({
         data: {
+          UndId,
+          DtaOpe,
+          TrnId,
           PsqId: PsqId || 1,
           PsqTpoId: PsqTpoId || 1,
           PsqPrgId,
           PsqRsp,
           PsqDth: PsqDth || "",
           SttId: SttId || 1,
-          UsrIdAlt: UsrIdAlt || 123,
+          UsrIdAlt,
           DtaAlt: DtaAlt ? new Date(DtaAlt) : new Date(),
         },
       });

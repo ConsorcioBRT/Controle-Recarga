@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Label } from "./ui/label";
-import { Battery, Fuel, Gauge, PlugZap } from "lucide-react";
+import { Battery, Camera, Fuel, Gauge, PlugZap } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { DialogClose, DialogFooter } from "./ui/dialog";
@@ -63,6 +63,16 @@ const DialogSteps = ({
   const [erroOdometroConfirme, setErroOdometroConfirme] = useState<
     string | null
   >(null);
+  const [fotoPreview, setFotoPreview] = useState<string | null>(null);
+
+  const [fotoFile, setFotoFile] = useState<File | null>(null);
+
+  function handleFotoChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setFotoFile(file);
+    setFotoPreview(URL.createObjectURL(file));
+  }
 
   useEffect(() => {
     if (step === 4) {
@@ -157,13 +167,16 @@ const DialogSteps = ({
     )}`;
   }
 
-  async function enviarRecargaInicial(formData: {
-    carregador: number | null;
-    conector: string | null;
-    percentualInicial: string;
-    odometro: string;
-    odometroConfirme: string;
-  }) {
+  async function enviarRecargaInicial(
+    formData: {
+      carregador: number | null;
+      conector: string | null;
+      percentualInicial: string;
+      odometro: string;
+      odometroConfirme: string;
+    },
+    fotoFile?: File | null
+  ) {
     try {
       // Pegando valores do localStorage
       const { UndId, VclId, UsrIdAlt } = pegarDadosDoLocalStorage();
@@ -220,8 +233,6 @@ const DialogSteps = ({
       }
 
       console.log("Dados enviados para a API:", dadosParaEnviar);
-      console.log("Odômetro formatado:", formData.odometro);
-      console.log("Odômetro numérico:", odometroValor);
 
       const resposta = await fetch("/api/recarga", {
         method: "POST",
@@ -239,6 +250,30 @@ const DialogSteps = ({
 
       const dadosResposta = await resposta.json();
       console.log(`Recarga Iniciada! ID: ${dadosResposta.RcgId}`);
+
+      // 2º Se tiver foto, envia para a API de upload
+      if (fotoFile) {
+        const formDataFoto = new FormData();
+        formDataFoto.append("file", fotoFile);
+        formDataFoto.append("recargaId", dadosResposta.RcgId); // opcional para vincular no back
+        formDataFoto.append("undId", UndId.toString());
+        formDataFoto.append("vclId", VclId.toString());
+        formDataFoto.append("dtaIni", dadosResposta.DtaIni); // ou dataFormatada
+
+        const uploadResp = await fetch("/api/recarga/upload", {
+          method: "POST",
+          body: formDataFoto,
+        });
+
+        if (!uploadResp.ok) {
+          const erroUpload = await uploadResp.json();
+          console.error("Erro ao enviar foto: " + (erroUpload.error || "erro"));
+        } else {
+          const fotoData = await uploadResp.json();
+          console.log("Foto salva em:", fotoData.url);
+        }
+      }
+
       iniciarCarregamento(veiculo);
     } catch (error) {
       console.error("Erro ao enviar recarga: " + (error as Error).message);
@@ -423,6 +458,33 @@ const DialogSteps = ({
                 </p>
               )}
             </div>
+            <div className="flex items-center justify-center gap-3 p-2 rounded-sm relative">
+              <Label
+                htmlFor="fotoOdometro"
+                className="flex items-center gap-2 text-blue-500 cursor-pointer"
+              >
+                <Camera className="w-4 h-4" />
+                Registrar Odômetro
+              </Label>
+              <Input
+                id="fotoOdometro"
+                type="file"
+                accept="image/*"
+                capture="environment" // câmera traseira no celular
+                className="hidden"
+                onChange={handleFotoChange}
+              />
+            </div>
+            {fotoPreview && (
+              <div className="mt-2">
+                <p className="text-xs">Pré-visualização:</p>
+                <img
+                  src={fotoPreview}
+                  alt="Foto do odômetro"
+                  className="w-32 h-auto"
+                />
+              </div>
+            )}
           </>
         )}
 
@@ -501,7 +563,7 @@ const DialogSteps = ({
                     alert("Nenhum dado para enviar");
                     return;
                   }
-                  enviarRecargaInicial(formConfirmacao);
+                  enviarRecargaInicial(formConfirmacao, fotoFile);
                 }}
                 className="w-full h-14 bg-green-500 text-lg font-bold"
               >

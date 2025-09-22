@@ -14,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import Link from "next/link";
 
 interface Usuario {
   UsrNme: string;
@@ -38,6 +37,8 @@ const Login = () => {
   const [contagem, setContagem] = useState<Record<number, number>>({});
   const [postoSelecionado, setPostoSelecionado] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
+  const [erroLogin, setErroLogin] = useState<string | null>(null);
+  const [erroSelect, setErroSelect] = useState<string | null>(null);
   const baseUrl =
     typeof window !== "undefined"
       ? window.location.origin
@@ -45,11 +46,37 @@ const Login = () => {
 
   const handleLogin = async () => {
     setLoading(true);
+    setErroLogin(null);
+
+    if (!postoSelecionado) {
+      setErroSelect("Por favor, selecione um Eletroposto");
+      setLoading(false);
+      return;
+    } else {
+      setErroSelect(null);
+    }
+
     try {
+      // Aqui vai buscar o turno
+      const turnoChecklist = await fetch("/api/turno");
+      if (!turnoChecklist.ok) {
+        setErroLogin("Não foi possível obter o turno atual.");
+        setLoading(false);
+        return;
+      }
+      const turnoData = await turnoChecklist.json();
+      localStorage.setItem("turnoAtual", JSON.stringify(turnoData));
+
       const res = await fetch("/api/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ usuario, senha }),
+        body: JSON.stringify({
+          usuario,
+          senha,
+          UndId: postoSelecionado,
+          DtaOpe: turnoData.DtaOpe,
+          TrnId: turnoData.TrnId,
+        }),
       });
       const data = await res.json();
       // Caso o backend retorne resetRequired (SttId = 8)
@@ -63,11 +90,6 @@ const Login = () => {
       // Irá salvar o usuário no "usuarioLogado"
       const userLogged: Usuario = data.user;
       localStorage.setItem("usuarioLogado", JSON.stringify(userLogged));
-      // irá salvar o eletroposto em "eletropostoSelecionado"
-      if (!postoSelecionado) {
-        alert("Por favor, selecione um Eletroposto");
-        return;
-      }
 
       const posto = postosUnicos.find((p) => p.UndId === postoSelecionado);
       const qtd = contagem[postoSelecionado] || 0;
@@ -81,9 +103,17 @@ const Login = () => {
           Contagem: qtd,
         })
       );
-      router.push("/checklist-eletroposto");
+
+      // Verifica se o usuário já respondeu o checklist
+      if (data.jaRespondeu) {
+        router.push("/abastecimento"); // já respondeu → vai direto para abastecimento
+        return;
+      } else {
+        router.push("/checklist-eletroposto");
+      }
     } catch (error) {
       console.log("Erro no login:", error);
+      setErroLogin("Usuário ou senha incorretos");
     } finally {
       setLoading(false); // vai desativar o loading do botão
     }
@@ -164,7 +194,12 @@ const Login = () => {
 
         <div className="flex flex-col items-start justify-center">
           <Label className="text-lg font-bold mb-3">Eletroposto?</Label>
-          <Select onValueChange={(value) => setPostoSelecionado(Number(value))}>
+          <Select
+            onValueChange={(value) => {
+              setPostoSelecionado(Number(value));
+              setErroSelect(null);
+            }}
+          >
             <SelectTrigger className="bg-gray-100 h-12 w-64">
               <SelectValue placeholder="Eletropostos" />
             </SelectTrigger>
@@ -176,9 +211,13 @@ const Login = () => {
               ))}
             </SelectContent>
           </Select>
+          {erroSelect && (
+            <p className="text-red-500 text-sm mt-1">{erroSelect}</p>
+          )}
         </div>
 
         {/* Esqueci a senha */}
+        {/*
         <div>
           <Link href="/esqueceu-senha">
             <span className="text-blue-500 text-sm underline">
@@ -186,10 +225,13 @@ const Login = () => {
             </span>
           </Link>
         </div>
+        */}
+
+        {erroLogin && <p className="text-red-500 text-sm mt-2">{erroLogin}</p>}
 
         <Button
           onClick={handleLogin}
-          className="w-full h-12 text-lg bg-gray-800"
+          className="w-full h-12 mt-5 text-lg bg-gray-800"
         >
           {loading ? (
             <div className="flex justify-center items-center h-20">

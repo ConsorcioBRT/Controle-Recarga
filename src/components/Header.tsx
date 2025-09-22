@@ -87,6 +87,7 @@ const Header = () => {
                 localStorage.removeItem("usuarioLogado");
                 localStorage.removeItem("eletropostoSelecionado");
                 localStorage.removeItem("veiculoSelecionado");
+                localStorage.removeItem("turnoAtual");
                 router.push("/");
               }}
             >

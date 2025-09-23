@@ -29,9 +29,9 @@ export async function POST(req: Request) {
     client.ftp.verbose = true;
 
     await client.access({
-      host: "brtgo.com.br",
-      user: "recarga@brtgo.com.br",
-      password: "Br7&Rm7c",
+      host: process.env.FTP_HOST,
+      user: process.env.FTP_USER,
+      password: process.env.FTP_PASSWORD,
       secure: false,
     });
 

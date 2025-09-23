@@ -59,6 +59,7 @@ const DialogSteps = ({
   const [erroOdometro, setErroOdometro] = useState<string | null>(null);
   const odometroMaiorOuIgual =
     Number(formData.odometro) >= (dadosOnibus?.Odometro ?? 0);
+
   const odometroValido = formData.odometro === formData.odometroConfirme;
   const [erroOdometroConfirme, setErroOdometroConfirme] = useState<
     string | null
@@ -531,7 +532,7 @@ const DialogSteps = ({
             <Button
               type="button"
               className="w-full h-14 bg-gray-900 text-lg font-bold"
-              disabled={!(odometroValido && odometroMaiorOuIgual)}
+              disabled={!odometroValido}
               onClick={() => {
                 if (step === 1 && !formData.carregador) {
                   alert("Selecione um carregador.");
@@ -542,6 +543,15 @@ const DialogSteps = ({
                   return;
                 }
                 if (step === 3) {
+                  if (!odometroMaiorOuIgual) {
+                    alert(
+                      `O odômetro atual ${
+                        formData.odometro
+                      } é menor que o anterior ${
+                        dadosOnibus?.Odometro ?? 0
+                      }. Verifique`
+                    );
+                  }
                   // Salva os dados no localStorage antes de ir para step 4
                   localStorage.setItem(
                     "formDataConfirmacao",

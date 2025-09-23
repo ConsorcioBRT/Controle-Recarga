@@ -113,6 +113,14 @@ const CheckListEletroposto = () => {
       const eletroposto = JSON.parse(eletropostoSelecionado);
       const UndId = Number(eletroposto.UndId);
 
+      const turno = localStorage.getItem("turnoAtual");
+      if (!turno) {
+        alert("Turno não foi pego.");
+        return;
+      }
+      const turnoAtual = JSON.parse(turno);
+      const TrnId = Number(turnoAtual.TrnId);
+
       const agora = new Date();
       const dataFormatada = formatarDataLocal(agora);
 
@@ -121,6 +129,7 @@ const CheckListEletroposto = () => {
         .map((item) => ({
           UndId: UndId,
           DtaOpe: dataFormatada,
+          TrnId: TrnId,
           PsqId: 1,
           PsqTpoId: 1,
           PsqPrgId: parseInt(item.id),
@@ -142,8 +151,6 @@ const CheckListEletroposto = () => {
       const data = await res.text(); // pega o texto retornado do servidor
       console.log("Enviando respostas:", respostasNao);
       if (!res.ok) throw new Error(data || "Erro ao salvar respostas");
-
-      console.log("Respostas 'Não' salvas:", respostasNao);
     } catch (error) {
       console.error("Erro ao salvar respostas:", error);
     }

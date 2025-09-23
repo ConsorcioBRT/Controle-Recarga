@@ -105,6 +105,7 @@ const Header = () => {
       localStorage.removeItem("usuarioLogado"); // Vai limpar o Usuários do localStorage
       localStorage.removeItem("eletropostoSelecionado"); // Vai limpar o Eletroposto do localStorage
       localStorage.removeItem("veiculoSelecionado"); // Vai limpar o Veículo do localStorage
+      localStorage.removeItem("turnoAtual"); // Vai limpar o Turno do localStorage
       router.push("/");
     } catch (error) {
       console.error("Erro no logout:", error);

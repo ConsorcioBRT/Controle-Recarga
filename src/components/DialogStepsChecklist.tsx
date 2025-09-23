@@ -37,6 +37,16 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
   const [currentStep, setCurrentStep] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
 
+  // Função para formatar a data no fuso local (Brasília)
+  function formatarDataLocal(date: Date): string {
+    const pad = (n: number) => String(n).padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
+      date.getDate()
+    )} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+      date.getSeconds()
+    )}`;
+  }
+
   useEffect(() => {
     if (isOpen) {
       async function fetchChecklist() {
@@ -108,22 +118,46 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
 
   const handleSaveResponses = async () => {
     try {
-      const usuarioLogado = JSON.parse(
-        localStorage.getItem("usuarioLogado") || "{}"
+      const usuarioLogado = localStorage.getItem("usuarioLogado");
+      if (!usuarioLogado) {
+        throw new Error("Usuário não encontrado no LocalStorage");
+      }
+      const usuario = JSON.parse(usuarioLogado);
+      const UsrIdAlt = usuario.UsrId;
+
+      const eletropostoSelecionado = localStorage.getItem(
+        "eletropostoSelecionado"
       );
-      const usuarioId = usuarioLogado?.UsrId;
+      if (!eletropostoSelecionado) {
+        throw new Error("Eletroposto não encontrado no LocalStorage");
+      }
+      const eletroposto = JSON.parse(eletropostoSelecionado);
+      const UndId = Number(eletroposto.UndId);
+
+      const turno = localStorage.getItem("turnoAtual");
+      if (!turno) {
+        throw new Error("Turno não encontrado no LocalStorage");
+      }
+      const turnoAtual = JSON.parse(turno);
+      const TrnId = Number(turnoAtual.TrnId);
+
+      const agora = new Date();
+      const dataFormatada = formatarDataLocal(agora);
 
       const respostasNao = checklist
         .filter((item) => item.answer === "no")
         .map((item) => ({
+          UndId: UndId,
+          DtaOpe: dataFormatada,
+          TrnId: TrnId,
           PsdId: 1,
           PsqTpoId: 2,
           PsqPrgId: parseInt(item.id),
           PsqRsp: 0,
           PsqDth: item.note?.trim() || "",
           SttId: 1,
-          UsrIdAlt: usuarioId,
-          DtaAlt: new Date().toISOString(),
+          UsrIdAlt: UsrIdAlt,
+          DtaAlt: dataFormatada,
         }));
       if (respostasNao.length === 0) return;
 
@@ -133,7 +167,7 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
         body: JSON.stringify(respostasNao),
       });
       const data = await res.text(); // pega o texto retornado do servidor
-
+      console.log("Enviando respostas:", respostasNao);
       if (!res.ok) throw new Error(data || "Erro ao salvar respostas");
 
       console.log("Respostas 'Não' salvas:", respostasNao);

@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     const { usuario, senha, UndId, DtaOpe, TrnId } = await request.json();
 
     // Aqui vai procurar o usuário pelo nome, e-mail ou CPF
-    const user = await prisma.usr.findFirst({ 
+    const user = await prisma.usr.findFirst({
       where: {
         OR: [{ UsrEml: usuario }, { UsrCpf: usuario }, { UsrLgn: usuario }],
       },
@@ -79,12 +79,18 @@ export async function POST(request: NextRequest) {
     if (DtaOpe && TrnId) {
       const resposta = await prisma.psq_rsp.findFirst({
         where: {
-          UndId: UndId,
+          UndId: Number(UndId),
           DtaOpe: new Date(DtaOpe),
           TrnId: Number(TrnId),
         },
       });
       console.log("Resposta encontrada:", resposta);
+      console.log({
+        UndId: Number(UndId),
+        TrnId: Number(TrnId),
+        DtaOpeOriginal: DtaOpe,
+        DtaOpeConvertida: new Date(DtaOpe),
+      });
       jaRespondeu = !!resposta;
     }
 

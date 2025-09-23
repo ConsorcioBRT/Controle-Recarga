@@ -45,10 +45,8 @@ function parseDataBrasilia(str: string): Date {
   const [year, month, day] = datePart.split("-").map(Number);
   const [hour, minute, second] = timePart.split(":").map(Number);
 
-  // cria a data local e depois tira o offset
-  const dataLocal = new Date(year, month - 1, day, hour, minute, second);
-  const offsetMs = 3 * 60 * 60 * 1000; // UTC-3
-  return new Date(dataLocal.getTime() - offsetMs);
+  // new Date(year, monthIndex, day, hour, minute, second)
+  return new Date(year, month - 1, day, hour, minute, second);
 }
 
 // Irei criar as respostas dos CheckLists

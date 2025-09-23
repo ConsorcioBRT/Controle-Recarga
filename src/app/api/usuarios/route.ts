@@ -104,10 +104,6 @@ export async function POST(request: NextRequest) {
         where: {
           UndId: Number(UndId),
           TrnId: Number(TrnId),
-          DtaOpe: {
-            gte: inicioDia,
-            lte: fimDia,
-          },
         },
       });
       console.log("Resposta encontrada:", resposta);

@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import ftp from "basic-ftp";
 import { Readable } from "stream";

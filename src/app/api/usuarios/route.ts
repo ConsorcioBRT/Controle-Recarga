@@ -27,25 +27,18 @@ export async function GET() {
 
 // Aqui será o POST - Usando a criptografia
 const ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || "access-secret";
+// Função para ajustar a data do turno
+function getDtaOpeCorrigida(trnId: number, dta: Date) {
+  const data = new Date(dta);
+  const hora = data.getHours();
 
-// Converte string "YYYY-MM-DD HH:mm:ss" para Date local
-function parseDataBrasilia(str: string): Date {
-  const [datePart, timePart] = str.split(" ");
-  const [year, month, day] = datePart.split("-").map(Number);
-  const [hour, minute, second] = timePart.split(":").map(Number);
-  return new Date(year, month - 1, day, hour, minute, second);
-}
-
-// Ajusta Data da Operação: 00h-04h → dia anterior
-function ajustarDtaOpe(dta: Date): Date {
-  const novaData = new Date(dta);
-  const hora = novaData.getHours();
-  if (hora >= 0 && hora < 5) {
-    novaData.setDate(novaData.getDate() - 1);
+  if (trnId === 2 && hora <= 4) {
+    // Turno 2, depois da meia-noite → pertence ao dia anterior
+    data.setDate(data.getDate() - 1);
   }
-  return novaData;
-}
 
+  return data;
+}
 export async function POST(request: NextRequest) {
   try {
     const { usuario, senha, UndId, DtaOpe, TrnId } = await request.json();
@@ -96,8 +89,10 @@ export async function POST(request: NextRequest) {
     // Verifica se o usuário já respondeu o checklist do eletroposto
     let jaRespondeu = false;
     if (DtaOpe && TrnId) {
-      const dtaOpeConvertida = parseDataBrasilia(DtaOpe);
-      const dtaOpeCorrigida = ajustarDtaOpe(dtaOpeConvertida);
+      const dtaOpeCorrigida = getDtaOpeCorrigida(
+        Number(TrnId),
+        new Date(DtaOpe)
+      );
 
       const inicioDia = new Date(dtaOpeCorrigida);
       inicioDia.setHours(0, 0, 0, 0);

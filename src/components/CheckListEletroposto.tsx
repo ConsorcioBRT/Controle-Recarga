@@ -25,6 +25,15 @@ const CheckListEletroposto = () => {
   const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
+  // Função para formatar a data no fuso local (Brasília)
+  function formatarDataLocal(date: Date): string {
+    const pad = (n: number) => String(n).padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
+      date.getDate()
+    )} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
+      date.getSeconds()
+    )}`;
+  }
 
   useEffect(() => {
     if (isDialogOpen) {
@@ -104,11 +113,14 @@ const CheckListEletroposto = () => {
       const eletroposto = JSON.parse(eletropostoSelecionado);
       const UndId = Number(eletroposto.UndId);
 
+      const agora = new Date();
+      const dataFormatada = formatarDataLocal(agora);
+
       const respostasNao = checklist
         .filter((item) => item.answer === "no")
         .map((item) => ({
           UndId: UndId,
-          DtaOpe: new Date(),
+          DtaOpe: dataFormatada,
           PsqId: 1,
           PsqTpoId: 1,
           PsqPrgId: parseInt(item.id),
@@ -116,7 +128,7 @@ const CheckListEletroposto = () => {
           PsqDth: item.note?.trim() || "",
           SttId: 1,
           UsrIdAlt: UsrIdAlt,
-          DtaAlt: new Date().toISOString(),
+          DtaAlt: dataFormatada,
         }));
 
       if (respostasNao.length === 0) return;
@@ -171,9 +183,12 @@ const CheckListEletroposto = () => {
         return;
       }
 
+      const agora = new Date();
+      const dataFormatada = formatarDataLocal(agora);
+
       const body = {
         UndId,
-        DtaOpe: new Date().toISOString(),
+        DtaOpe: dataFormatada,
         TrnId: TrnId,
         PsqId: 1,
         PsqTpoId: 1,
@@ -182,7 +197,7 @@ const CheckListEletroposto = () => {
         PsqDth: "Checklist Iniciado",
         SttId: 5,
         UsrIdAlt: usuario.UsrId,
-        DtaAlt: new Date().toISOString(),
+        DtaAlt: dataFormatada,
       };
 
       const res = await fetch("/api/checklistStart", {

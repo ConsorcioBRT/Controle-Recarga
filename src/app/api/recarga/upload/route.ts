@@ -1,10 +1,13 @@
 export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
-import ftp from "basic-ftp";
-import { Readable } from "stream";
+import SftpClient from "ssh2-sftp-client";
+import path from "path";
+import fs from "fs";
 
 export async function POST(req: Request) {
+  const sftp = new SftpClient();
+
   try {
     const formData = await req.formData();
     const file = formData.get("file") as File;
@@ -24,26 +27,28 @@ export async function POST(req: Request) {
     const bytes = await file.arrayBuffer();
     const buffer: Buffer = Buffer.from(bytes);
 
-    // Conecta no FTP
-    const client = new ftp.Client();
-    client.ftp.verbose = true;
+    // Caminho da chave PEM
+    const privateKeyPath = path.resolve(process.cwd(), "keys/id_rsa.pem");
+    const privateKey = fs.readFileSync(privateKeyPath, "utf-8");
 
-    await client.access({
-      host: process.env.FTP_HOST,
-      user: process.env.FTP_USER,
-      password: process.env.FTP_PASSWORD,
-      secure: false,
+    await sftp.connect({
+      host: process.env.SFTP_HOST,
+      username: process.env.SFTP_USER,
+      privateKey,
+      passphrase: process.env.SFTP_PASSPHRASE,
+      port: 22,
     });
 
-    // Cria stream a partir do buffer
-    const stream = Readable.from(buffer);
-
     // Sobe o arquivo
+    const remoteDir = `brtgo.com.br/recarga`;
     const filename = `recarga_${recargaId}_und_${undId}_vcl_${vclId}_${dtaIni}.jpg`;
-    await client.uploadFrom(stream, filename);
+    const remotePath = `${remoteDir}/${filename}`;
 
-    // Fecha a conexão
-    client.close();
+    // Upload
+    await sftp.put(buffer, remotePath);
+
+    // Fecha conexão
+    await sftp.end();
 
     // URL pública do arquivo
     const publicUrl = `https://brtgo.com.br/recarga/${filename}`;

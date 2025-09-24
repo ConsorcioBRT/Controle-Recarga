@@ -2,8 +2,6 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
-import path from "path";
-import fs from "fs";
 
 export async function POST(req: Request) {
   const { default: SftpClient } = await import("ssh2-sftp-client");
@@ -29,8 +27,7 @@ export async function POST(req: Request) {
     const buffer: Buffer = Buffer.from(bytes);
 
     // Caminho da chave PEM
-    const privateKeyPath = path.resolve(process.cwd(), "keys/id_rsa.pem");
-    const privateKey = fs.readFileSync(privateKeyPath, "utf-8");
+    const privateKey = process.env.SFTP_PRIVATE_KEY?.replace(/\\n/g, "\n");
 
     await sftp.connect({
       host: process.env.SFTP_HOST,

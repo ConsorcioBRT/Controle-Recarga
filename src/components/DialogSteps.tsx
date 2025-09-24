@@ -65,6 +65,12 @@ const DialogSteps = ({
     string | null
   >(null);
   const [fotoPreview, setFotoPreview] = useState<string | null>(null);
+  const [formDataValues] = useState({
+    recargaId: "",
+    undId: "",
+    vclId: "",
+    dtaIni: "",
+  });
 
   const [fotoFile, setFotoFile] = useState<File | null>(null);
 
@@ -73,6 +79,35 @@ const DialogSteps = ({
     if (!file) return;
     setFotoFile(file);
     setFotoPreview(URL.createObjectURL(file));
+
+    uploadFoto(file);
+  }
+
+  async function uploadFoto(file: File) {
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("recargaId", formDataValues.recargaId);
+    formData.append("undId", formDataValues.undId);
+    formData.append("vclId", formDataValues.vclId);
+    formData.append("dtaIni", formDataValues.dtaIni);
+
+    try {
+      const res = await fetch("/api/recarga/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        console.log("Arquivo enviado:", data.url);
+      } else {
+        console.error("Erro no upload:", data.error);
+      }
+    } catch (err) {
+      console.error("Erro no fetch:", err);
+    }
   }
 
   useEffect(() => {

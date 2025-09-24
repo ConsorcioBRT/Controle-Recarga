@@ -1,11 +1,12 @@
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
-import SftpClient from "ssh2-sftp-client";
 import path from "path";
 import fs from "fs";
 
 export async function POST(req: Request) {
+  const { default: SftpClient } = await import("ssh2-sftp-client");
   const sftp = new SftpClient();
 
   try {

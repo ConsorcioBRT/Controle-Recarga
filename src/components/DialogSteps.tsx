@@ -494,10 +494,10 @@ const DialogSteps = ({
                 </p>
               )}
             </div>
-            <div className="flex items-center justify-center gap-3 p-2 rounded-sm relative">
+            <div className="flex items-center mt-5 mb-5 justify-center gap-3 p-2 rounded-sm relative">
               <Label
                 htmlFor="fotoOdometro"
-                className="flex items-center gap-2 text-blue-500 cursor-pointer"
+                className="flex items-center gap-2 text-white bg-blue-500 p-4 rounded-lg"
               >
                 <Camera className="w-4 h-4" />
                 Registrar Odômetro
@@ -566,7 +566,7 @@ const DialogSteps = ({
           {step < 4 ? (
             <Button
               type="button"
-              className="w-full h-14 bg-gray-900 text-lg font-bold"
+              className="w-full h-14 bg-green-500 text-lg font-bold"
               disabled={!odometroValido}
               onClick={() => {
                 if (step === 1 && !formData.carregador) {

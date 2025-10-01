@@ -224,7 +224,7 @@ const DialogSteps = ({
 
       // Aqui vai buscar a última recarga do veículo
       const ultimaRecargaResp = await fetch(
-        `/api/recarga/ultima?VclId=${VclId}`
+        `https://brtgo.com.br/recarga.php?VclId=${VclId}`
       );
       const ultimaRecarga = ultimaRecargaResp.ok
         ? await ultimaRecargaResp.json()
@@ -296,7 +296,7 @@ const DialogSteps = ({
         formDataFoto.append("vclId", VclId.toString());
         formDataFoto.append("dtaIni", dadosResposta.DtaIni); // ou dataFormatada
 
-        const uploadResp = await fetch("/api/recarga/upload", {
+        const uploadResp = await fetch("https://brtgo.com.br/upload.php", {
           method: "POST",
           body: formDataFoto,
         });

@@ -506,7 +506,6 @@ const DialogSteps = ({
                 id="fotoOdometro"
                 type="file"
                 accept="image/*"
-                capture="environment" // câmera traseira no celular
                 className="hidden"
                 onChange={handleFotoChange}
               />

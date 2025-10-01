@@ -94,7 +94,7 @@ const DialogSteps = ({
     formData.append("dtaIni", formDataValues.dtaIni);
 
     try {
-      const res = await fetch("/api/recarga/upload", {
+      const res = await fetch("https://brtgo.com.br/upload.php", {
         method: "POST",
         body: formData,
       });

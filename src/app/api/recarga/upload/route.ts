@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     });
 
     // Sobe o arquivo
-    const remoteDir = `brtgo.com.br/recarga`;
+    const remoteDir = `/home2/escsol02/brtgo.com.br/recarga`;
     const filename = `recarga_${recargaId}_und_${undId}_vcl_${vclId}_${dtaIni}.jpg`;
     const remotePath = `${remoteDir}/${filename}`;
 

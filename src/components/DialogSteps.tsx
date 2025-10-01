@@ -224,7 +224,7 @@ const DialogSteps = ({
 
       // Aqui vai buscar a última recarga do veículo
       const ultimaRecargaResp = await fetch(
-        `https://brtgo.com.br/recarga.php?VclId=${VclId}`
+        `/api/recarga/ultima?VclId=${VclId}`
       );
       const ultimaRecarga = ultimaRecargaResp.ok
         ? await ultimaRecargaResp.json()

@@ -419,6 +419,7 @@ const DialogSteps = ({
               <Input
                 id="percentual"
                 type="number"
+                inputMode="numeric"
                 value={formData.percentualInicial} // aqui irá ser o final e quando reiniciar ele passa a ser inicial
                 onChange={(e) => {
                   const value = Number(e.target.value);
@@ -440,10 +441,15 @@ const DialogSteps = ({
               <Input
                 id="odometro"
                 type="text"
+                inputMode="numeric"
                 value={formData.odometro}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, odometro: e.target.value }))
-                }
+                onChange={(e) => {
+                  const apenasNumeros = e.target.value.replace(/\D/g, "");
+                  setFormData((prev) => ({
+                    ...prev,
+                    odometro: apenasNumeros,
+                  }));
+                }}
                 onBlur={() => {
                   const valorNumerico = Number(formData.odometro);
                   const anterior = dadosOnibus?.Odometro ?? 0;
@@ -471,13 +477,15 @@ const DialogSteps = ({
               <Input
                 id="odometroConfirme"
                 type="text"
+                inputMode="numeric"
                 value={formData.odometroConfirme}
-                onChange={(e) =>
+                onChange={(e) => {
+                  const apenasNumeros = e.target.value.replace(/\D/g, "");
                   setFormData((prev) => ({
                     ...prev,
-                    odometroConfirme: e.target.value,
-                  }))
-                }
+                    odometroConfirme: apenasNumeros,
+                  }));
+                }}
                 onBlur={() => {
                   if (formData.odometroConfirme !== formData.odometro) {
                     setErroOdometroConfirme("Os odômetros devem ser iguais");

@@ -15,6 +15,7 @@ import { Calendar } from "./ui/calendar";
 import { Popover } from "./ui/popover";
 import { PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { format } from "date-fns";
+import { Camera } from "lucide-react";
 
 {
   /* Função para Passar as Etapas de Ônibus Carregando */
@@ -52,39 +53,68 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
     descricaoFalha: "",
   });
   const [date, setDate] = React.useState<Date | undefined>(new Date());
-  /* const [odometroPreenchido, setOdometroPreenchido] = useState(
-    item.odometroPreenchido ?? false
-  );
-  const veiculoSelecionado = JSON.parse(
-    localStorage.getItem("veiculoSelecionado") || "{}"
-  );
-  const odometroLocalStorage = veiculoSelecionado.Odometro || "";
+  const [fotoPreview, setFotoPreview] = useState<string | null>(null);
+  const [fotoFile, setFotoFile] = useState<File | null>(null);
 
+  // 🔹 Busca dados do localStorage (igual ao enviarRecargaInicial)
+  function pegarDadosDoLocalStorage() {
+    const eletropostoJson = localStorage.getItem("veiculoSelecionado");
+    const eletroposto = eletropostoJson ? JSON.parse(eletropostoJson) : null;
+    const undId = eletroposto?.UndId ?? null;
 
-  useEffect(() => {
-    // Aqui vai pegar o odômetro do LocalStorage
-    const dadosLocal = localStorage.getItem("formDataConfirmacao");
-    if (dadosLocal) {
-      const dados = JSON.parse(dadosLocal);
-      if (dados.odometro) {
-        setFormData((prev) => ({
-          ...prev,
-          odometro: dados.odometro,
-        }));
-        setOdometroPreenchido(true);
-      }
+    const veiculoJson = localStorage.getItem("veiculoSelecionado");
+    const veiculo = veiculoJson ? JSON.parse(veiculoJson) : null;
+    const vclId = veiculo?.EqpItmId ?? null;
+
+    const recargaJson = localStorage.getItem("veiculoSelecionado");
+    const recarga = recargaJson ? JSON.parse(recargaJson) : null;
+    const recargaId = recarga?.RcgId ?? null;
+    const dtaIni = new Date().toISOString();
+
+    return { recargaId, undId, vclId, dtaIni };
+  }
+
+  function handleFotoChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setFotoFile(file);
+    setFotoPreview(URL.createObjectURL(file));
+  }
+
+  async function uploadFoto(file: File) {
+    const { recargaId, undId, vclId, dtaIni } = pegarDadosDoLocalStorage();
+    if (!recargaId || !undId || !vclId) {
+      console.error("Faltam dados para montar o nome do arquivo.");
+      return;
     }
-  }, []);
-  */
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("recargaId", recargaId);
+    formData.append("undId", undId);
+    formData.append("vclId", vclId);
+    formData.append("dtaIni", dtaIni);
+
+    try {
+      const res = await fetch("https://brtgo.com.br/energia.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        console.log("Arquivo enviado:", data.url);
+      } else {
+        console.error("Erro no upload:", data.error);
+      }
+    } catch (err) {
+      console.error("Erro no fetch:", err);
+    }
+  }
 
   // Aqui vai salvar sempre o formData quando mudar
   useEffect(() => {
     localStorage.setItem("formDataConfirmacao", JSON.stringify(formData));
   }, [formData]);
-
-  /* const odometroObrigatorio = !odometroPreenchido;
-  const odometroValido = formData.odometro !== "";
-  */
 
   // 🔹 Função para formatar a data no fuso local (Brasília)
   function formatarDataLocal(date: Date): string {
@@ -106,26 +136,6 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
     if (step === 1 && !formData.energia) {
       return alert("Preencha a energia utilizada");
     }
-
-    /*/ Step 3 - Odômetro (só se for obrigatório)
-    if (step === 2) {
-      if (odometroObrigatorio && !odometroValido) {
-        return alert("Preencha o odômetro");
-      }
-      // Se não for obrigatório, pula direto para o Step 4
-      if (!odometroObrigatorio) {
-        setStep(3);
-        return;
-      }
-    }
-
-    // Pula Step 2 se odômetro não for obrigatório
-    if (step === 1 && !odometroObrigatorio) {
-      setStep(3);
-      return;
-    }
-    */
-
     setStep(step + 1);
   };
 
@@ -154,41 +164,42 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             type="text"
             value={formData.energia}
             onChange={(e) => {
-              let value = e.target.value;
-
-              // Remove tudo que não seja dígito ou vírgula
-              value = value.replace(/[^\d,]/g, "");
-
+              let value = e.target.value.replace(/[^\d,]/g, "");
               // Garante que só haja uma vírgula
               const [inteiro, decimal] = value.split(",");
               value = inteiro + (decimal !== undefined ? "," + decimal : "");
-
               setFormData((prev) => ({ ...prev, energia: value }));
             }}
             className="bg-white"
           />
-        </div>
-      )}
-
-      {/* STEP 2: Odômetro
-        {step === 2 && odometroObrigatorio && (
-          <div className="grid gap-3">
-            <div className="flex items-center gap-2">
-              <Label>Odômetro (km):</Label>
-              <span className="text-gray-800">{odometroLocalStorage} km</span>
-            </div>
-
-            <Label>Coloque o odômetro novamente:</Label>
+          <div className="flex items-center mt-5 mb-5 justify-center gap-3 p-2 rounded-sm relative">
+            <Label
+              htmlFor="fotoEnergia"
+              className="flex items-center gap-2 text-white bg-yellow-500 p-4 rounded-lg"
+            >
+              <Camera className="w-4 h-4" />
+              Registrar Energia (kWh)
+            </Label>
             <Input
-              type="text"
-              value={formData.odometro}
-              onChange={(e) =>
-                setFormData((prev) => ({ ...prev, odometro: e.target.value }))
-              }
+              id="fotoEnergia"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleFotoChange}
             />
           </div>
-        )}
-      */}
+          {fotoPreview && (
+            <div className="mt-2">
+              <p className="text-xs">Pré-visualização:</p>
+              <img
+                src={fotoPreview}
+                alt="Foto do odômetro"
+                className="w-32 h-auto"
+              />
+            </div>
+          )}
+        </div>
+      )}
 
       {/* STEP 2: Calendário */}
       {step === 2 && (
@@ -311,9 +322,15 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                 <DialogClose asChild>
                   {/* Botão de Reiniciar */}
                   <Button
-                    onClick={() => {
+                    onClick={async () => {
                       if (!date)
                         return alert("Selecione o Dia e Hora da finalização!");
+                      if (!fotoFile)
+                        return alert(
+                          "Envie a foto da energia antes de finalizar!"
+                        );
+                      // Envia a foto
+                      await uploadFoto(fotoFile);
                       // Vai chamar a função do Finalizar
                       const payload: FormRecargaFinal = {
                         ...formData,
@@ -336,9 +353,16 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
               {/* Botão de Finalizar */}
               <DialogClose asChild>
                 <Button
-                  onClick={() => {
+                  onClick={async () => {
                     if (!date)
                       return alert("Selecione o Dia e Hora da finalização!");
+                    if (!fotoFile)
+                      return alert(
+                        "Envie a foto da energia antes de finalizar!"
+                      );
+                    // Envia a foto
+                    await uploadFoto(fotoFile);
+
                     finalizarRecarga(item, {
                       ...formData,
                       energia: formData.energia.replace(",", "."),

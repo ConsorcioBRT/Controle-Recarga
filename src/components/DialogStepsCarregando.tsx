@@ -82,6 +82,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
   }
 
   async function uploadFoto(file: File) {
+    if (!file) return;
     const { recargaId, undId, vclId, dtaIni } = pegarDadosDoLocalStorage();
     if (!recargaId || !undId || !vclId) {
       console.error("Faltam dados para montar o nome do arquivo.");
@@ -325,12 +326,10 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                     onClick={async () => {
                       if (!date)
                         return alert("Selecione o Dia e Hora da finalização!");
-                      if (!fotoFile)
-                        return alert(
-                          "Envie a foto da energia antes de finalizar!"
-                        );
                       // Envia a foto
-                      await uploadFoto(fotoFile);
+                      if (fotoFile) {
+                        await uploadFoto(fotoFile);
+                      }
                       // Vai chamar a função do Finalizar
                       const payload: FormRecargaFinal = {
                         ...formData,
@@ -356,12 +355,10 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
                   onClick={async () => {
                     if (!date)
                       return alert("Selecione o Dia e Hora da finalização!");
-                    if (!fotoFile)
-                      return alert(
-                        "Envie a foto da energia antes de finalizar!"
-                      );
                     // Envia a foto
-                    await uploadFoto(fotoFile);
+                    if (fotoFile) {
+                      await uploadFoto(fotoFile);
+                    }
 
                     finalizarRecarga(item, {
                       ...formData,

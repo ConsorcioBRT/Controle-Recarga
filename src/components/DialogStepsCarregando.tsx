@@ -121,9 +121,9 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
   function formatarDataLocal(date: Date): string {
     const pad = (n: number) => String(n).padStart(2, "0");
     return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
-      date.getDate()
+      date.getDate(),
     )} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
-      date.getSeconds()
+      date.getSeconds(),
     )}`;
   }
 
@@ -237,7 +237,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             value={
               date
                 ? `${String(date.getHours()).padStart(2, "0")}:${String(
-                    date.getMinutes()
+                    date.getMinutes(),
                   ).padStart(2, "0")}`
                 : ""
             }
@@ -304,7 +304,10 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             </Button>
           ) : (
             <DialogClose asChild>
-              <Button variant="outline" className="w-full h-14">
+              <Button
+                variant="outline"
+                className="w-full h-14 bg-yellow-400 text-white"
+              >
                 Cancelar
               </Button>
             </DialogClose>
@@ -312,7 +315,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
 
           {step < 3 ? (
             <Button
-              className="w-full h-14 bg-gray-900 text-lg font-bold"
+              className="w-full h-14 bg-blue-500 text-lg font-bold"
               onClick={handleProximo}
             >
               Próximo

@@ -326,7 +326,7 @@ const DialogSteps = ({
               <Fuel className="w-4 h-4" />
               Escolha um Carregador:
             </Label>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               {botoes
                 .filter(
                   (item): item is Carregador => !!item && item.EqpItmId != null
@@ -340,10 +340,10 @@ const DialogSteps = ({
                         carregador: item.EqpItmId,
                       }))
                     }
-                    className={`inline-flex items-center justify-center rounded-lg text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-18 w-18 bg-white text-black ${
+                    className={`inline-flex items-center justify-center rounded-lg text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-12 w-24 bg-white text-black ${
                       formData.carregador === item.EqpItmId
-                        ? "bg-gray-500 text-white"
-                        : "bg-white"
+                        ? "bg-green-300 text-white"
+                        : "bg-green-500 text-white"
                     }`}
                   >
                     {item.Carregador}
@@ -564,7 +564,7 @@ const DialogSteps = ({
             </Button>
           ) : (
             <DialogClose asChild>
-              <Button variant="outline" className="w-full h-14">
+              <Button variant="outline" className="w-full h-14 bg-yellow-400 text-white">
                 Cancelar
               </Button>
             </DialogClose>
@@ -573,7 +573,7 @@ const DialogSteps = ({
           {step < 4 ? (
             <Button
               type="button"
-              className="w-full h-14 bg-green-500 text-lg font-bold"
+              className="w-full h-14 bg-blue-500 text-lg font-bold"
               disabled={!odometroValido}
               onClick={() => {
                 if (step === 1 && !formData.carregador) {

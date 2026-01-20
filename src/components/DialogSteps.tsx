@@ -326,7 +326,7 @@ const DialogSteps = ({
               <Fuel className="w-4 h-4" />
               Escolha um Carregador:
             </Label>
-            <div className="grid grid-cols-5 gap-20">
+            <div className="grid grid-cols-4 gap-2">
               {botoes
                 .filter(
                   (item): item is Carregador => !!item && item.EqpItmId != null
@@ -340,7 +340,7 @@ const DialogSteps = ({
                         carregador: item.EqpItmId,
                       }))
                     }
-                    className={`inline-flex items-center justify-center rounded-full text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-20 w-20 bg-white text-black ${
+                    className={`inline-flex items-center justify-center rounded-lg text-xs font-semibold transition-all duration-200 transform active:scale-95 shadow-lg hover:shadow-xl h-18 w-18 bg-white text-black ${
                       formData.carregador === item.EqpItmId
                         ? "bg-gray-500 text-white"
                         : "bg-white"

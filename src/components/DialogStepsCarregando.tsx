@@ -160,7 +160,7 @@ const DialogStepsCarregando: React.FC<Props> = ({ item, finalizarRecarga }) => {
             }}
             className="bg-white"
           />
-          <Label>Energia Utilizada (kWh)</Label>
+          <Label>Recarga Utilizada</Label>
           <Input
             type="text"
             value={formData.energia}

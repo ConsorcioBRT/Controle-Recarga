@@ -10,6 +10,7 @@ export async function GET() {
         TrnId: true,
         PsqId: true,
         PsqTpoId: true,
+        EqpItmId: true,
         PsqPrgId: true,
         PsqRspId: true,
         PsqRsp: true,
@@ -22,6 +23,7 @@ export async function GET() {
         PsqPrgId: "asc",
       },
     });
+
     return NextResponse.json(respostasCheck);
   } catch (error) {
     console.error("Erro ao buscar respostas", error);
@@ -33,9 +35,11 @@ export async function GET() {
 function ajustarDtaOpe(dta: Date): Date {
   const novaData = new Date(dta);
   const hora = novaData.getHours();
+
   if (hora >= 0 && hora < 5) {
     novaData.setDate(novaData.getDate() - 1);
   }
+
   return novaData;
 }
 
@@ -45,17 +49,106 @@ function parseDataBrasilia(str: string): Date {
   const [year, month, day] = datePart.split("-").map(Number);
   const [hour, minute, second] = timePart.split(":").map(Number);
 
-  // new Date(year, monthIndex, day, hour, minute, second)
   return new Date(year, month - 1, day, hour, minute, second);
+}
+
+type RespostaPayload = {
+  UndId: number;
+  DtaOpe: string;
+  TrnId: number;
+  PsqId?: number;
+  PsqTpoId?: number;
+  BrtId?: number | null;
+  EqpItmId?: number | null;
+  PsqPrgId: number;
+  PsqRsp: number;
+  PsqDth?: string;
+  SttId?: number;
+  UsrIdAlt: number;
+  DtaAlt: string;
+};
+
+type PayloadBody = {
+  respostas: RespostaPayload[];
+};
+
+type UploadResponse = {
+  success?: boolean;
+  url?: string;
+  fileUrl?: string;
+};
+
+const VPS_UPLOAD_URL = "https://www.checklist.sistemabrtgo.com.br/upload";
+
+async function enviarFotoParaVPS(
+  arquivo: File,
+  respostaCriada: { PsqRspId: number; DtaOpe: Date; PsqPrgId: number },
+): Promise<string> {
+  const uploadFormData = new FormData();
+
+  uploadFormData.append("PsqRspId", String(respostaCriada.PsqRspId));
+  uploadFormData.append("PsqPrgId", String(respostaCriada.PsqPrgId));
+  uploadFormData.append("DtaOpe", respostaCriada.DtaOpe.toISOString());
+  uploadFormData.append("foto", arquivo);
+
+  const res = await fetch(VPS_UPLOAD_URL, {
+    method: "POST",
+    body: uploadFormData,
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || `Erro ao enviar foto ${arquivo.name} para a VPS`);
+  }
+
+  const data = (await res.json()) as UploadResponse;
+  const url = data.url ?? data.fileUrl;
+
+  if (!url) {
+    throw new Error(`A VPS não retornou a URL da foto ${arquivo.name}`);
+  }
+
+  return url;
 }
 
 // Irei criar as respostas dos CheckLists
 export async function POST(request: Request) {
   try {
-    const respostas = await request.json();
+    const contentType = request.headers.get("content-type") || "";
+
+    let respostas: RespostaPayload[] = [];
+    let formData: FormData | null = null;
+
+    if (contentType.includes("application/json")) {
+      const body = await request.json();
+
+      // aceita tanto array direto quanto { respostas: [...] }
+      if (Array.isArray(body)) {
+        respostas = body as RespostaPayload[];
+      } else if (body?.respostas && Array.isArray(body.respostas)) {
+        respostas = body.respostas as RespostaPayload[];
+      } else {
+        return new NextResponse("Payload JSON inválido", { status: 400 });
+      }
+    } else if (contentType.includes("multipart/form-data")) {
+      formData = await request.formData();
+      const payloadRaw = formData.get("payload");
+
+      if (!payloadRaw || typeof payloadRaw !== "string") {
+        return new NextResponse("Payload não enviado", { status: 400 });
+      }
+
+      const body = JSON.parse(payloadRaw) as PayloadBody;
+      respostas = body?.respostas ?? [];
+    } else {
+      return new NextResponse(
+        'Content-Type deve ser "application/json" ou "multipart/form-data"',
+        { status: 415 },
+      );
+    }
 
     if (!Array.isArray(respostas) || respostas.length === 0) {
-      return new NextResponse("Nenhuma reposta enviada", { status: 400 });
+      return new NextResponse("Nenhuma resposta enviada", { status: 400 });
     }
 
     const respostasCriadas = [];
@@ -67,6 +160,8 @@ export async function POST(request: Request) {
         TrnId,
         PsqId,
         PsqTpoId,
+        BrtId,
+        EqpItmId,
         PsqPrgId,
         PsqRsp,
         PsqDth,
@@ -79,15 +174,15 @@ export async function POST(request: Request) {
         return new NextResponse("Dados incompletos", { status: 400 });
       }
 
-      // transforma o DtaOpe recebido em Date e ajusta
       let dtaOpeNovo: Date;
       if (DtaOpe) {
         const dtaOpeBody = parseDataBrasilia(DtaOpe);
         dtaOpeNovo = ajustarDtaOpe(dtaOpeBody);
       } else {
-        const agora = new Date();
-        dtaOpeNovo = ajustarDtaOpe(agora);
+        dtaOpeNovo = ajustarDtaOpe(new Date());
       }
+
+      const dtaAltNovo = DtaAlt ? parseDataBrasilia(DtaAlt) : new Date();
 
       const resposta = await prisma.psq_rsp.create({
         data: {
@@ -96,15 +191,54 @@ export async function POST(request: Request) {
           TrnId,
           PsqId: PsqId || 1,
           PsqTpoId: PsqTpoId || 1,
+          BrtId: BrtId ?? null,
+          EqpItmId: EqpItmId ?? null,
           PsqPrgId,
           PsqRsp,
           PsqDth: PsqDth || "",
           SttId: SttId || 1,
           UsrIdAlt,
-          DtaAlt: parseDataBrasilia(DtaAlt),
+          DtaAlt: dtaAltNovo,
         },
       });
-      respostasCriadas.push(resposta);
+
+      const urlsFotosSalvas: string[] = [];
+
+      // só tenta ler fotos se vier multipart/form-data
+      if (formData) {
+        const arquivosDaPergunta = formData.getAll(
+          `foto_${PsqPrgId}`,
+        ) as File[];
+
+        for (const arquivo of arquivosDaPergunta) {
+          const urlFoto = await enviarFotoParaVPS(arquivo, {
+            PsqRspId: resposta.PsqRspId,
+            DtaOpe: dtaOpeNovo,
+            PsqPrgId,
+          });
+
+          urlsFotosSalvas.push(urlFoto);
+        }
+
+        if (urlsFotosSalvas.length > 0) {
+          await prisma.psq_rsp_fto.createMany({
+            data: urlsFotosSalvas.map((url) => ({
+              PsqRspId: resposta.PsqRspId,
+              PqsRspFtoUrl: url,
+              SttId: 1,
+              UsrIdAlt,
+              DtaAlt: dtaAltNovo,
+              MtvDel: null,
+            })),
+          });
+        }
+      }
+
+      respostasCriadas.push({
+        ...resposta,
+        totalFotosRecebidas: urlsFotosSalvas.length,
+        urlsFotosSalvas,
+      });
     }
 
     return NextResponse.json(respostasCriadas, { status: 201 });
@@ -113,9 +247,10 @@ export async function POST(request: Request) {
       console.error("Erro ao salvar resposta:", error);
       return new NextResponse(
         JSON.stringify({ message: error.message, stack: error.stack }),
-        { status: 500 }
+        { status: 500 },
       );
     }
+
     console.error("Erro desconhecido:", error);
     return new NextResponse("Erro interno no servidor", { status: 500 });
   }

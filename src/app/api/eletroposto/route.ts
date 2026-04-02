@@ -7,6 +7,10 @@ export async function GET() {
       select: {
         UndId: true,
         PostoRecarga: true,
+        CbtId: true,
+        TipoCombustivel: true,
+        Latitude: true,
+        Longitude: true,
       },
       orderBy: {
         PostoRecarga: "asc",

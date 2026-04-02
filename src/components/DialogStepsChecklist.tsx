@@ -5,7 +5,13 @@ import { Textarea } from "./ui/textarea";
 import { CheckCircle } from "lucide-react";
 
 // Tipagem do Veiculo
-type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
+type Veiculo = {
+  Onibus: string;
+  EqpItmId?: number;
+  BrtId?: number | null;
+  RcgId?: number;
+  FlhId?: number;
+};
 
 // Props do componente
 interface DialogStepsChecklistProps {
@@ -41,9 +47,9 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
   function formatarDataLocal(date: Date): string {
     const pad = (n: number) => String(n).padStart(2, "0");
     return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
-      date.getDate()
+      date.getDate(),
     )} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(
-      date.getSeconds()
+      date.getSeconds(),
     )}`;
   }
 
@@ -83,8 +89,8 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
               answer: value,
               note: value === "yes" ? "" : item.note || "",
             }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
@@ -116,30 +122,50 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
     }
   };
 
+  // =======PEGAR DADOS DO LOCALSTORAGE============
+  function pegarDadosDoLocalStorageChecklist() {
+    // usuário logado
+    const usuarioJson = localStorage.getItem("usuarioLogado");
+    const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
+    const UsrIdAlt = usuario?.UsrId ?? null;
+
+    // unidade (eletroposto)
+    const eletropostoJson = localStorage.getItem("eletropostoSelecionado");
+    const eletroposto = eletropostoJson ? JSON.parse(eletropostoJson) : null;
+    const UndId = eletroposto?.UndId ?? null;
+
+    // turno
+    const turnoJson = localStorage.getItem("turnoAtual");
+    const turno = turnoJson ? JSON.parse(turnoJson) : null;
+    const TrnId = turno?.TrnId ?? null;
+
+    // veículo selecionado (onde está o EqpItmId)
+    const veiculoJson = localStorage.getItem("veiculoSelecionado");
+    const veiculoLS = veiculoJson ? JSON.parse(veiculoJson) : null;
+
+    // prioridade: localStorage -> prop do componente
+    const EqpItmId = veiculoLS?.EqpItmId ?? veiculo?.EqpItmId ?? null;
+    const BrtId = veiculoLS?.BrtId ?? veiculo?.BrtId ?? null;
+
+    return { UndId, TrnId, UsrIdAlt, EqpItmId, BrtId };
+  }
+
   const handleSaveResponses = async () => {
     try {
-      const usuarioLogado = localStorage.getItem("usuarioLogado");
-      if (!usuarioLogado) {
-        throw new Error("Usuário não encontrado no LocalStorage");
-      }
-      const usuario = JSON.parse(usuarioLogado);
-      const UsrIdAlt = usuario.UsrId;
+      const { UndId, TrnId, UsrIdAlt, EqpItmId, BrtId } =
+        pegarDadosDoLocalStorageChecklist();
 
-      const eletropostoSelecionado = localStorage.getItem(
-        "eletropostoSelecionado"
-      );
-      if (!eletropostoSelecionado) {
-        throw new Error("Eletroposto não encontrado no LocalStorage");
-      }
-      const eletroposto = JSON.parse(eletropostoSelecionado);
-      const UndId = Number(eletroposto.UndId);
+      if (!UsrIdAlt) throw new Error("Usuário não encontrado no LocalStorage");
+      if (!UndId)
+        throw new Error("Eletroposto (UndId) não encontrado no LocalStorage");
+      if (!TrnId)
+        throw new Error("Turno (TrnId) não encontrado no LocalStorage");
 
-      const turno = localStorage.getItem("turnoAtual");
-      if (!turno) {
-        throw new Error("Turno não encontrado no LocalStorage");
-      }
-      const turnoAtual = JSON.parse(turno);
-      const TrnId = Number(turnoAtual.TrnId);
+      // Se você precisa AMARRAR a resposta ao veículo, não deixe enviar sem ele
+      if (!EqpItmId)
+        throw new Error(
+          "Veículo selecionado (EqpItmId) não encontrado no LocalStorage",
+        );
 
       const agora = new Date();
       const dataFormatada = formatarDataLocal(agora);
@@ -147,16 +173,18 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
       const respostasNao = checklist
         .filter((item) => item.answer === "no")
         .map((item) => ({
-          UndId: UndId,
+          UndId: Number(UndId),
           DtaOpe: dataFormatada,
-          TrnId: TrnId,
-          PsdId: 1,
+          TrnId: Number(TrnId),
+          PsqId: 1,
           PsqTpoId: 2,
+          BrtId: BrtId !== null && BrtId !== undefined ? Number(BrtId) : null,
+          EqpItmId: Number(EqpItmId),
           PsqPrgId: parseInt(item.id),
           PsqRsp: 0,
           PsqDth: item.note?.trim() || "",
           SttId: 1,
-          UsrIdAlt: UsrIdAlt,
+          UsrIdAlt: Number(UsrIdAlt),
           DtaAlt: dataFormatada,
         }));
       if (respostasNao.length === 0) return;
@@ -222,8 +250,8 @@ const DialogStepsChecklist: React.FC<DialogStepsChecklistProps> = ({
                       prev.map((item, index) =>
                         index === currentStep
                           ? { ...item, note: e.target.value }
-                          : item
-                      )
+                          : item,
+                      ),
                     )
                   }
                 />

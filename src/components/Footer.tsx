@@ -1,5 +1,5 @@
 "use client";
-import { Fuel } from "lucide-react";
+import { Check, Fuel } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
@@ -44,8 +44,9 @@ const Footer = ({ className = "" }: FooterProps) => {
         */}
 
         {/* CheckList */}
+
         {/*
-        <Link href="/checklist-onibus" className="flex flex-col items-center">
+        <Link href="/checklist" className="flex flex-col items-center">
           <Check className={`w-5 h-5 ${linkClasses("/checklist")}`} />
           <span className={linkClasses("/checklist")}>CheckList</span>
         </Link>

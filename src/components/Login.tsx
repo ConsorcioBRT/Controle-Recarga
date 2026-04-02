@@ -27,6 +27,10 @@ interface Usuario {
 type Eletroposto = {
   UndId: number;
   PostoRecarga: string;
+  CbtId: number | null;
+  TipoCombustivel: string | null;
+  Latitude: string | null;
+  Longitude: string | null;
 };
 
 const Login = () => {
@@ -100,17 +104,16 @@ const Login = () => {
         JSON.stringify({
           UndId: postoSelecionado,
           PostoRecarga: posto?.PostoRecarga ?? "",
+          CbtId: posto?.CbtId ?? null,
+          TipoCombustivel: posto?.TipoCombustivel ?? null,
+          Latitude: posto?.Latitude ?? null,
+          Longitude: posto?.Longitude ?? null,
           Contagem: qtd,
-        })
+        }),
       );
 
-      // Verifica se o usuário já respondeu o checklist
-      if (data.jaRespondeu) {
-        router.push("/abastecimento"); // já respondeu → vai direto para abastecimento
-        return;
-      } else {
-        router.push("/checklist-eletroposto");
-      }
+      router.push("/abastecimento");
+      return;
     } catch (error) {
       console.log("Erro no login:", error);
       setErroLogin("Usuário ou senha incorretos");

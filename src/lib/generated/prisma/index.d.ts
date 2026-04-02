@@ -104,6 +104,27 @@ export type usr = $Result.DefaultSelection<Prisma.$usrPayload>
  */
 export type usr_tpo = $Result.DefaultSelection<Prisma.$usr_tpoPayload>
 /**
+ * Model psq_rsp_fto
+ * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type psq_rsp_fto = $Result.DefaultSelection<Prisma.$psq_rsp_ftoPayload>
+/**
+ * Model brt
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type brt = $Result.DefaultSelection<Prisma.$brtPayload>
+/**
+ * Model psq_tpo_itm
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type psq_tpo_itm = $Result.DefaultSelection<Prisma.$psq_tpo_itmPayload>
+/**
+ * Model psq_mtv
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+ */
+export type psq_mtv = $Result.DefaultSelection<Prisma.$psq_mtvPayload>
+/**
  * Model VwOnibus
  * View: vw_onibus
  */
@@ -433,6 +454,46 @@ export class PrismaClient<
     * ```
     */
   get usr_tpo(): Prisma.usr_tpoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.psq_rsp_fto`: Exposes CRUD operations for the **psq_rsp_fto** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Psq_rsp_ftos
+    * const psq_rsp_ftos = await prisma.psq_rsp_fto.findMany()
+    * ```
+    */
+  get psq_rsp_fto(): Prisma.psq_rsp_ftoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.brt`: Exposes CRUD operations for the **brt** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Brts
+    * const brts = await prisma.brt.findMany()
+    * ```
+    */
+  get brt(): Prisma.brtDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.psq_tpo_itm`: Exposes CRUD operations for the **psq_tpo_itm** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Psq_tpo_itms
+    * const psq_tpo_itms = await prisma.psq_tpo_itm.findMany()
+    * ```
+    */
+  get psq_tpo_itm(): Prisma.psq_tpo_itmDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.psq_mtv`: Exposes CRUD operations for the **psq_mtv** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Psq_mtvs
+    * const psq_mtvs = await prisma.psq_mtv.findMany()
+    * ```
+    */
+  get psq_mtv(): Prisma.psq_mtvDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.vwOnibus`: Exposes CRUD operations for the **VwOnibus** model.
@@ -941,6 +1002,10 @@ export namespace Prisma {
     trn: 'trn',
     usr: 'usr',
     usr_tpo: 'usr_tpo',
+    psq_rsp_fto: 'psq_rsp_fto',
+    brt: 'brt',
+    psq_tpo_itm: 'psq_tpo_itm',
+    psq_mtv: 'psq_mtv',
     VwOnibus: 'VwOnibus',
     VwCarregador: 'VwCarregador',
     VwPesquisaPergunta: 'VwPesquisaPergunta',
@@ -964,7 +1029,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "cbt" | "emp" | "emp_und" | "eqp_fbr" | "eqp_itm" | "eqp_loc" | "eqp_mdl" | "eqp_tpo" | "frn" | "psq" | "psq_prg" | "psq_rsp" | "psq_tpo" | "rcg" | "stt" | "trn" | "usr" | "usr_tpo" | "vwOnibus" | "vwCarregador" | "vwPesquisaPergunta" | "vwPostoRecarga" | "vwTurnoAtual"
+      modelProps: "cbt" | "emp" | "emp_und" | "eqp_fbr" | "eqp_itm" | "eqp_loc" | "eqp_mdl" | "eqp_tpo" | "frn" | "psq" | "psq_prg" | "psq_rsp" | "psq_tpo" | "rcg" | "stt" | "trn" | "usr" | "usr_tpo" | "psq_rsp_fto" | "brt" | "psq_tpo_itm" | "psq_mtv" | "vwOnibus" | "vwCarregador" | "vwPesquisaPergunta" | "vwPostoRecarga" | "vwTurnoAtual"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2156,6 +2221,270 @@ export namespace Prisma {
           }
         }
       }
+      psq_rsp_fto: {
+        payload: Prisma.$psq_rsp_ftoPayload<ExtArgs>
+        fields: Prisma.psq_rsp_ftoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.psq_rsp_ftoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.psq_rsp_ftoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>
+          }
+          findFirst: {
+            args: Prisma.psq_rsp_ftoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.psq_rsp_ftoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>
+          }
+          findMany: {
+            args: Prisma.psq_rsp_ftoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>[]
+          }
+          create: {
+            args: Prisma.psq_rsp_ftoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>
+          }
+          createMany: {
+            args: Prisma.psq_rsp_ftoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.psq_rsp_ftoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>
+          }
+          update: {
+            args: Prisma.psq_rsp_ftoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>
+          }
+          deleteMany: {
+            args: Prisma.psq_rsp_ftoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.psq_rsp_ftoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.psq_rsp_ftoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_rsp_ftoPayload>
+          }
+          aggregate: {
+            args: Prisma.Psq_rsp_ftoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePsq_rsp_fto>
+          }
+          groupBy: {
+            args: Prisma.psq_rsp_ftoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Psq_rsp_ftoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.psq_rsp_ftoCountArgs<ExtArgs>
+            result: $Utils.Optional<Psq_rsp_ftoCountAggregateOutputType> | number
+          }
+        }
+      }
+      brt: {
+        payload: Prisma.$brtPayload<ExtArgs>
+        fields: Prisma.brtFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.brtFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.brtFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>
+          }
+          findFirst: {
+            args: Prisma.brtFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.brtFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>
+          }
+          findMany: {
+            args: Prisma.brtFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>[]
+          }
+          create: {
+            args: Prisma.brtCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>
+          }
+          createMany: {
+            args: Prisma.brtCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.brtDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>
+          }
+          update: {
+            args: Prisma.brtUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>
+          }
+          deleteMany: {
+            args: Prisma.brtDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.brtUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.brtUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$brtPayload>
+          }
+          aggregate: {
+            args: Prisma.BrtAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBrt>
+          }
+          groupBy: {
+            args: Prisma.brtGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BrtGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.brtCountArgs<ExtArgs>
+            result: $Utils.Optional<BrtCountAggregateOutputType> | number
+          }
+        }
+      }
+      psq_tpo_itm: {
+        payload: Prisma.$psq_tpo_itmPayload<ExtArgs>
+        fields: Prisma.psq_tpo_itmFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.psq_tpo_itmFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.psq_tpo_itmFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>
+          }
+          findFirst: {
+            args: Prisma.psq_tpo_itmFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.psq_tpo_itmFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>
+          }
+          findMany: {
+            args: Prisma.psq_tpo_itmFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>[]
+          }
+          create: {
+            args: Prisma.psq_tpo_itmCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>
+          }
+          createMany: {
+            args: Prisma.psq_tpo_itmCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.psq_tpo_itmDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>
+          }
+          update: {
+            args: Prisma.psq_tpo_itmUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>
+          }
+          deleteMany: {
+            args: Prisma.psq_tpo_itmDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.psq_tpo_itmUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.psq_tpo_itmUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_tpo_itmPayload>
+          }
+          aggregate: {
+            args: Prisma.Psq_tpo_itmAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePsq_tpo_itm>
+          }
+          groupBy: {
+            args: Prisma.psq_tpo_itmGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Psq_tpo_itmGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.psq_tpo_itmCountArgs<ExtArgs>
+            result: $Utils.Optional<Psq_tpo_itmCountAggregateOutputType> | number
+          }
+        }
+      }
+      psq_mtv: {
+        payload: Prisma.$psq_mtvPayload<ExtArgs>
+        fields: Prisma.psq_mtvFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.psq_mtvFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.psq_mtvFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>
+          }
+          findFirst: {
+            args: Prisma.psq_mtvFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.psq_mtvFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>
+          }
+          findMany: {
+            args: Prisma.psq_mtvFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>[]
+          }
+          create: {
+            args: Prisma.psq_mtvCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>
+          }
+          createMany: {
+            args: Prisma.psq_mtvCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.psq_mtvDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>
+          }
+          update: {
+            args: Prisma.psq_mtvUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>
+          }
+          deleteMany: {
+            args: Prisma.psq_mtvDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.psq_mtvUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.psq_mtvUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$psq_mtvPayload>
+          }
+          aggregate: {
+            args: Prisma.Psq_mtvAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePsq_mtv>
+          }
+          groupBy: {
+            args: Prisma.psq_mtvGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Psq_mtvGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.psq_mtvCountArgs<ExtArgs>
+            result: $Utils.Optional<Psq_mtvCountAggregateOutputType> | number
+          }
+        }
+      }
       VwOnibus: {
         payload: Prisma.$VwOnibusPayload<ExtArgs>
         fields: Prisma.VwOnibusFieldRefs
@@ -2596,6 +2925,10 @@ export namespace Prisma {
     trn?: trnOmit
     usr?: usrOmit
     usr_tpo?: usr_tpoOmit
+    psq_rsp_fto?: psq_rsp_ftoOmit
+    brt?: brtOmit
+    psq_tpo_itm?: psq_tpo_itmOmit
+    psq_mtv?: psq_mtvOmit
     vwOnibus?: VwOnibusOmit
     vwCarregador?: VwCarregadorOmit
     vwPesquisaPergunta?: VwPesquisaPerguntaOmit
@@ -2839,12 +3172,14 @@ export namespace Prisma {
 
   export type Eqp_itmCountOutputType = {
     eqp_loc: number
+    psq_tpo_itm: number
     rcg_rcg_CrrIdToeqp_itm: number
     rcg_rcg_VclIdToeqp_itm: number
   }
 
   export type Eqp_itmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     eqp_loc?: boolean | Eqp_itmCountOutputTypeCountEqp_locArgs
+    psq_tpo_itm?: boolean | Eqp_itmCountOutputTypeCountPsq_tpo_itmArgs
     rcg_rcg_CrrIdToeqp_itm?: boolean | Eqp_itmCountOutputTypeCountRcg_rcg_CrrIdToeqp_itmArgs
     rcg_rcg_VclIdToeqp_itm?: boolean | Eqp_itmCountOutputTypeCountRcg_rcg_VclIdToeqp_itmArgs
   }
@@ -2865,6 +3200,13 @@ export namespace Prisma {
    */
   export type Eqp_itmCountOutputTypeCountEqp_locArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: eqp_locWhereInput
+  }
+
+  /**
+   * Eqp_itmCountOutputType without action
+   */
+  export type Eqp_itmCountOutputTypeCountPsq_tpo_itmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_tpo_itmWhereInput
   }
 
   /**
@@ -3056,6 +3398,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type Psq_rspCountOutputType
+   */
+
+  export type Psq_rspCountOutputType = {
+    psq_rsp_fto: number
+  }
+
+  export type Psq_rspCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    psq_rsp_fto?: boolean | Psq_rspCountOutputTypeCountPsq_rsp_ftoArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Psq_rspCountOutputType without action
+   */
+  export type Psq_rspCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Psq_rspCountOutputType
+     */
+    select?: Psq_rspCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Psq_rspCountOutputType without action
+   */
+  export type Psq_rspCountOutputTypeCountPsq_rsp_ftoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_rsp_ftoWhereInput
+  }
+
+
+  /**
    * Count Type Psq_tpoCountOutputType
    */
 
@@ -3096,37 +3469,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type RcgCountOutputType
-   */
-
-  export type RcgCountOutputType = {
-    other_rcg: number
-  }
-
-  export type RcgCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    other_rcg?: boolean | RcgCountOutputTypeCountOther_rcgArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * RcgCountOutputType without action
-   */
-  export type RcgCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the RcgCountOutputType
-     */
-    select?: RcgCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * RcgCountOutputType without action
-   */
-  export type RcgCountOutputTypeCountOther_rcgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: rcgWhereInput
-  }
-
-
-  /**
    * Count Type SttCountOutputType
    */
 
@@ -3141,14 +3483,17 @@ export namespace Prisma {
     eqp_tpo: number
     frn: number
     psq: number
+    psq_mtv: number
     psq_prg: number
     psq_rsp: number
+    psq_rsp_fto: number
     psq_tpo: number
+    psq_tpo_itm: number
     rcg_rcg_SttIdTostt: number
     rcg_rcg_SttRcgIdTostt: number
+    trn: number
     usr: number
     usr_tpo: number
-    trn: number
   }
 
   export type SttCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3162,14 +3507,17 @@ export namespace Prisma {
     eqp_tpo?: boolean | SttCountOutputTypeCountEqp_tpoArgs
     frn?: boolean | SttCountOutputTypeCountFrnArgs
     psq?: boolean | SttCountOutputTypeCountPsqArgs
+    psq_mtv?: boolean | SttCountOutputTypeCountPsq_mtvArgs
     psq_prg?: boolean | SttCountOutputTypeCountPsq_prgArgs
     psq_rsp?: boolean | SttCountOutputTypeCountPsq_rspArgs
+    psq_rsp_fto?: boolean | SttCountOutputTypeCountPsq_rsp_ftoArgs
     psq_tpo?: boolean | SttCountOutputTypeCountPsq_tpoArgs
+    psq_tpo_itm?: boolean | SttCountOutputTypeCountPsq_tpo_itmArgs
     rcg_rcg_SttIdTostt?: boolean | SttCountOutputTypeCountRcg_rcg_SttIdTosttArgs
     rcg_rcg_SttRcgIdTostt?: boolean | SttCountOutputTypeCountRcg_rcg_SttRcgIdTosttArgs
+    trn?: boolean | SttCountOutputTypeCountTrnArgs
     usr?: boolean | SttCountOutputTypeCountUsrArgs
     usr_tpo?: boolean | SttCountOutputTypeCountUsr_tpoArgs
-    trn?: boolean | SttCountOutputTypeCountTrnArgs
   }
 
   // Custom InputTypes
@@ -3256,6 +3604,13 @@ export namespace Prisma {
   /**
    * SttCountOutputType without action
    */
+  export type SttCountOutputTypeCountPsq_mtvArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_mtvWhereInput
+  }
+
+  /**
+   * SttCountOutputType without action
+   */
   export type SttCountOutputTypeCountPsq_prgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: psq_prgWhereInput
   }
@@ -3270,8 +3625,22 @@ export namespace Prisma {
   /**
    * SttCountOutputType without action
    */
+  export type SttCountOutputTypeCountPsq_rsp_ftoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_rsp_ftoWhereInput
+  }
+
+  /**
+   * SttCountOutputType without action
+   */
   export type SttCountOutputTypeCountPsq_tpoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: psq_tpoWhereInput
+  }
+
+  /**
+   * SttCountOutputType without action
+   */
+  export type SttCountOutputTypeCountPsq_tpo_itmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_tpo_itmWhereInput
   }
 
   /**
@@ -3291,6 +3660,13 @@ export namespace Prisma {
   /**
    * SttCountOutputType without action
    */
+  export type SttCountOutputTypeCountTrnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: trnWhereInput
+  }
+
+  /**
+   * SttCountOutputType without action
+   */
   export type SttCountOutputTypeCountUsrArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: usrWhereInput
   }
@@ -3300,13 +3676,6 @@ export namespace Prisma {
    */
   export type SttCountOutputTypeCountUsr_tpoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: usr_tpoWhereInput
-  }
-
-  /**
-   * SttCountOutputType without action
-   */
-  export type SttCountOutputTypeCountTrnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: trnWhereInput
   }
 
 
@@ -3323,12 +3692,15 @@ export namespace Prisma {
     eqp_tpo: number
     frn: number
     psq: number
+    psq_mtv: number
     psq_prg: number
     psq_rsp: number
+    psq_rsp_fto: number
     psq_tpo: number
+    psq_tpo_itm: number
     rcg: number
-    other_usr: number
     trn: number
+    other_usr: number
   }
 
   export type UsrCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3340,12 +3712,15 @@ export namespace Prisma {
     eqp_tpo?: boolean | UsrCountOutputTypeCountEqp_tpoArgs
     frn?: boolean | UsrCountOutputTypeCountFrnArgs
     psq?: boolean | UsrCountOutputTypeCountPsqArgs
+    psq_mtv?: boolean | UsrCountOutputTypeCountPsq_mtvArgs
     psq_prg?: boolean | UsrCountOutputTypeCountPsq_prgArgs
     psq_rsp?: boolean | UsrCountOutputTypeCountPsq_rspArgs
+    psq_rsp_fto?: boolean | UsrCountOutputTypeCountPsq_rsp_ftoArgs
     psq_tpo?: boolean | UsrCountOutputTypeCountPsq_tpoArgs
+    psq_tpo_itm?: boolean | UsrCountOutputTypeCountPsq_tpo_itmArgs
     rcg?: boolean | UsrCountOutputTypeCountRcgArgs
-    other_usr?: boolean | UsrCountOutputTypeCountOther_usrArgs
     trn?: boolean | UsrCountOutputTypeCountTrnArgs
+    other_usr?: boolean | UsrCountOutputTypeCountOther_usrArgs
   }
 
   // Custom InputTypes
@@ -3418,6 +3793,13 @@ export namespace Prisma {
   /**
    * UsrCountOutputType without action
    */
+  export type UsrCountOutputTypeCountPsq_mtvArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_mtvWhereInput
+  }
+
+  /**
+   * UsrCountOutputType without action
+   */
   export type UsrCountOutputTypeCountPsq_prgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: psq_prgWhereInput
   }
@@ -3432,8 +3814,22 @@ export namespace Prisma {
   /**
    * UsrCountOutputType without action
    */
+  export type UsrCountOutputTypeCountPsq_rsp_ftoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_rsp_ftoWhereInput
+  }
+
+  /**
+   * UsrCountOutputType without action
+   */
   export type UsrCountOutputTypeCountPsq_tpoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: psq_tpoWhereInput
+  }
+
+  /**
+   * UsrCountOutputType without action
+   */
+  export type UsrCountOutputTypeCountPsq_tpo_itmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_tpo_itmWhereInput
   }
 
   /**
@@ -3446,15 +3842,15 @@ export namespace Prisma {
   /**
    * UsrCountOutputType without action
    */
-  export type UsrCountOutputTypeCountOther_usrArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: usrWhereInput
+  export type UsrCountOutputTypeCountTrnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: trnWhereInput
   }
 
   /**
    * UsrCountOutputType without action
    */
-  export type UsrCountOutputTypeCountTrnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: trnWhereInput
+  export type UsrCountOutputTypeCountOther_usrArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: usrWhereInput
   }
 
 
@@ -8037,33 +8433,39 @@ export namespace Prisma {
 
   export type Eqp_itmAvgAggregateOutputType = {
     UndId: number | null
+    BrtId: number | null
     FrnId: number | null
     EqpTpoId: number | null
     EqpFbrId: number | null
     EqpMdlId: number | null
     EqpItmId: number | null
+    CbtId: number | null
     SttId: number | null
     UsrIdAlt: number | null
   }
 
   export type Eqp_itmSumAggregateOutputType = {
     UndId: number | null
+    BrtId: number | null
     FrnId: number | null
     EqpTpoId: number | null
     EqpFbrId: number | null
     EqpMdlId: number | null
     EqpItmId: number | null
+    CbtId: number | null
     SttId: number | null
     UsrIdAlt: number | null
   }
 
   export type Eqp_itmMinAggregateOutputType = {
     UndId: number | null
+    BrtId: number | null
     FrnId: number | null
     EqpTpoId: number | null
     EqpFbrId: number | null
     EqpMdlId: number | null
     EqpItmId: number | null
+    CbtId: number | null
     EqpItmCdg: string | null
     EqpItmPlc: string | null
     EqpItmAnoMdl: string | null
@@ -8076,11 +8478,13 @@ export namespace Prisma {
 
   export type Eqp_itmMaxAggregateOutputType = {
     UndId: number | null
+    BrtId: number | null
     FrnId: number | null
     EqpTpoId: number | null
     EqpFbrId: number | null
     EqpMdlId: number | null
     EqpItmId: number | null
+    CbtId: number | null
     EqpItmCdg: string | null
     EqpItmPlc: string | null
     EqpItmAnoMdl: string | null
@@ -8093,11 +8497,13 @@ export namespace Prisma {
 
   export type Eqp_itmCountAggregateOutputType = {
     UndId: number
+    BrtId: number
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId: number
+    CbtId: number
     EqpItmCdg: number
     EqpItmPlc: number
     EqpItmAnoMdl: number
@@ -8112,33 +8518,39 @@ export namespace Prisma {
 
   export type Eqp_itmAvgAggregateInputType = {
     UndId?: true
+    BrtId?: true
     FrnId?: true
     EqpTpoId?: true
     EqpFbrId?: true
     EqpMdlId?: true
     EqpItmId?: true
+    CbtId?: true
     SttId?: true
     UsrIdAlt?: true
   }
 
   export type Eqp_itmSumAggregateInputType = {
     UndId?: true
+    BrtId?: true
     FrnId?: true
     EqpTpoId?: true
     EqpFbrId?: true
     EqpMdlId?: true
     EqpItmId?: true
+    CbtId?: true
     SttId?: true
     UsrIdAlt?: true
   }
 
   export type Eqp_itmMinAggregateInputType = {
     UndId?: true
+    BrtId?: true
     FrnId?: true
     EqpTpoId?: true
     EqpFbrId?: true
     EqpMdlId?: true
     EqpItmId?: true
+    CbtId?: true
     EqpItmCdg?: true
     EqpItmPlc?: true
     EqpItmAnoMdl?: true
@@ -8151,11 +8563,13 @@ export namespace Prisma {
 
   export type Eqp_itmMaxAggregateInputType = {
     UndId?: true
+    BrtId?: true
     FrnId?: true
     EqpTpoId?: true
     EqpFbrId?: true
     EqpMdlId?: true
     EqpItmId?: true
+    CbtId?: true
     EqpItmCdg?: true
     EqpItmPlc?: true
     EqpItmAnoMdl?: true
@@ -8168,11 +8582,13 @@ export namespace Prisma {
 
   export type Eqp_itmCountAggregateInputType = {
     UndId?: true
+    BrtId?: true
     FrnId?: true
     EqpTpoId?: true
     EqpFbrId?: true
     EqpMdlId?: true
     EqpItmId?: true
+    CbtId?: true
     EqpItmCdg?: true
     EqpItmPlc?: true
     EqpItmAnoMdl?: true
@@ -8272,11 +8688,13 @@ export namespace Prisma {
 
   export type Eqp_itmGroupByOutputType = {
     UndId: number
+    BrtId: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId: number
+    CbtId: number | null
     EqpItmCdg: string
     EqpItmPlc: string | null
     EqpItmAnoMdl: string | null
@@ -8308,11 +8726,13 @@ export namespace Prisma {
 
   export type eqp_itmSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     UndId?: boolean
+    BrtId?: boolean
     FrnId?: boolean
     EqpTpoId?: boolean
     EqpFbrId?: boolean
     EqpMdlId?: boolean
     EqpItmId?: boolean
+    CbtId?: boolean
     EqpItmCdg?: boolean
     EqpItmPlc?: boolean
     EqpItmAnoMdl?: boolean
@@ -8329,6 +8749,7 @@ export namespace Prisma {
     stt?: boolean | sttDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
     eqp_loc?: boolean | eqp_itm$eqp_locArgs<ExtArgs>
+    psq_tpo_itm?: boolean | eqp_itm$psq_tpo_itmArgs<ExtArgs>
     rcg_rcg_CrrIdToeqp_itm?: boolean | eqp_itm$rcg_rcg_CrrIdToeqp_itmArgs<ExtArgs>
     rcg_rcg_VclIdToeqp_itm?: boolean | eqp_itm$rcg_rcg_VclIdToeqp_itmArgs<ExtArgs>
     _count?: boolean | Eqp_itmCountOutputTypeDefaultArgs<ExtArgs>
@@ -8338,11 +8759,13 @@ export namespace Prisma {
 
   export type eqp_itmSelectScalar = {
     UndId?: boolean
+    BrtId?: boolean
     FrnId?: boolean
     EqpTpoId?: boolean
     EqpFbrId?: boolean
     EqpMdlId?: boolean
     EqpItmId?: boolean
+    CbtId?: boolean
     EqpItmCdg?: boolean
     EqpItmPlc?: boolean
     EqpItmAnoMdl?: boolean
@@ -8353,7 +8776,7 @@ export namespace Prisma {
     MtvDel?: boolean
   }
 
-  export type eqp_itmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "FrnId" | "EqpTpoId" | "EqpFbrId" | "EqpMdlId" | "EqpItmId" | "EqpItmCdg" | "EqpItmPlc" | "EqpItmAnoMdl" | "EqpItmTmh" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["eqp_itm"]>
+  export type eqp_itmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "BrtId" | "FrnId" | "EqpTpoId" | "EqpFbrId" | "EqpMdlId" | "EqpItmId" | "CbtId" | "EqpItmCdg" | "EqpItmPlc" | "EqpItmAnoMdl" | "EqpItmTmh" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["eqp_itm"]>
   export type eqp_itmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emp_und?: boolean | emp_undDefaultArgs<ExtArgs>
     eqp_fbr?: boolean | eqp_fbrDefaultArgs<ExtArgs>
@@ -8363,6 +8786,7 @@ export namespace Prisma {
     stt?: boolean | sttDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
     eqp_loc?: boolean | eqp_itm$eqp_locArgs<ExtArgs>
+    psq_tpo_itm?: boolean | eqp_itm$psq_tpo_itmArgs<ExtArgs>
     rcg_rcg_CrrIdToeqp_itm?: boolean | eqp_itm$rcg_rcg_CrrIdToeqp_itmArgs<ExtArgs>
     rcg_rcg_VclIdToeqp_itm?: boolean | eqp_itm$rcg_rcg_VclIdToeqp_itmArgs<ExtArgs>
     _count?: boolean | Eqp_itmCountOutputTypeDefaultArgs<ExtArgs>
@@ -8379,16 +8803,19 @@ export namespace Prisma {
       stt: Prisma.$sttPayload<ExtArgs>
       usr: Prisma.$usrPayload<ExtArgs>
       eqp_loc: Prisma.$eqp_locPayload<ExtArgs>[]
+      psq_tpo_itm: Prisma.$psq_tpo_itmPayload<ExtArgs>[]
       rcg_rcg_CrrIdToeqp_itm: Prisma.$rcgPayload<ExtArgs>[]
       rcg_rcg_VclIdToeqp_itm: Prisma.$rcgPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       UndId: number
+      BrtId: number | null
       FrnId: number
       EqpTpoId: number
       EqpFbrId: number
       EqpMdlId: number
       EqpItmId: number
+      CbtId: number | null
       EqpItmCdg: string
       EqpItmPlc: string | null
       EqpItmAnoMdl: string | null
@@ -8745,6 +9172,7 @@ export namespace Prisma {
     stt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     eqp_loc<T extends eqp_itm$eqp_locArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itm$eqp_locArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$eqp_locPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_tpo_itm<T extends eqp_itm$psq_tpo_itmArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itm$psq_tpo_itmArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     rcg_rcg_CrrIdToeqp_itm<T extends eqp_itm$rcg_rcg_CrrIdToeqp_itmArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itm$rcg_rcg_CrrIdToeqp_itmArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     rcg_rcg_VclIdToeqp_itm<T extends eqp_itm$rcg_rcg_VclIdToeqp_itmArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itm$rcg_rcg_VclIdToeqp_itmArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -8777,11 +9205,13 @@ export namespace Prisma {
    */
   interface eqp_itmFieldRefs {
     readonly UndId: FieldRef<"eqp_itm", 'Int'>
+    readonly BrtId: FieldRef<"eqp_itm", 'Int'>
     readonly FrnId: FieldRef<"eqp_itm", 'Int'>
     readonly EqpTpoId: FieldRef<"eqp_itm", 'Int'>
     readonly EqpFbrId: FieldRef<"eqp_itm", 'Int'>
     readonly EqpMdlId: FieldRef<"eqp_itm", 'Int'>
     readonly EqpItmId: FieldRef<"eqp_itm", 'Int'>
+    readonly CbtId: FieldRef<"eqp_itm", 'Int'>
     readonly EqpItmCdg: FieldRef<"eqp_itm", 'String'>
     readonly EqpItmPlc: FieldRef<"eqp_itm", 'String'>
     readonly EqpItmAnoMdl: FieldRef<"eqp_itm", 'String'>
@@ -9154,6 +9584,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Eqp_locScalarFieldEnum | Eqp_locScalarFieldEnum[]
+  }
+
+  /**
+   * eqp_itm.psq_tpo_itm
+   */
+  export type eqp_itm$psq_tpo_itmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    where?: psq_tpo_itmWhereInput
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    cursor?: psq_tpo_itmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_tpo_itmScalarFieldEnum | Psq_tpo_itmScalarFieldEnum[]
   }
 
   /**
@@ -15506,9 +15960,12 @@ export namespace Prisma {
     TrnId: number | null
     PsqId: number | null
     PsqTpoId: number | null
+    BrtId: number | null
+    EqpItmId: number | null
     PsqPrgId: number | null
     PsqRspId: number | null
     PsqRsp: number | null
+    PsqMtvId: number | null
     SttId: number | null
     UsrIdAlt: number | null
   }
@@ -15518,9 +15975,12 @@ export namespace Prisma {
     TrnId: number | null
     PsqId: number | null
     PsqTpoId: number | null
+    BrtId: number | null
+    EqpItmId: number | null
     PsqPrgId: number | null
     PsqRspId: number | null
     PsqRsp: number | null
+    PsqMtvId: number | null
     SttId: number | null
     UsrIdAlt: number | null
   }
@@ -15531,10 +15991,16 @@ export namespace Prisma {
     TrnId: number | null
     PsqId: number | null
     PsqTpoId: number | null
+    BrtId: number | null
+    EqpItmId: number | null
     PsqPrgId: number | null
     PsqRspId: number | null
     PsqRsp: number | null
     PsqDth: string | null
+    PsqMtvId: number | null
+    GpsLat: string | null
+    GpsLon: string | null
+    GpsAlt: string | null
     SttId: number | null
     UsrIdAlt: number | null
     DtaAlt: Date | null
@@ -15547,10 +16013,16 @@ export namespace Prisma {
     TrnId: number | null
     PsqId: number | null
     PsqTpoId: number | null
+    BrtId: number | null
+    EqpItmId: number | null
     PsqPrgId: number | null
     PsqRspId: number | null
     PsqRsp: number | null
     PsqDth: string | null
+    PsqMtvId: number | null
+    GpsLat: string | null
+    GpsLon: string | null
+    GpsAlt: string | null
     SttId: number | null
     UsrIdAlt: number | null
     DtaAlt: Date | null
@@ -15563,10 +16035,16 @@ export namespace Prisma {
     TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId: number
+    EqpItmId: number
     PsqPrgId: number
     PsqRspId: number
     PsqRsp: number
     PsqDth: number
+    PsqMtvId: number
+    GpsLat: number
+    GpsLon: number
+    GpsAlt: number
     SttId: number
     UsrIdAlt: number
     DtaAlt: number
@@ -15580,9 +16058,12 @@ export namespace Prisma {
     TrnId?: true
     PsqId?: true
     PsqTpoId?: true
+    BrtId?: true
+    EqpItmId?: true
     PsqPrgId?: true
     PsqRspId?: true
     PsqRsp?: true
+    PsqMtvId?: true
     SttId?: true
     UsrIdAlt?: true
   }
@@ -15592,9 +16073,12 @@ export namespace Prisma {
     TrnId?: true
     PsqId?: true
     PsqTpoId?: true
+    BrtId?: true
+    EqpItmId?: true
     PsqPrgId?: true
     PsqRspId?: true
     PsqRsp?: true
+    PsqMtvId?: true
     SttId?: true
     UsrIdAlt?: true
   }
@@ -15605,10 +16089,16 @@ export namespace Prisma {
     TrnId?: true
     PsqId?: true
     PsqTpoId?: true
+    BrtId?: true
+    EqpItmId?: true
     PsqPrgId?: true
     PsqRspId?: true
     PsqRsp?: true
     PsqDth?: true
+    PsqMtvId?: true
+    GpsLat?: true
+    GpsLon?: true
+    GpsAlt?: true
     SttId?: true
     UsrIdAlt?: true
     DtaAlt?: true
@@ -15621,10 +16111,16 @@ export namespace Prisma {
     TrnId?: true
     PsqId?: true
     PsqTpoId?: true
+    BrtId?: true
+    EqpItmId?: true
     PsqPrgId?: true
     PsqRspId?: true
     PsqRsp?: true
     PsqDth?: true
+    PsqMtvId?: true
+    GpsLat?: true
+    GpsLon?: true
+    GpsAlt?: true
     SttId?: true
     UsrIdAlt?: true
     DtaAlt?: true
@@ -15637,10 +16133,16 @@ export namespace Prisma {
     TrnId?: true
     PsqId?: true
     PsqTpoId?: true
+    BrtId?: true
+    EqpItmId?: true
     PsqPrgId?: true
     PsqRspId?: true
     PsqRsp?: true
     PsqDth?: true
+    PsqMtvId?: true
+    GpsLat?: true
+    GpsLon?: true
+    GpsAlt?: true
     SttId?: true
     UsrIdAlt?: true
     DtaAlt?: true
@@ -15737,13 +16239,19 @@ export namespace Prisma {
   export type Psq_rspGroupByOutputType = {
     UndId: number
     DtaOpe: Date
-    TrnId: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId: number | null
+    EqpItmId: number | null
     PsqPrgId: number
     PsqRspId: number
     PsqRsp: number
     PsqDth: string | null
+    PsqMtvId: number | null
+    GpsLat: string | null
+    GpsLon: string | null
+    GpsAlt: string | null
     SttId: number
     UsrIdAlt: number
     DtaAlt: Date
@@ -15775,10 +16283,16 @@ export namespace Prisma {
     TrnId?: boolean
     PsqId?: boolean
     PsqTpoId?: boolean
+    BrtId?: boolean
+    EqpItmId?: boolean
     PsqPrgId?: boolean
     PsqRspId?: boolean
     PsqRsp?: boolean
     PsqDth?: boolean
+    PsqMtvId?: boolean
+    GpsLat?: boolean
+    GpsLon?: boolean
+    GpsAlt?: boolean
     SttId?: boolean
     UsrIdAlt?: boolean
     DtaAlt?: boolean
@@ -15788,6 +16302,8 @@ export namespace Prisma {
     stt?: boolean | sttDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
     psq_prg?: boolean | psq_prgDefaultArgs<ExtArgs>
+    psq_rsp_fto?: boolean | psq_rsp$psq_rsp_ftoArgs<ExtArgs>
+    _count?: boolean | Psq_rspCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["psq_rsp"]>
 
 
@@ -15798,23 +16314,31 @@ export namespace Prisma {
     TrnId?: boolean
     PsqId?: boolean
     PsqTpoId?: boolean
+    BrtId?: boolean
+    EqpItmId?: boolean
     PsqPrgId?: boolean
     PsqRspId?: boolean
     PsqRsp?: boolean
     PsqDth?: boolean
+    PsqMtvId?: boolean
+    GpsLat?: boolean
+    GpsLon?: boolean
+    GpsAlt?: boolean
     SttId?: boolean
     UsrIdAlt?: boolean
     DtaAlt?: boolean
     MtvDel?: boolean
   }
 
-  export type psq_rspOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "DtaOpe" | "TrnId" | "PsqId" | "PsqTpoId" | "PsqPrgId" | "PsqRspId" | "PsqRsp" | "PsqDth" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_rsp"]>
+  export type psq_rspOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "DtaOpe" | "TrnId" | "PsqId" | "PsqTpoId" | "BrtId" | "EqpItmId" | "PsqPrgId" | "PsqRspId" | "PsqRsp" | "PsqDth" | "PsqMtvId" | "GpsLat" | "GpsLon" | "GpsAlt" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_rsp"]>
   export type psq_rspInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     psq_tpo?: boolean | psq_tpoDefaultArgs<ExtArgs>
     psq?: boolean | psqDefaultArgs<ExtArgs>
     stt?: boolean | sttDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
     psq_prg?: boolean | psq_prgDefaultArgs<ExtArgs>
+    psq_rsp_fto?: boolean | psq_rsp$psq_rsp_ftoArgs<ExtArgs>
+    _count?: boolean | Psq_rspCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $psq_rspPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15825,17 +16349,24 @@ export namespace Prisma {
       stt: Prisma.$sttPayload<ExtArgs>
       usr: Prisma.$usrPayload<ExtArgs>
       psq_prg: Prisma.$psq_prgPayload<ExtArgs>
+      psq_rsp_fto: Prisma.$psq_rsp_ftoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       UndId: number
       DtaOpe: Date
-      TrnId: number | null
+      TrnId: number
       PsqId: number
       PsqTpoId: number
+      BrtId: number | null
+      EqpItmId: number | null
       PsqPrgId: number
       PsqRspId: number
       PsqRsp: number
       PsqDth: string | null
+      PsqMtvId: number | null
+      GpsLat: string | null
+      GpsLon: string | null
+      GpsAlt: string | null
       SttId: number
       UsrIdAlt: number
       DtaAlt: Date
@@ -16185,6 +16716,7 @@ export namespace Prisma {
     stt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     psq_prg<T extends psq_prgDefaultArgs<ExtArgs> = {}>(args?: Subset<T, psq_prgDefaultArgs<ExtArgs>>): Prisma__psq_prgClient<$Result.GetResult<Prisma.$psq_prgPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    psq_rsp_fto<T extends psq_rsp$psq_rsp_ftoArgs<ExtArgs> = {}>(args?: Subset<T, psq_rsp$psq_rsp_ftoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -16219,10 +16751,16 @@ export namespace Prisma {
     readonly TrnId: FieldRef<"psq_rsp", 'Int'>
     readonly PsqId: FieldRef<"psq_rsp", 'Int'>
     readonly PsqTpoId: FieldRef<"psq_rsp", 'Int'>
+    readonly BrtId: FieldRef<"psq_rsp", 'Int'>
+    readonly EqpItmId: FieldRef<"psq_rsp", 'Int'>
     readonly PsqPrgId: FieldRef<"psq_rsp", 'Int'>
     readonly PsqRspId: FieldRef<"psq_rsp", 'Int'>
     readonly PsqRsp: FieldRef<"psq_rsp", 'Int'>
     readonly PsqDth: FieldRef<"psq_rsp", 'String'>
+    readonly PsqMtvId: FieldRef<"psq_rsp", 'Int'>
+    readonly GpsLat: FieldRef<"psq_rsp", 'String'>
+    readonly GpsLon: FieldRef<"psq_rsp", 'String'>
+    readonly GpsAlt: FieldRef<"psq_rsp", 'String'>
     readonly SttId: FieldRef<"psq_rsp", 'Int'>
     readonly UsrIdAlt: FieldRef<"psq_rsp", 'Int'>
     readonly DtaAlt: FieldRef<"psq_rsp", 'DateTime'>
@@ -16570,6 +17108,30 @@ export namespace Prisma {
   }
 
   /**
+   * psq_rsp.psq_rsp_fto
+   */
+  export type psq_rsp$psq_rsp_ftoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    where?: psq_rsp_ftoWhereInput
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_rsp_ftoScalarFieldEnum | Psq_rsp_ftoScalarFieldEnum[]
+  }
+
+  /**
    * psq_rsp without action
    */
   export type psq_rspDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16615,6 +17177,7 @@ export namespace Prisma {
   export type Psq_tpoMinAggregateOutputType = {
     PsqTpoId: number | null
     PsqTpo: string | null
+    icone: string | null
     SttId: number | null
     UsrIdAlt: number | null
     DtaAlt: Date | null
@@ -16624,6 +17187,7 @@ export namespace Prisma {
   export type Psq_tpoMaxAggregateOutputType = {
     PsqTpoId: number | null
     PsqTpo: string | null
+    icone: string | null
     SttId: number | null
     UsrIdAlt: number | null
     DtaAlt: Date | null
@@ -16633,6 +17197,7 @@ export namespace Prisma {
   export type Psq_tpoCountAggregateOutputType = {
     PsqTpoId: number
     PsqTpo: number
+    icone: number
     SttId: number
     UsrIdAlt: number
     DtaAlt: number
@@ -16656,6 +17221,7 @@ export namespace Prisma {
   export type Psq_tpoMinAggregateInputType = {
     PsqTpoId?: true
     PsqTpo?: true
+    icone?: true
     SttId?: true
     UsrIdAlt?: true
     DtaAlt?: true
@@ -16665,6 +17231,7 @@ export namespace Prisma {
   export type Psq_tpoMaxAggregateInputType = {
     PsqTpoId?: true
     PsqTpo?: true
+    icone?: true
     SttId?: true
     UsrIdAlt?: true
     DtaAlt?: true
@@ -16674,6 +17241,7 @@ export namespace Prisma {
   export type Psq_tpoCountAggregateInputType = {
     PsqTpoId?: true
     PsqTpo?: true
+    icone?: true
     SttId?: true
     UsrIdAlt?: true
     DtaAlt?: true
@@ -16770,6 +17338,7 @@ export namespace Prisma {
   export type Psq_tpoGroupByOutputType = {
     PsqTpoId: number
     PsqTpo: string
+    icone: string | null
     SttId: number
     UsrIdAlt: number
     DtaAlt: Date
@@ -16798,6 +17367,7 @@ export namespace Prisma {
   export type psq_tpoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     PsqTpoId?: boolean
     PsqTpo?: boolean
+    icone?: boolean
     SttId?: boolean
     UsrIdAlt?: boolean
     DtaAlt?: boolean
@@ -16814,13 +17384,14 @@ export namespace Prisma {
   export type psq_tpoSelectScalar = {
     PsqTpoId?: boolean
     PsqTpo?: boolean
+    icone?: boolean
     SttId?: boolean
     UsrIdAlt?: boolean
     DtaAlt?: boolean
     MtvDel?: boolean
   }
 
-  export type psq_tpoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"PsqTpoId" | "PsqTpo" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_tpo"]>
+  export type psq_tpoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"PsqTpoId" | "PsqTpo" | "icone" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_tpo"]>
   export type psq_tpoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     psq_prg?: boolean | psq_tpo$psq_prgArgs<ExtArgs>
     psq_rsp?: boolean | psq_tpo$psq_rspArgs<ExtArgs>
@@ -16840,6 +17411,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       PsqTpoId: number
       PsqTpo: string
+      icone: string | null
       SttId: number
       UsrIdAlt: number
       DtaAlt: Date
@@ -17219,6 +17791,7 @@ export namespace Prisma {
   interface psq_tpoFieldRefs {
     readonly PsqTpoId: FieldRef<"psq_tpo", 'Int'>
     readonly PsqTpo: FieldRef<"psq_tpo", 'String'>
+    readonly icone: FieldRef<"psq_tpo", 'String'>
     readonly SttId: FieldRef<"psq_tpo", 'Int'>
     readonly UsrIdAlt: FieldRef<"psq_tpo", 'Int'>
     readonly DtaAlt: FieldRef<"psq_tpo", 'DateTime'>
@@ -17650,11 +18223,14 @@ export namespace Prisma {
     EmpId: number | null
     UndId: number | null
     VclId: number | null
+    CbtId: number | null
     CrrId: number | null
     CrrCnc: number | null
     SocIni: number | null
     SocFin: number | null
     RcgKwh: Decimal | null
+    TmpAmb: number | null
+    PrsBar: number | null
     OdoIni: Decimal | null
     OdoFin: Decimal | null
     SttRcgId: number | null
@@ -17670,11 +18246,14 @@ export namespace Prisma {
     EmpId: number | null
     UndId: number | null
     VclId: number | null
+    CbtId: number | null
     CrrId: number | null
     CrrCnc: number | null
     SocIni: number | null
     SocFin: number | null
     RcgKwh: Decimal | null
+    TmpAmb: number | null
+    PrsBar: number | null
     OdoIni: Decimal | null
     OdoFin: Decimal | null
     SttRcgId: number | null
@@ -17691,6 +18270,7 @@ export namespace Prisma {
     DtaOpe: Date | null
     UndId: number | null
     VclId: number | null
+    CbtId: number | null
     CrrId: number | null
     CrrCnc: number | null
     DtaIni: Date | null
@@ -17698,6 +18278,8 @@ export namespace Prisma {
     SocIni: number | null
     SocFin: number | null
     RcgKwh: Decimal | null
+    TmpAmb: number | null
+    PrsBar: number | null
     OdoIni: Decimal | null
     OdoFin: Decimal | null
     SttRcgId: number | null
@@ -17717,6 +18299,7 @@ export namespace Prisma {
     DtaOpe: Date | null
     UndId: number | null
     VclId: number | null
+    CbtId: number | null
     CrrId: number | null
     CrrCnc: number | null
     DtaIni: Date | null
@@ -17724,6 +18307,8 @@ export namespace Prisma {
     SocIni: number | null
     SocFin: number | null
     RcgKwh: Decimal | null
+    TmpAmb: number | null
+    PrsBar: number | null
     OdoIni: Decimal | null
     OdoFin: Decimal | null
     SttRcgId: number | null
@@ -17743,6 +18328,7 @@ export namespace Prisma {
     DtaOpe: number
     UndId: number
     VclId: number
+    CbtId: number
     CrrId: number
     CrrCnc: number
     DtaIni: number
@@ -17750,6 +18336,8 @@ export namespace Prisma {
     SocIni: number
     SocFin: number
     RcgKwh: number
+    TmpAmb: number
+    PrsBar: number
     OdoIni: number
     OdoFin: number
     SttRcgId: number
@@ -17770,11 +18358,14 @@ export namespace Prisma {
     EmpId?: true
     UndId?: true
     VclId?: true
+    CbtId?: true
     CrrId?: true
     CrrCnc?: true
     SocIni?: true
     SocFin?: true
     RcgKwh?: true
+    TmpAmb?: true
+    PrsBar?: true
     OdoIni?: true
     OdoFin?: true
     SttRcgId?: true
@@ -17790,11 +18381,14 @@ export namespace Prisma {
     EmpId?: true
     UndId?: true
     VclId?: true
+    CbtId?: true
     CrrId?: true
     CrrCnc?: true
     SocIni?: true
     SocFin?: true
     RcgKwh?: true
+    TmpAmb?: true
+    PrsBar?: true
     OdoIni?: true
     OdoFin?: true
     SttRcgId?: true
@@ -17811,6 +18405,7 @@ export namespace Prisma {
     DtaOpe?: true
     UndId?: true
     VclId?: true
+    CbtId?: true
     CrrId?: true
     CrrCnc?: true
     DtaIni?: true
@@ -17818,6 +18413,8 @@ export namespace Prisma {
     SocIni?: true
     SocFin?: true
     RcgKwh?: true
+    TmpAmb?: true
+    PrsBar?: true
     OdoIni?: true
     OdoFin?: true
     SttRcgId?: true
@@ -17837,6 +18434,7 @@ export namespace Prisma {
     DtaOpe?: true
     UndId?: true
     VclId?: true
+    CbtId?: true
     CrrId?: true
     CrrCnc?: true
     DtaIni?: true
@@ -17844,6 +18442,8 @@ export namespace Prisma {
     SocIni?: true
     SocFin?: true
     RcgKwh?: true
+    TmpAmb?: true
+    PrsBar?: true
     OdoIni?: true
     OdoFin?: true
     SttRcgId?: true
@@ -17863,6 +18463,7 @@ export namespace Prisma {
     DtaOpe?: true
     UndId?: true
     VclId?: true
+    CbtId?: true
     CrrId?: true
     CrrCnc?: true
     DtaIni?: true
@@ -17870,6 +18471,8 @@ export namespace Prisma {
     SocIni?: true
     SocFin?: true
     RcgKwh?: true
+    TmpAmb?: true
+    PrsBar?: true
     OdoIni?: true
     OdoFin?: true
     SttRcgId?: true
@@ -17976,6 +18579,7 @@ export namespace Prisma {
     DtaOpe: Date
     UndId: number
     VclId: number
+    CbtId: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date
@@ -17983,6 +18587,8 @@ export namespace Prisma {
     SocIni: number | null
     SocFin: number | null
     RcgKwh: Decimal | null
+    TmpAmb: number | null
+    PrsBar: number | null
     OdoIni: Decimal | null
     OdoFin: Decimal | null
     SttRcgId: number
@@ -18021,6 +18627,7 @@ export namespace Prisma {
     DtaOpe?: boolean
     UndId?: boolean
     VclId?: boolean
+    CbtId?: boolean
     CrrId?: boolean
     CrrCnc?: boolean
     DtaIni?: boolean
@@ -18028,6 +18635,8 @@ export namespace Prisma {
     SocIni?: boolean
     SocFin?: boolean
     RcgKwh?: boolean
+    TmpAmb?: boolean
+    PrsBar?: boolean
     OdoIni?: boolean
     OdoFin?: boolean
     SttRcgId?: boolean
@@ -18042,12 +18651,9 @@ export namespace Prisma {
     emp?: boolean | empDefaultArgs<ExtArgs>
     eqp_itm_rcg_CrrIdToeqp_itm?: boolean | eqp_itmDefaultArgs<ExtArgs>
     eqp_itm_rcg_VclIdToeqp_itm?: boolean | eqp_itmDefaultArgs<ExtArgs>
-    rcg?: boolean | rcg$rcgArgs<ExtArgs>
-    other_rcg?: boolean | rcg$other_rcgArgs<ExtArgs>
     stt_rcg_SttIdTostt?: boolean | sttDefaultArgs<ExtArgs>
     stt_rcg_SttRcgIdTostt?: boolean | sttDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
-    _count?: boolean | RcgCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rcg"]>
 
 
@@ -18059,6 +18665,7 @@ export namespace Prisma {
     DtaOpe?: boolean
     UndId?: boolean
     VclId?: boolean
+    CbtId?: boolean
     CrrId?: boolean
     CrrCnc?: boolean
     DtaIni?: boolean
@@ -18066,6 +18673,8 @@ export namespace Prisma {
     SocIni?: boolean
     SocFin?: boolean
     RcgKwh?: boolean
+    TmpAmb?: boolean
+    PrsBar?: boolean
     OdoIni?: boolean
     OdoFin?: boolean
     SttRcgId?: boolean
@@ -18078,18 +18687,15 @@ export namespace Prisma {
     MtvDel?: boolean
   }
 
-  export type rcgOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgId" | "RcgIdOrg" | "EmpId" | "DtaOpe" | "UndId" | "VclId" | "CrrId" | "CrrCnc" | "DtaIni" | "DtaFin" | "SocIni" | "SocFin" | "RcgKwh" | "OdoIni" | "OdoFin" | "SttRcgId" | "FlhId" | "FlhDsc" | "SttId" | "SttIdChk" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["rcg"]>
+  export type rcgOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgId" | "RcgIdOrg" | "EmpId" | "DtaOpe" | "UndId" | "VclId" | "CbtId" | "CrrId" | "CrrCnc" | "DtaIni" | "DtaFin" | "SocIni" | "SocFin" | "RcgKwh" | "TmpAmb" | "PrsBar" | "OdoIni" | "OdoFin" | "SttRcgId" | "FlhId" | "FlhDsc" | "SttId" | "SttIdChk" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["rcg"]>
   export type rcgInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emp_und?: boolean | emp_undDefaultArgs<ExtArgs>
     emp?: boolean | empDefaultArgs<ExtArgs>
     eqp_itm_rcg_CrrIdToeqp_itm?: boolean | eqp_itmDefaultArgs<ExtArgs>
     eqp_itm_rcg_VclIdToeqp_itm?: boolean | eqp_itmDefaultArgs<ExtArgs>
-    rcg?: boolean | rcg$rcgArgs<ExtArgs>
-    other_rcg?: boolean | rcg$other_rcgArgs<ExtArgs>
     stt_rcg_SttIdTostt?: boolean | sttDefaultArgs<ExtArgs>
     stt_rcg_SttRcgIdTostt?: boolean | sttDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
-    _count?: boolean | RcgCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $rcgPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18099,8 +18705,6 @@ export namespace Prisma {
       emp: Prisma.$empPayload<ExtArgs>
       eqp_itm_rcg_CrrIdToeqp_itm: Prisma.$eqp_itmPayload<ExtArgs>
       eqp_itm_rcg_VclIdToeqp_itm: Prisma.$eqp_itmPayload<ExtArgs>
-      rcg: Prisma.$rcgPayload<ExtArgs> | null
-      other_rcg: Prisma.$rcgPayload<ExtArgs>[]
       stt_rcg_SttIdTostt: Prisma.$sttPayload<ExtArgs>
       stt_rcg_SttRcgIdTostt: Prisma.$sttPayload<ExtArgs>
       usr: Prisma.$usrPayload<ExtArgs>
@@ -18112,6 +18716,7 @@ export namespace Prisma {
       DtaOpe: Date
       UndId: number
       VclId: number
+      CbtId: number | null
       CrrId: number
       CrrCnc: number
       DtaIni: Date
@@ -18119,6 +18724,8 @@ export namespace Prisma {
       SocIni: number | null
       SocFin: number | null
       RcgKwh: Prisma.Decimal | null
+      TmpAmb: number | null
+      PrsBar: number | null
       OdoIni: Prisma.Decimal | null
       OdoFin: Prisma.Decimal | null
       SttRcgId: number
@@ -18473,8 +19080,6 @@ export namespace Prisma {
     emp<T extends empDefaultArgs<ExtArgs> = {}>(args?: Subset<T, empDefaultArgs<ExtArgs>>): Prisma__empClient<$Result.GetResult<Prisma.$empPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     eqp_itm_rcg_CrrIdToeqp_itm<T extends eqp_itmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itmDefaultArgs<ExtArgs>>): Prisma__eqp_itmClient<$Result.GetResult<Prisma.$eqp_itmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     eqp_itm_rcg_VclIdToeqp_itm<T extends eqp_itmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itmDefaultArgs<ExtArgs>>): Prisma__eqp_itmClient<$Result.GetResult<Prisma.$eqp_itmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    rcg<T extends rcg$rcgArgs<ExtArgs> = {}>(args?: Subset<T, rcg$rcgArgs<ExtArgs>>): Prisma__rcgClient<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    other_rcg<T extends rcg$other_rcgArgs<ExtArgs> = {}>(args?: Subset<T, rcg$other_rcgArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     stt_rcg_SttIdTostt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     stt_rcg_SttRcgIdTostt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -18513,6 +19118,7 @@ export namespace Prisma {
     readonly DtaOpe: FieldRef<"rcg", 'DateTime'>
     readonly UndId: FieldRef<"rcg", 'Int'>
     readonly VclId: FieldRef<"rcg", 'Int'>
+    readonly CbtId: FieldRef<"rcg", 'Int'>
     readonly CrrId: FieldRef<"rcg", 'Int'>
     readonly CrrCnc: FieldRef<"rcg", 'Int'>
     readonly DtaIni: FieldRef<"rcg", 'DateTime'>
@@ -18520,6 +19126,8 @@ export namespace Prisma {
     readonly SocIni: FieldRef<"rcg", 'Int'>
     readonly SocFin: FieldRef<"rcg", 'Int'>
     readonly RcgKwh: FieldRef<"rcg", 'Decimal'>
+    readonly TmpAmb: FieldRef<"rcg", 'Int'>
+    readonly PrsBar: FieldRef<"rcg", 'Int'>
     readonly OdoIni: FieldRef<"rcg", 'Decimal'>
     readonly OdoFin: FieldRef<"rcg", 'Decimal'>
     readonly SttRcgId: FieldRef<"rcg", 'Int'>
@@ -18873,49 +19481,6 @@ export namespace Prisma {
   }
 
   /**
-   * rcg.rcg
-   */
-  export type rcg$rcgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the rcg
-     */
-    select?: rcgSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the rcg
-     */
-    omit?: rcgOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: rcgInclude<ExtArgs> | null
-    where?: rcgWhereInput
-  }
-
-  /**
-   * rcg.other_rcg
-   */
-  export type rcg$other_rcgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the rcg
-     */
-    select?: rcgSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the rcg
-     */
-    omit?: rcgOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: rcgInclude<ExtArgs> | null
-    where?: rcgWhereInput
-    orderBy?: rcgOrderByWithRelationInput | rcgOrderByWithRelationInput[]
-    cursor?: rcgWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: RcgScalarFieldEnum | RcgScalarFieldEnum[]
-  }
-
-  /**
    * rcg without action
    */
   export type rcgDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19158,14 +19723,17 @@ export namespace Prisma {
     eqp_tpo?: boolean | stt$eqp_tpoArgs<ExtArgs>
     frn?: boolean | stt$frnArgs<ExtArgs>
     psq?: boolean | stt$psqArgs<ExtArgs>
+    psq_mtv?: boolean | stt$psq_mtvArgs<ExtArgs>
     psq_prg?: boolean | stt$psq_prgArgs<ExtArgs>
     psq_rsp?: boolean | stt$psq_rspArgs<ExtArgs>
+    psq_rsp_fto?: boolean | stt$psq_rsp_ftoArgs<ExtArgs>
     psq_tpo?: boolean | stt$psq_tpoArgs<ExtArgs>
+    psq_tpo_itm?: boolean | stt$psq_tpo_itmArgs<ExtArgs>
     rcg_rcg_SttIdTostt?: boolean | stt$rcg_rcg_SttIdTosttArgs<ExtArgs>
     rcg_rcg_SttRcgIdTostt?: boolean | stt$rcg_rcg_SttRcgIdTosttArgs<ExtArgs>
+    trn?: boolean | stt$trnArgs<ExtArgs>
     usr?: boolean | stt$usrArgs<ExtArgs>
     usr_tpo?: boolean | stt$usr_tpoArgs<ExtArgs>
-    trn?: boolean | stt$trnArgs<ExtArgs>
     _count?: boolean | SttCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stt"]>
 
@@ -19192,14 +19760,17 @@ export namespace Prisma {
     eqp_tpo?: boolean | stt$eqp_tpoArgs<ExtArgs>
     frn?: boolean | stt$frnArgs<ExtArgs>
     psq?: boolean | stt$psqArgs<ExtArgs>
+    psq_mtv?: boolean | stt$psq_mtvArgs<ExtArgs>
     psq_prg?: boolean | stt$psq_prgArgs<ExtArgs>
     psq_rsp?: boolean | stt$psq_rspArgs<ExtArgs>
+    psq_rsp_fto?: boolean | stt$psq_rsp_ftoArgs<ExtArgs>
     psq_tpo?: boolean | stt$psq_tpoArgs<ExtArgs>
+    psq_tpo_itm?: boolean | stt$psq_tpo_itmArgs<ExtArgs>
     rcg_rcg_SttIdTostt?: boolean | stt$rcg_rcg_SttIdTosttArgs<ExtArgs>
     rcg_rcg_SttRcgIdTostt?: boolean | stt$rcg_rcg_SttRcgIdTosttArgs<ExtArgs>
+    trn?: boolean | stt$trnArgs<ExtArgs>
     usr?: boolean | stt$usrArgs<ExtArgs>
     usr_tpo?: boolean | stt$usr_tpoArgs<ExtArgs>
-    trn?: boolean | stt$trnArgs<ExtArgs>
     _count?: boolean | SttCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -19216,14 +19787,17 @@ export namespace Prisma {
       eqp_tpo: Prisma.$eqp_tpoPayload<ExtArgs>[]
       frn: Prisma.$frnPayload<ExtArgs>[]
       psq: Prisma.$psqPayload<ExtArgs>[]
+      psq_mtv: Prisma.$psq_mtvPayload<ExtArgs>[]
       psq_prg: Prisma.$psq_prgPayload<ExtArgs>[]
       psq_rsp: Prisma.$psq_rspPayload<ExtArgs>[]
+      psq_rsp_fto: Prisma.$psq_rsp_ftoPayload<ExtArgs>[]
       psq_tpo: Prisma.$psq_tpoPayload<ExtArgs>[]
+      psq_tpo_itm: Prisma.$psq_tpo_itmPayload<ExtArgs>[]
       rcg_rcg_SttIdTostt: Prisma.$rcgPayload<ExtArgs>[]
       rcg_rcg_SttRcgIdTostt: Prisma.$rcgPayload<ExtArgs>[]
+      trn: Prisma.$trnPayload<ExtArgs>[]
       usr: Prisma.$usrPayload<ExtArgs>[]
       usr_tpo: Prisma.$usr_tpoPayload<ExtArgs>[]
-      trn: Prisma.$trnPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       SttId: number
@@ -19582,14 +20156,17 @@ export namespace Prisma {
     eqp_tpo<T extends stt$eqp_tpoArgs<ExtArgs> = {}>(args?: Subset<T, stt$eqp_tpoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$eqp_tpoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     frn<T extends stt$frnArgs<ExtArgs> = {}>(args?: Subset<T, stt$frnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$frnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq<T extends stt$psqArgs<ExtArgs> = {}>(args?: Subset<T, stt$psqArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psqPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_mtv<T extends stt$psq_mtvArgs<ExtArgs> = {}>(args?: Subset<T, stt$psq_mtvArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq_prg<T extends stt$psq_prgArgs<ExtArgs> = {}>(args?: Subset<T, stt$psq_prgArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_prgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq_rsp<T extends stt$psq_rspArgs<ExtArgs> = {}>(args?: Subset<T, stt$psq_rspArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_rspPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_rsp_fto<T extends stt$psq_rsp_ftoArgs<ExtArgs> = {}>(args?: Subset<T, stt$psq_rsp_ftoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq_tpo<T extends stt$psq_tpoArgs<ExtArgs> = {}>(args?: Subset<T, stt$psq_tpoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_tpoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_tpo_itm<T extends stt$psq_tpo_itmArgs<ExtArgs> = {}>(args?: Subset<T, stt$psq_tpo_itmArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     rcg_rcg_SttIdTostt<T extends stt$rcg_rcg_SttIdTosttArgs<ExtArgs> = {}>(args?: Subset<T, stt$rcg_rcg_SttIdTosttArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     rcg_rcg_SttRcgIdTostt<T extends stt$rcg_rcg_SttRcgIdTosttArgs<ExtArgs> = {}>(args?: Subset<T, stt$rcg_rcg_SttRcgIdTosttArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    trn<T extends stt$trnArgs<ExtArgs> = {}>(args?: Subset<T, stt$trnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$trnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     usr<T extends stt$usrArgs<ExtArgs> = {}>(args?: Subset<T, stt$usrArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     usr_tpo<T extends stt$usr_tpoArgs<ExtArgs> = {}>(args?: Subset<T, stt$usr_tpoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usr_tpoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    trn<T extends stt$trnArgs<ExtArgs> = {}>(args?: Subset<T, stt$trnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$trnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -20208,6 +20785,30 @@ export namespace Prisma {
   }
 
   /**
+   * stt.psq_mtv
+   */
+  export type stt$psq_mtvArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    where?: psq_mtvWhereInput
+    orderBy?: psq_mtvOrderByWithRelationInput | psq_mtvOrderByWithRelationInput[]
+    cursor?: psq_mtvWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_mtvScalarFieldEnum | Psq_mtvScalarFieldEnum[]
+  }
+
+  /**
    * stt.psq_prg
    */
   export type stt$psq_prgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20256,6 +20857,30 @@ export namespace Prisma {
   }
 
   /**
+   * stt.psq_rsp_fto
+   */
+  export type stt$psq_rsp_ftoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    where?: psq_rsp_ftoWhereInput
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_rsp_ftoScalarFieldEnum | Psq_rsp_ftoScalarFieldEnum[]
+  }
+
+  /**
    * stt.psq_tpo
    */
   export type stt$psq_tpoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20277,6 +20902,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Psq_tpoScalarFieldEnum | Psq_tpoScalarFieldEnum[]
+  }
+
+  /**
+   * stt.psq_tpo_itm
+   */
+  export type stt$psq_tpo_itmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    where?: psq_tpo_itmWhereInput
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    cursor?: psq_tpo_itmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_tpo_itmScalarFieldEnum | Psq_tpo_itmScalarFieldEnum[]
   }
 
   /**
@@ -20328,6 +20977,30 @@ export namespace Prisma {
   }
 
   /**
+   * stt.trn
+   */
+  export type stt$trnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the trn
+     */
+    select?: trnSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the trn
+     */
+    omit?: trnOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: trnInclude<ExtArgs> | null
+    where?: trnWhereInput
+    orderBy?: trnOrderByWithRelationInput | trnOrderByWithRelationInput[]
+    cursor?: trnWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrnScalarFieldEnum | TrnScalarFieldEnum[]
+  }
+
+  /**
    * stt.usr
    */
   export type stt$usrArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -20373,30 +21046,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Usr_tpoScalarFieldEnum | Usr_tpoScalarFieldEnum[]
-  }
-
-  /**
-   * stt.trn
-   */
-  export type stt$trnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the trn
-     */
-    select?: trnSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the trn
-     */
-    omit?: trnOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: trnInclude<ExtArgs> | null
-    where?: trnWhereInput
-    orderBy?: trnOrderByWithRelationInput | trnOrderByWithRelationInput[]
-    cursor?: trnWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TrnScalarFieldEnum | TrnScalarFieldEnum[]
   }
 
   /**
@@ -21712,16 +22361,19 @@ export namespace Prisma {
     eqp_tpo?: boolean | usr$eqp_tpoArgs<ExtArgs>
     frn?: boolean | usr$frnArgs<ExtArgs>
     psq?: boolean | usr$psqArgs<ExtArgs>
+    psq_mtv?: boolean | usr$psq_mtvArgs<ExtArgs>
     psq_prg?: boolean | usr$psq_prgArgs<ExtArgs>
     psq_rsp?: boolean | usr$psq_rspArgs<ExtArgs>
+    psq_rsp_fto?: boolean | usr$psq_rsp_ftoArgs<ExtArgs>
     psq_tpo?: boolean | usr$psq_tpoArgs<ExtArgs>
+    psq_tpo_itm?: boolean | usr$psq_tpo_itmArgs<ExtArgs>
     rcg?: boolean | usr$rcgArgs<ExtArgs>
+    trn?: boolean | usr$trnArgs<ExtArgs>
     emp?: boolean | empDefaultArgs<ExtArgs>
     stt?: boolean | sttDefaultArgs<ExtArgs>
     usr_tpo?: boolean | usr_tpoDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
     other_usr?: boolean | usr$other_usrArgs<ExtArgs>
-    trn?: boolean | usr$trnArgs<ExtArgs>
     _count?: boolean | UsrCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usr"]>
 
@@ -21753,16 +22405,19 @@ export namespace Prisma {
     eqp_tpo?: boolean | usr$eqp_tpoArgs<ExtArgs>
     frn?: boolean | usr$frnArgs<ExtArgs>
     psq?: boolean | usr$psqArgs<ExtArgs>
+    psq_mtv?: boolean | usr$psq_mtvArgs<ExtArgs>
     psq_prg?: boolean | usr$psq_prgArgs<ExtArgs>
     psq_rsp?: boolean | usr$psq_rspArgs<ExtArgs>
+    psq_rsp_fto?: boolean | usr$psq_rsp_ftoArgs<ExtArgs>
     psq_tpo?: boolean | usr$psq_tpoArgs<ExtArgs>
+    psq_tpo_itm?: boolean | usr$psq_tpo_itmArgs<ExtArgs>
     rcg?: boolean | usr$rcgArgs<ExtArgs>
+    trn?: boolean | usr$trnArgs<ExtArgs>
     emp?: boolean | empDefaultArgs<ExtArgs>
     stt?: boolean | sttDefaultArgs<ExtArgs>
     usr_tpo?: boolean | usr_tpoDefaultArgs<ExtArgs>
     usr?: boolean | usrDefaultArgs<ExtArgs>
     other_usr?: boolean | usr$other_usrArgs<ExtArgs>
-    trn?: boolean | usr$trnArgs<ExtArgs>
     _count?: boolean | UsrCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -21777,16 +22432,19 @@ export namespace Prisma {
       eqp_tpo: Prisma.$eqp_tpoPayload<ExtArgs>[]
       frn: Prisma.$frnPayload<ExtArgs>[]
       psq: Prisma.$psqPayload<ExtArgs>[]
+      psq_mtv: Prisma.$psq_mtvPayload<ExtArgs>[]
       psq_prg: Prisma.$psq_prgPayload<ExtArgs>[]
       psq_rsp: Prisma.$psq_rspPayload<ExtArgs>[]
+      psq_rsp_fto: Prisma.$psq_rsp_ftoPayload<ExtArgs>[]
       psq_tpo: Prisma.$psq_tpoPayload<ExtArgs>[]
+      psq_tpo_itm: Prisma.$psq_tpo_itmPayload<ExtArgs>[]
       rcg: Prisma.$rcgPayload<ExtArgs>[]
+      trn: Prisma.$trnPayload<ExtArgs>[]
       emp: Prisma.$empPayload<ExtArgs>
       stt: Prisma.$sttPayload<ExtArgs>
       usr_tpo: Prisma.$usr_tpoPayload<ExtArgs>
       usr: Prisma.$usrPayload<ExtArgs>
       other_usr: Prisma.$usrPayload<ExtArgs>[]
-      trn: Prisma.$trnPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       EmpId: number
@@ -22150,16 +22808,19 @@ export namespace Prisma {
     eqp_tpo<T extends usr$eqp_tpoArgs<ExtArgs> = {}>(args?: Subset<T, usr$eqp_tpoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$eqp_tpoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     frn<T extends usr$frnArgs<ExtArgs> = {}>(args?: Subset<T, usr$frnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$frnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq<T extends usr$psqArgs<ExtArgs> = {}>(args?: Subset<T, usr$psqArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psqPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_mtv<T extends usr$psq_mtvArgs<ExtArgs> = {}>(args?: Subset<T, usr$psq_mtvArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq_prg<T extends usr$psq_prgArgs<ExtArgs> = {}>(args?: Subset<T, usr$psq_prgArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_prgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq_rsp<T extends usr$psq_rspArgs<ExtArgs> = {}>(args?: Subset<T, usr$psq_rspArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_rspPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_rsp_fto<T extends usr$psq_rsp_ftoArgs<ExtArgs> = {}>(args?: Subset<T, usr$psq_rsp_ftoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     psq_tpo<T extends usr$psq_tpoArgs<ExtArgs> = {}>(args?: Subset<T, usr$psq_tpoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_tpoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    psq_tpo_itm<T extends usr$psq_tpo_itmArgs<ExtArgs> = {}>(args?: Subset<T, usr$psq_tpo_itmArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     rcg<T extends usr$rcgArgs<ExtArgs> = {}>(args?: Subset<T, usr$rcgArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$rcgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    trn<T extends usr$trnArgs<ExtArgs> = {}>(args?: Subset<T, usr$trnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$trnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     emp<T extends empDefaultArgs<ExtArgs> = {}>(args?: Subset<T, empDefaultArgs<ExtArgs>>): Prisma__empClient<$Result.GetResult<Prisma.$empPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     stt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     usr_tpo<T extends usr_tpoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usr_tpoDefaultArgs<ExtArgs>>): Prisma__usr_tpoClient<$Result.GetResult<Prisma.$usr_tpoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     other_usr<T extends usr$other_usrArgs<ExtArgs> = {}>(args?: Subset<T, usr$other_usrArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    trn<T extends usr$trnArgs<ExtArgs> = {}>(args?: Subset<T, usr$trnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$trnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22737,6 +23398,30 @@ export namespace Prisma {
   }
 
   /**
+   * usr.psq_mtv
+   */
+  export type usr$psq_mtvArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    where?: psq_mtvWhereInput
+    orderBy?: psq_mtvOrderByWithRelationInput | psq_mtvOrderByWithRelationInput[]
+    cursor?: psq_mtvWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_mtvScalarFieldEnum | Psq_mtvScalarFieldEnum[]
+  }
+
+  /**
    * usr.psq_prg
    */
   export type usr$psq_prgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22785,6 +23470,30 @@ export namespace Prisma {
   }
 
   /**
+   * usr.psq_rsp_fto
+   */
+  export type usr$psq_rsp_ftoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    where?: psq_rsp_ftoWhereInput
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_rsp_ftoScalarFieldEnum | Psq_rsp_ftoScalarFieldEnum[]
+  }
+
+  /**
    * usr.psq_tpo
    */
   export type usr$psq_tpoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22806,6 +23515,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Psq_tpoScalarFieldEnum | Psq_tpoScalarFieldEnum[]
+  }
+
+  /**
+   * usr.psq_tpo_itm
+   */
+  export type usr$psq_tpo_itmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    where?: psq_tpo_itmWhereInput
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    cursor?: psq_tpo_itmWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Psq_tpo_itmScalarFieldEnum | Psq_tpo_itmScalarFieldEnum[]
   }
 
   /**
@@ -22833,30 +23566,6 @@ export namespace Prisma {
   }
 
   /**
-   * usr.other_usr
-   */
-  export type usr$other_usrArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the usr
-     */
-    select?: usrSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the usr
-     */
-    omit?: usrOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: usrInclude<ExtArgs> | null
-    where?: usrWhereInput
-    orderBy?: usrOrderByWithRelationInput | usrOrderByWithRelationInput[]
-    cursor?: usrWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UsrScalarFieldEnum | UsrScalarFieldEnum[]
-  }
-
-  /**
    * usr.trn
    */
   export type usr$trnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22878,6 +23587,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TrnScalarFieldEnum | TrnScalarFieldEnum[]
+  }
+
+  /**
+   * usr.other_usr
+   */
+  export type usr$other_usrArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the usr
+     */
+    select?: usrSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the usr
+     */
+    omit?: usrOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: usrInclude<ExtArgs> | null
+    where?: usrWhereInput
+    orderBy?: usrOrderByWithRelationInput | usrOrderByWithRelationInput[]
+    cursor?: usrWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UsrScalarFieldEnum | UsrScalarFieldEnum[]
   }
 
   /**
@@ -23912,6 +24645,3971 @@ export namespace Prisma {
 
 
   /**
+   * Model psq_rsp_fto
+   */
+
+  export type AggregatePsq_rsp_fto = {
+    _count: Psq_rsp_ftoCountAggregateOutputType | null
+    _avg: Psq_rsp_ftoAvgAggregateOutputType | null
+    _sum: Psq_rsp_ftoSumAggregateOutputType | null
+    _min: Psq_rsp_ftoMinAggregateOutputType | null
+    _max: Psq_rsp_ftoMaxAggregateOutputType | null
+  }
+
+  export type Psq_rsp_ftoAvgAggregateOutputType = {
+    PqsRspFto_id: number | null
+    PsqRspId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type Psq_rsp_ftoSumAggregateOutputType = {
+    PqsRspFto_id: number | null
+    PsqRspId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type Psq_rsp_ftoMinAggregateOutputType = {
+    PqsRspFto_id: number | null
+    PsqRspId: number | null
+    PqsRspFtoUrl: string | null
+    SttId: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type Psq_rsp_ftoMaxAggregateOutputType = {
+    PqsRspFto_id: number | null
+    PsqRspId: number | null
+    PqsRspFtoUrl: string | null
+    SttId: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type Psq_rsp_ftoCountAggregateOutputType = {
+    PqsRspFto_id: number
+    PsqRspId: number
+    PqsRspFtoUrl: number
+    SttId: number
+    UsrIdAlt: number
+    DtaAlt: number
+    MtvDel: number
+    _all: number
+  }
+
+
+  export type Psq_rsp_ftoAvgAggregateInputType = {
+    PqsRspFto_id?: true
+    PsqRspId?: true
+    SttId?: true
+    UsrIdAlt?: true
+  }
+
+  export type Psq_rsp_ftoSumAggregateInputType = {
+    PqsRspFto_id?: true
+    PsqRspId?: true
+    SttId?: true
+    UsrIdAlt?: true
+  }
+
+  export type Psq_rsp_ftoMinAggregateInputType = {
+    PqsRspFto_id?: true
+    PsqRspId?: true
+    PqsRspFtoUrl?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type Psq_rsp_ftoMaxAggregateInputType = {
+    PqsRspFto_id?: true
+    PsqRspId?: true
+    PqsRspFtoUrl?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type Psq_rsp_ftoCountAggregateInputType = {
+    PqsRspFto_id?: true
+    PsqRspId?: true
+    PqsRspFtoUrl?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+    _all?: true
+  }
+
+  export type Psq_rsp_ftoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which psq_rsp_fto to aggregate.
+     */
+    where?: psq_rsp_ftoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_rsp_ftos to fetch.
+     */
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_rsp_ftos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_rsp_ftos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned psq_rsp_ftos
+    **/
+    _count?: true | Psq_rsp_ftoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Psq_rsp_ftoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Psq_rsp_ftoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Psq_rsp_ftoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Psq_rsp_ftoMaxAggregateInputType
+  }
+
+  export type GetPsq_rsp_ftoAggregateType<T extends Psq_rsp_ftoAggregateArgs> = {
+        [P in keyof T & keyof AggregatePsq_rsp_fto]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePsq_rsp_fto[P]>
+      : GetScalarType<T[P], AggregatePsq_rsp_fto[P]>
+  }
+
+
+
+
+  export type psq_rsp_ftoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_rsp_ftoWhereInput
+    orderBy?: psq_rsp_ftoOrderByWithAggregationInput | psq_rsp_ftoOrderByWithAggregationInput[]
+    by: Psq_rsp_ftoScalarFieldEnum[] | Psq_rsp_ftoScalarFieldEnum
+    having?: psq_rsp_ftoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Psq_rsp_ftoCountAggregateInputType | true
+    _avg?: Psq_rsp_ftoAvgAggregateInputType
+    _sum?: Psq_rsp_ftoSumAggregateInputType
+    _min?: Psq_rsp_ftoMinAggregateInputType
+    _max?: Psq_rsp_ftoMaxAggregateInputType
+  }
+
+  export type Psq_rsp_ftoGroupByOutputType = {
+    PqsRspFto_id: number
+    PsqRspId: number
+    PqsRspFtoUrl: string | null
+    SttId: number
+    UsrIdAlt: number
+    DtaAlt: Date
+    MtvDel: string | null
+    _count: Psq_rsp_ftoCountAggregateOutputType | null
+    _avg: Psq_rsp_ftoAvgAggregateOutputType | null
+    _sum: Psq_rsp_ftoSumAggregateOutputType | null
+    _min: Psq_rsp_ftoMinAggregateOutputType | null
+    _max: Psq_rsp_ftoMaxAggregateOutputType | null
+  }
+
+  type GetPsq_rsp_ftoGroupByPayload<T extends psq_rsp_ftoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Psq_rsp_ftoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Psq_rsp_ftoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Psq_rsp_ftoGroupByOutputType[P]>
+            : GetScalarType<T[P], Psq_rsp_ftoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type psq_rsp_ftoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    PqsRspFto_id?: boolean
+    PsqRspId?: boolean
+    PqsRspFtoUrl?: boolean
+    SttId?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+    stt?: boolean | sttDefaultArgs<ExtArgs>
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+    psq_rsp?: boolean | psq_rspDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["psq_rsp_fto"]>
+
+
+
+  export type psq_rsp_ftoSelectScalar = {
+    PqsRspFto_id?: boolean
+    PsqRspId?: boolean
+    PqsRspFtoUrl?: boolean
+    SttId?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+  }
+
+  export type psq_rsp_ftoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"PqsRspFto_id" | "PsqRspId" | "PqsRspFtoUrl" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_rsp_fto"]>
+  export type psq_rsp_ftoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stt?: boolean | sttDefaultArgs<ExtArgs>
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+    psq_rsp?: boolean | psq_rspDefaultArgs<ExtArgs>
+  }
+
+  export type $psq_rsp_ftoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "psq_rsp_fto"
+    objects: {
+      stt: Prisma.$sttPayload<ExtArgs>
+      usr: Prisma.$usrPayload<ExtArgs>
+      psq_rsp: Prisma.$psq_rspPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      PqsRspFto_id: number
+      PsqRspId: number
+      PqsRspFtoUrl: string | null
+      SttId: number
+      UsrIdAlt: number
+      DtaAlt: Date
+      MtvDel: string | null
+    }, ExtArgs["result"]["psq_rsp_fto"]>
+    composites: {}
+  }
+
+  type psq_rsp_ftoGetPayload<S extends boolean | null | undefined | psq_rsp_ftoDefaultArgs> = $Result.GetResult<Prisma.$psq_rsp_ftoPayload, S>
+
+  type psq_rsp_ftoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<psq_rsp_ftoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Psq_rsp_ftoCountAggregateInputType | true
+    }
+
+  export interface psq_rsp_ftoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['psq_rsp_fto'], meta: { name: 'psq_rsp_fto' } }
+    /**
+     * Find zero or one Psq_rsp_fto that matches the filter.
+     * @param {psq_rsp_ftoFindUniqueArgs} args - Arguments to find a Psq_rsp_fto
+     * @example
+     * // Get one Psq_rsp_fto
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends psq_rsp_ftoFindUniqueArgs>(args: SelectSubset<T, psq_rsp_ftoFindUniqueArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Psq_rsp_fto that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {psq_rsp_ftoFindUniqueOrThrowArgs} args - Arguments to find a Psq_rsp_fto
+     * @example
+     * // Get one Psq_rsp_fto
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends psq_rsp_ftoFindUniqueOrThrowArgs>(args: SelectSubset<T, psq_rsp_ftoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Psq_rsp_fto that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_rsp_ftoFindFirstArgs} args - Arguments to find a Psq_rsp_fto
+     * @example
+     * // Get one Psq_rsp_fto
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends psq_rsp_ftoFindFirstArgs>(args?: SelectSubset<T, psq_rsp_ftoFindFirstArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Psq_rsp_fto that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_rsp_ftoFindFirstOrThrowArgs} args - Arguments to find a Psq_rsp_fto
+     * @example
+     * // Get one Psq_rsp_fto
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends psq_rsp_ftoFindFirstOrThrowArgs>(args?: SelectSubset<T, psq_rsp_ftoFindFirstOrThrowArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Psq_rsp_ftos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_rsp_ftoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Psq_rsp_ftos
+     * const psq_rsp_ftos = await prisma.psq_rsp_fto.findMany()
+     * 
+     * // Get first 10 Psq_rsp_ftos
+     * const psq_rsp_ftos = await prisma.psq_rsp_fto.findMany({ take: 10 })
+     * 
+     * // Only select the `PqsRspFto_id`
+     * const psq_rsp_ftoWithPqsRspFto_idOnly = await prisma.psq_rsp_fto.findMany({ select: { PqsRspFto_id: true } })
+     * 
+     */
+    findMany<T extends psq_rsp_ftoFindManyArgs>(args?: SelectSubset<T, psq_rsp_ftoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Psq_rsp_fto.
+     * @param {psq_rsp_ftoCreateArgs} args - Arguments to create a Psq_rsp_fto.
+     * @example
+     * // Create one Psq_rsp_fto
+     * const Psq_rsp_fto = await prisma.psq_rsp_fto.create({
+     *   data: {
+     *     // ... data to create a Psq_rsp_fto
+     *   }
+     * })
+     * 
+     */
+    create<T extends psq_rsp_ftoCreateArgs>(args: SelectSubset<T, psq_rsp_ftoCreateArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Psq_rsp_ftos.
+     * @param {psq_rsp_ftoCreateManyArgs} args - Arguments to create many Psq_rsp_ftos.
+     * @example
+     * // Create many Psq_rsp_ftos
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends psq_rsp_ftoCreateManyArgs>(args?: SelectSubset<T, psq_rsp_ftoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Psq_rsp_fto.
+     * @param {psq_rsp_ftoDeleteArgs} args - Arguments to delete one Psq_rsp_fto.
+     * @example
+     * // Delete one Psq_rsp_fto
+     * const Psq_rsp_fto = await prisma.psq_rsp_fto.delete({
+     *   where: {
+     *     // ... filter to delete one Psq_rsp_fto
+     *   }
+     * })
+     * 
+     */
+    delete<T extends psq_rsp_ftoDeleteArgs>(args: SelectSubset<T, psq_rsp_ftoDeleteArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Psq_rsp_fto.
+     * @param {psq_rsp_ftoUpdateArgs} args - Arguments to update one Psq_rsp_fto.
+     * @example
+     * // Update one Psq_rsp_fto
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends psq_rsp_ftoUpdateArgs>(args: SelectSubset<T, psq_rsp_ftoUpdateArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Psq_rsp_ftos.
+     * @param {psq_rsp_ftoDeleteManyArgs} args - Arguments to filter Psq_rsp_ftos to delete.
+     * @example
+     * // Delete a few Psq_rsp_ftos
+     * const { count } = await prisma.psq_rsp_fto.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends psq_rsp_ftoDeleteManyArgs>(args?: SelectSubset<T, psq_rsp_ftoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Psq_rsp_ftos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_rsp_ftoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Psq_rsp_ftos
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends psq_rsp_ftoUpdateManyArgs>(args: SelectSubset<T, psq_rsp_ftoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Psq_rsp_fto.
+     * @param {psq_rsp_ftoUpsertArgs} args - Arguments to update or create a Psq_rsp_fto.
+     * @example
+     * // Update or create a Psq_rsp_fto
+     * const psq_rsp_fto = await prisma.psq_rsp_fto.upsert({
+     *   create: {
+     *     // ... data to create a Psq_rsp_fto
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Psq_rsp_fto we want to update
+     *   }
+     * })
+     */
+    upsert<T extends psq_rsp_ftoUpsertArgs>(args: SelectSubset<T, psq_rsp_ftoUpsertArgs<ExtArgs>>): Prisma__psq_rsp_ftoClient<$Result.GetResult<Prisma.$psq_rsp_ftoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Psq_rsp_ftos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_rsp_ftoCountArgs} args - Arguments to filter Psq_rsp_ftos to count.
+     * @example
+     * // Count the number of Psq_rsp_ftos
+     * const count = await prisma.psq_rsp_fto.count({
+     *   where: {
+     *     // ... the filter for the Psq_rsp_ftos we want to count
+     *   }
+     * })
+    **/
+    count<T extends psq_rsp_ftoCountArgs>(
+      args?: Subset<T, psq_rsp_ftoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Psq_rsp_ftoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Psq_rsp_fto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Psq_rsp_ftoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Psq_rsp_ftoAggregateArgs>(args: Subset<T, Psq_rsp_ftoAggregateArgs>): Prisma.PrismaPromise<GetPsq_rsp_ftoAggregateType<T>>
+
+    /**
+     * Group by Psq_rsp_fto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_rsp_ftoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends psq_rsp_ftoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: psq_rsp_ftoGroupByArgs['orderBy'] }
+        : { orderBy?: psq_rsp_ftoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, psq_rsp_ftoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPsq_rsp_ftoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the psq_rsp_fto model
+   */
+  readonly fields: psq_rsp_ftoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for psq_rsp_fto.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__psq_rsp_ftoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    stt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    psq_rsp<T extends psq_rspDefaultArgs<ExtArgs> = {}>(args?: Subset<T, psq_rspDefaultArgs<ExtArgs>>): Prisma__psq_rspClient<$Result.GetResult<Prisma.$psq_rspPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the psq_rsp_fto model
+   */
+  interface psq_rsp_ftoFieldRefs {
+    readonly PqsRspFto_id: FieldRef<"psq_rsp_fto", 'Int'>
+    readonly PsqRspId: FieldRef<"psq_rsp_fto", 'Int'>
+    readonly PqsRspFtoUrl: FieldRef<"psq_rsp_fto", 'String'>
+    readonly SttId: FieldRef<"psq_rsp_fto", 'Int'>
+    readonly UsrIdAlt: FieldRef<"psq_rsp_fto", 'Int'>
+    readonly DtaAlt: FieldRef<"psq_rsp_fto", 'DateTime'>
+    readonly MtvDel: FieldRef<"psq_rsp_fto", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * psq_rsp_fto findUnique
+   */
+  export type psq_rsp_ftoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_rsp_fto to fetch.
+     */
+    where: psq_rsp_ftoWhereUniqueInput
+  }
+
+  /**
+   * psq_rsp_fto findUniqueOrThrow
+   */
+  export type psq_rsp_ftoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_rsp_fto to fetch.
+     */
+    where: psq_rsp_ftoWhereUniqueInput
+  }
+
+  /**
+   * psq_rsp_fto findFirst
+   */
+  export type psq_rsp_ftoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_rsp_fto to fetch.
+     */
+    where?: psq_rsp_ftoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_rsp_ftos to fetch.
+     */
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for psq_rsp_ftos.
+     */
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_rsp_ftos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_rsp_ftos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of psq_rsp_ftos.
+     */
+    distinct?: Psq_rsp_ftoScalarFieldEnum | Psq_rsp_ftoScalarFieldEnum[]
+  }
+
+  /**
+   * psq_rsp_fto findFirstOrThrow
+   */
+  export type psq_rsp_ftoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_rsp_fto to fetch.
+     */
+    where?: psq_rsp_ftoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_rsp_ftos to fetch.
+     */
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for psq_rsp_ftos.
+     */
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_rsp_ftos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_rsp_ftos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of psq_rsp_ftos.
+     */
+    distinct?: Psq_rsp_ftoScalarFieldEnum | Psq_rsp_ftoScalarFieldEnum[]
+  }
+
+  /**
+   * psq_rsp_fto findMany
+   */
+  export type psq_rsp_ftoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_rsp_ftos to fetch.
+     */
+    where?: psq_rsp_ftoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_rsp_ftos to fetch.
+     */
+    orderBy?: psq_rsp_ftoOrderByWithRelationInput | psq_rsp_ftoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing psq_rsp_ftos.
+     */
+    cursor?: psq_rsp_ftoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_rsp_ftos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_rsp_ftos.
+     */
+    skip?: number
+    distinct?: Psq_rsp_ftoScalarFieldEnum | Psq_rsp_ftoScalarFieldEnum[]
+  }
+
+  /**
+   * psq_rsp_fto create
+   */
+  export type psq_rsp_ftoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a psq_rsp_fto.
+     */
+    data: XOR<psq_rsp_ftoCreateInput, psq_rsp_ftoUncheckedCreateInput>
+  }
+
+  /**
+   * psq_rsp_fto createMany
+   */
+  export type psq_rsp_ftoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many psq_rsp_ftos.
+     */
+    data: psq_rsp_ftoCreateManyInput | psq_rsp_ftoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * psq_rsp_fto update
+   */
+  export type psq_rsp_ftoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a psq_rsp_fto.
+     */
+    data: XOR<psq_rsp_ftoUpdateInput, psq_rsp_ftoUncheckedUpdateInput>
+    /**
+     * Choose, which psq_rsp_fto to update.
+     */
+    where: psq_rsp_ftoWhereUniqueInput
+  }
+
+  /**
+   * psq_rsp_fto updateMany
+   */
+  export type psq_rsp_ftoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update psq_rsp_ftos.
+     */
+    data: XOR<psq_rsp_ftoUpdateManyMutationInput, psq_rsp_ftoUncheckedUpdateManyInput>
+    /**
+     * Filter which psq_rsp_ftos to update
+     */
+    where?: psq_rsp_ftoWhereInput
+    /**
+     * Limit how many psq_rsp_ftos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * psq_rsp_fto upsert
+   */
+  export type psq_rsp_ftoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the psq_rsp_fto to update in case it exists.
+     */
+    where: psq_rsp_ftoWhereUniqueInput
+    /**
+     * In case the psq_rsp_fto found by the `where` argument doesn't exist, create a new psq_rsp_fto with this data.
+     */
+    create: XOR<psq_rsp_ftoCreateInput, psq_rsp_ftoUncheckedCreateInput>
+    /**
+     * In case the psq_rsp_fto was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<psq_rsp_ftoUpdateInput, psq_rsp_ftoUncheckedUpdateInput>
+  }
+
+  /**
+   * psq_rsp_fto delete
+   */
+  export type psq_rsp_ftoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+    /**
+     * Filter which psq_rsp_fto to delete.
+     */
+    where: psq_rsp_ftoWhereUniqueInput
+  }
+
+  /**
+   * psq_rsp_fto deleteMany
+   */
+  export type psq_rsp_ftoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which psq_rsp_ftos to delete
+     */
+    where?: psq_rsp_ftoWhereInput
+    /**
+     * Limit how many psq_rsp_ftos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * psq_rsp_fto without action
+   */
+  export type psq_rsp_ftoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_rsp_fto
+     */
+    select?: psq_rsp_ftoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_rsp_fto
+     */
+    omit?: psq_rsp_ftoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_rsp_ftoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model brt
+   */
+
+  export type AggregateBrt = {
+    _count: BrtCountAggregateOutputType | null
+    _avg: BrtAvgAggregateOutputType | null
+    _sum: BrtSumAggregateOutputType | null
+    _min: BrtMinAggregateOutputType | null
+    _max: BrtMaxAggregateOutputType | null
+  }
+
+  export type BrtAvgAggregateOutputType = {
+    BrtId: number | null
+    SttIdAtu: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type BrtSumAggregateOutputType = {
+    BrtId: number | null
+    SttIdAtu: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type BrtMinAggregateOutputType = {
+    BrtId: number | null
+    BrtNme: string | null
+    SttIdAtu: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type BrtMaxAggregateOutputType = {
+    BrtId: number | null
+    BrtNme: string | null
+    SttIdAtu: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type BrtCountAggregateOutputType = {
+    BrtId: number
+    BrtNme: number
+    SttIdAtu: number
+    UsrIdAlt: number
+    DtaAlt: number
+    MtvDel: number
+    _all: number
+  }
+
+
+  export type BrtAvgAggregateInputType = {
+    BrtId?: true
+    SttIdAtu?: true
+    UsrIdAlt?: true
+  }
+
+  export type BrtSumAggregateInputType = {
+    BrtId?: true
+    SttIdAtu?: true
+    UsrIdAlt?: true
+  }
+
+  export type BrtMinAggregateInputType = {
+    BrtId?: true
+    BrtNme?: true
+    SttIdAtu?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type BrtMaxAggregateInputType = {
+    BrtId?: true
+    BrtNme?: true
+    SttIdAtu?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type BrtCountAggregateInputType = {
+    BrtId?: true
+    BrtNme?: true
+    SttIdAtu?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+    _all?: true
+  }
+
+  export type BrtAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which brt to aggregate.
+     */
+    where?: brtWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of brts to fetch.
+     */
+    orderBy?: brtOrderByWithRelationInput | brtOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: brtWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` brts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` brts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned brts
+    **/
+    _count?: true | BrtCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BrtAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BrtSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BrtMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BrtMaxAggregateInputType
+  }
+
+  export type GetBrtAggregateType<T extends BrtAggregateArgs> = {
+        [P in keyof T & keyof AggregateBrt]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBrt[P]>
+      : GetScalarType<T[P], AggregateBrt[P]>
+  }
+
+
+
+
+  export type brtGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: brtWhereInput
+    orderBy?: brtOrderByWithAggregationInput | brtOrderByWithAggregationInput[]
+    by: BrtScalarFieldEnum[] | BrtScalarFieldEnum
+    having?: brtScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BrtCountAggregateInputType | true
+    _avg?: BrtAvgAggregateInputType
+    _sum?: BrtSumAggregateInputType
+    _min?: BrtMinAggregateInputType
+    _max?: BrtMaxAggregateInputType
+  }
+
+  export type BrtGroupByOutputType = {
+    BrtId: number
+    BrtNme: string
+    SttIdAtu: number
+    UsrIdAlt: number
+    DtaAlt: Date
+    MtvDel: string | null
+    _count: BrtCountAggregateOutputType | null
+    _avg: BrtAvgAggregateOutputType | null
+    _sum: BrtSumAggregateOutputType | null
+    _min: BrtMinAggregateOutputType | null
+    _max: BrtMaxAggregateOutputType | null
+  }
+
+  type GetBrtGroupByPayload<T extends brtGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BrtGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BrtGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BrtGroupByOutputType[P]>
+            : GetScalarType<T[P], BrtGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type brtSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BrtId?: boolean
+    BrtNme?: boolean
+    SttIdAtu?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+  }, ExtArgs["result"]["brt"]>
+
+
+
+  export type brtSelectScalar = {
+    BrtId?: boolean
+    BrtNme?: boolean
+    SttIdAtu?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+  }
+
+  export type brtOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"BrtId" | "BrtNme" | "SttIdAtu" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["brt"]>
+
+  export type $brtPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "brt"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      BrtId: number
+      BrtNme: string
+      SttIdAtu: number
+      UsrIdAlt: number
+      DtaAlt: Date
+      MtvDel: string | null
+    }, ExtArgs["result"]["brt"]>
+    composites: {}
+  }
+
+  type brtGetPayload<S extends boolean | null | undefined | brtDefaultArgs> = $Result.GetResult<Prisma.$brtPayload, S>
+
+  type brtCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<brtFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BrtCountAggregateInputType | true
+    }
+
+  export interface brtDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['brt'], meta: { name: 'brt' } }
+    /**
+     * Find zero or one Brt that matches the filter.
+     * @param {brtFindUniqueArgs} args - Arguments to find a Brt
+     * @example
+     * // Get one Brt
+     * const brt = await prisma.brt.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends brtFindUniqueArgs>(args: SelectSubset<T, brtFindUniqueArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Brt that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {brtFindUniqueOrThrowArgs} args - Arguments to find a Brt
+     * @example
+     * // Get one Brt
+     * const brt = await prisma.brt.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends brtFindUniqueOrThrowArgs>(args: SelectSubset<T, brtFindUniqueOrThrowArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Brt that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {brtFindFirstArgs} args - Arguments to find a Brt
+     * @example
+     * // Get one Brt
+     * const brt = await prisma.brt.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends brtFindFirstArgs>(args?: SelectSubset<T, brtFindFirstArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Brt that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {brtFindFirstOrThrowArgs} args - Arguments to find a Brt
+     * @example
+     * // Get one Brt
+     * const brt = await prisma.brt.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends brtFindFirstOrThrowArgs>(args?: SelectSubset<T, brtFindFirstOrThrowArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Brts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {brtFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Brts
+     * const brts = await prisma.brt.findMany()
+     * 
+     * // Get first 10 Brts
+     * const brts = await prisma.brt.findMany({ take: 10 })
+     * 
+     * // Only select the `BrtId`
+     * const brtWithBrtIdOnly = await prisma.brt.findMany({ select: { BrtId: true } })
+     * 
+     */
+    findMany<T extends brtFindManyArgs>(args?: SelectSubset<T, brtFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Brt.
+     * @param {brtCreateArgs} args - Arguments to create a Brt.
+     * @example
+     * // Create one Brt
+     * const Brt = await prisma.brt.create({
+     *   data: {
+     *     // ... data to create a Brt
+     *   }
+     * })
+     * 
+     */
+    create<T extends brtCreateArgs>(args: SelectSubset<T, brtCreateArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Brts.
+     * @param {brtCreateManyArgs} args - Arguments to create many Brts.
+     * @example
+     * // Create many Brts
+     * const brt = await prisma.brt.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends brtCreateManyArgs>(args?: SelectSubset<T, brtCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Brt.
+     * @param {brtDeleteArgs} args - Arguments to delete one Brt.
+     * @example
+     * // Delete one Brt
+     * const Brt = await prisma.brt.delete({
+     *   where: {
+     *     // ... filter to delete one Brt
+     *   }
+     * })
+     * 
+     */
+    delete<T extends brtDeleteArgs>(args: SelectSubset<T, brtDeleteArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Brt.
+     * @param {brtUpdateArgs} args - Arguments to update one Brt.
+     * @example
+     * // Update one Brt
+     * const brt = await prisma.brt.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends brtUpdateArgs>(args: SelectSubset<T, brtUpdateArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Brts.
+     * @param {brtDeleteManyArgs} args - Arguments to filter Brts to delete.
+     * @example
+     * // Delete a few Brts
+     * const { count } = await prisma.brt.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends brtDeleteManyArgs>(args?: SelectSubset<T, brtDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Brts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {brtUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Brts
+     * const brt = await prisma.brt.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends brtUpdateManyArgs>(args: SelectSubset<T, brtUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Brt.
+     * @param {brtUpsertArgs} args - Arguments to update or create a Brt.
+     * @example
+     * // Update or create a Brt
+     * const brt = await prisma.brt.upsert({
+     *   create: {
+     *     // ... data to create a Brt
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Brt we want to update
+     *   }
+     * })
+     */
+    upsert<T extends brtUpsertArgs>(args: SelectSubset<T, brtUpsertArgs<ExtArgs>>): Prisma__brtClient<$Result.GetResult<Prisma.$brtPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Brts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {brtCountArgs} args - Arguments to filter Brts to count.
+     * @example
+     * // Count the number of Brts
+     * const count = await prisma.brt.count({
+     *   where: {
+     *     // ... the filter for the Brts we want to count
+     *   }
+     * })
+    **/
+    count<T extends brtCountArgs>(
+      args?: Subset<T, brtCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BrtCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Brt.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrtAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BrtAggregateArgs>(args: Subset<T, BrtAggregateArgs>): Prisma.PrismaPromise<GetBrtAggregateType<T>>
+
+    /**
+     * Group by Brt.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {brtGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends brtGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: brtGroupByArgs['orderBy'] }
+        : { orderBy?: brtGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, brtGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBrtGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the brt model
+   */
+  readonly fields: brtFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for brt.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__brtClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the brt model
+   */
+  interface brtFieldRefs {
+    readonly BrtId: FieldRef<"brt", 'Int'>
+    readonly BrtNme: FieldRef<"brt", 'String'>
+    readonly SttIdAtu: FieldRef<"brt", 'Int'>
+    readonly UsrIdAlt: FieldRef<"brt", 'Int'>
+    readonly DtaAlt: FieldRef<"brt", 'DateTime'>
+    readonly MtvDel: FieldRef<"brt", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * brt findUnique
+   */
+  export type brtFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * Filter, which brt to fetch.
+     */
+    where: brtWhereUniqueInput
+  }
+
+  /**
+   * brt findUniqueOrThrow
+   */
+  export type brtFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * Filter, which brt to fetch.
+     */
+    where: brtWhereUniqueInput
+  }
+
+  /**
+   * brt findFirst
+   */
+  export type brtFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * Filter, which brt to fetch.
+     */
+    where?: brtWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of brts to fetch.
+     */
+    orderBy?: brtOrderByWithRelationInput | brtOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for brts.
+     */
+    cursor?: brtWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` brts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` brts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of brts.
+     */
+    distinct?: BrtScalarFieldEnum | BrtScalarFieldEnum[]
+  }
+
+  /**
+   * brt findFirstOrThrow
+   */
+  export type brtFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * Filter, which brt to fetch.
+     */
+    where?: brtWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of brts to fetch.
+     */
+    orderBy?: brtOrderByWithRelationInput | brtOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for brts.
+     */
+    cursor?: brtWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` brts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` brts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of brts.
+     */
+    distinct?: BrtScalarFieldEnum | BrtScalarFieldEnum[]
+  }
+
+  /**
+   * brt findMany
+   */
+  export type brtFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * Filter, which brts to fetch.
+     */
+    where?: brtWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of brts to fetch.
+     */
+    orderBy?: brtOrderByWithRelationInput | brtOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing brts.
+     */
+    cursor?: brtWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` brts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` brts.
+     */
+    skip?: number
+    distinct?: BrtScalarFieldEnum | BrtScalarFieldEnum[]
+  }
+
+  /**
+   * brt create
+   */
+  export type brtCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * The data needed to create a brt.
+     */
+    data: XOR<brtCreateInput, brtUncheckedCreateInput>
+  }
+
+  /**
+   * brt createMany
+   */
+  export type brtCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many brts.
+     */
+    data: brtCreateManyInput | brtCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * brt update
+   */
+  export type brtUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * The data needed to update a brt.
+     */
+    data: XOR<brtUpdateInput, brtUncheckedUpdateInput>
+    /**
+     * Choose, which brt to update.
+     */
+    where: brtWhereUniqueInput
+  }
+
+  /**
+   * brt updateMany
+   */
+  export type brtUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update brts.
+     */
+    data: XOR<brtUpdateManyMutationInput, brtUncheckedUpdateManyInput>
+    /**
+     * Filter which brts to update
+     */
+    where?: brtWhereInput
+    /**
+     * Limit how many brts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * brt upsert
+   */
+  export type brtUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * The filter to search for the brt to update in case it exists.
+     */
+    where: brtWhereUniqueInput
+    /**
+     * In case the brt found by the `where` argument doesn't exist, create a new brt with this data.
+     */
+    create: XOR<brtCreateInput, brtUncheckedCreateInput>
+    /**
+     * In case the brt was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<brtUpdateInput, brtUncheckedUpdateInput>
+  }
+
+  /**
+   * brt delete
+   */
+  export type brtDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+    /**
+     * Filter which brt to delete.
+     */
+    where: brtWhereUniqueInput
+  }
+
+  /**
+   * brt deleteMany
+   */
+  export type brtDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which brts to delete
+     */
+    where?: brtWhereInput
+    /**
+     * Limit how many brts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * brt without action
+   */
+  export type brtDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the brt
+     */
+    select?: brtSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the brt
+     */
+    omit?: brtOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model psq_tpo_itm
+   */
+
+  export type AggregatePsq_tpo_itm = {
+    _count: Psq_tpo_itmCountAggregateOutputType | null
+    _avg: Psq_tpo_itmAvgAggregateOutputType | null
+    _sum: Psq_tpo_itmSumAggregateOutputType | null
+    _min: Psq_tpo_itmMinAggregateOutputType | null
+    _max: Psq_tpo_itmMaxAggregateOutputType | null
+  }
+
+  export type Psq_tpo_itmAvgAggregateOutputType = {
+    PsqTpoItmId: number | null
+    BrtId: number | null
+    PsqTpoId: number | null
+    EqpItmId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type Psq_tpo_itmSumAggregateOutputType = {
+    PsqTpoItmId: number | null
+    BrtId: number | null
+    PsqTpoId: number | null
+    EqpItmId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type Psq_tpo_itmMinAggregateOutputType = {
+    PsqTpoItmId: number | null
+    BrtId: number | null
+    PsqTpoId: number | null
+    EqpItmId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type Psq_tpo_itmMaxAggregateOutputType = {
+    PsqTpoItmId: number | null
+    BrtId: number | null
+    PsqTpoId: number | null
+    EqpItmId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type Psq_tpo_itmCountAggregateOutputType = {
+    PsqTpoItmId: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
+    SttId: number
+    UsrIdAlt: number
+    DtaAlt: number
+    MtvDel: number
+    _all: number
+  }
+
+
+  export type Psq_tpo_itmAvgAggregateInputType = {
+    PsqTpoItmId?: true
+    BrtId?: true
+    PsqTpoId?: true
+    EqpItmId?: true
+    SttId?: true
+    UsrIdAlt?: true
+  }
+
+  export type Psq_tpo_itmSumAggregateInputType = {
+    PsqTpoItmId?: true
+    BrtId?: true
+    PsqTpoId?: true
+    EqpItmId?: true
+    SttId?: true
+    UsrIdAlt?: true
+  }
+
+  export type Psq_tpo_itmMinAggregateInputType = {
+    PsqTpoItmId?: true
+    BrtId?: true
+    PsqTpoId?: true
+    EqpItmId?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type Psq_tpo_itmMaxAggregateInputType = {
+    PsqTpoItmId?: true
+    BrtId?: true
+    PsqTpoId?: true
+    EqpItmId?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type Psq_tpo_itmCountAggregateInputType = {
+    PsqTpoItmId?: true
+    BrtId?: true
+    PsqTpoId?: true
+    EqpItmId?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+    _all?: true
+  }
+
+  export type Psq_tpo_itmAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which psq_tpo_itm to aggregate.
+     */
+    where?: psq_tpo_itmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_tpo_itms to fetch.
+     */
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: psq_tpo_itmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_tpo_itms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_tpo_itms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned psq_tpo_itms
+    **/
+    _count?: true | Psq_tpo_itmCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Psq_tpo_itmAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Psq_tpo_itmSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Psq_tpo_itmMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Psq_tpo_itmMaxAggregateInputType
+  }
+
+  export type GetPsq_tpo_itmAggregateType<T extends Psq_tpo_itmAggregateArgs> = {
+        [P in keyof T & keyof AggregatePsq_tpo_itm]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePsq_tpo_itm[P]>
+      : GetScalarType<T[P], AggregatePsq_tpo_itm[P]>
+  }
+
+
+
+
+  export type psq_tpo_itmGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_tpo_itmWhereInput
+    orderBy?: psq_tpo_itmOrderByWithAggregationInput | psq_tpo_itmOrderByWithAggregationInput[]
+    by: Psq_tpo_itmScalarFieldEnum[] | Psq_tpo_itmScalarFieldEnum
+    having?: psq_tpo_itmScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Psq_tpo_itmCountAggregateInputType | true
+    _avg?: Psq_tpo_itmAvgAggregateInputType
+    _sum?: Psq_tpo_itmSumAggregateInputType
+    _min?: Psq_tpo_itmMinAggregateInputType
+    _max?: Psq_tpo_itmMaxAggregateInputType
+  }
+
+  export type Psq_tpo_itmGroupByOutputType = {
+    PsqTpoItmId: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
+    SttId: number
+    UsrIdAlt: number
+    DtaAlt: Date
+    MtvDel: string | null
+    _count: Psq_tpo_itmCountAggregateOutputType | null
+    _avg: Psq_tpo_itmAvgAggregateOutputType | null
+    _sum: Psq_tpo_itmSumAggregateOutputType | null
+    _min: Psq_tpo_itmMinAggregateOutputType | null
+    _max: Psq_tpo_itmMaxAggregateOutputType | null
+  }
+
+  type GetPsq_tpo_itmGroupByPayload<T extends psq_tpo_itmGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Psq_tpo_itmGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Psq_tpo_itmGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Psq_tpo_itmGroupByOutputType[P]>
+            : GetScalarType<T[P], Psq_tpo_itmGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type psq_tpo_itmSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    PsqTpoItmId?: boolean
+    BrtId?: boolean
+    PsqTpoId?: boolean
+    EqpItmId?: boolean
+    SttId?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+    eqp_itm?: boolean | eqp_itmDefaultArgs<ExtArgs>
+    stt?: boolean | sttDefaultArgs<ExtArgs>
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["psq_tpo_itm"]>
+
+
+
+  export type psq_tpo_itmSelectScalar = {
+    PsqTpoItmId?: boolean
+    BrtId?: boolean
+    PsqTpoId?: boolean
+    EqpItmId?: boolean
+    SttId?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+  }
+
+  export type psq_tpo_itmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"PsqTpoItmId" | "BrtId" | "PsqTpoId" | "EqpItmId" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_tpo_itm"]>
+  export type psq_tpo_itmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    eqp_itm?: boolean | eqp_itmDefaultArgs<ExtArgs>
+    stt?: boolean | sttDefaultArgs<ExtArgs>
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+  }
+
+  export type $psq_tpo_itmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "psq_tpo_itm"
+    objects: {
+      eqp_itm: Prisma.$eqp_itmPayload<ExtArgs>
+      stt: Prisma.$sttPayload<ExtArgs>
+      usr: Prisma.$usrPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      PsqTpoItmId: number
+      BrtId: number
+      PsqTpoId: number
+      EqpItmId: number
+      SttId: number
+      UsrIdAlt: number
+      DtaAlt: Date
+      MtvDel: string | null
+    }, ExtArgs["result"]["psq_tpo_itm"]>
+    composites: {}
+  }
+
+  type psq_tpo_itmGetPayload<S extends boolean | null | undefined | psq_tpo_itmDefaultArgs> = $Result.GetResult<Prisma.$psq_tpo_itmPayload, S>
+
+  type psq_tpo_itmCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<psq_tpo_itmFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Psq_tpo_itmCountAggregateInputType | true
+    }
+
+  export interface psq_tpo_itmDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['psq_tpo_itm'], meta: { name: 'psq_tpo_itm' } }
+    /**
+     * Find zero or one Psq_tpo_itm that matches the filter.
+     * @param {psq_tpo_itmFindUniqueArgs} args - Arguments to find a Psq_tpo_itm
+     * @example
+     * // Get one Psq_tpo_itm
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends psq_tpo_itmFindUniqueArgs>(args: SelectSubset<T, psq_tpo_itmFindUniqueArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Psq_tpo_itm that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {psq_tpo_itmFindUniqueOrThrowArgs} args - Arguments to find a Psq_tpo_itm
+     * @example
+     * // Get one Psq_tpo_itm
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends psq_tpo_itmFindUniqueOrThrowArgs>(args: SelectSubset<T, psq_tpo_itmFindUniqueOrThrowArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Psq_tpo_itm that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_tpo_itmFindFirstArgs} args - Arguments to find a Psq_tpo_itm
+     * @example
+     * // Get one Psq_tpo_itm
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends psq_tpo_itmFindFirstArgs>(args?: SelectSubset<T, psq_tpo_itmFindFirstArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Psq_tpo_itm that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_tpo_itmFindFirstOrThrowArgs} args - Arguments to find a Psq_tpo_itm
+     * @example
+     * // Get one Psq_tpo_itm
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends psq_tpo_itmFindFirstOrThrowArgs>(args?: SelectSubset<T, psq_tpo_itmFindFirstOrThrowArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Psq_tpo_itms that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_tpo_itmFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Psq_tpo_itms
+     * const psq_tpo_itms = await prisma.psq_tpo_itm.findMany()
+     * 
+     * // Get first 10 Psq_tpo_itms
+     * const psq_tpo_itms = await prisma.psq_tpo_itm.findMany({ take: 10 })
+     * 
+     * // Only select the `PsqTpoItmId`
+     * const psq_tpo_itmWithPsqTpoItmIdOnly = await prisma.psq_tpo_itm.findMany({ select: { PsqTpoItmId: true } })
+     * 
+     */
+    findMany<T extends psq_tpo_itmFindManyArgs>(args?: SelectSubset<T, psq_tpo_itmFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Psq_tpo_itm.
+     * @param {psq_tpo_itmCreateArgs} args - Arguments to create a Psq_tpo_itm.
+     * @example
+     * // Create one Psq_tpo_itm
+     * const Psq_tpo_itm = await prisma.psq_tpo_itm.create({
+     *   data: {
+     *     // ... data to create a Psq_tpo_itm
+     *   }
+     * })
+     * 
+     */
+    create<T extends psq_tpo_itmCreateArgs>(args: SelectSubset<T, psq_tpo_itmCreateArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Psq_tpo_itms.
+     * @param {psq_tpo_itmCreateManyArgs} args - Arguments to create many Psq_tpo_itms.
+     * @example
+     * // Create many Psq_tpo_itms
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends psq_tpo_itmCreateManyArgs>(args?: SelectSubset<T, psq_tpo_itmCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Psq_tpo_itm.
+     * @param {psq_tpo_itmDeleteArgs} args - Arguments to delete one Psq_tpo_itm.
+     * @example
+     * // Delete one Psq_tpo_itm
+     * const Psq_tpo_itm = await prisma.psq_tpo_itm.delete({
+     *   where: {
+     *     // ... filter to delete one Psq_tpo_itm
+     *   }
+     * })
+     * 
+     */
+    delete<T extends psq_tpo_itmDeleteArgs>(args: SelectSubset<T, psq_tpo_itmDeleteArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Psq_tpo_itm.
+     * @param {psq_tpo_itmUpdateArgs} args - Arguments to update one Psq_tpo_itm.
+     * @example
+     * // Update one Psq_tpo_itm
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends psq_tpo_itmUpdateArgs>(args: SelectSubset<T, psq_tpo_itmUpdateArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Psq_tpo_itms.
+     * @param {psq_tpo_itmDeleteManyArgs} args - Arguments to filter Psq_tpo_itms to delete.
+     * @example
+     * // Delete a few Psq_tpo_itms
+     * const { count } = await prisma.psq_tpo_itm.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends psq_tpo_itmDeleteManyArgs>(args?: SelectSubset<T, psq_tpo_itmDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Psq_tpo_itms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_tpo_itmUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Psq_tpo_itms
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends psq_tpo_itmUpdateManyArgs>(args: SelectSubset<T, psq_tpo_itmUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Psq_tpo_itm.
+     * @param {psq_tpo_itmUpsertArgs} args - Arguments to update or create a Psq_tpo_itm.
+     * @example
+     * // Update or create a Psq_tpo_itm
+     * const psq_tpo_itm = await prisma.psq_tpo_itm.upsert({
+     *   create: {
+     *     // ... data to create a Psq_tpo_itm
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Psq_tpo_itm we want to update
+     *   }
+     * })
+     */
+    upsert<T extends psq_tpo_itmUpsertArgs>(args: SelectSubset<T, psq_tpo_itmUpsertArgs<ExtArgs>>): Prisma__psq_tpo_itmClient<$Result.GetResult<Prisma.$psq_tpo_itmPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Psq_tpo_itms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_tpo_itmCountArgs} args - Arguments to filter Psq_tpo_itms to count.
+     * @example
+     * // Count the number of Psq_tpo_itms
+     * const count = await prisma.psq_tpo_itm.count({
+     *   where: {
+     *     // ... the filter for the Psq_tpo_itms we want to count
+     *   }
+     * })
+    **/
+    count<T extends psq_tpo_itmCountArgs>(
+      args?: Subset<T, psq_tpo_itmCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Psq_tpo_itmCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Psq_tpo_itm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Psq_tpo_itmAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Psq_tpo_itmAggregateArgs>(args: Subset<T, Psq_tpo_itmAggregateArgs>): Prisma.PrismaPromise<GetPsq_tpo_itmAggregateType<T>>
+
+    /**
+     * Group by Psq_tpo_itm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_tpo_itmGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends psq_tpo_itmGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: psq_tpo_itmGroupByArgs['orderBy'] }
+        : { orderBy?: psq_tpo_itmGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, psq_tpo_itmGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPsq_tpo_itmGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the psq_tpo_itm model
+   */
+  readonly fields: psq_tpo_itmFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for psq_tpo_itm.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__psq_tpo_itmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    eqp_itm<T extends eqp_itmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, eqp_itmDefaultArgs<ExtArgs>>): Prisma__eqp_itmClient<$Result.GetResult<Prisma.$eqp_itmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    stt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the psq_tpo_itm model
+   */
+  interface psq_tpo_itmFieldRefs {
+    readonly PsqTpoItmId: FieldRef<"psq_tpo_itm", 'Int'>
+    readonly BrtId: FieldRef<"psq_tpo_itm", 'Int'>
+    readonly PsqTpoId: FieldRef<"psq_tpo_itm", 'Int'>
+    readonly EqpItmId: FieldRef<"psq_tpo_itm", 'Int'>
+    readonly SttId: FieldRef<"psq_tpo_itm", 'Int'>
+    readonly UsrIdAlt: FieldRef<"psq_tpo_itm", 'Int'>
+    readonly DtaAlt: FieldRef<"psq_tpo_itm", 'DateTime'>
+    readonly MtvDel: FieldRef<"psq_tpo_itm", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * psq_tpo_itm findUnique
+   */
+  export type psq_tpo_itmFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_tpo_itm to fetch.
+     */
+    where: psq_tpo_itmWhereUniqueInput
+  }
+
+  /**
+   * psq_tpo_itm findUniqueOrThrow
+   */
+  export type psq_tpo_itmFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_tpo_itm to fetch.
+     */
+    where: psq_tpo_itmWhereUniqueInput
+  }
+
+  /**
+   * psq_tpo_itm findFirst
+   */
+  export type psq_tpo_itmFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_tpo_itm to fetch.
+     */
+    where?: psq_tpo_itmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_tpo_itms to fetch.
+     */
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for psq_tpo_itms.
+     */
+    cursor?: psq_tpo_itmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_tpo_itms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_tpo_itms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of psq_tpo_itms.
+     */
+    distinct?: Psq_tpo_itmScalarFieldEnum | Psq_tpo_itmScalarFieldEnum[]
+  }
+
+  /**
+   * psq_tpo_itm findFirstOrThrow
+   */
+  export type psq_tpo_itmFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_tpo_itm to fetch.
+     */
+    where?: psq_tpo_itmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_tpo_itms to fetch.
+     */
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for psq_tpo_itms.
+     */
+    cursor?: psq_tpo_itmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_tpo_itms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_tpo_itms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of psq_tpo_itms.
+     */
+    distinct?: Psq_tpo_itmScalarFieldEnum | Psq_tpo_itmScalarFieldEnum[]
+  }
+
+  /**
+   * psq_tpo_itm findMany
+   */
+  export type psq_tpo_itmFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_tpo_itms to fetch.
+     */
+    where?: psq_tpo_itmWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_tpo_itms to fetch.
+     */
+    orderBy?: psq_tpo_itmOrderByWithRelationInput | psq_tpo_itmOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing psq_tpo_itms.
+     */
+    cursor?: psq_tpo_itmWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_tpo_itms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_tpo_itms.
+     */
+    skip?: number
+    distinct?: Psq_tpo_itmScalarFieldEnum | Psq_tpo_itmScalarFieldEnum[]
+  }
+
+  /**
+   * psq_tpo_itm create
+   */
+  export type psq_tpo_itmCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * The data needed to create a psq_tpo_itm.
+     */
+    data: XOR<psq_tpo_itmCreateInput, psq_tpo_itmUncheckedCreateInput>
+  }
+
+  /**
+   * psq_tpo_itm createMany
+   */
+  export type psq_tpo_itmCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many psq_tpo_itms.
+     */
+    data: psq_tpo_itmCreateManyInput | psq_tpo_itmCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * psq_tpo_itm update
+   */
+  export type psq_tpo_itmUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * The data needed to update a psq_tpo_itm.
+     */
+    data: XOR<psq_tpo_itmUpdateInput, psq_tpo_itmUncheckedUpdateInput>
+    /**
+     * Choose, which psq_tpo_itm to update.
+     */
+    where: psq_tpo_itmWhereUniqueInput
+  }
+
+  /**
+   * psq_tpo_itm updateMany
+   */
+  export type psq_tpo_itmUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update psq_tpo_itms.
+     */
+    data: XOR<psq_tpo_itmUpdateManyMutationInput, psq_tpo_itmUncheckedUpdateManyInput>
+    /**
+     * Filter which psq_tpo_itms to update
+     */
+    where?: psq_tpo_itmWhereInput
+    /**
+     * Limit how many psq_tpo_itms to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * psq_tpo_itm upsert
+   */
+  export type psq_tpo_itmUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * The filter to search for the psq_tpo_itm to update in case it exists.
+     */
+    where: psq_tpo_itmWhereUniqueInput
+    /**
+     * In case the psq_tpo_itm found by the `where` argument doesn't exist, create a new psq_tpo_itm with this data.
+     */
+    create: XOR<psq_tpo_itmCreateInput, psq_tpo_itmUncheckedCreateInput>
+    /**
+     * In case the psq_tpo_itm was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<psq_tpo_itmUpdateInput, psq_tpo_itmUncheckedUpdateInput>
+  }
+
+  /**
+   * psq_tpo_itm delete
+   */
+  export type psq_tpo_itmDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+    /**
+     * Filter which psq_tpo_itm to delete.
+     */
+    where: psq_tpo_itmWhereUniqueInput
+  }
+
+  /**
+   * psq_tpo_itm deleteMany
+   */
+  export type psq_tpo_itmDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which psq_tpo_itms to delete
+     */
+    where?: psq_tpo_itmWhereInput
+    /**
+     * Limit how many psq_tpo_itms to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * psq_tpo_itm without action
+   */
+  export type psq_tpo_itmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_tpo_itm
+     */
+    select?: psq_tpo_itmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_tpo_itm
+     */
+    omit?: psq_tpo_itmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_tpo_itmInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model psq_mtv
+   */
+
+  export type AggregatePsq_mtv = {
+    _count: Psq_mtvCountAggregateOutputType | null
+    _avg: Psq_mtvAvgAggregateOutputType | null
+    _sum: Psq_mtvSumAggregateOutputType | null
+    _min: Psq_mtvMinAggregateOutputType | null
+    _max: Psq_mtvMaxAggregateOutputType | null
+  }
+
+  export type Psq_mtvAvgAggregateOutputType = {
+    PsqTpoId: number | null
+    PsqMtvId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type Psq_mtvSumAggregateOutputType = {
+    PsqTpoId: number | null
+    PsqMtvId: number | null
+    SttId: number | null
+    UsrIdAlt: number | null
+  }
+
+  export type Psq_mtvMinAggregateOutputType = {
+    PsqTpoId: number | null
+    PsqMtvId: number | null
+    PsqMtv: string | null
+    SttId: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type Psq_mtvMaxAggregateOutputType = {
+    PsqTpoId: number | null
+    PsqMtvId: number | null
+    PsqMtv: string | null
+    SttId: number | null
+    UsrIdAlt: number | null
+    DtaAlt: Date | null
+    MtvDel: string | null
+  }
+
+  export type Psq_mtvCountAggregateOutputType = {
+    PsqTpoId: number
+    PsqMtvId: number
+    PsqMtv: number
+    SttId: number
+    UsrIdAlt: number
+    DtaAlt: number
+    MtvDel: number
+    _all: number
+  }
+
+
+  export type Psq_mtvAvgAggregateInputType = {
+    PsqTpoId?: true
+    PsqMtvId?: true
+    SttId?: true
+    UsrIdAlt?: true
+  }
+
+  export type Psq_mtvSumAggregateInputType = {
+    PsqTpoId?: true
+    PsqMtvId?: true
+    SttId?: true
+    UsrIdAlt?: true
+  }
+
+  export type Psq_mtvMinAggregateInputType = {
+    PsqTpoId?: true
+    PsqMtvId?: true
+    PsqMtv?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type Psq_mtvMaxAggregateInputType = {
+    PsqTpoId?: true
+    PsqMtvId?: true
+    PsqMtv?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+  }
+
+  export type Psq_mtvCountAggregateInputType = {
+    PsqTpoId?: true
+    PsqMtvId?: true
+    PsqMtv?: true
+    SttId?: true
+    UsrIdAlt?: true
+    DtaAlt?: true
+    MtvDel?: true
+    _all?: true
+  }
+
+  export type Psq_mtvAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which psq_mtv to aggregate.
+     */
+    where?: psq_mtvWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_mtvs to fetch.
+     */
+    orderBy?: psq_mtvOrderByWithRelationInput | psq_mtvOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: psq_mtvWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_mtvs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_mtvs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned psq_mtvs
+    **/
+    _count?: true | Psq_mtvCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Psq_mtvAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Psq_mtvSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Psq_mtvMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Psq_mtvMaxAggregateInputType
+  }
+
+  export type GetPsq_mtvAggregateType<T extends Psq_mtvAggregateArgs> = {
+        [P in keyof T & keyof AggregatePsq_mtv]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePsq_mtv[P]>
+      : GetScalarType<T[P], AggregatePsq_mtv[P]>
+  }
+
+
+
+
+  export type psq_mtvGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: psq_mtvWhereInput
+    orderBy?: psq_mtvOrderByWithAggregationInput | psq_mtvOrderByWithAggregationInput[]
+    by: Psq_mtvScalarFieldEnum[] | Psq_mtvScalarFieldEnum
+    having?: psq_mtvScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Psq_mtvCountAggregateInputType | true
+    _avg?: Psq_mtvAvgAggregateInputType
+    _sum?: Psq_mtvSumAggregateInputType
+    _min?: Psq_mtvMinAggregateInputType
+    _max?: Psq_mtvMaxAggregateInputType
+  }
+
+  export type Psq_mtvGroupByOutputType = {
+    PsqTpoId: number
+    PsqMtvId: number
+    PsqMtv: string
+    SttId: number
+    UsrIdAlt: number
+    DtaAlt: Date
+    MtvDel: string | null
+    _count: Psq_mtvCountAggregateOutputType | null
+    _avg: Psq_mtvAvgAggregateOutputType | null
+    _sum: Psq_mtvSumAggregateOutputType | null
+    _min: Psq_mtvMinAggregateOutputType | null
+    _max: Psq_mtvMaxAggregateOutputType | null
+  }
+
+  type GetPsq_mtvGroupByPayload<T extends psq_mtvGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Psq_mtvGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Psq_mtvGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Psq_mtvGroupByOutputType[P]>
+            : GetScalarType<T[P], Psq_mtvGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type psq_mtvSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    PsqTpoId?: boolean
+    PsqMtvId?: boolean
+    PsqMtv?: boolean
+    SttId?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+    stt?: boolean | sttDefaultArgs<ExtArgs>
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["psq_mtv"]>
+
+
+
+  export type psq_mtvSelectScalar = {
+    PsqTpoId?: boolean
+    PsqMtvId?: boolean
+    PsqMtv?: boolean
+    SttId?: boolean
+    UsrIdAlt?: boolean
+    DtaAlt?: boolean
+    MtvDel?: boolean
+  }
+
+  export type psq_mtvOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"PsqTpoId" | "PsqMtvId" | "PsqMtv" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["psq_mtv"]>
+  export type psq_mtvInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stt?: boolean | sttDefaultArgs<ExtArgs>
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+  }
+
+  export type $psq_mtvPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "psq_mtv"
+    objects: {
+      stt: Prisma.$sttPayload<ExtArgs>
+      usr: Prisma.$usrPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      PsqTpoId: number
+      PsqMtvId: number
+      PsqMtv: string
+      SttId: number
+      UsrIdAlt: number
+      DtaAlt: Date
+      MtvDel: string | null
+    }, ExtArgs["result"]["psq_mtv"]>
+    composites: {}
+  }
+
+  type psq_mtvGetPayload<S extends boolean | null | undefined | psq_mtvDefaultArgs> = $Result.GetResult<Prisma.$psq_mtvPayload, S>
+
+  type psq_mtvCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<psq_mtvFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Psq_mtvCountAggregateInputType | true
+    }
+
+  export interface psq_mtvDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['psq_mtv'], meta: { name: 'psq_mtv' } }
+    /**
+     * Find zero or one Psq_mtv that matches the filter.
+     * @param {psq_mtvFindUniqueArgs} args - Arguments to find a Psq_mtv
+     * @example
+     * // Get one Psq_mtv
+     * const psq_mtv = await prisma.psq_mtv.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends psq_mtvFindUniqueArgs>(args: SelectSubset<T, psq_mtvFindUniqueArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Psq_mtv that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {psq_mtvFindUniqueOrThrowArgs} args - Arguments to find a Psq_mtv
+     * @example
+     * // Get one Psq_mtv
+     * const psq_mtv = await prisma.psq_mtv.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends psq_mtvFindUniqueOrThrowArgs>(args: SelectSubset<T, psq_mtvFindUniqueOrThrowArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Psq_mtv that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_mtvFindFirstArgs} args - Arguments to find a Psq_mtv
+     * @example
+     * // Get one Psq_mtv
+     * const psq_mtv = await prisma.psq_mtv.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends psq_mtvFindFirstArgs>(args?: SelectSubset<T, psq_mtvFindFirstArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Psq_mtv that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_mtvFindFirstOrThrowArgs} args - Arguments to find a Psq_mtv
+     * @example
+     * // Get one Psq_mtv
+     * const psq_mtv = await prisma.psq_mtv.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends psq_mtvFindFirstOrThrowArgs>(args?: SelectSubset<T, psq_mtvFindFirstOrThrowArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Psq_mtvs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_mtvFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Psq_mtvs
+     * const psq_mtvs = await prisma.psq_mtv.findMany()
+     * 
+     * // Get first 10 Psq_mtvs
+     * const psq_mtvs = await prisma.psq_mtv.findMany({ take: 10 })
+     * 
+     * // Only select the `PsqTpoId`
+     * const psq_mtvWithPsqTpoIdOnly = await prisma.psq_mtv.findMany({ select: { PsqTpoId: true } })
+     * 
+     */
+    findMany<T extends psq_mtvFindManyArgs>(args?: SelectSubset<T, psq_mtvFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Psq_mtv.
+     * @param {psq_mtvCreateArgs} args - Arguments to create a Psq_mtv.
+     * @example
+     * // Create one Psq_mtv
+     * const Psq_mtv = await prisma.psq_mtv.create({
+     *   data: {
+     *     // ... data to create a Psq_mtv
+     *   }
+     * })
+     * 
+     */
+    create<T extends psq_mtvCreateArgs>(args: SelectSubset<T, psq_mtvCreateArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Psq_mtvs.
+     * @param {psq_mtvCreateManyArgs} args - Arguments to create many Psq_mtvs.
+     * @example
+     * // Create many Psq_mtvs
+     * const psq_mtv = await prisma.psq_mtv.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends psq_mtvCreateManyArgs>(args?: SelectSubset<T, psq_mtvCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Psq_mtv.
+     * @param {psq_mtvDeleteArgs} args - Arguments to delete one Psq_mtv.
+     * @example
+     * // Delete one Psq_mtv
+     * const Psq_mtv = await prisma.psq_mtv.delete({
+     *   where: {
+     *     // ... filter to delete one Psq_mtv
+     *   }
+     * })
+     * 
+     */
+    delete<T extends psq_mtvDeleteArgs>(args: SelectSubset<T, psq_mtvDeleteArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Psq_mtv.
+     * @param {psq_mtvUpdateArgs} args - Arguments to update one Psq_mtv.
+     * @example
+     * // Update one Psq_mtv
+     * const psq_mtv = await prisma.psq_mtv.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends psq_mtvUpdateArgs>(args: SelectSubset<T, psq_mtvUpdateArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Psq_mtvs.
+     * @param {psq_mtvDeleteManyArgs} args - Arguments to filter Psq_mtvs to delete.
+     * @example
+     * // Delete a few Psq_mtvs
+     * const { count } = await prisma.psq_mtv.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends psq_mtvDeleteManyArgs>(args?: SelectSubset<T, psq_mtvDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Psq_mtvs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_mtvUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Psq_mtvs
+     * const psq_mtv = await prisma.psq_mtv.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends psq_mtvUpdateManyArgs>(args: SelectSubset<T, psq_mtvUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Psq_mtv.
+     * @param {psq_mtvUpsertArgs} args - Arguments to update or create a Psq_mtv.
+     * @example
+     * // Update or create a Psq_mtv
+     * const psq_mtv = await prisma.psq_mtv.upsert({
+     *   create: {
+     *     // ... data to create a Psq_mtv
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Psq_mtv we want to update
+     *   }
+     * })
+     */
+    upsert<T extends psq_mtvUpsertArgs>(args: SelectSubset<T, psq_mtvUpsertArgs<ExtArgs>>): Prisma__psq_mtvClient<$Result.GetResult<Prisma.$psq_mtvPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Psq_mtvs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_mtvCountArgs} args - Arguments to filter Psq_mtvs to count.
+     * @example
+     * // Count the number of Psq_mtvs
+     * const count = await prisma.psq_mtv.count({
+     *   where: {
+     *     // ... the filter for the Psq_mtvs we want to count
+     *   }
+     * })
+    **/
+    count<T extends psq_mtvCountArgs>(
+      args?: Subset<T, psq_mtvCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Psq_mtvCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Psq_mtv.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Psq_mtvAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Psq_mtvAggregateArgs>(args: Subset<T, Psq_mtvAggregateArgs>): Prisma.PrismaPromise<GetPsq_mtvAggregateType<T>>
+
+    /**
+     * Group by Psq_mtv.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {psq_mtvGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends psq_mtvGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: psq_mtvGroupByArgs['orderBy'] }
+        : { orderBy?: psq_mtvGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, psq_mtvGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPsq_mtvGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the psq_mtv model
+   */
+  readonly fields: psq_mtvFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for psq_mtv.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__psq_mtvClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    stt<T extends sttDefaultArgs<ExtArgs> = {}>(args?: Subset<T, sttDefaultArgs<ExtArgs>>): Prisma__sttClient<$Result.GetResult<Prisma.$sttPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the psq_mtv model
+   */
+  interface psq_mtvFieldRefs {
+    readonly PsqTpoId: FieldRef<"psq_mtv", 'Int'>
+    readonly PsqMtvId: FieldRef<"psq_mtv", 'Int'>
+    readonly PsqMtv: FieldRef<"psq_mtv", 'String'>
+    readonly SttId: FieldRef<"psq_mtv", 'Int'>
+    readonly UsrIdAlt: FieldRef<"psq_mtv", 'Int'>
+    readonly DtaAlt: FieldRef<"psq_mtv", 'DateTime'>
+    readonly MtvDel: FieldRef<"psq_mtv", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * psq_mtv findUnique
+   */
+  export type psq_mtvFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_mtv to fetch.
+     */
+    where: psq_mtvWhereUniqueInput
+  }
+
+  /**
+   * psq_mtv findUniqueOrThrow
+   */
+  export type psq_mtvFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_mtv to fetch.
+     */
+    where: psq_mtvWhereUniqueInput
+  }
+
+  /**
+   * psq_mtv findFirst
+   */
+  export type psq_mtvFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_mtv to fetch.
+     */
+    where?: psq_mtvWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_mtvs to fetch.
+     */
+    orderBy?: psq_mtvOrderByWithRelationInput | psq_mtvOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for psq_mtvs.
+     */
+    cursor?: psq_mtvWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_mtvs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_mtvs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of psq_mtvs.
+     */
+    distinct?: Psq_mtvScalarFieldEnum | Psq_mtvScalarFieldEnum[]
+  }
+
+  /**
+   * psq_mtv findFirstOrThrow
+   */
+  export type psq_mtvFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_mtv to fetch.
+     */
+    where?: psq_mtvWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_mtvs to fetch.
+     */
+    orderBy?: psq_mtvOrderByWithRelationInput | psq_mtvOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for psq_mtvs.
+     */
+    cursor?: psq_mtvWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_mtvs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_mtvs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of psq_mtvs.
+     */
+    distinct?: Psq_mtvScalarFieldEnum | Psq_mtvScalarFieldEnum[]
+  }
+
+  /**
+   * psq_mtv findMany
+   */
+  export type psq_mtvFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * Filter, which psq_mtvs to fetch.
+     */
+    where?: psq_mtvWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of psq_mtvs to fetch.
+     */
+    orderBy?: psq_mtvOrderByWithRelationInput | psq_mtvOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing psq_mtvs.
+     */
+    cursor?: psq_mtvWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` psq_mtvs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` psq_mtvs.
+     */
+    skip?: number
+    distinct?: Psq_mtvScalarFieldEnum | Psq_mtvScalarFieldEnum[]
+  }
+
+  /**
+   * psq_mtv create
+   */
+  export type psq_mtvCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * The data needed to create a psq_mtv.
+     */
+    data: XOR<psq_mtvCreateInput, psq_mtvUncheckedCreateInput>
+  }
+
+  /**
+   * psq_mtv createMany
+   */
+  export type psq_mtvCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many psq_mtvs.
+     */
+    data: psq_mtvCreateManyInput | psq_mtvCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * psq_mtv update
+   */
+  export type psq_mtvUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * The data needed to update a psq_mtv.
+     */
+    data: XOR<psq_mtvUpdateInput, psq_mtvUncheckedUpdateInput>
+    /**
+     * Choose, which psq_mtv to update.
+     */
+    where: psq_mtvWhereUniqueInput
+  }
+
+  /**
+   * psq_mtv updateMany
+   */
+  export type psq_mtvUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update psq_mtvs.
+     */
+    data: XOR<psq_mtvUpdateManyMutationInput, psq_mtvUncheckedUpdateManyInput>
+    /**
+     * Filter which psq_mtvs to update
+     */
+    where?: psq_mtvWhereInput
+    /**
+     * Limit how many psq_mtvs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * psq_mtv upsert
+   */
+  export type psq_mtvUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * The filter to search for the psq_mtv to update in case it exists.
+     */
+    where: psq_mtvWhereUniqueInput
+    /**
+     * In case the psq_mtv found by the `where` argument doesn't exist, create a new psq_mtv with this data.
+     */
+    create: XOR<psq_mtvCreateInput, psq_mtvUncheckedCreateInput>
+    /**
+     * In case the psq_mtv was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<psq_mtvUpdateInput, psq_mtvUncheckedUpdateInput>
+  }
+
+  /**
+   * psq_mtv delete
+   */
+  export type psq_mtvDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+    /**
+     * Filter which psq_mtv to delete.
+     */
+    where: psq_mtvWhereUniqueInput
+  }
+
+  /**
+   * psq_mtv deleteMany
+   */
+  export type psq_mtvDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which psq_mtvs to delete
+     */
+    where?: psq_mtvWhereInput
+    /**
+     * Limit how many psq_mtvs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * psq_mtv without action
+   */
+  export type psq_mtvDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the psq_mtv
+     */
+    select?: psq_mtvSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the psq_mtv
+     */
+    omit?: psq_mtvOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: psq_mtvInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model VwOnibus
    */
 
@@ -23925,6 +28623,8 @@ export namespace Prisma {
 
   export type VwOnibusAvgAggregateOutputType = {
     RcgIdOrg: number | null
+    BrtId: number | null
+    CbtId: number | null
     EqpItmId: number | null
     UndId: number | null
     CrrId: number | null
@@ -23940,6 +28640,8 @@ export namespace Prisma {
 
   export type VwOnibusSumAggregateOutputType = {
     RcgIdOrg: number | null
+    BrtId: number | null
+    CbtId: number | null
     EqpItmId: number | null
     UndId: number | null
     CrrId: number | null
@@ -23955,6 +28657,9 @@ export namespace Prisma {
 
   export type VwOnibusMinAggregateOutputType = {
     RcgIdOrg: number | null
+    BrtId: number | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     EqpItmId: number | null
     Onibus: string | null
     Situacao: string | null
@@ -23978,6 +28683,9 @@ export namespace Prisma {
 
   export type VwOnibusMaxAggregateOutputType = {
     RcgIdOrg: number | null
+    BrtId: number | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     EqpItmId: number | null
     Onibus: string | null
     Situacao: string | null
@@ -24001,6 +28709,9 @@ export namespace Prisma {
 
   export type VwOnibusCountAggregateOutputType = {
     RcgIdOrg: number
+    BrtId: number
+    CbtId: number
+    TipoCombustivel: number
     EqpItmId: number
     Onibus: number
     Situacao: number
@@ -24026,6 +28737,8 @@ export namespace Prisma {
 
   export type VwOnibusAvgAggregateInputType = {
     RcgIdOrg?: true
+    BrtId?: true
+    CbtId?: true
     EqpItmId?: true
     UndId?: true
     CrrId?: true
@@ -24041,6 +28754,8 @@ export namespace Prisma {
 
   export type VwOnibusSumAggregateInputType = {
     RcgIdOrg?: true
+    BrtId?: true
+    CbtId?: true
     EqpItmId?: true
     UndId?: true
     CrrId?: true
@@ -24056,6 +28771,9 @@ export namespace Prisma {
 
   export type VwOnibusMinAggregateInputType = {
     RcgIdOrg?: true
+    BrtId?: true
+    CbtId?: true
+    TipoCombustivel?: true
     EqpItmId?: true
     Onibus?: true
     Situacao?: true
@@ -24079,6 +28797,9 @@ export namespace Prisma {
 
   export type VwOnibusMaxAggregateInputType = {
     RcgIdOrg?: true
+    BrtId?: true
+    CbtId?: true
+    TipoCombustivel?: true
     EqpItmId?: true
     Onibus?: true
     Situacao?: true
@@ -24102,6 +28823,9 @@ export namespace Prisma {
 
   export type VwOnibusCountAggregateInputType = {
     RcgIdOrg?: true
+    BrtId?: true
+    CbtId?: true
+    TipoCombustivel?: true
     EqpItmId?: true
     Onibus?: true
     Situacao?: true
@@ -24212,6 +28936,9 @@ export namespace Prisma {
 
   export type VwOnibusGroupByOutputType = {
     RcgIdOrg: number | null
+    BrtId: number
+    CbtId: number | null
+    TipoCombustivel: string | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -24254,6 +28981,9 @@ export namespace Prisma {
 
   export type VwOnibusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     RcgIdOrg?: boolean
+    BrtId?: boolean
+    CbtId?: boolean
+    TipoCombustivel?: boolean
     EqpItmId?: boolean
     Onibus?: boolean
     Situacao?: boolean
@@ -24279,6 +29009,9 @@ export namespace Prisma {
 
   export type VwOnibusSelectScalar = {
     RcgIdOrg?: boolean
+    BrtId?: boolean
+    CbtId?: boolean
+    TipoCombustivel?: boolean
     EqpItmId?: boolean
     Onibus?: boolean
     Situacao?: boolean
@@ -24300,13 +29033,16 @@ export namespace Prisma {
     Capacidade_Tecnica?: boolean
   }
 
-  export type VwOnibusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgIdOrg" | "EqpItmId" | "Onibus" | "Situacao" | "Data_Operacao" | "UndId" | "PostoRecarga" | "CrrId" | "Carregador" | "DataInicio" | "DataFinal" | "BateriaInicio" | "Bateria" | "BateriaEntregue" | "Carga_kWh" | "OdometroInicio" | "Odometro" | "KmRodado" | "Checklist" | "Capacidade_Tecnica", ExtArgs["result"]["vwOnibus"]>
+  export type VwOnibusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"RcgIdOrg" | "BrtId" | "CbtId" | "TipoCombustivel" | "EqpItmId" | "Onibus" | "Situacao" | "Data_Operacao" | "UndId" | "PostoRecarga" | "CrrId" | "Carregador" | "DataInicio" | "DataFinal" | "BateriaInicio" | "Bateria" | "BateriaEntregue" | "Carga_kWh" | "OdometroInicio" | "Odometro" | "KmRodado" | "Checklist" | "Capacidade_Tecnica", ExtArgs["result"]["vwOnibus"]>
 
   export type $VwOnibusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "VwOnibus"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       RcgIdOrg: number | null
+      BrtId: number
+      CbtId: number | null
+      TipoCombustivel: string | null
       EqpItmId: number
       Onibus: string
       Situacao: string
@@ -24696,6 +29432,9 @@ export namespace Prisma {
    */
   interface VwOnibusFieldRefs {
     readonly RcgIdOrg: FieldRef<"VwOnibus", 'Int'>
+    readonly BrtId: FieldRef<"VwOnibus", 'Int'>
+    readonly CbtId: FieldRef<"VwOnibus", 'Int'>
+    readonly TipoCombustivel: FieldRef<"VwOnibus", 'String'>
     readonly EqpItmId: FieldRef<"VwOnibus", 'Int'>
     readonly Onibus: FieldRef<"VwOnibus", 'String'>
     readonly Situacao: FieldRef<"VwOnibus", 'String'>
@@ -25050,28 +29789,39 @@ export namespace Prisma {
 
   export type VwCarregadorAvgAggregateOutputType = {
     UndId: number | null
+    CbtId: number | null
     EqpItmId: number | null
   }
 
   export type VwCarregadorSumAggregateOutputType = {
     UndId: number | null
+    CbtId: number | null
     EqpItmId: number | null
   }
 
   export type VwCarregadorMinAggregateOutputType = {
     UndId: number | null
+    Unidade: string | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     EqpItmId: number | null
     Carregador: string | null
   }
 
   export type VwCarregadorMaxAggregateOutputType = {
     UndId: number | null
+    Unidade: string | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     EqpItmId: number | null
     Carregador: string | null
   }
 
   export type VwCarregadorCountAggregateOutputType = {
     UndId: number
+    Unidade: number
+    CbtId: number
+    TipoCombustivel: number
     EqpItmId: number
     Carregador: number
     _all: number
@@ -25080,28 +29830,39 @@ export namespace Prisma {
 
   export type VwCarregadorAvgAggregateInputType = {
     UndId?: true
+    CbtId?: true
     EqpItmId?: true
   }
 
   export type VwCarregadorSumAggregateInputType = {
     UndId?: true
+    CbtId?: true
     EqpItmId?: true
   }
 
   export type VwCarregadorMinAggregateInputType = {
     UndId?: true
+    Unidade?: true
+    CbtId?: true
+    TipoCombustivel?: true
     EqpItmId?: true
     Carregador?: true
   }
 
   export type VwCarregadorMaxAggregateInputType = {
     UndId?: true
+    Unidade?: true
+    CbtId?: true
+    TipoCombustivel?: true
     EqpItmId?: true
     Carregador?: true
   }
 
   export type VwCarregadorCountAggregateInputType = {
     UndId?: true
+    Unidade?: true
+    CbtId?: true
+    TipoCombustivel?: true
     EqpItmId?: true
     Carregador?: true
     _all?: true
@@ -25195,6 +29956,9 @@ export namespace Prisma {
 
   export type VwCarregadorGroupByOutputType = {
     UndId: number
+    Unidade: string | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     EqpItmId: number
     Carregador: string | null
     _count: VwCarregadorCountAggregateOutputType | null
@@ -25220,6 +29984,9 @@ export namespace Prisma {
 
   export type VwCarregadorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     UndId?: boolean
+    Unidade?: boolean
+    CbtId?: boolean
+    TipoCombustivel?: boolean
     EqpItmId?: boolean
     Carregador?: boolean
   }, ExtArgs["result"]["vwCarregador"]>
@@ -25228,17 +29995,23 @@ export namespace Prisma {
 
   export type VwCarregadorSelectScalar = {
     UndId?: boolean
+    Unidade?: boolean
+    CbtId?: boolean
+    TipoCombustivel?: boolean
     EqpItmId?: boolean
     Carregador?: boolean
   }
 
-  export type VwCarregadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "EqpItmId" | "Carregador", ExtArgs["result"]["vwCarregador"]>
+  export type VwCarregadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "Unidade" | "CbtId" | "TipoCombustivel" | "EqpItmId" | "Carregador", ExtArgs["result"]["vwCarregador"]>
 
   export type $VwCarregadorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "VwCarregador"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       UndId: number
+      Unidade: string | null
+      CbtId: number | null
+      TipoCombustivel: string | null
       EqpItmId: number
       Carregador: string | null
     }, ExtArgs["result"]["vwCarregador"]>
@@ -25611,6 +30384,9 @@ export namespace Prisma {
    */
   interface VwCarregadorFieldRefs {
     readonly UndId: FieldRef<"VwCarregador", 'Int'>
+    readonly Unidade: FieldRef<"VwCarregador", 'String'>
+    readonly CbtId: FieldRef<"VwCarregador", 'Int'>
+    readonly TipoCombustivel: FieldRef<"VwCarregador", 'String'>
     readonly EqpItmId: FieldRef<"VwCarregador", 'Int'>
     readonly Carregador: FieldRef<"VwCarregador", 'String'>
   }
@@ -26872,15 +31648,19 @@ export namespace Prisma {
 
   export type VwPostoRecargaAvgAggregateOutputType = {
     UndId: number | null
+    CbtId: number | null
   }
 
   export type VwPostoRecargaSumAggregateOutputType = {
     UndId: number | null
+    CbtId: number | null
   }
 
   export type VwPostoRecargaMinAggregateOutputType = {
     UndId: number | null
     PostoRecarga: string | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     Latitude: string | null
     Longitude: string | null
   }
@@ -26888,6 +31668,8 @@ export namespace Prisma {
   export type VwPostoRecargaMaxAggregateOutputType = {
     UndId: number | null
     PostoRecarga: string | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     Latitude: string | null
     Longitude: string | null
   }
@@ -26895,6 +31677,8 @@ export namespace Prisma {
   export type VwPostoRecargaCountAggregateOutputType = {
     UndId: number
     PostoRecarga: number
+    CbtId: number
+    TipoCombustivel: number
     Latitude: number
     Longitude: number
     _all: number
@@ -26903,15 +31687,19 @@ export namespace Prisma {
 
   export type VwPostoRecargaAvgAggregateInputType = {
     UndId?: true
+    CbtId?: true
   }
 
   export type VwPostoRecargaSumAggregateInputType = {
     UndId?: true
+    CbtId?: true
   }
 
   export type VwPostoRecargaMinAggregateInputType = {
     UndId?: true
     PostoRecarga?: true
+    CbtId?: true
+    TipoCombustivel?: true
     Latitude?: true
     Longitude?: true
   }
@@ -26919,6 +31707,8 @@ export namespace Prisma {
   export type VwPostoRecargaMaxAggregateInputType = {
     UndId?: true
     PostoRecarga?: true
+    CbtId?: true
+    TipoCombustivel?: true
     Latitude?: true
     Longitude?: true
   }
@@ -26926,6 +31716,8 @@ export namespace Prisma {
   export type VwPostoRecargaCountAggregateInputType = {
     UndId?: true
     PostoRecarga?: true
+    CbtId?: true
+    TipoCombustivel?: true
     Latitude?: true
     Longitude?: true
     _all?: true
@@ -27019,7 +31811,9 @@ export namespace Prisma {
 
   export type VwPostoRecargaGroupByOutputType = {
     UndId: number
-    PostoRecarga: string
+    PostoRecarga: string | null
+    CbtId: number | null
+    TipoCombustivel: string | null
     Latitude: string | null
     Longitude: string | null
     _count: VwPostoRecargaCountAggregateOutputType | null
@@ -27046,6 +31840,8 @@ export namespace Prisma {
   export type VwPostoRecargaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     UndId?: boolean
     PostoRecarga?: boolean
+    CbtId?: boolean
+    TipoCombustivel?: boolean
     Latitude?: boolean
     Longitude?: boolean
   }, ExtArgs["result"]["vwPostoRecarga"]>
@@ -27055,18 +31851,22 @@ export namespace Prisma {
   export type VwPostoRecargaSelectScalar = {
     UndId?: boolean
     PostoRecarga?: boolean
+    CbtId?: boolean
+    TipoCombustivel?: boolean
     Latitude?: boolean
     Longitude?: boolean
   }
 
-  export type VwPostoRecargaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "PostoRecarga" | "Latitude" | "Longitude", ExtArgs["result"]["vwPostoRecarga"]>
+  export type VwPostoRecargaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"UndId" | "PostoRecarga" | "CbtId" | "TipoCombustivel" | "Latitude" | "Longitude", ExtArgs["result"]["vwPostoRecarga"]>
 
   export type $VwPostoRecargaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "VwPostoRecarga"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       UndId: number
-      PostoRecarga: string
+      PostoRecarga: string | null
+      CbtId: number | null
+      TipoCombustivel: string | null
       Latitude: string | null
       Longitude: string | null
     }, ExtArgs["result"]["vwPostoRecarga"]>
@@ -27440,6 +32240,8 @@ export namespace Prisma {
   interface VwPostoRecargaFieldRefs {
     readonly UndId: FieldRef<"VwPostoRecarga", 'Int'>
     readonly PostoRecarga: FieldRef<"VwPostoRecarga", 'String'>
+    readonly CbtId: FieldRef<"VwPostoRecarga", 'Int'>
+    readonly TipoCombustivel: FieldRef<"VwPostoRecarga", 'String'>
     readonly Latitude: FieldRef<"VwPostoRecarga", 'String'>
     readonly Longitude: FieldRef<"VwPostoRecarga", 'String'>
   }
@@ -28741,11 +33543,13 @@ export namespace Prisma {
 
   export const Eqp_itmScalarFieldEnum: {
     UndId: 'UndId',
+    BrtId: 'BrtId',
     FrnId: 'FrnId',
     EqpTpoId: 'EqpTpoId',
     EqpFbrId: 'EqpFbrId',
     EqpMdlId: 'EqpMdlId',
     EqpItmId: 'EqpItmId',
+    CbtId: 'CbtId',
     EqpItmCdg: 'EqpItmCdg',
     EqpItmPlc: 'EqpItmPlc',
     EqpItmAnoMdl: 'EqpItmAnoMdl',
@@ -28845,10 +33649,16 @@ export namespace Prisma {
     TrnId: 'TrnId',
     PsqId: 'PsqId',
     PsqTpoId: 'PsqTpoId',
+    BrtId: 'BrtId',
+    EqpItmId: 'EqpItmId',
     PsqPrgId: 'PsqPrgId',
     PsqRspId: 'PsqRspId',
     PsqRsp: 'PsqRsp',
     PsqDth: 'PsqDth',
+    PsqMtvId: 'PsqMtvId',
+    GpsLat: 'GpsLat',
+    GpsLon: 'GpsLon',
+    GpsAlt: 'GpsAlt',
     SttId: 'SttId',
     UsrIdAlt: 'UsrIdAlt',
     DtaAlt: 'DtaAlt',
@@ -28861,6 +33671,7 @@ export namespace Prisma {
   export const Psq_tpoScalarFieldEnum: {
     PsqTpoId: 'PsqTpoId',
     PsqTpo: 'PsqTpo',
+    icone: 'icone',
     SttId: 'SttId',
     UsrIdAlt: 'UsrIdAlt',
     DtaAlt: 'DtaAlt',
@@ -28877,6 +33688,7 @@ export namespace Prisma {
     DtaOpe: 'DtaOpe',
     UndId: 'UndId',
     VclId: 'VclId',
+    CbtId: 'CbtId',
     CrrId: 'CrrId',
     CrrCnc: 'CrrCnc',
     DtaIni: 'DtaIni',
@@ -28884,6 +33696,8 @@ export namespace Prisma {
     SocIni: 'SocIni',
     SocFin: 'SocFin',
     RcgKwh: 'RcgKwh',
+    TmpAmb: 'TmpAmb',
+    PrsBar: 'PrsBar',
     OdoIni: 'OdoIni',
     OdoFin: 'OdoFin',
     SttRcgId: 'SttRcgId',
@@ -28956,8 +33770,63 @@ export namespace Prisma {
   export type Usr_tpoScalarFieldEnum = (typeof Usr_tpoScalarFieldEnum)[keyof typeof Usr_tpoScalarFieldEnum]
 
 
+  export const Psq_rsp_ftoScalarFieldEnum: {
+    PqsRspFto_id: 'PqsRspFto_id',
+    PsqRspId: 'PsqRspId',
+    PqsRspFtoUrl: 'PqsRspFtoUrl',
+    SttId: 'SttId',
+    UsrIdAlt: 'UsrIdAlt',
+    DtaAlt: 'DtaAlt',
+    MtvDel: 'MtvDel'
+  };
+
+  export type Psq_rsp_ftoScalarFieldEnum = (typeof Psq_rsp_ftoScalarFieldEnum)[keyof typeof Psq_rsp_ftoScalarFieldEnum]
+
+
+  export const BrtScalarFieldEnum: {
+    BrtId: 'BrtId',
+    BrtNme: 'BrtNme',
+    SttIdAtu: 'SttIdAtu',
+    UsrIdAlt: 'UsrIdAlt',
+    DtaAlt: 'DtaAlt',
+    MtvDel: 'MtvDel'
+  };
+
+  export type BrtScalarFieldEnum = (typeof BrtScalarFieldEnum)[keyof typeof BrtScalarFieldEnum]
+
+
+  export const Psq_tpo_itmScalarFieldEnum: {
+    PsqTpoItmId: 'PsqTpoItmId',
+    BrtId: 'BrtId',
+    PsqTpoId: 'PsqTpoId',
+    EqpItmId: 'EqpItmId',
+    SttId: 'SttId',
+    UsrIdAlt: 'UsrIdAlt',
+    DtaAlt: 'DtaAlt',
+    MtvDel: 'MtvDel'
+  };
+
+  export type Psq_tpo_itmScalarFieldEnum = (typeof Psq_tpo_itmScalarFieldEnum)[keyof typeof Psq_tpo_itmScalarFieldEnum]
+
+
+  export const Psq_mtvScalarFieldEnum: {
+    PsqTpoId: 'PsqTpoId',
+    PsqMtvId: 'PsqMtvId',
+    PsqMtv: 'PsqMtv',
+    SttId: 'SttId',
+    UsrIdAlt: 'UsrIdAlt',
+    DtaAlt: 'DtaAlt',
+    MtvDel: 'MtvDel'
+  };
+
+  export type Psq_mtvScalarFieldEnum = (typeof Psq_mtvScalarFieldEnum)[keyof typeof Psq_mtvScalarFieldEnum]
+
+
   export const VwOnibusScalarFieldEnum: {
     RcgIdOrg: 'RcgIdOrg',
+    BrtId: 'BrtId',
+    CbtId: 'CbtId',
+    TipoCombustivel: 'TipoCombustivel',
     EqpItmId: 'EqpItmId',
     Onibus: 'Onibus',
     Situacao: 'Situacao',
@@ -28984,6 +33853,9 @@ export namespace Prisma {
 
   export const VwCarregadorScalarFieldEnum: {
     UndId: 'UndId',
+    Unidade: 'Unidade',
+    CbtId: 'CbtId',
+    TipoCombustivel: 'TipoCombustivel',
     EqpItmId: 'EqpItmId',
     Carregador: 'Carregador'
   };
@@ -29005,6 +33877,8 @@ export namespace Prisma {
   export const VwPostoRecargaScalarFieldEnum: {
     UndId: 'UndId',
     PostoRecarga: 'PostoRecarga',
+    CbtId: 'CbtId',
+    TipoCombustivel: 'TipoCombustivel',
     Latitude: 'Latitude',
     Longitude: 'Longitude'
   };
@@ -29162,6 +34036,9 @@ export namespace Prisma {
 
   export const psq_rspOrderByRelevanceFieldEnum: {
     PsqDth: 'PsqDth',
+    GpsLat: 'GpsLat',
+    GpsLon: 'GpsLon',
+    GpsAlt: 'GpsAlt',
     MtvDel: 'MtvDel'
   };
 
@@ -29170,6 +34047,7 @@ export namespace Prisma {
 
   export const psq_tpoOrderByRelevanceFieldEnum: {
     PsqTpo: 'PsqTpo',
+    icone: 'icone',
     MtvDel: 'MtvDel'
   };
 
@@ -29221,7 +34099,39 @@ export namespace Prisma {
   export type usr_tpoOrderByRelevanceFieldEnum = (typeof usr_tpoOrderByRelevanceFieldEnum)[keyof typeof usr_tpoOrderByRelevanceFieldEnum]
 
 
+  export const psq_rsp_ftoOrderByRelevanceFieldEnum: {
+    PqsRspFtoUrl: 'PqsRspFtoUrl',
+    MtvDel: 'MtvDel'
+  };
+
+  export type psq_rsp_ftoOrderByRelevanceFieldEnum = (typeof psq_rsp_ftoOrderByRelevanceFieldEnum)[keyof typeof psq_rsp_ftoOrderByRelevanceFieldEnum]
+
+
+  export const brtOrderByRelevanceFieldEnum: {
+    BrtNme: 'BrtNme',
+    MtvDel: 'MtvDel'
+  };
+
+  export type brtOrderByRelevanceFieldEnum = (typeof brtOrderByRelevanceFieldEnum)[keyof typeof brtOrderByRelevanceFieldEnum]
+
+
+  export const psq_tpo_itmOrderByRelevanceFieldEnum: {
+    MtvDel: 'MtvDel'
+  };
+
+  export type psq_tpo_itmOrderByRelevanceFieldEnum = (typeof psq_tpo_itmOrderByRelevanceFieldEnum)[keyof typeof psq_tpo_itmOrderByRelevanceFieldEnum]
+
+
+  export const psq_mtvOrderByRelevanceFieldEnum: {
+    PsqMtv: 'PsqMtv',
+    MtvDel: 'MtvDel'
+  };
+
+  export type psq_mtvOrderByRelevanceFieldEnum = (typeof psq_mtvOrderByRelevanceFieldEnum)[keyof typeof psq_mtvOrderByRelevanceFieldEnum]
+
+
   export const VwOnibusOrderByRelevanceFieldEnum: {
+    TipoCombustivel: 'TipoCombustivel',
     Onibus: 'Onibus',
     Situacao: 'Situacao',
     PostoRecarga: 'PostoRecarga',
@@ -29233,6 +34143,8 @@ export namespace Prisma {
 
 
   export const VwCarregadorOrderByRelevanceFieldEnum: {
+    Unidade: 'Unidade',
+    TipoCombustivel: 'TipoCombustivel',
     Carregador: 'Carregador'
   };
 
@@ -29249,6 +34161,7 @@ export namespace Prisma {
 
   export const VwPostoRecargaOrderByRelevanceFieldEnum: {
     PostoRecarga: 'PostoRecarga',
+    TipoCombustivel: 'TipoCombustivel',
     Latitude: 'Latitude',
     Longitude: 'Longitude'
   };
@@ -29756,11 +34669,13 @@ export namespace Prisma {
     OR?: eqp_itmWhereInput[]
     NOT?: eqp_itmWhereInput | eqp_itmWhereInput[]
     UndId?: IntFilter<"eqp_itm"> | number
+    BrtId?: IntNullableFilter<"eqp_itm"> | number | null
     FrnId?: IntFilter<"eqp_itm"> | number
     EqpTpoId?: IntFilter<"eqp_itm"> | number
     EqpFbrId?: IntFilter<"eqp_itm"> | number
     EqpMdlId?: IntFilter<"eqp_itm"> | number
     EqpItmId?: IntFilter<"eqp_itm"> | number
+    CbtId?: IntNullableFilter<"eqp_itm"> | number | null
     EqpItmCdg?: StringFilter<"eqp_itm"> | string
     EqpItmPlc?: StringNullableFilter<"eqp_itm"> | string | null
     EqpItmAnoMdl?: StringNullableFilter<"eqp_itm"> | string | null
@@ -29777,17 +34692,20 @@ export namespace Prisma {
     stt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
     eqp_loc?: Eqp_locListRelationFilter
+    psq_tpo_itm?: Psq_tpo_itmListRelationFilter
     rcg_rcg_CrrIdToeqp_itm?: RcgListRelationFilter
     rcg_rcg_VclIdToeqp_itm?: RcgListRelationFilter
   }
 
   export type eqp_itmOrderByWithRelationInput = {
     UndId?: SortOrder
+    BrtId?: SortOrderInput | SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrderInput | SortOrder
     EqpItmCdg?: SortOrder
     EqpItmPlc?: SortOrderInput | SortOrder
     EqpItmAnoMdl?: SortOrderInput | SortOrder
@@ -29804,6 +34722,7 @@ export namespace Prisma {
     stt?: sttOrderByWithRelationInput
     usr?: usrOrderByWithRelationInput
     eqp_loc?: eqp_locOrderByRelationAggregateInput
+    psq_tpo_itm?: psq_tpo_itmOrderByRelationAggregateInput
     rcg_rcg_CrrIdToeqp_itm?: rcgOrderByRelationAggregateInput
     rcg_rcg_VclIdToeqp_itm?: rcgOrderByRelationAggregateInput
     _relevance?: eqp_itmOrderByRelevanceInput
@@ -29815,10 +34734,12 @@ export namespace Prisma {
     OR?: eqp_itmWhereInput[]
     NOT?: eqp_itmWhereInput | eqp_itmWhereInput[]
     UndId?: IntFilter<"eqp_itm"> | number
+    BrtId?: IntNullableFilter<"eqp_itm"> | number | null
     FrnId?: IntFilter<"eqp_itm"> | number
     EqpTpoId?: IntFilter<"eqp_itm"> | number
     EqpFbrId?: IntFilter<"eqp_itm"> | number
     EqpMdlId?: IntFilter<"eqp_itm"> | number
+    CbtId?: IntNullableFilter<"eqp_itm"> | number | null
     EqpItmCdg?: StringFilter<"eqp_itm"> | string
     EqpItmPlc?: StringNullableFilter<"eqp_itm"> | string | null
     EqpItmAnoMdl?: StringNullableFilter<"eqp_itm"> | string | null
@@ -29835,17 +34756,20 @@ export namespace Prisma {
     stt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
     eqp_loc?: Eqp_locListRelationFilter
+    psq_tpo_itm?: Psq_tpo_itmListRelationFilter
     rcg_rcg_CrrIdToeqp_itm?: RcgListRelationFilter
     rcg_rcg_VclIdToeqp_itm?: RcgListRelationFilter
   }, "EqpItmId">
 
   export type eqp_itmOrderByWithAggregationInput = {
     UndId?: SortOrder
+    BrtId?: SortOrderInput | SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrderInput | SortOrder
     EqpItmCdg?: SortOrder
     EqpItmPlc?: SortOrderInput | SortOrder
     EqpItmAnoMdl?: SortOrderInput | SortOrder
@@ -29866,11 +34790,13 @@ export namespace Prisma {
     OR?: eqp_itmScalarWhereWithAggregatesInput[]
     NOT?: eqp_itmScalarWhereWithAggregatesInput | eqp_itmScalarWhereWithAggregatesInput[]
     UndId?: IntWithAggregatesFilter<"eqp_itm"> | number
+    BrtId?: IntNullableWithAggregatesFilter<"eqp_itm"> | number | null
     FrnId?: IntWithAggregatesFilter<"eqp_itm"> | number
     EqpTpoId?: IntWithAggregatesFilter<"eqp_itm"> | number
     EqpFbrId?: IntWithAggregatesFilter<"eqp_itm"> | number
     EqpMdlId?: IntWithAggregatesFilter<"eqp_itm"> | number
     EqpItmId?: IntWithAggregatesFilter<"eqp_itm"> | number
+    CbtId?: IntNullableWithAggregatesFilter<"eqp_itm"> | number | null
     EqpItmCdg?: StringWithAggregatesFilter<"eqp_itm"> | string
     EqpItmPlc?: StringNullableWithAggregatesFilter<"eqp_itm"> | string | null
     EqpItmAnoMdl?: StringNullableWithAggregatesFilter<"eqp_itm"> | string | null
@@ -30363,13 +35289,19 @@ export namespace Prisma {
     NOT?: psq_rspWhereInput | psq_rspWhereInput[]
     UndId?: IntFilter<"psq_rsp"> | number
     DtaOpe?: DateTimeFilter<"psq_rsp"> | Date | string
-    TrnId?: IntNullableFilter<"psq_rsp"> | number | null
+    TrnId?: IntFilter<"psq_rsp"> | number
     PsqId?: IntFilter<"psq_rsp"> | number
     PsqTpoId?: IntFilter<"psq_rsp"> | number
+    BrtId?: IntNullableFilter<"psq_rsp"> | number | null
+    EqpItmId?: IntNullableFilter<"psq_rsp"> | number | null
     PsqPrgId?: IntFilter<"psq_rsp"> | number
     PsqRspId?: IntFilter<"psq_rsp"> | number
     PsqRsp?: IntFilter<"psq_rsp"> | number
     PsqDth?: StringNullableFilter<"psq_rsp"> | string | null
+    PsqMtvId?: IntNullableFilter<"psq_rsp"> | number | null
+    GpsLat?: StringNullableFilter<"psq_rsp"> | string | null
+    GpsLon?: StringNullableFilter<"psq_rsp"> | string | null
+    GpsAlt?: StringNullableFilter<"psq_rsp"> | string | null
     SttId?: IntFilter<"psq_rsp"> | number
     UsrIdAlt?: IntFilter<"psq_rsp"> | number
     DtaAlt?: DateTimeFilter<"psq_rsp"> | Date | string
@@ -30379,18 +35311,25 @@ export namespace Prisma {
     stt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
     psq_prg?: XOR<Psq_prgScalarRelationFilter, psq_prgWhereInput>
+    psq_rsp_fto?: Psq_rsp_ftoListRelationFilter
   }
 
   export type psq_rspOrderByWithRelationInput = {
     UndId?: SortOrder
     DtaOpe?: SortOrder
-    TrnId?: SortOrderInput | SortOrder
+    TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrderInput | SortOrder
+    EqpItmId?: SortOrderInput | SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
     PsqDth?: SortOrderInput | SortOrder
+    PsqMtvId?: SortOrderInput | SortOrder
+    GpsLat?: SortOrderInput | SortOrder
+    GpsLon?: SortOrderInput | SortOrder
+    GpsAlt?: SortOrderInput | SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -30400,6 +35339,7 @@ export namespace Prisma {
     stt?: sttOrderByWithRelationInput
     usr?: usrOrderByWithRelationInput
     psq_prg?: psq_prgOrderByWithRelationInput
+    psq_rsp_fto?: psq_rsp_ftoOrderByRelationAggregateInput
     _relevance?: psq_rspOrderByRelevanceInput
   }
 
@@ -30410,12 +35350,18 @@ export namespace Prisma {
     NOT?: psq_rspWhereInput | psq_rspWhereInput[]
     UndId?: IntFilter<"psq_rsp"> | number
     DtaOpe?: DateTimeFilter<"psq_rsp"> | Date | string
-    TrnId?: IntNullableFilter<"psq_rsp"> | number | null
+    TrnId?: IntFilter<"psq_rsp"> | number
     PsqId?: IntFilter<"psq_rsp"> | number
     PsqTpoId?: IntFilter<"psq_rsp"> | number
+    BrtId?: IntNullableFilter<"psq_rsp"> | number | null
+    EqpItmId?: IntNullableFilter<"psq_rsp"> | number | null
     PsqPrgId?: IntFilter<"psq_rsp"> | number
     PsqRsp?: IntFilter<"psq_rsp"> | number
     PsqDth?: StringNullableFilter<"psq_rsp"> | string | null
+    PsqMtvId?: IntNullableFilter<"psq_rsp"> | number | null
+    GpsLat?: StringNullableFilter<"psq_rsp"> | string | null
+    GpsLon?: StringNullableFilter<"psq_rsp"> | string | null
+    GpsAlt?: StringNullableFilter<"psq_rsp"> | string | null
     SttId?: IntFilter<"psq_rsp"> | number
     UsrIdAlt?: IntFilter<"psq_rsp"> | number
     DtaAlt?: DateTimeFilter<"psq_rsp"> | Date | string
@@ -30425,18 +35371,25 @@ export namespace Prisma {
     stt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
     psq_prg?: XOR<Psq_prgScalarRelationFilter, psq_prgWhereInput>
+    psq_rsp_fto?: Psq_rsp_ftoListRelationFilter
   }, "PsqRspId">
 
   export type psq_rspOrderByWithAggregationInput = {
     UndId?: SortOrder
     DtaOpe?: SortOrder
-    TrnId?: SortOrderInput | SortOrder
+    TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrderInput | SortOrder
+    EqpItmId?: SortOrderInput | SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
     PsqDth?: SortOrderInput | SortOrder
+    PsqMtvId?: SortOrderInput | SortOrder
+    GpsLat?: SortOrderInput | SortOrder
+    GpsLon?: SortOrderInput | SortOrder
+    GpsAlt?: SortOrderInput | SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -30454,13 +35407,19 @@ export namespace Prisma {
     NOT?: psq_rspScalarWhereWithAggregatesInput | psq_rspScalarWhereWithAggregatesInput[]
     UndId?: IntWithAggregatesFilter<"psq_rsp"> | number
     DtaOpe?: DateTimeWithAggregatesFilter<"psq_rsp"> | Date | string
-    TrnId?: IntNullableWithAggregatesFilter<"psq_rsp"> | number | null
+    TrnId?: IntWithAggregatesFilter<"psq_rsp"> | number
     PsqId?: IntWithAggregatesFilter<"psq_rsp"> | number
     PsqTpoId?: IntWithAggregatesFilter<"psq_rsp"> | number
+    BrtId?: IntNullableWithAggregatesFilter<"psq_rsp"> | number | null
+    EqpItmId?: IntNullableWithAggregatesFilter<"psq_rsp"> | number | null
     PsqPrgId?: IntWithAggregatesFilter<"psq_rsp"> | number
     PsqRspId?: IntWithAggregatesFilter<"psq_rsp"> | number
     PsqRsp?: IntWithAggregatesFilter<"psq_rsp"> | number
     PsqDth?: StringNullableWithAggregatesFilter<"psq_rsp"> | string | null
+    PsqMtvId?: IntNullableWithAggregatesFilter<"psq_rsp"> | number | null
+    GpsLat?: StringNullableWithAggregatesFilter<"psq_rsp"> | string | null
+    GpsLon?: StringNullableWithAggregatesFilter<"psq_rsp"> | string | null
+    GpsAlt?: StringNullableWithAggregatesFilter<"psq_rsp"> | string | null
     SttId?: IntWithAggregatesFilter<"psq_rsp"> | number
     UsrIdAlt?: IntWithAggregatesFilter<"psq_rsp"> | number
     DtaAlt?: DateTimeWithAggregatesFilter<"psq_rsp"> | Date | string
@@ -30473,6 +35432,7 @@ export namespace Prisma {
     NOT?: psq_tpoWhereInput | psq_tpoWhereInput[]
     PsqTpoId?: IntFilter<"psq_tpo"> | number
     PsqTpo?: StringFilter<"psq_tpo"> | string
+    icone?: StringNullableFilter<"psq_tpo"> | string | null
     SttId?: IntFilter<"psq_tpo"> | number
     UsrIdAlt?: IntFilter<"psq_tpo"> | number
     DtaAlt?: DateTimeFilter<"psq_tpo"> | Date | string
@@ -30486,6 +35446,7 @@ export namespace Prisma {
   export type psq_tpoOrderByWithRelationInput = {
     PsqTpoId?: SortOrder
     PsqTpo?: SortOrder
+    icone?: SortOrderInput | SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -30503,6 +35464,7 @@ export namespace Prisma {
     OR?: psq_tpoWhereInput[]
     NOT?: psq_tpoWhereInput | psq_tpoWhereInput[]
     PsqTpo?: StringFilter<"psq_tpo"> | string
+    icone?: StringNullableFilter<"psq_tpo"> | string | null
     SttId?: IntFilter<"psq_tpo"> | number
     UsrIdAlt?: IntFilter<"psq_tpo"> | number
     DtaAlt?: DateTimeFilter<"psq_tpo"> | Date | string
@@ -30516,6 +35478,7 @@ export namespace Prisma {
   export type psq_tpoOrderByWithAggregationInput = {
     PsqTpoId?: SortOrder
     PsqTpo?: SortOrder
+    icone?: SortOrderInput | SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -30533,6 +35496,7 @@ export namespace Prisma {
     NOT?: psq_tpoScalarWhereWithAggregatesInput | psq_tpoScalarWhereWithAggregatesInput[]
     PsqTpoId?: IntWithAggregatesFilter<"psq_tpo"> | number
     PsqTpo?: StringWithAggregatesFilter<"psq_tpo"> | string
+    icone?: StringNullableWithAggregatesFilter<"psq_tpo"> | string | null
     SttId?: IntWithAggregatesFilter<"psq_tpo"> | number
     UsrIdAlt?: IntWithAggregatesFilter<"psq_tpo"> | number
     DtaAlt?: DateTimeWithAggregatesFilter<"psq_tpo"> | Date | string
@@ -30549,6 +35513,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFilter<"rcg"> | Date | string
     UndId?: IntFilter<"rcg"> | number
     VclId?: IntFilter<"rcg"> | number
+    CbtId?: IntNullableFilter<"rcg"> | number | null
     CrrId?: IntFilter<"rcg"> | number
     CrrCnc?: IntFilter<"rcg"> | number
     DtaIni?: DateTimeFilter<"rcg"> | Date | string
@@ -30556,6 +35521,8 @@ export namespace Prisma {
     SocIni?: IntNullableFilter<"rcg"> | number | null
     SocFin?: IntNullableFilter<"rcg"> | number | null
     RcgKwh?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: IntNullableFilter<"rcg"> | number | null
+    PrsBar?: IntNullableFilter<"rcg"> | number | null
     OdoIni?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     OdoFin?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFilter<"rcg"> | number
@@ -30570,8 +35537,6 @@ export namespace Prisma {
     emp?: XOR<EmpScalarRelationFilter, empWhereInput>
     eqp_itm_rcg_CrrIdToeqp_itm?: XOR<Eqp_itmScalarRelationFilter, eqp_itmWhereInput>
     eqp_itm_rcg_VclIdToeqp_itm?: XOR<Eqp_itmScalarRelationFilter, eqp_itmWhereInput>
-    rcg?: XOR<RcgNullableScalarRelationFilter, rcgWhereInput> | null
-    other_rcg?: RcgListRelationFilter
     stt_rcg_SttIdTostt?: XOR<SttScalarRelationFilter, sttWhereInput>
     stt_rcg_SttRcgIdTostt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
@@ -30584,6 +35549,7 @@ export namespace Prisma {
     DtaOpe?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrderInput | SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     DtaIni?: SortOrder
@@ -30591,6 +35557,8 @@ export namespace Prisma {
     SocIni?: SortOrderInput | SortOrder
     SocFin?: SortOrderInput | SortOrder
     RcgKwh?: SortOrderInput | SortOrder
+    TmpAmb?: SortOrderInput | SortOrder
+    PrsBar?: SortOrderInput | SortOrder
     OdoIni?: SortOrderInput | SortOrder
     OdoFin?: SortOrderInput | SortOrder
     SttRcgId?: SortOrder
@@ -30605,8 +35573,6 @@ export namespace Prisma {
     emp?: empOrderByWithRelationInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmOrderByWithRelationInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmOrderByWithRelationInput
-    rcg?: rcgOrderByWithRelationInput
-    other_rcg?: rcgOrderByRelationAggregateInput
     stt_rcg_SttIdTostt?: sttOrderByWithRelationInput
     stt_rcg_SttRcgIdTostt?: sttOrderByWithRelationInput
     usr?: usrOrderByWithRelationInput
@@ -30623,6 +35589,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFilter<"rcg"> | Date | string
     UndId?: IntFilter<"rcg"> | number
     VclId?: IntFilter<"rcg"> | number
+    CbtId?: IntNullableFilter<"rcg"> | number | null
     CrrId?: IntFilter<"rcg"> | number
     CrrCnc?: IntFilter<"rcg"> | number
     DtaIni?: DateTimeFilter<"rcg"> | Date | string
@@ -30630,6 +35597,8 @@ export namespace Prisma {
     SocIni?: IntNullableFilter<"rcg"> | number | null
     SocFin?: IntNullableFilter<"rcg"> | number | null
     RcgKwh?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: IntNullableFilter<"rcg"> | number | null
+    PrsBar?: IntNullableFilter<"rcg"> | number | null
     OdoIni?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     OdoFin?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFilter<"rcg"> | number
@@ -30644,8 +35613,6 @@ export namespace Prisma {
     emp?: XOR<EmpScalarRelationFilter, empWhereInput>
     eqp_itm_rcg_CrrIdToeqp_itm?: XOR<Eqp_itmScalarRelationFilter, eqp_itmWhereInput>
     eqp_itm_rcg_VclIdToeqp_itm?: XOR<Eqp_itmScalarRelationFilter, eqp_itmWhereInput>
-    rcg?: XOR<RcgNullableScalarRelationFilter, rcgWhereInput> | null
-    other_rcg?: RcgListRelationFilter
     stt_rcg_SttIdTostt?: XOR<SttScalarRelationFilter, sttWhereInput>
     stt_rcg_SttRcgIdTostt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
@@ -30658,6 +35625,7 @@ export namespace Prisma {
     DtaOpe?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrderInput | SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     DtaIni?: SortOrder
@@ -30665,6 +35633,8 @@ export namespace Prisma {
     SocIni?: SortOrderInput | SortOrder
     SocFin?: SortOrderInput | SortOrder
     RcgKwh?: SortOrderInput | SortOrder
+    TmpAmb?: SortOrderInput | SortOrder
+    PrsBar?: SortOrderInput | SortOrder
     OdoIni?: SortOrderInput | SortOrder
     OdoFin?: SortOrderInput | SortOrder
     SttRcgId?: SortOrder
@@ -30692,6 +35662,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeWithAggregatesFilter<"rcg"> | Date | string
     UndId?: IntWithAggregatesFilter<"rcg"> | number
     VclId?: IntWithAggregatesFilter<"rcg"> | number
+    CbtId?: IntNullableWithAggregatesFilter<"rcg"> | number | null
     CrrId?: IntWithAggregatesFilter<"rcg"> | number
     CrrCnc?: IntWithAggregatesFilter<"rcg"> | number
     DtaIni?: DateTimeWithAggregatesFilter<"rcg"> | Date | string
@@ -30699,6 +35670,8 @@ export namespace Prisma {
     SocIni?: IntNullableWithAggregatesFilter<"rcg"> | number | null
     SocFin?: IntNullableWithAggregatesFilter<"rcg"> | number | null
     RcgKwh?: DecimalNullableWithAggregatesFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: IntNullableWithAggregatesFilter<"rcg"> | number | null
+    PrsBar?: IntNullableWithAggregatesFilter<"rcg"> | number | null
     OdoIni?: DecimalNullableWithAggregatesFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     OdoFin?: DecimalNullableWithAggregatesFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntWithAggregatesFilter<"rcg"> | number
@@ -30731,14 +35704,17 @@ export namespace Prisma {
     eqp_tpo?: Eqp_tpoListRelationFilter
     frn?: FrnListRelationFilter
     psq?: PsqListRelationFilter
+    psq_mtv?: Psq_mtvListRelationFilter
     psq_prg?: Psq_prgListRelationFilter
     psq_rsp?: Psq_rspListRelationFilter
+    psq_rsp_fto?: Psq_rsp_ftoListRelationFilter
     psq_tpo?: Psq_tpoListRelationFilter
+    psq_tpo_itm?: Psq_tpo_itmListRelationFilter
     rcg_rcg_SttIdTostt?: RcgListRelationFilter
     rcg_rcg_SttRcgIdTostt?: RcgListRelationFilter
+    trn?: TrnListRelationFilter
     usr?: UsrListRelationFilter
     usr_tpo?: Usr_tpoListRelationFilter
-    trn?: TrnListRelationFilter
   }
 
   export type sttOrderByWithRelationInput = {
@@ -30758,14 +35734,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoOrderByRelationAggregateInput
     frn?: frnOrderByRelationAggregateInput
     psq?: psqOrderByRelationAggregateInput
+    psq_mtv?: psq_mtvOrderByRelationAggregateInput
     psq_prg?: psq_prgOrderByRelationAggregateInput
     psq_rsp?: psq_rspOrderByRelationAggregateInput
+    psq_rsp_fto?: psq_rsp_ftoOrderByRelationAggregateInput
     psq_tpo?: psq_tpoOrderByRelationAggregateInput
+    psq_tpo_itm?: psq_tpo_itmOrderByRelationAggregateInput
     rcg_rcg_SttIdTostt?: rcgOrderByRelationAggregateInput
     rcg_rcg_SttRcgIdTostt?: rcgOrderByRelationAggregateInput
+    trn?: trnOrderByRelationAggregateInput
     usr?: usrOrderByRelationAggregateInput
     usr_tpo?: usr_tpoOrderByRelationAggregateInput
-    trn?: trnOrderByRelationAggregateInput
     _relevance?: sttOrderByRelevanceInput
   }
 
@@ -30789,14 +35768,17 @@ export namespace Prisma {
     eqp_tpo?: Eqp_tpoListRelationFilter
     frn?: FrnListRelationFilter
     psq?: PsqListRelationFilter
+    psq_mtv?: Psq_mtvListRelationFilter
     psq_prg?: Psq_prgListRelationFilter
     psq_rsp?: Psq_rspListRelationFilter
+    psq_rsp_fto?: Psq_rsp_ftoListRelationFilter
     psq_tpo?: Psq_tpoListRelationFilter
+    psq_tpo_itm?: Psq_tpo_itmListRelationFilter
     rcg_rcg_SttIdTostt?: RcgListRelationFilter
     rcg_rcg_SttRcgIdTostt?: RcgListRelationFilter
+    trn?: TrnListRelationFilter
     usr?: UsrListRelationFilter
     usr_tpo?: Usr_tpoListRelationFilter
-    trn?: TrnListRelationFilter
   }, "SttId">
 
   export type sttOrderByWithAggregationInput = {
@@ -30926,16 +35908,19 @@ export namespace Prisma {
     eqp_tpo?: Eqp_tpoListRelationFilter
     frn?: FrnListRelationFilter
     psq?: PsqListRelationFilter
+    psq_mtv?: Psq_mtvListRelationFilter
     psq_prg?: Psq_prgListRelationFilter
     psq_rsp?: Psq_rspListRelationFilter
+    psq_rsp_fto?: Psq_rsp_ftoListRelationFilter
     psq_tpo?: Psq_tpoListRelationFilter
+    psq_tpo_itm?: Psq_tpo_itmListRelationFilter
     rcg?: RcgListRelationFilter
+    trn?: TrnListRelationFilter
     emp?: XOR<EmpScalarRelationFilter, empWhereInput>
     stt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr_tpo?: XOR<Usr_tpoScalarRelationFilter, usr_tpoWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
     other_usr?: UsrListRelationFilter
-    trn?: TrnListRelationFilter
   }
 
   export type usrOrderByWithRelationInput = {
@@ -30960,16 +35945,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoOrderByRelationAggregateInput
     frn?: frnOrderByRelationAggregateInput
     psq?: psqOrderByRelationAggregateInput
+    psq_mtv?: psq_mtvOrderByRelationAggregateInput
     psq_prg?: psq_prgOrderByRelationAggregateInput
     psq_rsp?: psq_rspOrderByRelationAggregateInput
+    psq_rsp_fto?: psq_rsp_ftoOrderByRelationAggregateInput
     psq_tpo?: psq_tpoOrderByRelationAggregateInput
+    psq_tpo_itm?: psq_tpo_itmOrderByRelationAggregateInput
     rcg?: rcgOrderByRelationAggregateInput
+    trn?: trnOrderByRelationAggregateInput
     emp?: empOrderByWithRelationInput
     stt?: sttOrderByWithRelationInput
     usr_tpo?: usr_tpoOrderByWithRelationInput
     usr?: usrOrderByWithRelationInput
     other_usr?: usrOrderByRelationAggregateInput
-    trn?: trnOrderByRelationAggregateInput
     _relevance?: usrOrderByRelevanceInput
   }
 
@@ -30998,16 +35986,19 @@ export namespace Prisma {
     eqp_tpo?: Eqp_tpoListRelationFilter
     frn?: FrnListRelationFilter
     psq?: PsqListRelationFilter
+    psq_mtv?: Psq_mtvListRelationFilter
     psq_prg?: Psq_prgListRelationFilter
     psq_rsp?: Psq_rspListRelationFilter
+    psq_rsp_fto?: Psq_rsp_ftoListRelationFilter
     psq_tpo?: Psq_tpoListRelationFilter
+    psq_tpo_itm?: Psq_tpo_itmListRelationFilter
     rcg?: RcgListRelationFilter
+    trn?: TrnListRelationFilter
     emp?: XOR<EmpScalarRelationFilter, empWhereInput>
     stt?: XOR<SttScalarRelationFilter, sttWhereInput>
     usr_tpo?: XOR<Usr_tpoScalarRelationFilter, usr_tpoWhereInput>
     usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
     other_usr?: UsrListRelationFilter
-    trn?: TrnListRelationFilter
   }, "UsrId" | "UsrLgn" | "UsrCpf" | "UsrEml">
 
   export type usrOrderByWithAggregationInput = {
@@ -31116,11 +36107,298 @@ export namespace Prisma {
     MtvDel?: StringNullableWithAggregatesFilter<"usr_tpo"> | string | null
   }
 
+  export type psq_rsp_ftoWhereInput = {
+    AND?: psq_rsp_ftoWhereInput | psq_rsp_ftoWhereInput[]
+    OR?: psq_rsp_ftoWhereInput[]
+    NOT?: psq_rsp_ftoWhereInput | psq_rsp_ftoWhereInput[]
+    PqsRspFto_id?: IntFilter<"psq_rsp_fto"> | number
+    PsqRspId?: IntFilter<"psq_rsp_fto"> | number
+    PqsRspFtoUrl?: StringNullableFilter<"psq_rsp_fto"> | string | null
+    SttId?: IntFilter<"psq_rsp_fto"> | number
+    UsrIdAlt?: IntFilter<"psq_rsp_fto"> | number
+    DtaAlt?: DateTimeFilter<"psq_rsp_fto"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_rsp_fto"> | string | null
+    stt?: XOR<SttScalarRelationFilter, sttWhereInput>
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+    psq_rsp?: XOR<Psq_rspScalarRelationFilter, psq_rspWhereInput>
+  }
+
+  export type psq_rsp_ftoOrderByWithRelationInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    PqsRspFtoUrl?: SortOrderInput | SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    stt?: sttOrderByWithRelationInput
+    usr?: usrOrderByWithRelationInput
+    psq_rsp?: psq_rspOrderByWithRelationInput
+    _relevance?: psq_rsp_ftoOrderByRelevanceInput
+  }
+
+  export type psq_rsp_ftoWhereUniqueInput = Prisma.AtLeast<{
+    PqsRspFto_id?: number
+    AND?: psq_rsp_ftoWhereInput | psq_rsp_ftoWhereInput[]
+    OR?: psq_rsp_ftoWhereInput[]
+    NOT?: psq_rsp_ftoWhereInput | psq_rsp_ftoWhereInput[]
+    PsqRspId?: IntFilter<"psq_rsp_fto"> | number
+    PqsRspFtoUrl?: StringNullableFilter<"psq_rsp_fto"> | string | null
+    SttId?: IntFilter<"psq_rsp_fto"> | number
+    UsrIdAlt?: IntFilter<"psq_rsp_fto"> | number
+    DtaAlt?: DateTimeFilter<"psq_rsp_fto"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_rsp_fto"> | string | null
+    stt?: XOR<SttScalarRelationFilter, sttWhereInput>
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+    psq_rsp?: XOR<Psq_rspScalarRelationFilter, psq_rspWhereInput>
+  }, "PqsRspFto_id">
+
+  export type psq_rsp_ftoOrderByWithAggregationInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    PqsRspFtoUrl?: SortOrderInput | SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    _count?: psq_rsp_ftoCountOrderByAggregateInput
+    _avg?: psq_rsp_ftoAvgOrderByAggregateInput
+    _max?: psq_rsp_ftoMaxOrderByAggregateInput
+    _min?: psq_rsp_ftoMinOrderByAggregateInput
+    _sum?: psq_rsp_ftoSumOrderByAggregateInput
+  }
+
+  export type psq_rsp_ftoScalarWhereWithAggregatesInput = {
+    AND?: psq_rsp_ftoScalarWhereWithAggregatesInput | psq_rsp_ftoScalarWhereWithAggregatesInput[]
+    OR?: psq_rsp_ftoScalarWhereWithAggregatesInput[]
+    NOT?: psq_rsp_ftoScalarWhereWithAggregatesInput | psq_rsp_ftoScalarWhereWithAggregatesInput[]
+    PqsRspFto_id?: IntWithAggregatesFilter<"psq_rsp_fto"> | number
+    PsqRspId?: IntWithAggregatesFilter<"psq_rsp_fto"> | number
+    PqsRspFtoUrl?: StringNullableWithAggregatesFilter<"psq_rsp_fto"> | string | null
+    SttId?: IntWithAggregatesFilter<"psq_rsp_fto"> | number
+    UsrIdAlt?: IntWithAggregatesFilter<"psq_rsp_fto"> | number
+    DtaAlt?: DateTimeWithAggregatesFilter<"psq_rsp_fto"> | Date | string
+    MtvDel?: StringNullableWithAggregatesFilter<"psq_rsp_fto"> | string | null
+  }
+
+  export type brtWhereInput = {
+    AND?: brtWhereInput | brtWhereInput[]
+    OR?: brtWhereInput[]
+    NOT?: brtWhereInput | brtWhereInput[]
+    BrtId?: IntFilter<"brt"> | number
+    BrtNme?: StringFilter<"brt"> | string
+    SttIdAtu?: IntFilter<"brt"> | number
+    UsrIdAlt?: IntFilter<"brt"> | number
+    DtaAlt?: DateTimeFilter<"brt"> | Date | string
+    MtvDel?: StringNullableFilter<"brt"> | string | null
+  }
+
+  export type brtOrderByWithRelationInput = {
+    BrtId?: SortOrder
+    BrtNme?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    _relevance?: brtOrderByRelevanceInput
+  }
+
+  export type brtWhereUniqueInput = Prisma.AtLeast<{
+    BrtId?: number
+    AND?: brtWhereInput | brtWhereInput[]
+    OR?: brtWhereInput[]
+    NOT?: brtWhereInput | brtWhereInput[]
+    BrtNme?: StringFilter<"brt"> | string
+    SttIdAtu?: IntFilter<"brt"> | number
+    UsrIdAlt?: IntFilter<"brt"> | number
+    DtaAlt?: DateTimeFilter<"brt"> | Date | string
+    MtvDel?: StringNullableFilter<"brt"> | string | null
+  }, "BrtId">
+
+  export type brtOrderByWithAggregationInput = {
+    BrtId?: SortOrder
+    BrtNme?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    _count?: brtCountOrderByAggregateInput
+    _avg?: brtAvgOrderByAggregateInput
+    _max?: brtMaxOrderByAggregateInput
+    _min?: brtMinOrderByAggregateInput
+    _sum?: brtSumOrderByAggregateInput
+  }
+
+  export type brtScalarWhereWithAggregatesInput = {
+    AND?: brtScalarWhereWithAggregatesInput | brtScalarWhereWithAggregatesInput[]
+    OR?: brtScalarWhereWithAggregatesInput[]
+    NOT?: brtScalarWhereWithAggregatesInput | brtScalarWhereWithAggregatesInput[]
+    BrtId?: IntWithAggregatesFilter<"brt"> | number
+    BrtNme?: StringWithAggregatesFilter<"brt"> | string
+    SttIdAtu?: IntWithAggregatesFilter<"brt"> | number
+    UsrIdAlt?: IntWithAggregatesFilter<"brt"> | number
+    DtaAlt?: DateTimeWithAggregatesFilter<"brt"> | Date | string
+    MtvDel?: StringNullableWithAggregatesFilter<"brt"> | string | null
+  }
+
+  export type psq_tpo_itmWhereInput = {
+    AND?: psq_tpo_itmWhereInput | psq_tpo_itmWhereInput[]
+    OR?: psq_tpo_itmWhereInput[]
+    NOT?: psq_tpo_itmWhereInput | psq_tpo_itmWhereInput[]
+    PsqTpoItmId?: IntFilter<"psq_tpo_itm"> | number
+    BrtId?: IntFilter<"psq_tpo_itm"> | number
+    PsqTpoId?: IntFilter<"psq_tpo_itm"> | number
+    EqpItmId?: IntFilter<"psq_tpo_itm"> | number
+    SttId?: IntFilter<"psq_tpo_itm"> | number
+    UsrIdAlt?: IntFilter<"psq_tpo_itm"> | number
+    DtaAlt?: DateTimeFilter<"psq_tpo_itm"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_tpo_itm"> | string | null
+    eqp_itm?: XOR<Eqp_itmScalarRelationFilter, eqp_itmWhereInput>
+    stt?: XOR<SttScalarRelationFilter, sttWhereInput>
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+  }
+
+  export type psq_tpo_itmOrderByWithRelationInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    eqp_itm?: eqp_itmOrderByWithRelationInput
+    stt?: sttOrderByWithRelationInput
+    usr?: usrOrderByWithRelationInput
+    _relevance?: psq_tpo_itmOrderByRelevanceInput
+  }
+
+  export type psq_tpo_itmWhereUniqueInput = Prisma.AtLeast<{
+    PsqTpoItmId?: number
+    AND?: psq_tpo_itmWhereInput | psq_tpo_itmWhereInput[]
+    OR?: psq_tpo_itmWhereInput[]
+    NOT?: psq_tpo_itmWhereInput | psq_tpo_itmWhereInput[]
+    BrtId?: IntFilter<"psq_tpo_itm"> | number
+    PsqTpoId?: IntFilter<"psq_tpo_itm"> | number
+    EqpItmId?: IntFilter<"psq_tpo_itm"> | number
+    SttId?: IntFilter<"psq_tpo_itm"> | number
+    UsrIdAlt?: IntFilter<"psq_tpo_itm"> | number
+    DtaAlt?: DateTimeFilter<"psq_tpo_itm"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_tpo_itm"> | string | null
+    eqp_itm?: XOR<Eqp_itmScalarRelationFilter, eqp_itmWhereInput>
+    stt?: XOR<SttScalarRelationFilter, sttWhereInput>
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+  }, "PsqTpoItmId">
+
+  export type psq_tpo_itmOrderByWithAggregationInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    _count?: psq_tpo_itmCountOrderByAggregateInput
+    _avg?: psq_tpo_itmAvgOrderByAggregateInput
+    _max?: psq_tpo_itmMaxOrderByAggregateInput
+    _min?: psq_tpo_itmMinOrderByAggregateInput
+    _sum?: psq_tpo_itmSumOrderByAggregateInput
+  }
+
+  export type psq_tpo_itmScalarWhereWithAggregatesInput = {
+    AND?: psq_tpo_itmScalarWhereWithAggregatesInput | psq_tpo_itmScalarWhereWithAggregatesInput[]
+    OR?: psq_tpo_itmScalarWhereWithAggregatesInput[]
+    NOT?: psq_tpo_itmScalarWhereWithAggregatesInput | psq_tpo_itmScalarWhereWithAggregatesInput[]
+    PsqTpoItmId?: IntWithAggregatesFilter<"psq_tpo_itm"> | number
+    BrtId?: IntWithAggregatesFilter<"psq_tpo_itm"> | number
+    PsqTpoId?: IntWithAggregatesFilter<"psq_tpo_itm"> | number
+    EqpItmId?: IntWithAggregatesFilter<"psq_tpo_itm"> | number
+    SttId?: IntWithAggregatesFilter<"psq_tpo_itm"> | number
+    UsrIdAlt?: IntWithAggregatesFilter<"psq_tpo_itm"> | number
+    DtaAlt?: DateTimeWithAggregatesFilter<"psq_tpo_itm"> | Date | string
+    MtvDel?: StringNullableWithAggregatesFilter<"psq_tpo_itm"> | string | null
+  }
+
+  export type psq_mtvWhereInput = {
+    AND?: psq_mtvWhereInput | psq_mtvWhereInput[]
+    OR?: psq_mtvWhereInput[]
+    NOT?: psq_mtvWhereInput | psq_mtvWhereInput[]
+    PsqTpoId?: IntFilter<"psq_mtv"> | number
+    PsqMtvId?: IntFilter<"psq_mtv"> | number
+    PsqMtv?: StringFilter<"psq_mtv"> | string
+    SttId?: IntFilter<"psq_mtv"> | number
+    UsrIdAlt?: IntFilter<"psq_mtv"> | number
+    DtaAlt?: DateTimeFilter<"psq_mtv"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_mtv"> | string | null
+    stt?: XOR<SttScalarRelationFilter, sttWhereInput>
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+  }
+
+  export type psq_mtvOrderByWithRelationInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    PsqMtv?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    stt?: sttOrderByWithRelationInput
+    usr?: usrOrderByWithRelationInput
+    _relevance?: psq_mtvOrderByRelevanceInput
+  }
+
+  export type psq_mtvWhereUniqueInput = Prisma.AtLeast<{
+    PsqMtvId?: number
+    AND?: psq_mtvWhereInput | psq_mtvWhereInput[]
+    OR?: psq_mtvWhereInput[]
+    NOT?: psq_mtvWhereInput | psq_mtvWhereInput[]
+    PsqTpoId?: IntFilter<"psq_mtv"> | number
+    PsqMtv?: StringFilter<"psq_mtv"> | string
+    SttId?: IntFilter<"psq_mtv"> | number
+    UsrIdAlt?: IntFilter<"psq_mtv"> | number
+    DtaAlt?: DateTimeFilter<"psq_mtv"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_mtv"> | string | null
+    stt?: XOR<SttScalarRelationFilter, sttWhereInput>
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+  }, "PsqMtvId">
+
+  export type psq_mtvOrderByWithAggregationInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    PsqMtv?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrderInput | SortOrder
+    _count?: psq_mtvCountOrderByAggregateInput
+    _avg?: psq_mtvAvgOrderByAggregateInput
+    _max?: psq_mtvMaxOrderByAggregateInput
+    _min?: psq_mtvMinOrderByAggregateInput
+    _sum?: psq_mtvSumOrderByAggregateInput
+  }
+
+  export type psq_mtvScalarWhereWithAggregatesInput = {
+    AND?: psq_mtvScalarWhereWithAggregatesInput | psq_mtvScalarWhereWithAggregatesInput[]
+    OR?: psq_mtvScalarWhereWithAggregatesInput[]
+    NOT?: psq_mtvScalarWhereWithAggregatesInput | psq_mtvScalarWhereWithAggregatesInput[]
+    PsqTpoId?: IntWithAggregatesFilter<"psq_mtv"> | number
+    PsqMtvId?: IntWithAggregatesFilter<"psq_mtv"> | number
+    PsqMtv?: StringWithAggregatesFilter<"psq_mtv"> | string
+    SttId?: IntWithAggregatesFilter<"psq_mtv"> | number
+    UsrIdAlt?: IntWithAggregatesFilter<"psq_mtv"> | number
+    DtaAlt?: DateTimeWithAggregatesFilter<"psq_mtv"> | Date | string
+    MtvDel?: StringNullableWithAggregatesFilter<"psq_mtv"> | string | null
+  }
+
   export type VwOnibusWhereInput = {
     AND?: VwOnibusWhereInput | VwOnibusWhereInput[]
     OR?: VwOnibusWhereInput[]
     NOT?: VwOnibusWhereInput | VwOnibusWhereInput[]
     RcgIdOrg?: IntNullableFilter<"VwOnibus"> | number | null
+    BrtId?: IntFilter<"VwOnibus"> | number
+    CbtId?: IntNullableFilter<"VwOnibus"> | number | null
+    TipoCombustivel?: StringNullableFilter<"VwOnibus"> | string | null
     EqpItmId?: IntFilter<"VwOnibus"> | number
     Onibus?: StringFilter<"VwOnibus"> | string
     Situacao?: StringFilter<"VwOnibus"> | string
@@ -31144,6 +36422,9 @@ export namespace Prisma {
 
   export type VwOnibusOrderByWithRelationInput = {
     RcgIdOrg?: SortOrderInput | SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrderInput | SortOrder
+    TipoCombustivel?: SortOrderInput | SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -31172,6 +36453,9 @@ export namespace Prisma {
     OR?: VwOnibusWhereInput[]
     NOT?: VwOnibusWhereInput | VwOnibusWhereInput[]
     RcgIdOrg?: IntNullableFilter<"VwOnibus"> | number | null
+    BrtId?: IntFilter<"VwOnibus"> | number
+    CbtId?: IntNullableFilter<"VwOnibus"> | number | null
+    TipoCombustivel?: StringNullableFilter<"VwOnibus"> | string | null
     Onibus?: StringFilter<"VwOnibus"> | string
     Situacao?: StringFilter<"VwOnibus"> | string
     Data_Operacao?: DateTimeNullableFilter<"VwOnibus"> | Date | string | null
@@ -31194,6 +36478,9 @@ export namespace Prisma {
 
   export type VwOnibusOrderByWithAggregationInput = {
     RcgIdOrg?: SortOrderInput | SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrderInput | SortOrder
+    TipoCombustivel?: SortOrderInput | SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -31225,6 +36512,9 @@ export namespace Prisma {
     OR?: VwOnibusScalarWhereWithAggregatesInput[]
     NOT?: VwOnibusScalarWhereWithAggregatesInput | VwOnibusScalarWhereWithAggregatesInput[]
     RcgIdOrg?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    BrtId?: IntWithAggregatesFilter<"VwOnibus"> | number
+    CbtId?: IntNullableWithAggregatesFilter<"VwOnibus"> | number | null
+    TipoCombustivel?: StringNullableWithAggregatesFilter<"VwOnibus"> | string | null
     EqpItmId?: IntWithAggregatesFilter<"VwOnibus"> | number
     Onibus?: StringWithAggregatesFilter<"VwOnibus"> | string
     Situacao?: StringWithAggregatesFilter<"VwOnibus"> | string
@@ -31251,12 +36541,18 @@ export namespace Prisma {
     OR?: VwCarregadorWhereInput[]
     NOT?: VwCarregadorWhereInput | VwCarregadorWhereInput[]
     UndId?: IntFilter<"VwCarregador"> | number
+    Unidade?: StringNullableFilter<"VwCarregador"> | string | null
+    CbtId?: IntNullableFilter<"VwCarregador"> | number | null
+    TipoCombustivel?: StringNullableFilter<"VwCarregador"> | string | null
     EqpItmId?: IntFilter<"VwCarregador"> | number
     Carregador?: StringNullableFilter<"VwCarregador"> | string | null
   }
 
   export type VwCarregadorOrderByWithRelationInput = {
     UndId?: SortOrder
+    Unidade?: SortOrderInput | SortOrder
+    CbtId?: SortOrderInput | SortOrder
+    TipoCombustivel?: SortOrderInput | SortOrder
     EqpItmId?: SortOrder
     Carregador?: SortOrderInput | SortOrder
     _relevance?: VwCarregadorOrderByRelevanceInput
@@ -31268,12 +36564,18 @@ export namespace Prisma {
     OR?: VwCarregadorWhereInput[]
     NOT?: VwCarregadorWhereInput | VwCarregadorWhereInput[]
     UndId?: IntFilter<"VwCarregador"> | number
+    Unidade?: StringNullableFilter<"VwCarregador"> | string | null
+    CbtId?: IntNullableFilter<"VwCarregador"> | number | null
+    TipoCombustivel?: StringNullableFilter<"VwCarregador"> | string | null
     EqpItmId?: IntFilter<"VwCarregador"> | number
     Carregador?: StringNullableFilter<"VwCarregador"> | string | null
   }, "UndId_EqpItmId">
 
   export type VwCarregadorOrderByWithAggregationInput = {
     UndId?: SortOrder
+    Unidade?: SortOrderInput | SortOrder
+    CbtId?: SortOrderInput | SortOrder
+    TipoCombustivel?: SortOrderInput | SortOrder
     EqpItmId?: SortOrder
     Carregador?: SortOrderInput | SortOrder
     _count?: VwCarregadorCountOrderByAggregateInput
@@ -31288,6 +36590,9 @@ export namespace Prisma {
     OR?: VwCarregadorScalarWhereWithAggregatesInput[]
     NOT?: VwCarregadorScalarWhereWithAggregatesInput | VwCarregadorScalarWhereWithAggregatesInput[]
     UndId?: IntWithAggregatesFilter<"VwCarregador"> | number
+    Unidade?: StringNullableWithAggregatesFilter<"VwCarregador"> | string | null
+    CbtId?: IntNullableWithAggregatesFilter<"VwCarregador"> | number | null
+    TipoCombustivel?: StringNullableWithAggregatesFilter<"VwCarregador"> | string | null
     EqpItmId?: IntWithAggregatesFilter<"VwCarregador"> | number
     Carregador?: StringNullableWithAggregatesFilter<"VwCarregador"> | string | null
   }
@@ -31352,14 +36657,18 @@ export namespace Prisma {
     OR?: VwPostoRecargaWhereInput[]
     NOT?: VwPostoRecargaWhereInput | VwPostoRecargaWhereInput[]
     UndId?: IntFilter<"VwPostoRecarga"> | number
-    PostoRecarga?: StringFilter<"VwPostoRecarga"> | string
+    PostoRecarga?: StringNullableFilter<"VwPostoRecarga"> | string | null
+    CbtId?: IntNullableFilter<"VwPostoRecarga"> | number | null
+    TipoCombustivel?: StringNullableFilter<"VwPostoRecarga"> | string | null
     Latitude?: StringNullableFilter<"VwPostoRecarga"> | string | null
     Longitude?: StringNullableFilter<"VwPostoRecarga"> | string | null
   }
 
   export type VwPostoRecargaOrderByWithRelationInput = {
     UndId?: SortOrder
-    PostoRecarga?: SortOrder
+    PostoRecarga?: SortOrderInput | SortOrder
+    CbtId?: SortOrderInput | SortOrder
+    TipoCombustivel?: SortOrderInput | SortOrder
     Latitude?: SortOrderInput | SortOrder
     Longitude?: SortOrderInput | SortOrder
     _relevance?: VwPostoRecargaOrderByRelevanceInput
@@ -31370,14 +36679,18 @@ export namespace Prisma {
     AND?: VwPostoRecargaWhereInput | VwPostoRecargaWhereInput[]
     OR?: VwPostoRecargaWhereInput[]
     NOT?: VwPostoRecargaWhereInput | VwPostoRecargaWhereInput[]
-    PostoRecarga?: StringFilter<"VwPostoRecarga"> | string
+    PostoRecarga?: StringNullableFilter<"VwPostoRecarga"> | string | null
+    CbtId?: IntNullableFilter<"VwPostoRecarga"> | number | null
+    TipoCombustivel?: StringNullableFilter<"VwPostoRecarga"> | string | null
     Latitude?: StringNullableFilter<"VwPostoRecarga"> | string | null
     Longitude?: StringNullableFilter<"VwPostoRecarga"> | string | null
   }, "UndId">
 
   export type VwPostoRecargaOrderByWithAggregationInput = {
     UndId?: SortOrder
-    PostoRecarga?: SortOrder
+    PostoRecarga?: SortOrderInput | SortOrder
+    CbtId?: SortOrderInput | SortOrder
+    TipoCombustivel?: SortOrderInput | SortOrder
     Latitude?: SortOrderInput | SortOrder
     Longitude?: SortOrderInput | SortOrder
     _count?: VwPostoRecargaCountOrderByAggregateInput
@@ -31392,7 +36705,9 @@ export namespace Prisma {
     OR?: VwPostoRecargaScalarWhereWithAggregatesInput[]
     NOT?: VwPostoRecargaScalarWhereWithAggregatesInput | VwPostoRecargaScalarWhereWithAggregatesInput[]
     UndId?: IntWithAggregatesFilter<"VwPostoRecarga"> | number
-    PostoRecarga?: StringWithAggregatesFilter<"VwPostoRecarga"> | string
+    PostoRecarga?: StringNullableWithAggregatesFilter<"VwPostoRecarga"> | string | null
+    CbtId?: IntNullableWithAggregatesFilter<"VwPostoRecarga"> | number | null
+    TipoCombustivel?: StringNullableWithAggregatesFilter<"VwPostoRecarga"> | string | null
     Latitude?: StringNullableWithAggregatesFilter<"VwPostoRecarga"> | string | null
     Longitude?: StringNullableWithAggregatesFilter<"VwPostoRecarga"> | string | null
   }
@@ -31940,6 +37255,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -31954,17 +37271,20 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -31974,11 +37294,14 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUpdateInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31993,17 +37316,20 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32013,17 +37339,20 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmCreateManyInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -32035,6 +37364,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateManyMutationInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32045,11 +37376,13 @@ export namespace Prisma {
 
   export type eqp_itmUncheckedUpdateManyInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32492,9 +37825,15 @@ export namespace Prisma {
   export type psq_rspCreateInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_tpo: psq_tpoCreateNestedOneWithoutPsq_rspInput
@@ -32502,30 +37841,44 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutPsq_rspInput
     usr: usrCreateNestedOneWithoutPsq_rspInput
     psq_prg: psq_prgCreateNestedOneWithoutPsq_rspInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUncheckedCreateInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_tpo?: psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput
@@ -32533,34 +37886,48 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutPsq_rspNestedInput
     usr?: usrUpdateOneRequiredWithoutPsq_rspNestedInput
     psq_prg?: psq_prgUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspCreateManyInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -32570,9 +37937,15 @@ export namespace Prisma {
   export type psq_rspUpdateManyMutationInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -32580,13 +37953,19 @@ export namespace Prisma {
   export type psq_rspUncheckedUpdateManyInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32595,6 +37974,7 @@ export namespace Prisma {
 
   export type psq_tpoCreateInput = {
     PsqTpo: string
+    icone?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_prg?: psq_prgCreateNestedManyWithoutPsq_tpoInput
@@ -32606,6 +37986,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedCreateInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -32616,6 +37997,7 @@ export namespace Prisma {
 
   export type psq_tpoUpdateInput = {
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_prg?: psq_prgUpdateManyWithoutPsq_tpoNestedInput
@@ -32627,6 +38009,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32638,6 +38021,7 @@ export namespace Prisma {
   export type psq_tpoCreateManyInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -32646,6 +38030,7 @@ export namespace Prisma {
 
   export type psq_tpoUpdateManyMutationInput = {
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -32653,6 +38038,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateManyInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32660,13 +38046,17 @@ export namespace Prisma {
   }
 
   export type rcgCreateInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -32678,8 +38068,6 @@ export namespace Prisma {
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
@@ -32692,6 +38080,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -32699,6 +38088,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -32709,17 +38100,20 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgUpdateInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -32731,8 +38125,6 @@ export namespace Prisma {
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
@@ -32745,6 +38137,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32752,6 +38145,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -32762,7 +38157,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgCreateManyInput = {
@@ -32772,6 +38166,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -32779,6 +38174,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -32792,13 +38189,17 @@ export namespace Prisma {
   }
 
   export type rcgUpdateManyMutationInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -32815,6 +38216,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32822,6 +38224,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -32850,14 +38254,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateInput = {
@@ -32877,14 +38284,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttUpdateInput = {
@@ -32903,14 +38313,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateInput = {
@@ -32930,14 +38343,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type sttCreateManyInput = {
@@ -33055,16 +38471,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateInput = {
@@ -33089,12 +38508,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrUpdateInput = {
@@ -33114,16 +38536,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateInput = {
@@ -33148,12 +38573,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type usrCreateManyInput = {
@@ -33262,8 +38690,271 @@ export namespace Prisma {
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type psq_rsp_ftoCreateInput = {
+    PqsRspFtoUrl?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutPsq_rsp_ftoInput
+    usr: usrCreateNestedOneWithoutPsq_rsp_ftoInput
+    psq_rsp: psq_rspCreateNestedOneWithoutPsq_rsp_ftoInput
+  }
+
+  export type psq_rsp_ftoUncheckedCreateInput = {
+    PqsRspFto_id?: number
+    PsqRspId: number
+    PqsRspFtoUrl?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoUpdateInput = {
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    stt?: sttUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+    psq_rsp?: psq_rspUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoCreateManyInput = {
+    PqsRspFto_id?: number
+    PsqRspId: number
+    PqsRspFtoUrl?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoUpdateManyMutationInput = {
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateManyInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type brtCreateInput = {
+    BrtNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type brtUncheckedCreateInput = {
+    BrtId?: number
+    BrtNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type brtUpdateInput = {
+    BrtNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type brtUncheckedUpdateInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    BrtNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type brtCreateManyInput = {
+    BrtId?: number
+    BrtNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type brtUpdateManyMutationInput = {
+    BrtNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type brtUncheckedUpdateManyInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    BrtNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmCreateInput = {
+    BrtId: number
+    PsqTpoId: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    eqp_itm: eqp_itmCreateNestedOneWithoutPsq_tpo_itmInput
+    stt?: sttCreateNestedOneWithoutPsq_tpo_itmInput
+    usr: usrCreateNestedOneWithoutPsq_tpo_itmInput
+  }
+
+  export type psq_tpo_itmUncheckedCreateInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmUpdateInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    eqp_itm?: eqp_itmUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+    stt?: sttUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+  }
+
+  export type psq_tpo_itmUncheckedUpdateInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmCreateManyInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmUpdateManyMutationInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_mtvCreateInput = {
+    PsqTpoId: number
+    PsqMtv: string
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutPsq_mtvInput
+    usr: usrCreateNestedOneWithoutPsq_mtvInput
+  }
+
+  export type psq_mtvUncheckedCreateInput = {
+    PsqTpoId: number
+    PsqMtvId?: number
+    PsqMtv: string
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_mtvUpdateInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    stt?: sttUpdateOneRequiredWithoutPsq_mtvNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_mtvNestedInput
+  }
+
+  export type psq_mtvUncheckedUpdateInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtvId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_mtvCreateManyInput = {
+    PsqTpoId: number
+    PsqMtvId?: number
+    PsqMtv: string
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_mtvUpdateManyMutationInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_mtvUncheckedUpdateManyInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtvId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type VwOnibusCreateInput = {
     RcgIdOrg?: number | null
+    BrtId: number
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -33287,6 +38978,9 @@ export namespace Prisma {
 
   export type VwOnibusUncheckedCreateInput = {
     RcgIdOrg?: number | null
+    BrtId: number
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -33310,6 +39004,9 @@ export namespace Prisma {
 
   export type VwOnibusUpdateInput = {
     RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
+    BrtId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -33333,6 +39030,9 @@ export namespace Prisma {
 
   export type VwOnibusUncheckedUpdateInput = {
     RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
+    BrtId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -33356,6 +39056,9 @@ export namespace Prisma {
 
   export type VwOnibusCreateManyInput = {
     RcgIdOrg?: number | null
+    BrtId: number
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     EqpItmId: number
     Onibus: string
     Situacao: string
@@ -33379,6 +39082,9 @@ export namespace Prisma {
 
   export type VwOnibusUpdateManyMutationInput = {
     RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
+    BrtId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -33402,6 +39108,9 @@ export namespace Prisma {
 
   export type VwOnibusUncheckedUpdateManyInput = {
     RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
+    BrtId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Onibus?: StringFieldUpdateOperationsInput | string
     Situacao?: StringFieldUpdateOperationsInput | string
@@ -33425,42 +39134,63 @@ export namespace Prisma {
 
   export type VwCarregadorCreateInput = {
     UndId: number
+    Unidade?: string | null
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     EqpItmId: number
     Carregador?: string | null
   }
 
   export type VwCarregadorUncheckedCreateInput = {
     UndId: number
+    Unidade?: string | null
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     EqpItmId: number
     Carregador?: string | null
   }
 
   export type VwCarregadorUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    Unidade?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Carregador?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VwCarregadorUncheckedUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    Unidade?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Carregador?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VwCarregadorCreateManyInput = {
     UndId: number
+    Unidade?: string | null
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     EqpItmId: number
     Carregador?: string | null
   }
 
   export type VwCarregadorUpdateManyMutationInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    Unidade?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Carregador?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VwCarregadorUncheckedUpdateManyInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    Unidade?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmId?: IntFieldUpdateOperationsInput | number
     Carregador?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -33523,49 +39253,63 @@ export namespace Prisma {
 
   export type VwPostoRecargaCreateInput = {
     UndId: number
-    PostoRecarga: string
+    PostoRecarga?: string | null
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     Latitude?: string | null
     Longitude?: string | null
   }
 
   export type VwPostoRecargaUncheckedCreateInput = {
     UndId: number
-    PostoRecarga: string
+    PostoRecarga?: string | null
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     Latitude?: string | null
     Longitude?: string | null
   }
 
   export type VwPostoRecargaUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
-    PostoRecarga?: StringFieldUpdateOperationsInput | string
+    PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     Latitude?: NullableStringFieldUpdateOperationsInput | string | null
     Longitude?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VwPostoRecargaUncheckedUpdateInput = {
     UndId?: IntFieldUpdateOperationsInput | number
-    PostoRecarga?: StringFieldUpdateOperationsInput | string
+    PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     Latitude?: NullableStringFieldUpdateOperationsInput | string | null
     Longitude?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VwPostoRecargaCreateManyInput = {
     UndId: number
-    PostoRecarga: string
+    PostoRecarga?: string | null
+    CbtId?: number | null
+    TipoCombustivel?: string | null
     Latitude?: string | null
     Longitude?: string | null
   }
 
   export type VwPostoRecargaUpdateManyMutationInput = {
     UndId?: IntFieldUpdateOperationsInput | number
-    PostoRecarga?: StringFieldUpdateOperationsInput | string
+    PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     Latitude?: NullableStringFieldUpdateOperationsInput | string | null
     Longitude?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VwPostoRecargaUncheckedUpdateManyInput = {
     UndId?: IntFieldUpdateOperationsInput | number
-    PostoRecarga?: StringFieldUpdateOperationsInput | string
+    PostoRecarga?: NullableStringFieldUpdateOperationsInput | string | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    TipoCombustivel?: NullableStringFieldUpdateOperationsInput | string | null
     Latitude?: NullableStringFieldUpdateOperationsInput | string | null
     Longitude?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -34156,6 +39900,16 @@ export namespace Prisma {
     isNot?: frnWhereInput
   }
 
+  export type Psq_tpo_itmListRelationFilter = {
+    every?: psq_tpo_itmWhereInput
+    some?: psq_tpo_itmWhereInput
+    none?: psq_tpo_itmWhereInput
+  }
+
+  export type psq_tpo_itmOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type eqp_itmOrderByRelevanceInput = {
     fields: eqp_itmOrderByRelevanceFieldEnum | eqp_itmOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -34164,11 +39918,13 @@ export namespace Prisma {
 
   export type eqp_itmCountOrderByAggregateInput = {
     UndId?: SortOrder
+    BrtId?: SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrder
     EqpItmCdg?: SortOrder
     EqpItmPlc?: SortOrder
     EqpItmAnoMdl?: SortOrder
@@ -34181,22 +39937,26 @@ export namespace Prisma {
 
   export type eqp_itmAvgOrderByAggregateInput = {
     UndId?: SortOrder
+    BrtId?: SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
   }
 
   export type eqp_itmMaxOrderByAggregateInput = {
     UndId?: SortOrder
+    BrtId?: SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrder
     EqpItmCdg?: SortOrder
     EqpItmPlc?: SortOrder
     EqpItmAnoMdl?: SortOrder
@@ -34209,11 +39969,13 @@ export namespace Prisma {
 
   export type eqp_itmMinOrderByAggregateInput = {
     UndId?: SortOrder
+    BrtId?: SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrder
     EqpItmCdg?: SortOrder
     EqpItmPlc?: SortOrder
     EqpItmAnoMdl?: SortOrder
@@ -34226,11 +39988,13 @@ export namespace Prisma {
 
   export type eqp_itmSumOrderByAggregateInput = {
     UndId?: SortOrder
+    BrtId?: SortOrder
     FrnId?: SortOrder
     EqpTpoId?: SortOrder
     EqpFbrId?: SortOrder
     EqpMdlId?: SortOrder
     EqpItmId?: SortOrder
+    CbtId?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
   }
@@ -34607,6 +40371,16 @@ export namespace Prisma {
     isNot?: psq_prgWhereInput
   }
 
+  export type Psq_rsp_ftoListRelationFilter = {
+    every?: psq_rsp_ftoWhereInput
+    some?: psq_rsp_ftoWhereInput
+    none?: psq_rsp_ftoWhereInput
+  }
+
+  export type psq_rsp_ftoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type psq_rspOrderByRelevanceInput = {
     fields: psq_rspOrderByRelevanceFieldEnum | psq_rspOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -34619,10 +40393,16 @@ export namespace Prisma {
     TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrder
+    EqpItmId?: SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
     PsqDth?: SortOrder
+    PsqMtvId?: SortOrder
+    GpsLat?: SortOrder
+    GpsLon?: SortOrder
+    GpsAlt?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -34634,9 +40414,12 @@ export namespace Prisma {
     TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrder
+    EqpItmId?: SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
+    PsqMtvId?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
   }
@@ -34647,10 +40430,16 @@ export namespace Prisma {
     TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrder
+    EqpItmId?: SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
     PsqDth?: SortOrder
+    PsqMtvId?: SortOrder
+    GpsLat?: SortOrder
+    GpsLon?: SortOrder
+    GpsAlt?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -34663,10 +40452,16 @@ export namespace Prisma {
     TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrder
+    EqpItmId?: SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
     PsqDth?: SortOrder
+    PsqMtvId?: SortOrder
+    GpsLat?: SortOrder
+    GpsLon?: SortOrder
+    GpsAlt?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -34678,9 +40473,12 @@ export namespace Prisma {
     TrnId?: SortOrder
     PsqId?: SortOrder
     PsqTpoId?: SortOrder
+    BrtId?: SortOrder
+    EqpItmId?: SortOrder
     PsqPrgId?: SortOrder
     PsqRspId?: SortOrder
     PsqRsp?: SortOrder
+    PsqMtvId?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
   }
@@ -34704,6 +40502,7 @@ export namespace Prisma {
   export type psq_tpoCountOrderByAggregateInput = {
     PsqTpoId?: SortOrder
     PsqTpo?: SortOrder
+    icone?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -34719,6 +40518,7 @@ export namespace Prisma {
   export type psq_tpoMaxOrderByAggregateInput = {
     PsqTpoId?: SortOrder
     PsqTpo?: SortOrder
+    icone?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -34728,6 +40528,7 @@ export namespace Prisma {
   export type psq_tpoMinOrderByAggregateInput = {
     PsqTpoId?: SortOrder
     PsqTpo?: SortOrder
+    icone?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
@@ -34751,11 +40552,6 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type RcgNullableScalarRelationFilter = {
-    is?: rcgWhereInput | null
-    isNot?: rcgWhereInput | null
-  }
-
   export type rcgOrderByRelevanceInput = {
     fields: rcgOrderByRelevanceFieldEnum | rcgOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -34769,6 +40565,7 @@ export namespace Prisma {
     DtaOpe?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     DtaIni?: SortOrder
@@ -34776,6 +40573,8 @@ export namespace Prisma {
     SocIni?: SortOrder
     SocFin?: SortOrder
     RcgKwh?: SortOrder
+    TmpAmb?: SortOrder
+    PrsBar?: SortOrder
     OdoIni?: SortOrder
     OdoFin?: SortOrder
     SttRcgId?: SortOrder
@@ -34794,11 +40593,14 @@ export namespace Prisma {
     EmpId?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     SocIni?: SortOrder
     SocFin?: SortOrder
     RcgKwh?: SortOrder
+    TmpAmb?: SortOrder
+    PrsBar?: SortOrder
     OdoIni?: SortOrder
     OdoFin?: SortOrder
     SttRcgId?: SortOrder
@@ -34815,6 +40617,7 @@ export namespace Prisma {
     DtaOpe?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     DtaIni?: SortOrder
@@ -34822,6 +40625,8 @@ export namespace Prisma {
     SocIni?: SortOrder
     SocFin?: SortOrder
     RcgKwh?: SortOrder
+    TmpAmb?: SortOrder
+    PrsBar?: SortOrder
     OdoIni?: SortOrder
     OdoFin?: SortOrder
     SttRcgId?: SortOrder
@@ -34841,6 +40646,7 @@ export namespace Prisma {
     DtaOpe?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     DtaIni?: SortOrder
@@ -34848,6 +40654,8 @@ export namespace Prisma {
     SocIni?: SortOrder
     SocFin?: SortOrder
     RcgKwh?: SortOrder
+    TmpAmb?: SortOrder
+    PrsBar?: SortOrder
     OdoIni?: SortOrder
     OdoFin?: SortOrder
     SttRcgId?: SortOrder
@@ -34866,11 +40674,14 @@ export namespace Prisma {
     EmpId?: SortOrder
     UndId?: SortOrder
     VclId?: SortOrder
+    CbtId?: SortOrder
     CrrId?: SortOrder
     CrrCnc?: SortOrder
     SocIni?: SortOrder
     SocFin?: SortOrder
     RcgKwh?: SortOrder
+    TmpAmb?: SortOrder
+    PrsBar?: SortOrder
     OdoIni?: SortOrder
     OdoFin?: SortOrder
     SttRcgId?: SortOrder
@@ -34930,22 +40741,28 @@ export namespace Prisma {
     none?: psqWhereInput
   }
 
+  export type Psq_mtvListRelationFilter = {
+    every?: psq_mtvWhereInput
+    some?: psq_mtvWhereInput
+    none?: psq_mtvWhereInput
+  }
+
   export type Psq_tpoListRelationFilter = {
     every?: psq_tpoWhereInput
     some?: psq_tpoWhereInput
     none?: psq_tpoWhereInput
   }
 
-  export type Usr_tpoListRelationFilter = {
-    every?: usr_tpoWhereInput
-    some?: usr_tpoWhereInput
-    none?: usr_tpoWhereInput
-  }
-
   export type TrnListRelationFilter = {
     every?: trnWhereInput
     some?: trnWhereInput
     none?: trnWhereInput
+  }
+
+  export type Usr_tpoListRelationFilter = {
+    every?: usr_tpoWhereInput
+    some?: usr_tpoWhereInput
+    none?: usr_tpoWhereInput
   }
 
   export type cbtOrderByRelationAggregateInput = {
@@ -34972,15 +40789,19 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type psq_mtvOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type psq_tpoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type usr_tpoOrderByRelationAggregateInput = {
+  export type trnOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type trnOrderByRelationAggregateInput = {
+  export type usr_tpoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -35200,6 +41021,213 @@ export namespace Prisma {
     UsrIdAlt?: SortOrder
   }
 
+  export type Psq_rspScalarRelationFilter = {
+    is?: psq_rspWhereInput
+    isNot?: psq_rspWhereInput
+  }
+
+  export type psq_rsp_ftoOrderByRelevanceInput = {
+    fields: psq_rsp_ftoOrderByRelevanceFieldEnum | psq_rsp_ftoOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type psq_rsp_ftoCountOrderByAggregateInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    PqsRspFtoUrl?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_rsp_ftoAvgOrderByAggregateInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type psq_rsp_ftoMaxOrderByAggregateInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    PqsRspFtoUrl?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_rsp_ftoMinOrderByAggregateInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    PqsRspFtoUrl?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_rsp_ftoSumOrderByAggregateInput = {
+    PqsRspFto_id?: SortOrder
+    PsqRspId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type brtOrderByRelevanceInput = {
+    fields: brtOrderByRelevanceFieldEnum | brtOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type brtCountOrderByAggregateInput = {
+    BrtId?: SortOrder
+    BrtNme?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type brtAvgOrderByAggregateInput = {
+    BrtId?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type brtMaxOrderByAggregateInput = {
+    BrtId?: SortOrder
+    BrtNme?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type brtMinOrderByAggregateInput = {
+    BrtId?: SortOrder
+    BrtNme?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type brtSumOrderByAggregateInput = {
+    BrtId?: SortOrder
+    SttIdAtu?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type psq_tpo_itmOrderByRelevanceInput = {
+    fields: psq_tpo_itmOrderByRelevanceFieldEnum | psq_tpo_itmOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type psq_tpo_itmCountOrderByAggregateInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_tpo_itmAvgOrderByAggregateInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type psq_tpo_itmMaxOrderByAggregateInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_tpo_itmMinOrderByAggregateInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_tpo_itmSumOrderByAggregateInput = {
+    PsqTpoItmId?: SortOrder
+    BrtId?: SortOrder
+    PsqTpoId?: SortOrder
+    EqpItmId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type psq_mtvOrderByRelevanceInput = {
+    fields: psq_mtvOrderByRelevanceFieldEnum | psq_mtvOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type psq_mtvCountOrderByAggregateInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    PsqMtv?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_mtvAvgOrderByAggregateInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
+  export type psq_mtvMaxOrderByAggregateInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    PsqMtv?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_mtvMinOrderByAggregateInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    PsqMtv?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+    DtaAlt?: SortOrder
+    MtvDel?: SortOrder
+  }
+
+  export type psq_mtvSumOrderByAggregateInput = {
+    PsqTpoId?: SortOrder
+    PsqMtvId?: SortOrder
+    SttId?: SortOrder
+    UsrIdAlt?: SortOrder
+  }
+
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -35230,6 +41258,9 @@ export namespace Prisma {
 
   export type VwOnibusCountOrderByAggregateInput = {
     RcgIdOrg?: SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -35253,6 +41284,8 @@ export namespace Prisma {
 
   export type VwOnibusAvgOrderByAggregateInput = {
     RcgIdOrg?: SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrder
     EqpItmId?: SortOrder
     UndId?: SortOrder
     CrrId?: SortOrder
@@ -35268,6 +41301,9 @@ export namespace Prisma {
 
   export type VwOnibusMaxOrderByAggregateInput = {
     RcgIdOrg?: SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -35291,6 +41327,9 @@ export namespace Prisma {
 
   export type VwOnibusMinOrderByAggregateInput = {
     RcgIdOrg?: SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     EqpItmId?: SortOrder
     Onibus?: SortOrder
     Situacao?: SortOrder
@@ -35314,6 +41353,8 @@ export namespace Prisma {
 
   export type VwOnibusSumOrderByAggregateInput = {
     RcgIdOrg?: SortOrder
+    BrtId?: SortOrder
+    CbtId?: SortOrder
     EqpItmId?: SortOrder
     UndId?: SortOrder
     CrrId?: SortOrder
@@ -35372,29 +41413,40 @@ export namespace Prisma {
 
   export type VwCarregadorCountOrderByAggregateInput = {
     UndId?: SortOrder
+    Unidade?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     EqpItmId?: SortOrder
     Carregador?: SortOrder
   }
 
   export type VwCarregadorAvgOrderByAggregateInput = {
     UndId?: SortOrder
+    CbtId?: SortOrder
     EqpItmId?: SortOrder
   }
 
   export type VwCarregadorMaxOrderByAggregateInput = {
     UndId?: SortOrder
+    Unidade?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     EqpItmId?: SortOrder
     Carregador?: SortOrder
   }
 
   export type VwCarregadorMinOrderByAggregateInput = {
     UndId?: SortOrder
+    Unidade?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     EqpItmId?: SortOrder
     Carregador?: SortOrder
   }
 
   export type VwCarregadorSumOrderByAggregateInput = {
     UndId?: SortOrder
+    CbtId?: SortOrder
     EqpItmId?: SortOrder
   }
 
@@ -35449,17 +41501,22 @@ export namespace Prisma {
   export type VwPostoRecargaCountOrderByAggregateInput = {
     UndId?: SortOrder
     PostoRecarga?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     Latitude?: SortOrder
     Longitude?: SortOrder
   }
 
   export type VwPostoRecargaAvgOrderByAggregateInput = {
     UndId?: SortOrder
+    CbtId?: SortOrder
   }
 
   export type VwPostoRecargaMaxOrderByAggregateInput = {
     UndId?: SortOrder
     PostoRecarga?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     Latitude?: SortOrder
     Longitude?: SortOrder
   }
@@ -35467,12 +41524,15 @@ export namespace Prisma {
   export type VwPostoRecargaMinOrderByAggregateInput = {
     UndId?: SortOrder
     PostoRecarga?: SortOrder
+    CbtId?: SortOrder
+    TipoCombustivel?: SortOrder
     Latitude?: SortOrder
     Longitude?: SortOrder
   }
 
   export type VwPostoRecargaSumOrderByAggregateInput = {
     UndId?: SortOrder
+    CbtId?: SortOrder
   }
 
   export type VwTurnoAtualOrderByRelevanceInput = {
@@ -36016,6 +42076,13 @@ export namespace Prisma {
     connect?: eqp_locWhereUniqueInput | eqp_locWhereUniqueInput[]
   }
 
+  export type psq_tpo_itmCreateNestedManyWithoutEqp_itmInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutEqp_itmInput, psq_tpo_itmUncheckedCreateWithoutEqp_itmInput> | psq_tpo_itmCreateWithoutEqp_itmInput[] | psq_tpo_itmUncheckedCreateWithoutEqp_itmInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutEqp_itmInput | psq_tpo_itmCreateOrConnectWithoutEqp_itmInput[]
+    createMany?: psq_tpo_itmCreateManyEqp_itmInputEnvelope
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+  }
+
   export type rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
     create?: XOR<rcgCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput, rcgUncheckedCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput> | rcgCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput[] | rcgUncheckedCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput[]
     connectOrCreate?: rcgCreateOrConnectWithoutEqp_itm_rcg_CrrIdToeqp_itmInput | rcgCreateOrConnectWithoutEqp_itm_rcg_CrrIdToeqp_itmInput[]
@@ -36035,6 +42102,13 @@ export namespace Prisma {
     connectOrCreate?: eqp_locCreateOrConnectWithoutEqp_itmInput | eqp_locCreateOrConnectWithoutEqp_itmInput[]
     createMany?: eqp_locCreateManyEqp_itmInputEnvelope
     connect?: eqp_locWhereUniqueInput | eqp_locWhereUniqueInput[]
+  }
+
+  export type psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutEqp_itmInput, psq_tpo_itmUncheckedCreateWithoutEqp_itmInput> | psq_tpo_itmCreateWithoutEqp_itmInput[] | psq_tpo_itmUncheckedCreateWithoutEqp_itmInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutEqp_itmInput | psq_tpo_itmCreateOrConnectWithoutEqp_itmInput[]
+    createMany?: psq_tpo_itmCreateManyEqp_itmInputEnvelope
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
   }
 
   export type rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
@@ -36121,6 +42195,20 @@ export namespace Prisma {
     deleteMany?: eqp_locScalarWhereInput | eqp_locScalarWhereInput[]
   }
 
+  export type psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutEqp_itmInput, psq_tpo_itmUncheckedCreateWithoutEqp_itmInput> | psq_tpo_itmCreateWithoutEqp_itmInput[] | psq_tpo_itmUncheckedCreateWithoutEqp_itmInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutEqp_itmInput | psq_tpo_itmCreateOrConnectWithoutEqp_itmInput[]
+    upsert?: psq_tpo_itmUpsertWithWhereUniqueWithoutEqp_itmInput | psq_tpo_itmUpsertWithWhereUniqueWithoutEqp_itmInput[]
+    createMany?: psq_tpo_itmCreateManyEqp_itmInputEnvelope
+    set?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    disconnect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    delete?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    update?: psq_tpo_itmUpdateWithWhereUniqueWithoutEqp_itmInput | psq_tpo_itmUpdateWithWhereUniqueWithoutEqp_itmInput[]
+    updateMany?: psq_tpo_itmUpdateManyWithWhereWithoutEqp_itmInput | psq_tpo_itmUpdateManyWithWhereWithoutEqp_itmInput[]
+    deleteMany?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
+  }
+
   export type rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput = {
     create?: XOR<rcgCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput, rcgUncheckedCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput> | rcgCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput[] | rcgUncheckedCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput[]
     connectOrCreate?: rcgCreateOrConnectWithoutEqp_itm_rcg_CrrIdToeqp_itmInput | rcgCreateOrConnectWithoutEqp_itm_rcg_CrrIdToeqp_itmInput[]
@@ -36161,6 +42249,20 @@ export namespace Prisma {
     update?: eqp_locUpdateWithWhereUniqueWithoutEqp_itmInput | eqp_locUpdateWithWhereUniqueWithoutEqp_itmInput[]
     updateMany?: eqp_locUpdateManyWithWhereWithoutEqp_itmInput | eqp_locUpdateManyWithWhereWithoutEqp_itmInput[]
     deleteMany?: eqp_locScalarWhereInput | eqp_locScalarWhereInput[]
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutEqp_itmInput, psq_tpo_itmUncheckedCreateWithoutEqp_itmInput> | psq_tpo_itmCreateWithoutEqp_itmInput[] | psq_tpo_itmUncheckedCreateWithoutEqp_itmInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutEqp_itmInput | psq_tpo_itmCreateOrConnectWithoutEqp_itmInput[]
+    upsert?: psq_tpo_itmUpsertWithWhereUniqueWithoutEqp_itmInput | psq_tpo_itmUpsertWithWhereUniqueWithoutEqp_itmInput[]
+    createMany?: psq_tpo_itmCreateManyEqp_itmInputEnvelope
+    set?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    disconnect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    delete?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    update?: psq_tpo_itmUpdateWithWhereUniqueWithoutEqp_itmInput | psq_tpo_itmUpdateWithWhereUniqueWithoutEqp_itmInput[]
+    updateMany?: psq_tpo_itmUpdateManyWithWhereWithoutEqp_itmInput | psq_tpo_itmUpdateManyWithWhereWithoutEqp_itmInput[]
+    deleteMany?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
   }
 
   export type rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput = {
@@ -36775,6 +42877,20 @@ export namespace Prisma {
     connect?: psq_prgWhereUniqueInput
   }
 
+  export type psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutPsq_rspInput, psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput> | psq_rsp_ftoCreateWithoutPsq_rspInput[] | psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput | psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput[]
+    createMany?: psq_rsp_ftoCreateManyPsq_rspInputEnvelope
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+  }
+
+  export type psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutPsq_rspInput, psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput> | psq_rsp_ftoCreateWithoutPsq_rspInput[] | psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput | psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput[]
+    createMany?: psq_rsp_ftoCreateManyPsq_rspInputEnvelope
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+  }
+
   export type psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput = {
     create?: XOR<psq_tpoCreateWithoutPsq_rspInput, psq_tpoUncheckedCreateWithoutPsq_rspInput>
     connectOrCreate?: psq_tpoCreateOrConnectWithoutPsq_rspInput
@@ -36813,6 +42929,34 @@ export namespace Prisma {
     upsert?: psq_prgUpsertWithoutPsq_rspInput
     connect?: psq_prgWhereUniqueInput
     update?: XOR<XOR<psq_prgUpdateToOneWithWhereWithoutPsq_rspInput, psq_prgUpdateWithoutPsq_rspInput>, psq_prgUncheckedUpdateWithoutPsq_rspInput>
+  }
+
+  export type psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutPsq_rspInput, psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput> | psq_rsp_ftoCreateWithoutPsq_rspInput[] | psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput | psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput[]
+    upsert?: psq_rsp_ftoUpsertWithWhereUniqueWithoutPsq_rspInput | psq_rsp_ftoUpsertWithWhereUniqueWithoutPsq_rspInput[]
+    createMany?: psq_rsp_ftoCreateManyPsq_rspInputEnvelope
+    set?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    disconnect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    delete?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    update?: psq_rsp_ftoUpdateWithWhereUniqueWithoutPsq_rspInput | psq_rsp_ftoUpdateWithWhereUniqueWithoutPsq_rspInput[]
+    updateMany?: psq_rsp_ftoUpdateManyWithWhereWithoutPsq_rspInput | psq_rsp_ftoUpdateManyWithWhereWithoutPsq_rspInput[]
+    deleteMany?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutPsq_rspInput, psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput> | psq_rsp_ftoCreateWithoutPsq_rspInput[] | psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput | psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput[]
+    upsert?: psq_rsp_ftoUpsertWithWhereUniqueWithoutPsq_rspInput | psq_rsp_ftoUpsertWithWhereUniqueWithoutPsq_rspInput[]
+    createMany?: psq_rsp_ftoCreateManyPsq_rspInputEnvelope
+    set?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    disconnect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    delete?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    update?: psq_rsp_ftoUpdateWithWhereUniqueWithoutPsq_rspInput | psq_rsp_ftoUpdateWithWhereUniqueWithoutPsq_rspInput[]
+    updateMany?: psq_rsp_ftoUpdateManyWithWhereWithoutPsq_rspInput | psq_rsp_ftoUpdateManyWithWhereWithoutPsq_rspInput[]
+    deleteMany?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
   }
 
   export type psq_prgCreateNestedManyWithoutPsq_tpoInput = {
@@ -36951,19 +43095,6 @@ export namespace Prisma {
     connect?: eqp_itmWhereUniqueInput
   }
 
-  export type rcgCreateNestedOneWithoutOther_rcgInput = {
-    create?: XOR<rcgCreateWithoutOther_rcgInput, rcgUncheckedCreateWithoutOther_rcgInput>
-    connectOrCreate?: rcgCreateOrConnectWithoutOther_rcgInput
-    connect?: rcgWhereUniqueInput
-  }
-
-  export type rcgCreateNestedManyWithoutRcgInput = {
-    create?: XOR<rcgCreateWithoutRcgInput, rcgUncheckedCreateWithoutRcgInput> | rcgCreateWithoutRcgInput[] | rcgUncheckedCreateWithoutRcgInput[]
-    connectOrCreate?: rcgCreateOrConnectWithoutRcgInput | rcgCreateOrConnectWithoutRcgInput[]
-    createMany?: rcgCreateManyRcgInputEnvelope
-    connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-  }
-
   export type sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput = {
     create?: XOR<sttCreateWithoutRcg_rcg_SttIdTosttInput, sttUncheckedCreateWithoutRcg_rcg_SttIdTosttInput>
     connectOrCreate?: sttCreateOrConnectWithoutRcg_rcg_SttIdTosttInput
@@ -36980,13 +43111,6 @@ export namespace Prisma {
     create?: XOR<usrCreateWithoutRcgInput, usrUncheckedCreateWithoutRcgInput>
     connectOrCreate?: usrCreateOrConnectWithoutRcgInput
     connect?: usrWhereUniqueInput
-  }
-
-  export type rcgUncheckedCreateNestedManyWithoutRcgInput = {
-    create?: XOR<rcgCreateWithoutRcgInput, rcgUncheckedCreateWithoutRcgInput> | rcgCreateWithoutRcgInput[] | rcgUncheckedCreateWithoutRcgInput[]
-    connectOrCreate?: rcgCreateOrConnectWithoutRcgInput | rcgCreateOrConnectWithoutRcgInput[]
-    createMany?: rcgCreateManyRcgInputEnvelope
-    connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -37025,30 +43149,6 @@ export namespace Prisma {
     update?: XOR<XOR<eqp_itmUpdateToOneWithWhereWithoutRcg_rcg_VclIdToeqp_itmInput, eqp_itmUpdateWithoutRcg_rcg_VclIdToeqp_itmInput>, eqp_itmUncheckedUpdateWithoutRcg_rcg_VclIdToeqp_itmInput>
   }
 
-  export type rcgUpdateOneWithoutOther_rcgNestedInput = {
-    create?: XOR<rcgCreateWithoutOther_rcgInput, rcgUncheckedCreateWithoutOther_rcgInput>
-    connectOrCreate?: rcgCreateOrConnectWithoutOther_rcgInput
-    upsert?: rcgUpsertWithoutOther_rcgInput
-    disconnect?: rcgWhereInput | boolean
-    delete?: rcgWhereInput | boolean
-    connect?: rcgWhereUniqueInput
-    update?: XOR<XOR<rcgUpdateToOneWithWhereWithoutOther_rcgInput, rcgUpdateWithoutOther_rcgInput>, rcgUncheckedUpdateWithoutOther_rcgInput>
-  }
-
-  export type rcgUpdateManyWithoutRcgNestedInput = {
-    create?: XOR<rcgCreateWithoutRcgInput, rcgUncheckedCreateWithoutRcgInput> | rcgCreateWithoutRcgInput[] | rcgUncheckedCreateWithoutRcgInput[]
-    connectOrCreate?: rcgCreateOrConnectWithoutRcgInput | rcgCreateOrConnectWithoutRcgInput[]
-    upsert?: rcgUpsertWithWhereUniqueWithoutRcgInput | rcgUpsertWithWhereUniqueWithoutRcgInput[]
-    createMany?: rcgCreateManyRcgInputEnvelope
-    set?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    disconnect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    delete?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    update?: rcgUpdateWithWhereUniqueWithoutRcgInput | rcgUpdateWithWhereUniqueWithoutRcgInput[]
-    updateMany?: rcgUpdateManyWithWhereWithoutRcgInput | rcgUpdateManyWithWhereWithoutRcgInput[]
-    deleteMany?: rcgScalarWhereInput | rcgScalarWhereInput[]
-  }
-
   export type sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput = {
     create?: XOR<sttCreateWithoutRcg_rcg_SttIdTosttInput, sttUncheckedCreateWithoutRcg_rcg_SttIdTosttInput>
     connectOrCreate?: sttCreateOrConnectWithoutRcg_rcg_SttIdTosttInput
@@ -37071,20 +43171,6 @@ export namespace Prisma {
     upsert?: usrUpsertWithoutRcgInput
     connect?: usrWhereUniqueInput
     update?: XOR<XOR<usrUpdateToOneWithWhereWithoutRcgInput, usrUpdateWithoutRcgInput>, usrUncheckedUpdateWithoutRcgInput>
-  }
-
-  export type rcgUncheckedUpdateManyWithoutRcgNestedInput = {
-    create?: XOR<rcgCreateWithoutRcgInput, rcgUncheckedCreateWithoutRcgInput> | rcgCreateWithoutRcgInput[] | rcgUncheckedCreateWithoutRcgInput[]
-    connectOrCreate?: rcgCreateOrConnectWithoutRcgInput | rcgCreateOrConnectWithoutRcgInput[]
-    upsert?: rcgUpsertWithWhereUniqueWithoutRcgInput | rcgUpsertWithWhereUniqueWithoutRcgInput[]
-    createMany?: rcgCreateManyRcgInputEnvelope
-    set?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    disconnect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    delete?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
-    update?: rcgUpdateWithWhereUniqueWithoutRcgInput | rcgUpdateWithWhereUniqueWithoutRcgInput[]
-    updateMany?: rcgUpdateManyWithWhereWithoutRcgInput | rcgUpdateManyWithWhereWithoutRcgInput[]
-    deleteMany?: rcgScalarWhereInput | rcgScalarWhereInput[]
   }
 
   export type cbtCreateNestedManyWithoutSttInput = {
@@ -37157,6 +43243,13 @@ export namespace Prisma {
     connect?: psqWhereUniqueInput | psqWhereUniqueInput[]
   }
 
+  export type psq_mtvCreateNestedManyWithoutSttInput = {
+    create?: XOR<psq_mtvCreateWithoutSttInput, psq_mtvUncheckedCreateWithoutSttInput> | psq_mtvCreateWithoutSttInput[] | psq_mtvUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutSttInput | psq_mtvCreateOrConnectWithoutSttInput[]
+    createMany?: psq_mtvCreateManySttInputEnvelope
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+  }
+
   export type psq_prgCreateNestedManyWithoutSttInput = {
     create?: XOR<psq_prgCreateWithoutSttInput, psq_prgUncheckedCreateWithoutSttInput> | psq_prgCreateWithoutSttInput[] | psq_prgUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutSttInput | psq_prgCreateOrConnectWithoutSttInput[]
@@ -37171,11 +43264,25 @@ export namespace Prisma {
     connect?: psq_rspWhereUniqueInput | psq_rspWhereUniqueInput[]
   }
 
+  export type psq_rsp_ftoCreateNestedManyWithoutSttInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutSttInput, psq_rsp_ftoUncheckedCreateWithoutSttInput> | psq_rsp_ftoCreateWithoutSttInput[] | psq_rsp_ftoUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutSttInput | psq_rsp_ftoCreateOrConnectWithoutSttInput[]
+    createMany?: psq_rsp_ftoCreateManySttInputEnvelope
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+  }
+
   export type psq_tpoCreateNestedManyWithoutSttInput = {
     create?: XOR<psq_tpoCreateWithoutSttInput, psq_tpoUncheckedCreateWithoutSttInput> | psq_tpoCreateWithoutSttInput[] | psq_tpoUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutSttInput | psq_tpoCreateOrConnectWithoutSttInput[]
     createMany?: psq_tpoCreateManySttInputEnvelope
     connect?: psq_tpoWhereUniqueInput | psq_tpoWhereUniqueInput[]
+  }
+
+  export type psq_tpo_itmCreateNestedManyWithoutSttInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutSttInput, psq_tpo_itmUncheckedCreateWithoutSttInput> | psq_tpo_itmCreateWithoutSttInput[] | psq_tpo_itmUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutSttInput | psq_tpo_itmCreateOrConnectWithoutSttInput[]
+    createMany?: psq_tpo_itmCreateManySttInputEnvelope
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
   }
 
   export type rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput = {
@@ -37192,6 +43299,13 @@ export namespace Prisma {
     connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
   }
 
+  export type trnCreateNestedManyWithoutSttInput = {
+    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
+    createMany?: trnCreateManySttInputEnvelope
+    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+  }
+
   export type usrCreateNestedManyWithoutSttInput = {
     create?: XOR<usrCreateWithoutSttInput, usrUncheckedCreateWithoutSttInput> | usrCreateWithoutSttInput[] | usrUncheckedCreateWithoutSttInput[]
     connectOrCreate?: usrCreateOrConnectWithoutSttInput | usrCreateOrConnectWithoutSttInput[]
@@ -37204,13 +43318,6 @@ export namespace Prisma {
     connectOrCreate?: usr_tpoCreateOrConnectWithoutSttInput | usr_tpoCreateOrConnectWithoutSttInput[]
     createMany?: usr_tpoCreateManySttInputEnvelope
     connect?: usr_tpoWhereUniqueInput | usr_tpoWhereUniqueInput[]
-  }
-
-  export type trnCreateNestedManyWithoutSttInput = {
-    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
-    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
-    createMany?: trnCreateManySttInputEnvelope
-    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
   }
 
   export type cbtUncheckedCreateNestedManyWithoutSttInput = {
@@ -37283,6 +43390,13 @@ export namespace Prisma {
     connect?: psqWhereUniqueInput | psqWhereUniqueInput[]
   }
 
+  export type psq_mtvUncheckedCreateNestedManyWithoutSttInput = {
+    create?: XOR<psq_mtvCreateWithoutSttInput, psq_mtvUncheckedCreateWithoutSttInput> | psq_mtvCreateWithoutSttInput[] | psq_mtvUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutSttInput | psq_mtvCreateOrConnectWithoutSttInput[]
+    createMany?: psq_mtvCreateManySttInputEnvelope
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+  }
+
   export type psq_prgUncheckedCreateNestedManyWithoutSttInput = {
     create?: XOR<psq_prgCreateWithoutSttInput, psq_prgUncheckedCreateWithoutSttInput> | psq_prgCreateWithoutSttInput[] | psq_prgUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutSttInput | psq_prgCreateOrConnectWithoutSttInput[]
@@ -37297,11 +43411,25 @@ export namespace Prisma {
     connect?: psq_rspWhereUniqueInput | psq_rspWhereUniqueInput[]
   }
 
+  export type psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutSttInput, psq_rsp_ftoUncheckedCreateWithoutSttInput> | psq_rsp_ftoCreateWithoutSttInput[] | psq_rsp_ftoUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutSttInput | psq_rsp_ftoCreateOrConnectWithoutSttInput[]
+    createMany?: psq_rsp_ftoCreateManySttInputEnvelope
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+  }
+
   export type psq_tpoUncheckedCreateNestedManyWithoutSttInput = {
     create?: XOR<psq_tpoCreateWithoutSttInput, psq_tpoUncheckedCreateWithoutSttInput> | psq_tpoCreateWithoutSttInput[] | psq_tpoUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutSttInput | psq_tpoCreateOrConnectWithoutSttInput[]
     createMany?: psq_tpoCreateManySttInputEnvelope
     connect?: psq_tpoWhereUniqueInput | psq_tpoWhereUniqueInput[]
+  }
+
+  export type psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutSttInput, psq_tpo_itmUncheckedCreateWithoutSttInput> | psq_tpo_itmCreateWithoutSttInput[] | psq_tpo_itmUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutSttInput | psq_tpo_itmCreateOrConnectWithoutSttInput[]
+    createMany?: psq_tpo_itmCreateManySttInputEnvelope
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
   }
 
   export type rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput = {
@@ -37318,6 +43446,13 @@ export namespace Prisma {
     connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
   }
 
+  export type trnUncheckedCreateNestedManyWithoutSttInput = {
+    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
+    createMany?: trnCreateManySttInputEnvelope
+    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+  }
+
   export type usrUncheckedCreateNestedManyWithoutSttInput = {
     create?: XOR<usrCreateWithoutSttInput, usrUncheckedCreateWithoutSttInput> | usrCreateWithoutSttInput[] | usrUncheckedCreateWithoutSttInput[]
     connectOrCreate?: usrCreateOrConnectWithoutSttInput | usrCreateOrConnectWithoutSttInput[]
@@ -37330,13 +43465,6 @@ export namespace Prisma {
     connectOrCreate?: usr_tpoCreateOrConnectWithoutSttInput | usr_tpoCreateOrConnectWithoutSttInput[]
     createMany?: usr_tpoCreateManySttInputEnvelope
     connect?: usr_tpoWhereUniqueInput | usr_tpoWhereUniqueInput[]
-  }
-
-  export type trnUncheckedCreateNestedManyWithoutSttInput = {
-    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
-    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
-    createMany?: trnCreateManySttInputEnvelope
-    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
   }
 
   export type cbtUpdateManyWithoutSttNestedInput = {
@@ -37479,6 +43607,20 @@ export namespace Prisma {
     deleteMany?: psqScalarWhereInput | psqScalarWhereInput[]
   }
 
+  export type psq_mtvUpdateManyWithoutSttNestedInput = {
+    create?: XOR<psq_mtvCreateWithoutSttInput, psq_mtvUncheckedCreateWithoutSttInput> | psq_mtvCreateWithoutSttInput[] | psq_mtvUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutSttInput | psq_mtvCreateOrConnectWithoutSttInput[]
+    upsert?: psq_mtvUpsertWithWhereUniqueWithoutSttInput | psq_mtvUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: psq_mtvCreateManySttInputEnvelope
+    set?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    disconnect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    delete?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    update?: psq_mtvUpdateWithWhereUniqueWithoutSttInput | psq_mtvUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: psq_mtvUpdateManyWithWhereWithoutSttInput | psq_mtvUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: psq_mtvScalarWhereInput | psq_mtvScalarWhereInput[]
+  }
+
   export type psq_prgUpdateManyWithoutSttNestedInput = {
     create?: XOR<psq_prgCreateWithoutSttInput, psq_prgUncheckedCreateWithoutSttInput> | psq_prgCreateWithoutSttInput[] | psq_prgUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutSttInput | psq_prgCreateOrConnectWithoutSttInput[]
@@ -37507,6 +43649,20 @@ export namespace Prisma {
     deleteMany?: psq_rspScalarWhereInput | psq_rspScalarWhereInput[]
   }
 
+  export type psq_rsp_ftoUpdateManyWithoutSttNestedInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutSttInput, psq_rsp_ftoUncheckedCreateWithoutSttInput> | psq_rsp_ftoCreateWithoutSttInput[] | psq_rsp_ftoUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutSttInput | psq_rsp_ftoCreateOrConnectWithoutSttInput[]
+    upsert?: psq_rsp_ftoUpsertWithWhereUniqueWithoutSttInput | psq_rsp_ftoUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: psq_rsp_ftoCreateManySttInputEnvelope
+    set?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    disconnect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    delete?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    update?: psq_rsp_ftoUpdateWithWhereUniqueWithoutSttInput | psq_rsp_ftoUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: psq_rsp_ftoUpdateManyWithWhereWithoutSttInput | psq_rsp_ftoUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+  }
+
   export type psq_tpoUpdateManyWithoutSttNestedInput = {
     create?: XOR<psq_tpoCreateWithoutSttInput, psq_tpoUncheckedCreateWithoutSttInput> | psq_tpoCreateWithoutSttInput[] | psq_tpoUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutSttInput | psq_tpoCreateOrConnectWithoutSttInput[]
@@ -37519,6 +43675,20 @@ export namespace Prisma {
     update?: psq_tpoUpdateWithWhereUniqueWithoutSttInput | psq_tpoUpdateWithWhereUniqueWithoutSttInput[]
     updateMany?: psq_tpoUpdateManyWithWhereWithoutSttInput | psq_tpoUpdateManyWithWhereWithoutSttInput[]
     deleteMany?: psq_tpoScalarWhereInput | psq_tpoScalarWhereInput[]
+  }
+
+  export type psq_tpo_itmUpdateManyWithoutSttNestedInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutSttInput, psq_tpo_itmUncheckedCreateWithoutSttInput> | psq_tpo_itmCreateWithoutSttInput[] | psq_tpo_itmUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutSttInput | psq_tpo_itmCreateOrConnectWithoutSttInput[]
+    upsert?: psq_tpo_itmUpsertWithWhereUniqueWithoutSttInput | psq_tpo_itmUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: psq_tpo_itmCreateManySttInputEnvelope
+    set?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    disconnect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    delete?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    update?: psq_tpo_itmUpdateWithWhereUniqueWithoutSttInput | psq_tpo_itmUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: psq_tpo_itmUpdateManyWithWhereWithoutSttInput | psq_tpo_itmUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
   }
 
   export type rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput = {
@@ -37549,6 +43719,20 @@ export namespace Prisma {
     deleteMany?: rcgScalarWhereInput | rcgScalarWhereInput[]
   }
 
+  export type trnUpdateManyWithoutSttNestedInput = {
+    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
+    upsert?: trnUpsertWithWhereUniqueWithoutSttInput | trnUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: trnCreateManySttInputEnvelope
+    set?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    disconnect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    delete?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    update?: trnUpdateWithWhereUniqueWithoutSttInput | trnUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: trnUpdateManyWithWhereWithoutSttInput | trnUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
+  }
+
   export type usrUpdateManyWithoutSttNestedInput = {
     create?: XOR<usrCreateWithoutSttInput, usrUncheckedCreateWithoutSttInput> | usrCreateWithoutSttInput[] | usrUncheckedCreateWithoutSttInput[]
     connectOrCreate?: usrCreateOrConnectWithoutSttInput | usrCreateOrConnectWithoutSttInput[]
@@ -37575,20 +43759,6 @@ export namespace Prisma {
     update?: usr_tpoUpdateWithWhereUniqueWithoutSttInput | usr_tpoUpdateWithWhereUniqueWithoutSttInput[]
     updateMany?: usr_tpoUpdateManyWithWhereWithoutSttInput | usr_tpoUpdateManyWithWhereWithoutSttInput[]
     deleteMany?: usr_tpoScalarWhereInput | usr_tpoScalarWhereInput[]
-  }
-
-  export type trnUpdateManyWithoutSttNestedInput = {
-    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
-    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
-    upsert?: trnUpsertWithWhereUniqueWithoutSttInput | trnUpsertWithWhereUniqueWithoutSttInput[]
-    createMany?: trnCreateManySttInputEnvelope
-    set?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    disconnect?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    delete?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    update?: trnUpdateWithWhereUniqueWithoutSttInput | trnUpdateWithWhereUniqueWithoutSttInput[]
-    updateMany?: trnUpdateManyWithWhereWithoutSttInput | trnUpdateManyWithWhereWithoutSttInput[]
-    deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
   }
 
   export type cbtUncheckedUpdateManyWithoutSttNestedInput = {
@@ -37731,6 +43901,20 @@ export namespace Prisma {
     deleteMany?: psqScalarWhereInput | psqScalarWhereInput[]
   }
 
+  export type psq_mtvUncheckedUpdateManyWithoutSttNestedInput = {
+    create?: XOR<psq_mtvCreateWithoutSttInput, psq_mtvUncheckedCreateWithoutSttInput> | psq_mtvCreateWithoutSttInput[] | psq_mtvUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutSttInput | psq_mtvCreateOrConnectWithoutSttInput[]
+    upsert?: psq_mtvUpsertWithWhereUniqueWithoutSttInput | psq_mtvUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: psq_mtvCreateManySttInputEnvelope
+    set?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    disconnect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    delete?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    update?: psq_mtvUpdateWithWhereUniqueWithoutSttInput | psq_mtvUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: psq_mtvUpdateManyWithWhereWithoutSttInput | psq_mtvUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: psq_mtvScalarWhereInput | psq_mtvScalarWhereInput[]
+  }
+
   export type psq_prgUncheckedUpdateManyWithoutSttNestedInput = {
     create?: XOR<psq_prgCreateWithoutSttInput, psq_prgUncheckedCreateWithoutSttInput> | psq_prgCreateWithoutSttInput[] | psq_prgUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutSttInput | psq_prgCreateOrConnectWithoutSttInput[]
@@ -37759,6 +43943,20 @@ export namespace Prisma {
     deleteMany?: psq_rspScalarWhereInput | psq_rspScalarWhereInput[]
   }
 
+  export type psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutSttInput, psq_rsp_ftoUncheckedCreateWithoutSttInput> | psq_rsp_ftoCreateWithoutSttInput[] | psq_rsp_ftoUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutSttInput | psq_rsp_ftoCreateOrConnectWithoutSttInput[]
+    upsert?: psq_rsp_ftoUpsertWithWhereUniqueWithoutSttInput | psq_rsp_ftoUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: psq_rsp_ftoCreateManySttInputEnvelope
+    set?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    disconnect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    delete?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    update?: psq_rsp_ftoUpdateWithWhereUniqueWithoutSttInput | psq_rsp_ftoUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: psq_rsp_ftoUpdateManyWithWhereWithoutSttInput | psq_rsp_ftoUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+  }
+
   export type psq_tpoUncheckedUpdateManyWithoutSttNestedInput = {
     create?: XOR<psq_tpoCreateWithoutSttInput, psq_tpoUncheckedCreateWithoutSttInput> | psq_tpoCreateWithoutSttInput[] | psq_tpoUncheckedCreateWithoutSttInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutSttInput | psq_tpoCreateOrConnectWithoutSttInput[]
@@ -37771,6 +43969,20 @@ export namespace Prisma {
     update?: psq_tpoUpdateWithWhereUniqueWithoutSttInput | psq_tpoUpdateWithWhereUniqueWithoutSttInput[]
     updateMany?: psq_tpoUpdateManyWithWhereWithoutSttInput | psq_tpoUpdateManyWithWhereWithoutSttInput[]
     deleteMany?: psq_tpoScalarWhereInput | psq_tpoScalarWhereInput[]
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutSttInput, psq_tpo_itmUncheckedCreateWithoutSttInput> | psq_tpo_itmCreateWithoutSttInput[] | psq_tpo_itmUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutSttInput | psq_tpo_itmCreateOrConnectWithoutSttInput[]
+    upsert?: psq_tpo_itmUpsertWithWhereUniqueWithoutSttInput | psq_tpo_itmUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: psq_tpo_itmCreateManySttInputEnvelope
+    set?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    disconnect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    delete?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    update?: psq_tpo_itmUpdateWithWhereUniqueWithoutSttInput | psq_tpo_itmUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: psq_tpo_itmUpdateManyWithWhereWithoutSttInput | psq_tpo_itmUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
   }
 
   export type rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput = {
@@ -37801,6 +44013,20 @@ export namespace Prisma {
     deleteMany?: rcgScalarWhereInput | rcgScalarWhereInput[]
   }
 
+  export type trnUncheckedUpdateManyWithoutSttNestedInput = {
+    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
+    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
+    upsert?: trnUpsertWithWhereUniqueWithoutSttInput | trnUpsertWithWhereUniqueWithoutSttInput[]
+    createMany?: trnCreateManySttInputEnvelope
+    set?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    disconnect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    delete?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    update?: trnUpdateWithWhereUniqueWithoutSttInput | trnUpdateWithWhereUniqueWithoutSttInput[]
+    updateMany?: trnUpdateManyWithWhereWithoutSttInput | trnUpdateManyWithWhereWithoutSttInput[]
+    deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
+  }
+
   export type usrUncheckedUpdateManyWithoutSttNestedInput = {
     create?: XOR<usrCreateWithoutSttInput, usrUncheckedCreateWithoutSttInput> | usrCreateWithoutSttInput[] | usrUncheckedCreateWithoutSttInput[]
     connectOrCreate?: usrCreateOrConnectWithoutSttInput | usrCreateOrConnectWithoutSttInput[]
@@ -37827,20 +44053,6 @@ export namespace Prisma {
     update?: usr_tpoUpdateWithWhereUniqueWithoutSttInput | usr_tpoUpdateWithWhereUniqueWithoutSttInput[]
     updateMany?: usr_tpoUpdateManyWithWhereWithoutSttInput | usr_tpoUpdateManyWithWhereWithoutSttInput[]
     deleteMany?: usr_tpoScalarWhereInput | usr_tpoScalarWhereInput[]
-  }
-
-  export type trnUncheckedUpdateManyWithoutSttNestedInput = {
-    create?: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput> | trnCreateWithoutSttInput[] | trnUncheckedCreateWithoutSttInput[]
-    connectOrCreate?: trnCreateOrConnectWithoutSttInput | trnCreateOrConnectWithoutSttInput[]
-    upsert?: trnUpsertWithWhereUniqueWithoutSttInput | trnUpsertWithWhereUniqueWithoutSttInput[]
-    createMany?: trnCreateManySttInputEnvelope
-    set?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    disconnect?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    delete?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    update?: trnUpdateWithWhereUniqueWithoutSttInput | trnUpdateWithWhereUniqueWithoutSttInput[]
-    updateMany?: trnUpdateManyWithWhereWithoutSttInput | trnUpdateManyWithWhereWithoutSttInput[]
-    deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
   }
 
   export type sttCreateNestedOneWithoutTrnInput = {
@@ -37927,6 +44139,13 @@ export namespace Prisma {
     connect?: psqWhereUniqueInput | psqWhereUniqueInput[]
   }
 
+  export type psq_mtvCreateNestedManyWithoutUsrInput = {
+    create?: XOR<psq_mtvCreateWithoutUsrInput, psq_mtvUncheckedCreateWithoutUsrInput> | psq_mtvCreateWithoutUsrInput[] | psq_mtvUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutUsrInput | psq_mtvCreateOrConnectWithoutUsrInput[]
+    createMany?: psq_mtvCreateManyUsrInputEnvelope
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+  }
+
   export type psq_prgCreateNestedManyWithoutUsrInput = {
     create?: XOR<psq_prgCreateWithoutUsrInput, psq_prgUncheckedCreateWithoutUsrInput> | psq_prgCreateWithoutUsrInput[] | psq_prgUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutUsrInput | psq_prgCreateOrConnectWithoutUsrInput[]
@@ -37941,6 +44160,13 @@ export namespace Prisma {
     connect?: psq_rspWhereUniqueInput | psq_rspWhereUniqueInput[]
   }
 
+  export type psq_rsp_ftoCreateNestedManyWithoutUsrInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutUsrInput, psq_rsp_ftoUncheckedCreateWithoutUsrInput> | psq_rsp_ftoCreateWithoutUsrInput[] | psq_rsp_ftoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutUsrInput | psq_rsp_ftoCreateOrConnectWithoutUsrInput[]
+    createMany?: psq_rsp_ftoCreateManyUsrInputEnvelope
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+  }
+
   export type psq_tpoCreateNestedManyWithoutUsrInput = {
     create?: XOR<psq_tpoCreateWithoutUsrInput, psq_tpoUncheckedCreateWithoutUsrInput> | psq_tpoCreateWithoutUsrInput[] | psq_tpoUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutUsrInput | psq_tpoCreateOrConnectWithoutUsrInput[]
@@ -37948,11 +44174,25 @@ export namespace Prisma {
     connect?: psq_tpoWhereUniqueInput | psq_tpoWhereUniqueInput[]
   }
 
+  export type psq_tpo_itmCreateNestedManyWithoutUsrInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutUsrInput, psq_tpo_itmUncheckedCreateWithoutUsrInput> | psq_tpo_itmCreateWithoutUsrInput[] | psq_tpo_itmUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutUsrInput | psq_tpo_itmCreateOrConnectWithoutUsrInput[]
+    createMany?: psq_tpo_itmCreateManyUsrInputEnvelope
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+  }
+
   export type rcgCreateNestedManyWithoutUsrInput = {
     create?: XOR<rcgCreateWithoutUsrInput, rcgUncheckedCreateWithoutUsrInput> | rcgCreateWithoutUsrInput[] | rcgUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: rcgCreateOrConnectWithoutUsrInput | rcgCreateOrConnectWithoutUsrInput[]
     createMany?: rcgCreateManyUsrInputEnvelope
     connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
+  }
+
+  export type trnCreateNestedManyWithoutUsrInput = {
+    create?: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput> | trnCreateWithoutUsrInput[] | trnUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: trnCreateOrConnectWithoutUsrInput | trnCreateOrConnectWithoutUsrInput[]
+    createMany?: trnCreateManyUsrInputEnvelope
+    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
   }
 
   export type empCreateNestedOneWithoutUsrInput = {
@@ -37984,13 +44224,6 @@ export namespace Prisma {
     connectOrCreate?: usrCreateOrConnectWithoutUsrInput | usrCreateOrConnectWithoutUsrInput[]
     createMany?: usrCreateManyUsrInputEnvelope
     connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
-  }
-
-  export type trnCreateNestedManyWithoutUsrInput = {
-    create?: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput> | trnCreateWithoutUsrInput[] | trnUncheckedCreateWithoutUsrInput[]
-    connectOrCreate?: trnCreateOrConnectWithoutUsrInput | trnCreateOrConnectWithoutUsrInput[]
-    createMany?: trnCreateManyUsrInputEnvelope
-    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
   }
 
   export type cbtUncheckedCreateNestedManyWithoutUsrInput = {
@@ -38049,6 +44282,13 @@ export namespace Prisma {
     connect?: psqWhereUniqueInput | psqWhereUniqueInput[]
   }
 
+  export type psq_mtvUncheckedCreateNestedManyWithoutUsrInput = {
+    create?: XOR<psq_mtvCreateWithoutUsrInput, psq_mtvUncheckedCreateWithoutUsrInput> | psq_mtvCreateWithoutUsrInput[] | psq_mtvUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutUsrInput | psq_mtvCreateOrConnectWithoutUsrInput[]
+    createMany?: psq_mtvCreateManyUsrInputEnvelope
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+  }
+
   export type psq_prgUncheckedCreateNestedManyWithoutUsrInput = {
     create?: XOR<psq_prgCreateWithoutUsrInput, psq_prgUncheckedCreateWithoutUsrInput> | psq_prgCreateWithoutUsrInput[] | psq_prgUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutUsrInput | psq_prgCreateOrConnectWithoutUsrInput[]
@@ -38063,11 +44303,25 @@ export namespace Prisma {
     connect?: psq_rspWhereUniqueInput | psq_rspWhereUniqueInput[]
   }
 
+  export type psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutUsrInput, psq_rsp_ftoUncheckedCreateWithoutUsrInput> | psq_rsp_ftoCreateWithoutUsrInput[] | psq_rsp_ftoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutUsrInput | psq_rsp_ftoCreateOrConnectWithoutUsrInput[]
+    createMany?: psq_rsp_ftoCreateManyUsrInputEnvelope
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+  }
+
   export type psq_tpoUncheckedCreateNestedManyWithoutUsrInput = {
     create?: XOR<psq_tpoCreateWithoutUsrInput, psq_tpoUncheckedCreateWithoutUsrInput> | psq_tpoCreateWithoutUsrInput[] | psq_tpoUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutUsrInput | psq_tpoCreateOrConnectWithoutUsrInput[]
     createMany?: psq_tpoCreateManyUsrInputEnvelope
     connect?: psq_tpoWhereUniqueInput | psq_tpoWhereUniqueInput[]
+  }
+
+  export type psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutUsrInput, psq_tpo_itmUncheckedCreateWithoutUsrInput> | psq_tpo_itmCreateWithoutUsrInput[] | psq_tpo_itmUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutUsrInput | psq_tpo_itmCreateOrConnectWithoutUsrInput[]
+    createMany?: psq_tpo_itmCreateManyUsrInputEnvelope
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
   }
 
   export type rcgUncheckedCreateNestedManyWithoutUsrInput = {
@@ -38077,18 +44331,18 @@ export namespace Prisma {
     connect?: rcgWhereUniqueInput | rcgWhereUniqueInput[]
   }
 
-  export type usrUncheckedCreateNestedManyWithoutUsrInput = {
-    create?: XOR<usrCreateWithoutUsrInput, usrUncheckedCreateWithoutUsrInput> | usrCreateWithoutUsrInput[] | usrUncheckedCreateWithoutUsrInput[]
-    connectOrCreate?: usrCreateOrConnectWithoutUsrInput | usrCreateOrConnectWithoutUsrInput[]
-    createMany?: usrCreateManyUsrInputEnvelope
-    connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
-  }
-
   export type trnUncheckedCreateNestedManyWithoutUsrInput = {
     create?: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput> | trnCreateWithoutUsrInput[] | trnUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: trnCreateOrConnectWithoutUsrInput | trnCreateOrConnectWithoutUsrInput[]
     createMany?: trnCreateManyUsrInputEnvelope
     connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+  }
+
+  export type usrUncheckedCreateNestedManyWithoutUsrInput = {
+    create?: XOR<usrCreateWithoutUsrInput, usrUncheckedCreateWithoutUsrInput> | usrCreateWithoutUsrInput[] | usrUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: usrCreateOrConnectWithoutUsrInput | usrCreateOrConnectWithoutUsrInput[]
+    createMany?: usrCreateManyUsrInputEnvelope
+    connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
   }
 
   export type cbtUpdateManyWithoutUsrNestedInput = {
@@ -38203,6 +44457,20 @@ export namespace Prisma {
     deleteMany?: psqScalarWhereInput | psqScalarWhereInput[]
   }
 
+  export type psq_mtvUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<psq_mtvCreateWithoutUsrInput, psq_mtvUncheckedCreateWithoutUsrInput> | psq_mtvCreateWithoutUsrInput[] | psq_mtvUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutUsrInput | psq_mtvCreateOrConnectWithoutUsrInput[]
+    upsert?: psq_mtvUpsertWithWhereUniqueWithoutUsrInput | psq_mtvUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: psq_mtvCreateManyUsrInputEnvelope
+    set?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    disconnect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    delete?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    update?: psq_mtvUpdateWithWhereUniqueWithoutUsrInput | psq_mtvUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: psq_mtvUpdateManyWithWhereWithoutUsrInput | psq_mtvUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: psq_mtvScalarWhereInput | psq_mtvScalarWhereInput[]
+  }
+
   export type psq_prgUpdateManyWithoutUsrNestedInput = {
     create?: XOR<psq_prgCreateWithoutUsrInput, psq_prgUncheckedCreateWithoutUsrInput> | psq_prgCreateWithoutUsrInput[] | psq_prgUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutUsrInput | psq_prgCreateOrConnectWithoutUsrInput[]
@@ -38231,6 +44499,20 @@ export namespace Prisma {
     deleteMany?: psq_rspScalarWhereInput | psq_rspScalarWhereInput[]
   }
 
+  export type psq_rsp_ftoUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutUsrInput, psq_rsp_ftoUncheckedCreateWithoutUsrInput> | psq_rsp_ftoCreateWithoutUsrInput[] | psq_rsp_ftoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutUsrInput | psq_rsp_ftoCreateOrConnectWithoutUsrInput[]
+    upsert?: psq_rsp_ftoUpsertWithWhereUniqueWithoutUsrInput | psq_rsp_ftoUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: psq_rsp_ftoCreateManyUsrInputEnvelope
+    set?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    disconnect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    delete?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    update?: psq_rsp_ftoUpdateWithWhereUniqueWithoutUsrInput | psq_rsp_ftoUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: psq_rsp_ftoUpdateManyWithWhereWithoutUsrInput | psq_rsp_ftoUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+  }
+
   export type psq_tpoUpdateManyWithoutUsrNestedInput = {
     create?: XOR<psq_tpoCreateWithoutUsrInput, psq_tpoUncheckedCreateWithoutUsrInput> | psq_tpoCreateWithoutUsrInput[] | psq_tpoUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutUsrInput | psq_tpoCreateOrConnectWithoutUsrInput[]
@@ -38245,6 +44527,20 @@ export namespace Prisma {
     deleteMany?: psq_tpoScalarWhereInput | psq_tpoScalarWhereInput[]
   }
 
+  export type psq_tpo_itmUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutUsrInput, psq_tpo_itmUncheckedCreateWithoutUsrInput> | psq_tpo_itmCreateWithoutUsrInput[] | psq_tpo_itmUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutUsrInput | psq_tpo_itmCreateOrConnectWithoutUsrInput[]
+    upsert?: psq_tpo_itmUpsertWithWhereUniqueWithoutUsrInput | psq_tpo_itmUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: psq_tpo_itmCreateManyUsrInputEnvelope
+    set?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    disconnect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    delete?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    update?: psq_tpo_itmUpdateWithWhereUniqueWithoutUsrInput | psq_tpo_itmUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: psq_tpo_itmUpdateManyWithWhereWithoutUsrInput | psq_tpo_itmUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
+  }
+
   export type rcgUpdateManyWithoutUsrNestedInput = {
     create?: XOR<rcgCreateWithoutUsrInput, rcgUncheckedCreateWithoutUsrInput> | rcgCreateWithoutUsrInput[] | rcgUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: rcgCreateOrConnectWithoutUsrInput | rcgCreateOrConnectWithoutUsrInput[]
@@ -38257,6 +44553,20 @@ export namespace Prisma {
     update?: rcgUpdateWithWhereUniqueWithoutUsrInput | rcgUpdateWithWhereUniqueWithoutUsrInput[]
     updateMany?: rcgUpdateManyWithWhereWithoutUsrInput | rcgUpdateManyWithWhereWithoutUsrInput[]
     deleteMany?: rcgScalarWhereInput | rcgScalarWhereInput[]
+  }
+
+  export type trnUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput> | trnCreateWithoutUsrInput[] | trnUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: trnCreateOrConnectWithoutUsrInput | trnCreateOrConnectWithoutUsrInput[]
+    upsert?: trnUpsertWithWhereUniqueWithoutUsrInput | trnUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: trnCreateManyUsrInputEnvelope
+    set?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    disconnect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    delete?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
+    update?: trnUpdateWithWhereUniqueWithoutUsrInput | trnUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: trnUpdateManyWithWhereWithoutUsrInput | trnUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
   }
 
   export type empUpdateOneRequiredWithoutUsrNestedInput = {
@@ -38303,20 +44613,6 @@ export namespace Prisma {
     update?: usrUpdateWithWhereUniqueWithoutUsrInput | usrUpdateWithWhereUniqueWithoutUsrInput[]
     updateMany?: usrUpdateManyWithWhereWithoutUsrInput | usrUpdateManyWithWhereWithoutUsrInput[]
     deleteMany?: usrScalarWhereInput | usrScalarWhereInput[]
-  }
-
-  export type trnUpdateManyWithoutUsrNestedInput = {
-    create?: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput> | trnCreateWithoutUsrInput[] | trnUncheckedCreateWithoutUsrInput[]
-    connectOrCreate?: trnCreateOrConnectWithoutUsrInput | trnCreateOrConnectWithoutUsrInput[]
-    upsert?: trnUpsertWithWhereUniqueWithoutUsrInput | trnUpsertWithWhereUniqueWithoutUsrInput[]
-    createMany?: trnCreateManyUsrInputEnvelope
-    set?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    disconnect?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    delete?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    connect?: trnWhereUniqueInput | trnWhereUniqueInput[]
-    update?: trnUpdateWithWhereUniqueWithoutUsrInput | trnUpdateWithWhereUniqueWithoutUsrInput[]
-    updateMany?: trnUpdateManyWithWhereWithoutUsrInput | trnUpdateManyWithWhereWithoutUsrInput[]
-    deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
   }
 
   export type cbtUncheckedUpdateManyWithoutUsrNestedInput = {
@@ -38431,6 +44727,20 @@ export namespace Prisma {
     deleteMany?: psqScalarWhereInput | psqScalarWhereInput[]
   }
 
+  export type psq_mtvUncheckedUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<psq_mtvCreateWithoutUsrInput, psq_mtvUncheckedCreateWithoutUsrInput> | psq_mtvCreateWithoutUsrInput[] | psq_mtvUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_mtvCreateOrConnectWithoutUsrInput | psq_mtvCreateOrConnectWithoutUsrInput[]
+    upsert?: psq_mtvUpsertWithWhereUniqueWithoutUsrInput | psq_mtvUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: psq_mtvCreateManyUsrInputEnvelope
+    set?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    disconnect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    delete?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    connect?: psq_mtvWhereUniqueInput | psq_mtvWhereUniqueInput[]
+    update?: psq_mtvUpdateWithWhereUniqueWithoutUsrInput | psq_mtvUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: psq_mtvUpdateManyWithWhereWithoutUsrInput | psq_mtvUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: psq_mtvScalarWhereInput | psq_mtvScalarWhereInput[]
+  }
+
   export type psq_prgUncheckedUpdateManyWithoutUsrNestedInput = {
     create?: XOR<psq_prgCreateWithoutUsrInput, psq_prgUncheckedCreateWithoutUsrInput> | psq_prgCreateWithoutUsrInput[] | psq_prgUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_prgCreateOrConnectWithoutUsrInput | psq_prgCreateOrConnectWithoutUsrInput[]
@@ -38459,6 +44769,20 @@ export namespace Prisma {
     deleteMany?: psq_rspScalarWhereInput | psq_rspScalarWhereInput[]
   }
 
+  export type psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<psq_rsp_ftoCreateWithoutUsrInput, psq_rsp_ftoUncheckedCreateWithoutUsrInput> | psq_rsp_ftoCreateWithoutUsrInput[] | psq_rsp_ftoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_rsp_ftoCreateOrConnectWithoutUsrInput | psq_rsp_ftoCreateOrConnectWithoutUsrInput[]
+    upsert?: psq_rsp_ftoUpsertWithWhereUniqueWithoutUsrInput | psq_rsp_ftoUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: psq_rsp_ftoCreateManyUsrInputEnvelope
+    set?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    disconnect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    delete?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    connect?: psq_rsp_ftoWhereUniqueInput | psq_rsp_ftoWhereUniqueInput[]
+    update?: psq_rsp_ftoUpdateWithWhereUniqueWithoutUsrInput | psq_rsp_ftoUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: psq_rsp_ftoUpdateManyWithWhereWithoutUsrInput | psq_rsp_ftoUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+  }
+
   export type psq_tpoUncheckedUpdateManyWithoutUsrNestedInput = {
     create?: XOR<psq_tpoCreateWithoutUsrInput, psq_tpoUncheckedCreateWithoutUsrInput> | psq_tpoCreateWithoutUsrInput[] | psq_tpoUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: psq_tpoCreateOrConnectWithoutUsrInput | psq_tpoCreateOrConnectWithoutUsrInput[]
@@ -38471,6 +44795,20 @@ export namespace Prisma {
     update?: psq_tpoUpdateWithWhereUniqueWithoutUsrInput | psq_tpoUpdateWithWhereUniqueWithoutUsrInput[]
     updateMany?: psq_tpoUpdateManyWithWhereWithoutUsrInput | psq_tpoUpdateManyWithWhereWithoutUsrInput[]
     deleteMany?: psq_tpoScalarWhereInput | psq_tpoScalarWhereInput[]
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<psq_tpo_itmCreateWithoutUsrInput, psq_tpo_itmUncheckedCreateWithoutUsrInput> | psq_tpo_itmCreateWithoutUsrInput[] | psq_tpo_itmUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: psq_tpo_itmCreateOrConnectWithoutUsrInput | psq_tpo_itmCreateOrConnectWithoutUsrInput[]
+    upsert?: psq_tpo_itmUpsertWithWhereUniqueWithoutUsrInput | psq_tpo_itmUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: psq_tpo_itmCreateManyUsrInputEnvelope
+    set?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    disconnect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    delete?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    connect?: psq_tpo_itmWhereUniqueInput | psq_tpo_itmWhereUniqueInput[]
+    update?: psq_tpo_itmUpdateWithWhereUniqueWithoutUsrInput | psq_tpo_itmUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: psq_tpo_itmUpdateManyWithWhereWithoutUsrInput | psq_tpo_itmUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
   }
 
   export type rcgUncheckedUpdateManyWithoutUsrNestedInput = {
@@ -38487,20 +44825,6 @@ export namespace Prisma {
     deleteMany?: rcgScalarWhereInput | rcgScalarWhereInput[]
   }
 
-  export type usrUncheckedUpdateManyWithoutUsrNestedInput = {
-    create?: XOR<usrCreateWithoutUsrInput, usrUncheckedCreateWithoutUsrInput> | usrCreateWithoutUsrInput[] | usrUncheckedCreateWithoutUsrInput[]
-    connectOrCreate?: usrCreateOrConnectWithoutUsrInput | usrCreateOrConnectWithoutUsrInput[]
-    upsert?: usrUpsertWithWhereUniqueWithoutUsrInput | usrUpsertWithWhereUniqueWithoutUsrInput[]
-    createMany?: usrCreateManyUsrInputEnvelope
-    set?: usrWhereUniqueInput | usrWhereUniqueInput[]
-    disconnect?: usrWhereUniqueInput | usrWhereUniqueInput[]
-    delete?: usrWhereUniqueInput | usrWhereUniqueInput[]
-    connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
-    update?: usrUpdateWithWhereUniqueWithoutUsrInput | usrUpdateWithWhereUniqueWithoutUsrInput[]
-    updateMany?: usrUpdateManyWithWhereWithoutUsrInput | usrUpdateManyWithWhereWithoutUsrInput[]
-    deleteMany?: usrScalarWhereInput | usrScalarWhereInput[]
-  }
-
   export type trnUncheckedUpdateManyWithoutUsrNestedInput = {
     create?: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput> | trnCreateWithoutUsrInput[] | trnUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: trnCreateOrConnectWithoutUsrInput | trnCreateOrConnectWithoutUsrInput[]
@@ -38513,6 +44837,20 @@ export namespace Prisma {
     update?: trnUpdateWithWhereUniqueWithoutUsrInput | trnUpdateWithWhereUniqueWithoutUsrInput[]
     updateMany?: trnUpdateManyWithWhereWithoutUsrInput | trnUpdateManyWithWhereWithoutUsrInput[]
     deleteMany?: trnScalarWhereInput | trnScalarWhereInput[]
+  }
+
+  export type usrUncheckedUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<usrCreateWithoutUsrInput, usrUncheckedCreateWithoutUsrInput> | usrCreateWithoutUsrInput[] | usrUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: usrCreateOrConnectWithoutUsrInput | usrCreateOrConnectWithoutUsrInput[]
+    upsert?: usrUpsertWithWhereUniqueWithoutUsrInput | usrUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: usrCreateManyUsrInputEnvelope
+    set?: usrWhereUniqueInput | usrWhereUniqueInput[]
+    disconnect?: usrWhereUniqueInput | usrWhereUniqueInput[]
+    delete?: usrWhereUniqueInput | usrWhereUniqueInput[]
+    connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
+    update?: usrUpdateWithWhereUniqueWithoutUsrInput | usrUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: usrUpdateManyWithWhereWithoutUsrInput | usrUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: usrScalarWhereInput | usrScalarWhereInput[]
   }
 
   export type usrCreateNestedManyWithoutUsr_tpoInput = {
@@ -38569,6 +44907,118 @@ export namespace Prisma {
     update?: usrUpdateWithWhereUniqueWithoutUsr_tpoInput | usrUpdateWithWhereUniqueWithoutUsr_tpoInput[]
     updateMany?: usrUpdateManyWithWhereWithoutUsr_tpoInput | usrUpdateManyWithWhereWithoutUsr_tpoInput[]
     deleteMany?: usrScalarWhereInput | usrScalarWhereInput[]
+  }
+
+  export type sttCreateNestedOneWithoutPsq_rsp_ftoInput = {
+    create?: XOR<sttCreateWithoutPsq_rsp_ftoInput, sttUncheckedCreateWithoutPsq_rsp_ftoInput>
+    connectOrCreate?: sttCreateOrConnectWithoutPsq_rsp_ftoInput
+    connect?: sttWhereUniqueInput
+  }
+
+  export type usrCreateNestedOneWithoutPsq_rsp_ftoInput = {
+    create?: XOR<usrCreateWithoutPsq_rsp_ftoInput, usrUncheckedCreateWithoutPsq_rsp_ftoInput>
+    connectOrCreate?: usrCreateOrConnectWithoutPsq_rsp_ftoInput
+    connect?: usrWhereUniqueInput
+  }
+
+  export type psq_rspCreateNestedOneWithoutPsq_rsp_ftoInput = {
+    create?: XOR<psq_rspCreateWithoutPsq_rsp_ftoInput, psq_rspUncheckedCreateWithoutPsq_rsp_ftoInput>
+    connectOrCreate?: psq_rspCreateOrConnectWithoutPsq_rsp_ftoInput
+    connect?: psq_rspWhereUniqueInput
+  }
+
+  export type sttUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput = {
+    create?: XOR<sttCreateWithoutPsq_rsp_ftoInput, sttUncheckedCreateWithoutPsq_rsp_ftoInput>
+    connectOrCreate?: sttCreateOrConnectWithoutPsq_rsp_ftoInput
+    upsert?: sttUpsertWithoutPsq_rsp_ftoInput
+    connect?: sttWhereUniqueInput
+    update?: XOR<XOR<sttUpdateToOneWithWhereWithoutPsq_rsp_ftoInput, sttUpdateWithoutPsq_rsp_ftoInput>, sttUncheckedUpdateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type usrUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput = {
+    create?: XOR<usrCreateWithoutPsq_rsp_ftoInput, usrUncheckedCreateWithoutPsq_rsp_ftoInput>
+    connectOrCreate?: usrCreateOrConnectWithoutPsq_rsp_ftoInput
+    upsert?: usrUpsertWithoutPsq_rsp_ftoInput
+    connect?: usrWhereUniqueInput
+    update?: XOR<XOR<usrUpdateToOneWithWhereWithoutPsq_rsp_ftoInput, usrUpdateWithoutPsq_rsp_ftoInput>, usrUncheckedUpdateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type psq_rspUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput = {
+    create?: XOR<psq_rspCreateWithoutPsq_rsp_ftoInput, psq_rspUncheckedCreateWithoutPsq_rsp_ftoInput>
+    connectOrCreate?: psq_rspCreateOrConnectWithoutPsq_rsp_ftoInput
+    upsert?: psq_rspUpsertWithoutPsq_rsp_ftoInput
+    connect?: psq_rspWhereUniqueInput
+    update?: XOR<XOR<psq_rspUpdateToOneWithWhereWithoutPsq_rsp_ftoInput, psq_rspUpdateWithoutPsq_rsp_ftoInput>, psq_rspUncheckedUpdateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type eqp_itmCreateNestedOneWithoutPsq_tpo_itmInput = {
+    create?: XOR<eqp_itmCreateWithoutPsq_tpo_itmInput, eqp_itmUncheckedCreateWithoutPsq_tpo_itmInput>
+    connectOrCreate?: eqp_itmCreateOrConnectWithoutPsq_tpo_itmInput
+    connect?: eqp_itmWhereUniqueInput
+  }
+
+  export type sttCreateNestedOneWithoutPsq_tpo_itmInput = {
+    create?: XOR<sttCreateWithoutPsq_tpo_itmInput, sttUncheckedCreateWithoutPsq_tpo_itmInput>
+    connectOrCreate?: sttCreateOrConnectWithoutPsq_tpo_itmInput
+    connect?: sttWhereUniqueInput
+  }
+
+  export type usrCreateNestedOneWithoutPsq_tpo_itmInput = {
+    create?: XOR<usrCreateWithoutPsq_tpo_itmInput, usrUncheckedCreateWithoutPsq_tpo_itmInput>
+    connectOrCreate?: usrCreateOrConnectWithoutPsq_tpo_itmInput
+    connect?: usrWhereUniqueInput
+  }
+
+  export type eqp_itmUpdateOneRequiredWithoutPsq_tpo_itmNestedInput = {
+    create?: XOR<eqp_itmCreateWithoutPsq_tpo_itmInput, eqp_itmUncheckedCreateWithoutPsq_tpo_itmInput>
+    connectOrCreate?: eqp_itmCreateOrConnectWithoutPsq_tpo_itmInput
+    upsert?: eqp_itmUpsertWithoutPsq_tpo_itmInput
+    connect?: eqp_itmWhereUniqueInput
+    update?: XOR<XOR<eqp_itmUpdateToOneWithWhereWithoutPsq_tpo_itmInput, eqp_itmUpdateWithoutPsq_tpo_itmInput>, eqp_itmUncheckedUpdateWithoutPsq_tpo_itmInput>
+  }
+
+  export type sttUpdateOneRequiredWithoutPsq_tpo_itmNestedInput = {
+    create?: XOR<sttCreateWithoutPsq_tpo_itmInput, sttUncheckedCreateWithoutPsq_tpo_itmInput>
+    connectOrCreate?: sttCreateOrConnectWithoutPsq_tpo_itmInput
+    upsert?: sttUpsertWithoutPsq_tpo_itmInput
+    connect?: sttWhereUniqueInput
+    update?: XOR<XOR<sttUpdateToOneWithWhereWithoutPsq_tpo_itmInput, sttUpdateWithoutPsq_tpo_itmInput>, sttUncheckedUpdateWithoutPsq_tpo_itmInput>
+  }
+
+  export type usrUpdateOneRequiredWithoutPsq_tpo_itmNestedInput = {
+    create?: XOR<usrCreateWithoutPsq_tpo_itmInput, usrUncheckedCreateWithoutPsq_tpo_itmInput>
+    connectOrCreate?: usrCreateOrConnectWithoutPsq_tpo_itmInput
+    upsert?: usrUpsertWithoutPsq_tpo_itmInput
+    connect?: usrWhereUniqueInput
+    update?: XOR<XOR<usrUpdateToOneWithWhereWithoutPsq_tpo_itmInput, usrUpdateWithoutPsq_tpo_itmInput>, usrUncheckedUpdateWithoutPsq_tpo_itmInput>
+  }
+
+  export type sttCreateNestedOneWithoutPsq_mtvInput = {
+    create?: XOR<sttCreateWithoutPsq_mtvInput, sttUncheckedCreateWithoutPsq_mtvInput>
+    connectOrCreate?: sttCreateOrConnectWithoutPsq_mtvInput
+    connect?: sttWhereUniqueInput
+  }
+
+  export type usrCreateNestedOneWithoutPsq_mtvInput = {
+    create?: XOR<usrCreateWithoutPsq_mtvInput, usrUncheckedCreateWithoutPsq_mtvInput>
+    connectOrCreate?: usrCreateOrConnectWithoutPsq_mtvInput
+    connect?: usrWhereUniqueInput
+  }
+
+  export type sttUpdateOneRequiredWithoutPsq_mtvNestedInput = {
+    create?: XOR<sttCreateWithoutPsq_mtvInput, sttUncheckedCreateWithoutPsq_mtvInput>
+    connectOrCreate?: sttCreateOrConnectWithoutPsq_mtvInput
+    upsert?: sttUpsertWithoutPsq_mtvInput
+    connect?: sttWhereUniqueInput
+    update?: XOR<XOR<sttUpdateToOneWithWhereWithoutPsq_mtvInput, sttUpdateWithoutPsq_mtvInput>, sttUncheckedUpdateWithoutPsq_mtvInput>
+  }
+
+  export type usrUpdateOneRequiredWithoutPsq_mtvNestedInput = {
+    create?: XOR<usrCreateWithoutPsq_mtvInput, usrUncheckedCreateWithoutPsq_mtvInput>
+    connectOrCreate?: usrCreateOrConnectWithoutPsq_mtvInput
+    upsert?: usrUpsertWithoutPsq_mtvInput
+    connect?: usrWhereUniqueInput
+    update?: XOR<XOR<usrUpdateToOneWithWhereWithoutPsq_mtvInput, usrUpdateWithoutPsq_mtvInput>, usrUncheckedUpdateWithoutPsq_mtvInput>
   }
 
   export type NullableFloatFieldUpdateOperationsInput = {
@@ -38864,14 +45314,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutCbtInput = {
@@ -38890,14 +45343,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutCbtInput = {
@@ -38921,16 +45377,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutCbtInput = {
@@ -38954,12 +45413,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutCbtInput = {
@@ -38993,14 +45455,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutCbtInput = {
@@ -39019,14 +45484,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutCbtInput = {
@@ -39056,16 +45524,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutCbtInput = {
@@ -39089,12 +45560,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type sttCreateWithoutEmpInput = {
@@ -39112,14 +45586,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEmpInput = {
@@ -39138,14 +45615,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEmpInput = {
@@ -39197,13 +45677,17 @@ export namespace Prisma {
   }
 
   export type rcgCreateWithoutEmpInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -39214,8 +45698,6 @@ export namespace Prisma {
     emp_und: emp_undCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
@@ -39227,6 +45709,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -39234,6 +45717,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -39244,7 +45729,6 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutEmpInput = {
@@ -39274,15 +45758,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutEmpInput = {
@@ -39306,12 +45793,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutEmpInput = {
@@ -39350,14 +45840,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEmpInput = {
@@ -39376,14 +45869,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type emp_undUpsertWithWhereUniqueWithoutEmpInput = {
@@ -39446,6 +45942,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFilter<"rcg"> | Date | string
     UndId?: IntFilter<"rcg"> | number
     VclId?: IntFilter<"rcg"> | number
+    CbtId?: IntNullableFilter<"rcg"> | number | null
     CrrId?: IntFilter<"rcg"> | number
     CrrCnc?: IntFilter<"rcg"> | number
     DtaIni?: DateTimeFilter<"rcg"> | Date | string
@@ -39453,6 +45950,8 @@ export namespace Prisma {
     SocIni?: IntNullableFilter<"rcg"> | number | null
     SocFin?: IntNullableFilter<"rcg"> | number | null
     RcgKwh?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: IntNullableFilter<"rcg"> | number | null
+    PrsBar?: IntNullableFilter<"rcg"> | number | null
     OdoIni?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     OdoFin?: DecimalNullableFilter<"rcg"> | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFilter<"rcg"> | number
@@ -39593,14 +46092,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEmp_undInput = {
@@ -39619,14 +46121,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEmp_undInput = {
@@ -39635,6 +46140,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutEmp_undInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -39648,16 +46155,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutEmp_undInput = {
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -39667,6 +46177,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -39710,13 +46221,17 @@ export namespace Prisma {
   }
 
   export type rcgCreateWithoutEmp_undInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -39727,8 +46242,6 @@ export namespace Prisma {
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
@@ -39740,6 +46253,7 @@ export namespace Prisma {
     EmpId: number
     DtaOpe: Date | string
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -39747,6 +46261,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -39757,7 +46273,6 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutEmp_undInput = {
@@ -39880,14 +46395,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEmp_undInput = {
@@ -39906,14 +46424,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type eqp_itmUpsertWithWhereUniqueWithoutEmp_undInput = {
@@ -39937,11 +46458,13 @@ export namespace Prisma {
     OR?: eqp_itmScalarWhereInput[]
     NOT?: eqp_itmScalarWhereInput | eqp_itmScalarWhereInput[]
     UndId?: IntFilter<"eqp_itm"> | number
+    BrtId?: IntNullableFilter<"eqp_itm"> | number | null
     FrnId?: IntFilter<"eqp_itm"> | number
     EqpTpoId?: IntFilter<"eqp_itm"> | number
     EqpFbrId?: IntFilter<"eqp_itm"> | number
     EqpMdlId?: IntFilter<"eqp_itm"> | number
     EqpItmId?: IntFilter<"eqp_itm"> | number
+    CbtId?: IntNullableFilter<"eqp_itm"> | number | null
     EqpItmCdg?: StringFilter<"eqp_itm"> | string
     EqpItmPlc?: StringNullableFilter<"eqp_itm"> | string | null
     EqpItmAnoMdl?: StringNullableFilter<"eqp_itm"> | string | null
@@ -40012,14 +46535,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEqp_fbrInput = {
@@ -40038,14 +46564,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEqp_fbrInput = {
@@ -40069,16 +46598,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutEqp_fbrInput = {
@@ -40102,12 +46634,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutEqp_fbrInput = {
@@ -40116,6 +46651,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutEqp_fbrInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -40129,16 +46666,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutEqp_fbrInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -40148,6 +46688,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -40223,14 +46764,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEqp_fbrInput = {
@@ -40249,14 +46793,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutEqp_fbrInput = {
@@ -40286,16 +46833,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutEqp_fbrInput = {
@@ -40319,12 +46869,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type eqp_itmUpsertWithWhereUniqueWithoutEqp_fbrInput = {
@@ -40532,14 +47085,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEqp_itmInput = {
@@ -40558,14 +47114,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEqp_itmInput = {
@@ -40589,16 +47148,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutEqp_itmInput = {
@@ -40622,12 +47184,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutEqp_itmInput = {
@@ -40663,14 +47228,47 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_tpo_itmCreateWithoutEqp_itmInput = {
+    BrtId: number
+    PsqTpoId: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutPsq_tpo_itmInput
+    usr: usrCreateNestedOneWithoutPsq_tpo_itmInput
+  }
+
+  export type psq_tpo_itmUncheckedCreateWithoutEqp_itmInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmCreateOrConnectWithoutEqp_itmInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    create: XOR<psq_tpo_itmCreateWithoutEqp_itmInput, psq_tpo_itmUncheckedCreateWithoutEqp_itmInput>
+  }
+
+  export type psq_tpo_itmCreateManyEqp_itmInputEnvelope = {
+    data: psq_tpo_itmCreateManyEqp_itmInput | psq_tpo_itmCreateManyEqp_itmInput[]
+    skipDuplicates?: boolean
+  }
+
   export type rcgCreateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -40681,8 +47279,6 @@ export namespace Prisma {
     emp_und: emp_undCreateNestedOneWithoutRcgInput
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
@@ -40695,12 +47291,15 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -40711,7 +47310,6 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
@@ -40725,13 +47323,17 @@ export namespace Prisma {
   }
 
   export type rcgCreateWithoutEqp_itm_rcg_VclIdToeqp_itmInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -40742,8 +47344,6 @@ export namespace Prisma {
     emp_und: emp_undCreateNestedOneWithoutRcgInput
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
@@ -40755,6 +47355,7 @@ export namespace Prisma {
     EmpId: number
     DtaOpe: Date | string
     UndId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -40762,6 +47363,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -40772,7 +47375,6 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutEqp_itm_rcg_VclIdToeqp_itmInput = {
@@ -40983,14 +47585,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEqp_itmInput = {
@@ -41009,14 +47614,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutEqp_itmInput = {
@@ -41046,16 +47654,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutEqp_itmInput = {
@@ -41079,12 +47690,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type eqp_locUpsertWithWhereUniqueWithoutEqp_itmInput = {
@@ -41101,6 +47715,36 @@ export namespace Prisma {
   export type eqp_locUpdateManyWithWhereWithoutEqp_itmInput = {
     where: eqp_locScalarWhereInput
     data: XOR<eqp_locUpdateManyMutationInput, eqp_locUncheckedUpdateManyWithoutEqp_itmInput>
+  }
+
+  export type psq_tpo_itmUpsertWithWhereUniqueWithoutEqp_itmInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    update: XOR<psq_tpo_itmUpdateWithoutEqp_itmInput, psq_tpo_itmUncheckedUpdateWithoutEqp_itmInput>
+    create: XOR<psq_tpo_itmCreateWithoutEqp_itmInput, psq_tpo_itmUncheckedCreateWithoutEqp_itmInput>
+  }
+
+  export type psq_tpo_itmUpdateWithWhereUniqueWithoutEqp_itmInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    data: XOR<psq_tpo_itmUpdateWithoutEqp_itmInput, psq_tpo_itmUncheckedUpdateWithoutEqp_itmInput>
+  }
+
+  export type psq_tpo_itmUpdateManyWithWhereWithoutEqp_itmInput = {
+    where: psq_tpo_itmScalarWhereInput
+    data: XOR<psq_tpo_itmUpdateManyMutationInput, psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmInput>
+  }
+
+  export type psq_tpo_itmScalarWhereInput = {
+    AND?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
+    OR?: psq_tpo_itmScalarWhereInput[]
+    NOT?: psq_tpo_itmScalarWhereInput | psq_tpo_itmScalarWhereInput[]
+    PsqTpoItmId?: IntFilter<"psq_tpo_itm"> | number
+    BrtId?: IntFilter<"psq_tpo_itm"> | number
+    PsqTpoId?: IntFilter<"psq_tpo_itm"> | number
+    EqpItmId?: IntFilter<"psq_tpo_itm"> | number
+    SttId?: IntFilter<"psq_tpo_itm"> | number
+    UsrIdAlt?: IntFilter<"psq_tpo_itm"> | number
+    DtaAlt?: DateTimeFilter<"psq_tpo_itm"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_tpo_itm"> | string | null
   }
 
   export type rcgUpsertWithWhereUniqueWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
@@ -41174,6 +47818,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutEqp_locInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -41187,17 +47833,20 @@ export namespace Prisma {
     frn: frnCreateNestedOneWithoutEqp_itmInput
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutEqp_locInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -41206,6 +47855,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -41256,14 +47906,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEqp_locInput = {
@@ -41282,14 +47935,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEqp_locInput = {
@@ -41313,16 +47969,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutEqp_locInput = {
@@ -41346,12 +48005,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutEqp_locInput = {
@@ -41415,6 +48077,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutEqp_locInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41428,17 +48092,20 @@ export namespace Prisma {
     frn?: frnUpdateOneRequiredWithoutEqp_itmNestedInput
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutEqp_locInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41447,6 +48114,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
@@ -41509,14 +48177,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEqp_locInput = {
@@ -41535,14 +48206,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutEqp_locInput = {
@@ -41572,16 +48246,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutEqp_locInput = {
@@ -41605,15 +48282,20 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type eqp_itmCreateWithoutEqp_mdlInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -41627,16 +48309,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutEqp_mdlInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -41646,6 +48331,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -41725,14 +48411,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEqp_mdlInput = {
@@ -41751,14 +48440,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEqp_mdlInput = {
@@ -41782,16 +48474,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutEqp_mdlInput = {
@@ -41815,12 +48510,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutEqp_mdlInput = {
@@ -41932,14 +48630,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEqp_mdlInput = {
@@ -41958,14 +48659,17 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutEqp_mdlInput = {
@@ -41995,16 +48699,19 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutEqp_mdlInput = {
@@ -42028,15 +48735,20 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type eqp_itmCreateWithoutEqp_tpoInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -42050,16 +48762,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutEqp_tpoInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -42069,6 +48784,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -42161,14 +48877,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutEqp_tpoInput = {
@@ -42187,14 +48906,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutEqp_tpoInput = {
@@ -42218,16 +48940,19 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutEqp_tpoInput = {
@@ -42251,12 +48976,15 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutEqp_tpoInput = {
@@ -42338,14 +49066,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutEqp_tpoInput = {
@@ -42364,14 +49095,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutEqp_tpoInput = {
@@ -42401,16 +49135,19 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutEqp_tpoInput = {
@@ -42434,15 +49171,20 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type eqp_itmCreateWithoutFrnInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -42456,16 +49198,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutFrnInput = {
     UndId: number
+    BrtId?: number | null
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -42475,6 +49220,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -42504,14 +49250,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlCreateNestedManyWithoutSttInput
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutFrnInput = {
@@ -42530,14 +49279,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutSttInput
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutFrnInput = {
@@ -42561,16 +49313,19 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutFrnInput = {
@@ -42594,12 +49349,15 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutFrnInput = {
@@ -42649,14 +49407,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUpdateManyWithoutSttNestedInput
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutFrnInput = {
@@ -42675,14 +49436,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutSttNestedInput
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutFrnInput = {
@@ -42712,16 +49476,19 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutFrnInput = {
@@ -42745,12 +49512,15 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type sttCreateWithoutPsqInput = {
@@ -42768,14 +49538,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlCreateNestedManyWithoutSttInput
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutPsqInput = {
@@ -42794,14 +49567,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutSttInput
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutPsqInput = {
@@ -42825,16 +49601,19 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutPsqInput = {
@@ -42858,12 +49637,15 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutPsqInput = {
@@ -42874,30 +49656,44 @@ export namespace Prisma {
   export type psq_rspCreateWithoutPsqInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_tpo: psq_tpoCreateNestedOneWithoutPsq_rspInput
     stt?: sttCreateNestedOneWithoutPsq_rspInput
     usr: usrCreateNestedOneWithoutPsq_rspInput
     psq_prg: psq_prgCreateNestedOneWithoutPsq_rspInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUncheckedCreateWithoutPsqInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspCreateOrConnectWithoutPsqInput = {
@@ -42936,14 +49732,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUpdateManyWithoutSttNestedInput
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutPsqInput = {
@@ -42962,14 +49761,17 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutSttNestedInput
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutPsqInput = {
@@ -42999,16 +49801,19 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutPsqInput = {
@@ -43032,12 +49837,15 @@ export namespace Prisma {
     eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type psq_rspUpsertWithWhereUniqueWithoutPsqInput = {
@@ -43062,13 +49870,19 @@ export namespace Prisma {
     NOT?: psq_rspScalarWhereInput | psq_rspScalarWhereInput[]
     UndId?: IntFilter<"psq_rsp"> | number
     DtaOpe?: DateTimeFilter<"psq_rsp"> | Date | string
-    TrnId?: IntNullableFilter<"psq_rsp"> | number | null
+    TrnId?: IntFilter<"psq_rsp"> | number
     PsqId?: IntFilter<"psq_rsp"> | number
     PsqTpoId?: IntFilter<"psq_rsp"> | number
+    BrtId?: IntNullableFilter<"psq_rsp"> | number | null
+    EqpItmId?: IntNullableFilter<"psq_rsp"> | number | null
     PsqPrgId?: IntFilter<"psq_rsp"> | number
     PsqRspId?: IntFilter<"psq_rsp"> | number
     PsqRsp?: IntFilter<"psq_rsp"> | number
     PsqDth?: StringNullableFilter<"psq_rsp"> | string | null
+    PsqMtvId?: IntNullableFilter<"psq_rsp"> | number | null
+    GpsLat?: StringNullableFilter<"psq_rsp"> | string | null
+    GpsLon?: StringNullableFilter<"psq_rsp"> | string | null
+    GpsAlt?: StringNullableFilter<"psq_rsp"> | string | null
     SttId?: IntFilter<"psq_rsp"> | number
     UsrIdAlt?: IntFilter<"psq_rsp"> | number
     DtaAlt?: DateTimeFilter<"psq_rsp"> | Date | string
@@ -43077,6 +49891,7 @@ export namespace Prisma {
 
   export type psq_tpoCreateWithoutPsq_prgInput = {
     PsqTpo: string
+    icone?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_rsp?: psq_rspCreateNestedManyWithoutPsq_tpoInput
@@ -43087,6 +49902,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedCreateWithoutPsq_prgInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -43115,13 +49931,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutPsq_prgInput = {
@@ -43141,13 +49960,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutPsq_prgInput = {
@@ -43172,15 +49994,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutPsq_prgInput = {
@@ -43205,11 +50030,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutPsq_prgInput = {
@@ -43220,30 +50048,44 @@ export namespace Prisma {
   export type psq_rspCreateWithoutPsq_prgInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_tpo: psq_tpoCreateNestedOneWithoutPsq_rspInput
     psq: psqCreateNestedOneWithoutPsq_rspInput
     stt?: sttCreateNestedOneWithoutPsq_rspInput
     usr: usrCreateNestedOneWithoutPsq_rspInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUncheckedCreateWithoutPsq_prgInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspCreateOrConnectWithoutPsq_prgInput = {
@@ -43269,6 +50111,7 @@ export namespace Prisma {
 
   export type psq_tpoUpdateWithoutPsq_prgInput = {
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_rsp?: psq_rspUpdateManyWithoutPsq_tpoNestedInput
@@ -43279,6 +50122,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateWithoutPsq_prgInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43313,13 +50157,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutPsq_prgInput = {
@@ -43339,13 +50186,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutPsq_prgInput = {
@@ -43376,15 +50226,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutPsq_prgInput = {
@@ -43409,11 +50262,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type psq_rspUpsertWithWhereUniqueWithoutPsq_prgInput = {
@@ -43434,6 +50290,7 @@ export namespace Prisma {
 
   export type psq_tpoCreateWithoutPsq_rspInput = {
     PsqTpo: string
+    icone?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_prg?: psq_prgCreateNestedManyWithoutPsq_tpoInput
@@ -43444,6 +50301,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedCreateWithoutPsq_rspInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -43494,13 +50352,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutPsq_rspInput = {
@@ -43520,13 +50381,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutPsq_rspInput = {
@@ -43551,15 +50415,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutPsq_rspInput = {
@@ -43584,11 +50451,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutPsq_rspInput = {
@@ -43622,6 +50492,33 @@ export namespace Prisma {
     create: XOR<psq_prgCreateWithoutPsq_rspInput, psq_prgUncheckedCreateWithoutPsq_rspInput>
   }
 
+  export type psq_rsp_ftoCreateWithoutPsq_rspInput = {
+    PqsRspFtoUrl?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutPsq_rsp_ftoInput
+    usr: usrCreateNestedOneWithoutPsq_rsp_ftoInput
+  }
+
+  export type psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput = {
+    PqsRspFto_id?: number
+    PqsRspFtoUrl?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoCreateOrConnectWithoutPsq_rspInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    create: XOR<psq_rsp_ftoCreateWithoutPsq_rspInput, psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput>
+  }
+
+  export type psq_rsp_ftoCreateManyPsq_rspInputEnvelope = {
+    data: psq_rsp_ftoCreateManyPsq_rspInput | psq_rsp_ftoCreateManyPsq_rspInput[]
+    skipDuplicates?: boolean
+  }
+
   export type psq_tpoUpsertWithoutPsq_rspInput = {
     update: XOR<psq_tpoUpdateWithoutPsq_rspInput, psq_tpoUncheckedUpdateWithoutPsq_rspInput>
     create: XOR<psq_tpoCreateWithoutPsq_rspInput, psq_tpoUncheckedCreateWithoutPsq_rspInput>
@@ -43635,6 +50532,7 @@ export namespace Prisma {
 
   export type psq_tpoUpdateWithoutPsq_rspInput = {
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_prg?: psq_prgUpdateManyWithoutPsq_tpoNestedInput
@@ -43645,6 +50543,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateWithoutPsq_rspInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -43707,13 +50606,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutPsq_rspInput = {
@@ -43733,13 +50635,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutPsq_rspInput = {
@@ -43770,15 +50675,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutPsq_rspInput = {
@@ -43803,11 +50711,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type psq_prgUpsertWithoutPsq_rspInput = {
@@ -43840,6 +50751,35 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUpsertWithWhereUniqueWithoutPsq_rspInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    update: XOR<psq_rsp_ftoUpdateWithoutPsq_rspInput, psq_rsp_ftoUncheckedUpdateWithoutPsq_rspInput>
+    create: XOR<psq_rsp_ftoCreateWithoutPsq_rspInput, psq_rsp_ftoUncheckedCreateWithoutPsq_rspInput>
+  }
+
+  export type psq_rsp_ftoUpdateWithWhereUniqueWithoutPsq_rspInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    data: XOR<psq_rsp_ftoUpdateWithoutPsq_rspInput, psq_rsp_ftoUncheckedUpdateWithoutPsq_rspInput>
+  }
+
+  export type psq_rsp_ftoUpdateManyWithWhereWithoutPsq_rspInput = {
+    where: psq_rsp_ftoScalarWhereInput
+    data: XOR<psq_rsp_ftoUpdateManyMutationInput, psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspInput>
+  }
+
+  export type psq_rsp_ftoScalarWhereInput = {
+    AND?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+    OR?: psq_rsp_ftoScalarWhereInput[]
+    NOT?: psq_rsp_ftoScalarWhereInput | psq_rsp_ftoScalarWhereInput[]
+    PqsRspFto_id?: IntFilter<"psq_rsp_fto"> | number
+    PsqRspId?: IntFilter<"psq_rsp_fto"> | number
+    PqsRspFtoUrl?: StringNullableFilter<"psq_rsp_fto"> | string | null
+    SttId?: IntFilter<"psq_rsp_fto"> | number
+    UsrIdAlt?: IntFilter<"psq_rsp_fto"> | number
+    DtaAlt?: DateTimeFilter<"psq_rsp_fto"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_rsp_fto"> | string | null
   }
 
   export type psq_prgCreateWithoutPsq_tpoInput = {
@@ -43876,30 +50816,44 @@ export namespace Prisma {
   export type psq_rspCreateWithoutPsq_tpoInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq: psqCreateNestedOneWithoutPsq_rspInput
     stt?: sttCreateNestedOneWithoutPsq_rspInput
     usr: usrCreateNestedOneWithoutPsq_rspInput
     psq_prg: psq_prgCreateNestedOneWithoutPsq_rspInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUncheckedCreateWithoutPsq_tpoInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspCreateOrConnectWithoutPsq_tpoInput = {
@@ -43928,13 +50882,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutPsq_tpoInput = {
@@ -43954,13 +50911,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutPsq_tpoInput = {
@@ -43985,15 +50945,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutPsq_tpoInput = {
@@ -44018,11 +50981,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutPsq_tpoInput = {
@@ -44103,13 +51069,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutPsq_tpoInput = {
@@ -44129,13 +51098,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutPsq_tpoInput = {
@@ -44166,15 +51138,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutPsq_tpoInput = {
@@ -44199,11 +51174,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type emp_undCreateWithoutRcgInput = {
@@ -44323,6 +51301,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutRcg_rcg_CrrIdToeqp_itmInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -44337,16 +51317,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutRcg_rcg_CrrIdToeqp_itmInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -44356,6 +51339,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
@@ -44365,6 +51349,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutRcg_rcg_VclIdToeqp_itmInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -44379,16 +51365,19 @@ export namespace Prisma {
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutRcg_rcg_VclIdToeqp_itmInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -44398,129 +51387,13 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
   }
 
   export type eqp_itmCreateOrConnectWithoutRcg_rcg_VclIdToeqp_itmInput = {
     where: eqp_itmWhereUniqueInput
     create: XOR<eqp_itmCreateWithoutRcg_rcg_VclIdToeqp_itmInput, eqp_itmUncheckedCreateWithoutRcg_rcg_VclIdToeqp_itmInput>
-  }
-
-  export type rcgCreateWithoutOther_rcgInput = {
-    DtaOpe: Date | string
-    CrrCnc: number
-    DtaIni: Date | string
-    DtaFin?: Date | string | null
-    SocIni?: number | null
-    SocFin?: number | null
-    RcgKwh?: Decimal | DecimalJsLike | number | string | null
-    OdoIni?: Decimal | DecimalJsLike | number | string | null
-    OdoFin?: Decimal | DecimalJsLike | number | string | null
-    FlhId?: number
-    FlhDsc?: string | null
-    SttIdChk?: number | null
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-    emp_und: emp_undCreateNestedOneWithoutRcgInput
-    emp: empCreateNestedOneWithoutRcgInput
-    eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
-    eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
-    stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
-    usr: usrCreateNestedOneWithoutRcgInput
-  }
-
-  export type rcgUncheckedCreateWithoutOther_rcgInput = {
-    RcgId?: number
-    RcgIdOrg?: number | null
-    EmpId: number
-    DtaOpe: Date | string
-    UndId: number
-    VclId: number
-    CrrId: number
-    CrrCnc: number
-    DtaIni: Date | string
-    DtaFin?: Date | string | null
-    SocIni?: number | null
-    SocFin?: number | null
-    RcgKwh?: Decimal | DecimalJsLike | number | string | null
-    OdoIni?: Decimal | DecimalJsLike | number | string | null
-    OdoFin?: Decimal | DecimalJsLike | number | string | null
-    SttRcgId?: number
-    FlhId?: number
-    FlhDsc?: string | null
-    SttId?: number
-    SttIdChk?: number | null
-    UsrIdAlt: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-  }
-
-  export type rcgCreateOrConnectWithoutOther_rcgInput = {
-    where: rcgWhereUniqueInput
-    create: XOR<rcgCreateWithoutOther_rcgInput, rcgUncheckedCreateWithoutOther_rcgInput>
-  }
-
-  export type rcgCreateWithoutRcgInput = {
-    DtaOpe: Date | string
-    CrrCnc: number
-    DtaIni: Date | string
-    DtaFin?: Date | string | null
-    SocIni?: number | null
-    SocFin?: number | null
-    RcgKwh?: Decimal | DecimalJsLike | number | string | null
-    OdoIni?: Decimal | DecimalJsLike | number | string | null
-    OdoFin?: Decimal | DecimalJsLike | number | string | null
-    FlhId?: number
-    FlhDsc?: string | null
-    SttIdChk?: number | null
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-    emp_und: emp_undCreateNestedOneWithoutRcgInput
-    emp: empCreateNestedOneWithoutRcgInput
-    eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
-    eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
-    stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
-    stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
-    usr: usrCreateNestedOneWithoutRcgInput
-  }
-
-  export type rcgUncheckedCreateWithoutRcgInput = {
-    RcgId?: number
-    EmpId: number
-    DtaOpe: Date | string
-    UndId: number
-    VclId: number
-    CrrId: number
-    CrrCnc: number
-    DtaIni: Date | string
-    DtaFin?: Date | string | null
-    SocIni?: number | null
-    SocFin?: number | null
-    RcgKwh?: Decimal | DecimalJsLike | number | string | null
-    OdoIni?: Decimal | DecimalJsLike | number | string | null
-    OdoFin?: Decimal | DecimalJsLike | number | string | null
-    SttRcgId?: number
-    FlhId?: number
-    FlhDsc?: string | null
-    SttId?: number
-    SttIdChk?: number | null
-    UsrIdAlt: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
-  }
-
-  export type rcgCreateOrConnectWithoutRcgInput = {
-    where: rcgWhereUniqueInput
-    create: XOR<rcgCreateWithoutRcgInput, rcgUncheckedCreateWithoutRcgInput>
-  }
-
-  export type rcgCreateManyRcgInputEnvelope = {
-    data: rcgCreateManyRcgInput | rcgCreateManyRcgInput[]
-    skipDuplicates?: boolean
   }
 
   export type sttCreateWithoutRcg_rcg_SttIdTosttInput = {
@@ -44539,13 +51412,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutRcg_rcg_SttIdTosttInput = {
@@ -44565,13 +51441,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutRcg_rcg_SttIdTosttInput = {
@@ -44595,13 +51474,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
     usr?: usrCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
-    trn?: trnCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutRcg_rcg_SttRcgIdTosttInput = {
@@ -44621,13 +51503,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
     usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
-    trn?: trnUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutRcg_rcg_SttRcgIdTosttInput = {
@@ -44652,15 +51537,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutRcgInput = {
@@ -44685,11 +51573,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutRcgInput = {
@@ -44837,6 +51728,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutRcg_rcg_CrrIdToeqp_itmInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44851,16 +51744,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutRcg_rcg_CrrIdToeqp_itmInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44870,6 +51766,7 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
@@ -44885,6 +51782,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutRcg_rcg_VclIdToeqp_itmInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44899,16 +51798,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutRcg_rcg_VclIdToeqp_itmInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -44918,85 +51820,8 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
-  }
-
-  export type rcgUpsertWithoutOther_rcgInput = {
-    update: XOR<rcgUpdateWithoutOther_rcgInput, rcgUncheckedUpdateWithoutOther_rcgInput>
-    create: XOR<rcgCreateWithoutOther_rcgInput, rcgUncheckedCreateWithoutOther_rcgInput>
-    where?: rcgWhereInput
-  }
-
-  export type rcgUpdateToOneWithWhereWithoutOther_rcgInput = {
-    where?: rcgWhereInput
-    data: XOR<rcgUpdateWithoutOther_rcgInput, rcgUncheckedUpdateWithoutOther_rcgInput>
-  }
-
-  export type rcgUpdateWithoutOther_rcgInput = {
-    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    CrrCnc?: IntFieldUpdateOperationsInput | number
-    DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    SocIni?: NullableIntFieldUpdateOperationsInput | number | null
-    SocFin?: NullableIntFieldUpdateOperationsInput | number | null
-    RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    FlhId?: IntFieldUpdateOperationsInput | number
-    FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
-    emp?: empUpdateOneRequiredWithoutRcgNestedInput
-    eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
-    eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
-    stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
-    usr?: usrUpdateOneRequiredWithoutRcgNestedInput
-  }
-
-  export type rcgUncheckedUpdateWithoutOther_rcgInput = {
-    RcgId?: IntFieldUpdateOperationsInput | number
-    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
-    EmpId?: IntFieldUpdateOperationsInput | number
-    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    UndId?: IntFieldUpdateOperationsInput | number
-    VclId?: IntFieldUpdateOperationsInput | number
-    CrrId?: IntFieldUpdateOperationsInput | number
-    CrrCnc?: IntFieldUpdateOperationsInput | number
-    DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    SocIni?: NullableIntFieldUpdateOperationsInput | number | null
-    SocFin?: NullableIntFieldUpdateOperationsInput | number | null
-    RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    SttRcgId?: IntFieldUpdateOperationsInput | number
-    FlhId?: IntFieldUpdateOperationsInput | number
-    FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
-    UsrIdAlt?: IntFieldUpdateOperationsInput | number
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type rcgUpsertWithWhereUniqueWithoutRcgInput = {
-    where: rcgWhereUniqueInput
-    update: XOR<rcgUpdateWithoutRcgInput, rcgUncheckedUpdateWithoutRcgInput>
-    create: XOR<rcgCreateWithoutRcgInput, rcgUncheckedCreateWithoutRcgInput>
-  }
-
-  export type rcgUpdateWithWhereUniqueWithoutRcgInput = {
-    where: rcgWhereUniqueInput
-    data: XOR<rcgUpdateWithoutRcgInput, rcgUncheckedUpdateWithoutRcgInput>
-  }
-
-  export type rcgUpdateManyWithWhereWithoutRcgInput = {
-    where: rcgScalarWhereInput
-    data: XOR<rcgUpdateManyMutationInput, rcgUncheckedUpdateManyWithoutRcgInput>
   }
 
   export type sttUpsertWithoutRcg_rcg_SttIdTosttInput = {
@@ -45026,13 +51851,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutRcg_rcg_SttIdTosttInput = {
@@ -45052,13 +51880,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type sttUpsertWithoutRcg_rcg_SttRcgIdTosttInput = {
@@ -45088,13 +51919,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
-    trn?: trnUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutRcg_rcg_SttRcgIdTosttInput = {
@@ -45114,13 +51948,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
-    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usrUpsertWithoutRcgInput = {
@@ -45151,15 +51988,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutRcgInput = {
@@ -45184,11 +52024,14 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type cbtCreateWithoutSttInput = {
@@ -45372,6 +52215,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutSttInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -45385,17 +52230,20 @@ export namespace Prisma {
     frn: frnCreateNestedOneWithoutEqp_itmInput
     usr: usrCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutSttInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -45404,6 +52252,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -45568,6 +52417,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_mtvCreateWithoutSttInput = {
+    PsqTpoId: number
+    PsqMtv: string
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    usr: usrCreateNestedOneWithoutPsq_mtvInput
+  }
+
+  export type psq_mtvUncheckedCreateWithoutSttInput = {
+    PsqTpoId: number
+    PsqMtvId?: number
+    PsqMtv: string
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_mtvCreateOrConnectWithoutSttInput = {
+    where: psq_mtvWhereUniqueInput
+    create: XOR<psq_mtvCreateWithoutSttInput, psq_mtvUncheckedCreateWithoutSttInput>
+  }
+
+  export type psq_mtvCreateManySttInputEnvelope = {
+    data: psq_mtvCreateManySttInput | psq_mtvCreateManySttInput[]
+    skipDuplicates?: boolean
+  }
+
   export type psq_prgCreateWithoutSttInput = {
     PsqPrg: string
     PsqSqc: number
@@ -45602,30 +52478,44 @@ export namespace Prisma {
   export type psq_rspCreateWithoutSttInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_tpo: psq_tpoCreateNestedOneWithoutPsq_rspInput
     psq: psqCreateNestedOneWithoutPsq_rspInput
     usr: usrCreateNestedOneWithoutPsq_rspInput
     psq_prg: psq_prgCreateNestedOneWithoutPsq_rspInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUncheckedCreateWithoutSttInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspCreateOrConnectWithoutSttInput = {
@@ -45638,8 +52528,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_rsp_ftoCreateWithoutSttInput = {
+    PqsRspFtoUrl?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    usr: usrCreateNestedOneWithoutPsq_rsp_ftoInput
+    psq_rsp: psq_rspCreateNestedOneWithoutPsq_rsp_ftoInput
+  }
+
+  export type psq_rsp_ftoUncheckedCreateWithoutSttInput = {
+    PqsRspFto_id?: number
+    PsqRspId: number
+    PqsRspFtoUrl?: string | null
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoCreateOrConnectWithoutSttInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    create: XOR<psq_rsp_ftoCreateWithoutSttInput, psq_rsp_ftoUncheckedCreateWithoutSttInput>
+  }
+
+  export type psq_rsp_ftoCreateManySttInputEnvelope = {
+    data: psq_rsp_ftoCreateManySttInput | psq_rsp_ftoCreateManySttInput[]
+    skipDuplicates?: boolean
+  }
+
   export type psq_tpoCreateWithoutSttInput = {
     PsqTpo: string
+    icone?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_prg?: psq_prgCreateNestedManyWithoutPsq_tpoInput
@@ -45650,6 +52568,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedCreateWithoutSttInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -45667,14 +52586,47 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_tpo_itmCreateWithoutSttInput = {
+    BrtId: number
+    PsqTpoId: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    eqp_itm: eqp_itmCreateNestedOneWithoutPsq_tpo_itmInput
+    usr: usrCreateNestedOneWithoutPsq_tpo_itmInput
+  }
+
+  export type psq_tpo_itmUncheckedCreateWithoutSttInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmCreateOrConnectWithoutSttInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    create: XOR<psq_tpo_itmCreateWithoutSttInput, psq_tpo_itmUncheckedCreateWithoutSttInput>
+  }
+
+  export type psq_tpo_itmCreateManySttInputEnvelope = {
+    data: psq_tpo_itmCreateManySttInput | psq_tpo_itmCreateManySttInput[]
+    skipDuplicates?: boolean
+  }
+
   export type rcgCreateWithoutStt_rcg_SttIdTosttInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -45686,8 +52638,6 @@ export namespace Prisma {
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
   }
@@ -45699,6 +52649,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -45706,6 +52657,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -45715,7 +52668,6 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutStt_rcg_SttIdTosttInput = {
@@ -45729,13 +52681,17 @@ export namespace Prisma {
   }
 
   export type rcgCreateWithoutStt_rcg_SttRcgIdTosttInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -45747,8 +52703,6 @@ export namespace Prisma {
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     usr: usrCreateNestedOneWithoutRcgInput
   }
@@ -45760,6 +52714,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -45767,6 +52722,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -45776,7 +52733,6 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutStt_rcg_SttRcgIdTosttInput = {
@@ -45786,6 +52742,35 @@ export namespace Prisma {
 
   export type rcgCreateManyStt_rcg_SttRcgIdTosttInputEnvelope = {
     data: rcgCreateManyStt_rcg_SttRcgIdTosttInput | rcgCreateManyStt_rcg_SttRcgIdTosttInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type trnCreateWithoutSttInput = {
+    Trn: string
+    TrnIni: Date | string
+    TrnFin: Date | string
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    usr: usrCreateNestedOneWithoutTrnInput
+  }
+
+  export type trnUncheckedCreateWithoutSttInput = {
+    TrnId?: number
+    Trn: string
+    TrnIni: Date | string
+    TrnFin: Date | string
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type trnCreateOrConnectWithoutSttInput = {
+    where: trnWhereUniqueInput
+    create: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput>
+  }
+
+  export type trnCreateManySttInputEnvelope = {
+    data: trnCreateManySttInput | trnCreateManySttInput[]
     skipDuplicates?: boolean
   }
 
@@ -45806,15 +52791,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutSttInput = {
@@ -45838,12 +52826,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutSttInput = {
@@ -45880,35 +52871,6 @@ export namespace Prisma {
 
   export type usr_tpoCreateManySttInputEnvelope = {
     data: usr_tpoCreateManySttInput | usr_tpoCreateManySttInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type trnCreateWithoutSttInput = {
-    Trn: string
-    TrnIni: Date | string
-    TrnFin: Date | string
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-    usr: usrCreateNestedOneWithoutTrnInput
-  }
-
-  export type trnUncheckedCreateWithoutSttInput = {
-    TrnId?: number
-    Trn: string
-    TrnIni: Date | string
-    TrnFin: Date | string
-    UsrIdAlt: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-  }
-
-  export type trnCreateOrConnectWithoutSttInput = {
-    where: trnWhereUniqueInput
-    create: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput>
-  }
-
-  export type trnCreateManySttInputEnvelope = {
-    data: trnCreateManySttInput | trnCreateManySttInput[]
     skipDuplicates?: boolean
   }
 
@@ -46171,6 +53133,35 @@ export namespace Prisma {
     MtvDel?: StringNullableFilter<"psq"> | string | null
   }
 
+  export type psq_mtvUpsertWithWhereUniqueWithoutSttInput = {
+    where: psq_mtvWhereUniqueInput
+    update: XOR<psq_mtvUpdateWithoutSttInput, psq_mtvUncheckedUpdateWithoutSttInput>
+    create: XOR<psq_mtvCreateWithoutSttInput, psq_mtvUncheckedCreateWithoutSttInput>
+  }
+
+  export type psq_mtvUpdateWithWhereUniqueWithoutSttInput = {
+    where: psq_mtvWhereUniqueInput
+    data: XOR<psq_mtvUpdateWithoutSttInput, psq_mtvUncheckedUpdateWithoutSttInput>
+  }
+
+  export type psq_mtvUpdateManyWithWhereWithoutSttInput = {
+    where: psq_mtvScalarWhereInput
+    data: XOR<psq_mtvUpdateManyMutationInput, psq_mtvUncheckedUpdateManyWithoutSttInput>
+  }
+
+  export type psq_mtvScalarWhereInput = {
+    AND?: psq_mtvScalarWhereInput | psq_mtvScalarWhereInput[]
+    OR?: psq_mtvScalarWhereInput[]
+    NOT?: psq_mtvScalarWhereInput | psq_mtvScalarWhereInput[]
+    PsqTpoId?: IntFilter<"psq_mtv"> | number
+    PsqMtvId?: IntFilter<"psq_mtv"> | number
+    PsqMtv?: StringFilter<"psq_mtv"> | string
+    SttId?: IntFilter<"psq_mtv"> | number
+    UsrIdAlt?: IntFilter<"psq_mtv"> | number
+    DtaAlt?: DateTimeFilter<"psq_mtv"> | Date | string
+    MtvDel?: StringNullableFilter<"psq_mtv"> | string | null
+  }
+
   export type psq_prgUpsertWithWhereUniqueWithoutSttInput = {
     where: psq_prgWhereUniqueInput
     update: XOR<psq_prgUpdateWithoutSttInput, psq_prgUncheckedUpdateWithoutSttInput>
@@ -46203,6 +53194,22 @@ export namespace Prisma {
     data: XOR<psq_rspUpdateManyMutationInput, psq_rspUncheckedUpdateManyWithoutSttInput>
   }
 
+  export type psq_rsp_ftoUpsertWithWhereUniqueWithoutSttInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    update: XOR<psq_rsp_ftoUpdateWithoutSttInput, psq_rsp_ftoUncheckedUpdateWithoutSttInput>
+    create: XOR<psq_rsp_ftoCreateWithoutSttInput, psq_rsp_ftoUncheckedCreateWithoutSttInput>
+  }
+
+  export type psq_rsp_ftoUpdateWithWhereUniqueWithoutSttInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    data: XOR<psq_rsp_ftoUpdateWithoutSttInput, psq_rsp_ftoUncheckedUpdateWithoutSttInput>
+  }
+
+  export type psq_rsp_ftoUpdateManyWithWhereWithoutSttInput = {
+    where: psq_rsp_ftoScalarWhereInput
+    data: XOR<psq_rsp_ftoUpdateManyMutationInput, psq_rsp_ftoUncheckedUpdateManyWithoutSttInput>
+  }
+
   export type psq_tpoUpsertWithWhereUniqueWithoutSttInput = {
     where: psq_tpoWhereUniqueInput
     update: XOR<psq_tpoUpdateWithoutSttInput, psq_tpoUncheckedUpdateWithoutSttInput>
@@ -46225,10 +53232,27 @@ export namespace Prisma {
     NOT?: psq_tpoScalarWhereInput | psq_tpoScalarWhereInput[]
     PsqTpoId?: IntFilter<"psq_tpo"> | number
     PsqTpo?: StringFilter<"psq_tpo"> | string
+    icone?: StringNullableFilter<"psq_tpo"> | string | null
     SttId?: IntFilter<"psq_tpo"> | number
     UsrIdAlt?: IntFilter<"psq_tpo"> | number
     DtaAlt?: DateTimeFilter<"psq_tpo"> | Date | string
     MtvDel?: StringNullableFilter<"psq_tpo"> | string | null
+  }
+
+  export type psq_tpo_itmUpsertWithWhereUniqueWithoutSttInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    update: XOR<psq_tpo_itmUpdateWithoutSttInput, psq_tpo_itmUncheckedUpdateWithoutSttInput>
+    create: XOR<psq_tpo_itmCreateWithoutSttInput, psq_tpo_itmUncheckedCreateWithoutSttInput>
+  }
+
+  export type psq_tpo_itmUpdateWithWhereUniqueWithoutSttInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    data: XOR<psq_tpo_itmUpdateWithoutSttInput, psq_tpo_itmUncheckedUpdateWithoutSttInput>
+  }
+
+  export type psq_tpo_itmUpdateManyWithWhereWithoutSttInput = {
+    where: psq_tpo_itmScalarWhereInput
+    data: XOR<psq_tpo_itmUpdateManyMutationInput, psq_tpo_itmUncheckedUpdateManyWithoutSttInput>
   }
 
   export type rcgUpsertWithWhereUniqueWithoutStt_rcg_SttIdTosttInput = {
@@ -46261,6 +53285,36 @@ export namespace Prisma {
   export type rcgUpdateManyWithWhereWithoutStt_rcg_SttRcgIdTosttInput = {
     where: rcgScalarWhereInput
     data: XOR<rcgUpdateManyMutationInput, rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttInput>
+  }
+
+  export type trnUpsertWithWhereUniqueWithoutSttInput = {
+    where: trnWhereUniqueInput
+    update: XOR<trnUpdateWithoutSttInput, trnUncheckedUpdateWithoutSttInput>
+    create: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput>
+  }
+
+  export type trnUpdateWithWhereUniqueWithoutSttInput = {
+    where: trnWhereUniqueInput
+    data: XOR<trnUpdateWithoutSttInput, trnUncheckedUpdateWithoutSttInput>
+  }
+
+  export type trnUpdateManyWithWhereWithoutSttInput = {
+    where: trnScalarWhereInput
+    data: XOR<trnUpdateManyMutationInput, trnUncheckedUpdateManyWithoutSttInput>
+  }
+
+  export type trnScalarWhereInput = {
+    AND?: trnScalarWhereInput | trnScalarWhereInput[]
+    OR?: trnScalarWhereInput[]
+    NOT?: trnScalarWhereInput | trnScalarWhereInput[]
+    TrnId?: IntFilter<"trn"> | number
+    Trn?: StringFilter<"trn"> | string
+    TrnIni?: DateTimeFilter<"trn"> | Date | string
+    TrnFin?: DateTimeFilter<"trn"> | Date | string
+    SttId?: IntFilter<"trn"> | number
+    UsrIdAlt?: IntFilter<"trn"> | number
+    DtaAlt?: DateTimeFilter<"trn"> | Date | string
+    MtvDel?: StringNullableFilter<"trn"> | string | null
   }
 
   export type usrUpsertWithWhereUniqueWithoutSttInput = {
@@ -46307,36 +53361,6 @@ export namespace Prisma {
     MtvDel?: StringNullableFilter<"usr_tpo"> | string | null
   }
 
-  export type trnUpsertWithWhereUniqueWithoutSttInput = {
-    where: trnWhereUniqueInput
-    update: XOR<trnUpdateWithoutSttInput, trnUncheckedUpdateWithoutSttInput>
-    create: XOR<trnCreateWithoutSttInput, trnUncheckedCreateWithoutSttInput>
-  }
-
-  export type trnUpdateWithWhereUniqueWithoutSttInput = {
-    where: trnWhereUniqueInput
-    data: XOR<trnUpdateWithoutSttInput, trnUncheckedUpdateWithoutSttInput>
-  }
-
-  export type trnUpdateManyWithWhereWithoutSttInput = {
-    where: trnScalarWhereInput
-    data: XOR<trnUpdateManyMutationInput, trnUncheckedUpdateManyWithoutSttInput>
-  }
-
-  export type trnScalarWhereInput = {
-    AND?: trnScalarWhereInput | trnScalarWhereInput[]
-    OR?: trnScalarWhereInput[]
-    NOT?: trnScalarWhereInput | trnScalarWhereInput[]
-    TrnId?: IntFilter<"trn"> | number
-    Trn?: StringFilter<"trn"> | string
-    TrnIni?: DateTimeFilter<"trn"> | Date | string
-    TrnFin?: DateTimeFilter<"trn"> | Date | string
-    SttId?: IntFilter<"trn"> | number
-    UsrIdAlt?: IntFilter<"trn"> | number
-    DtaAlt?: DateTimeFilter<"trn"> | Date | string
-    MtvDel?: StringNullableFilter<"trn"> | string | null
-  }
-
   export type sttCreateWithoutTrnInput = {
     SttNme: string
     SttIdAtu?: number
@@ -46353,9 +53377,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
     usr?: usrCreateNestedManyWithoutSttInput
@@ -46379,9 +53406,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
     usr?: usrUncheckedCreateNestedManyWithoutSttInput
@@ -46410,9 +53440,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
@@ -46443,9 +53476,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
     other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
@@ -46482,9 +53518,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateManyWithoutSttNestedInput
@@ -46508,9 +53547,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
     usr?: usrUncheckedUpdateManyWithoutSttNestedInput
@@ -46545,9 +53587,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
@@ -46578,9 +53623,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
     other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
@@ -46640,6 +53688,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateWithoutUsrInput = {
+    BrtId?: number | null
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -46653,17 +53703,20 @@ export namespace Prisma {
     frn: frnCreateNestedOneWithoutEqp_itmInput
     stt?: sttCreateNestedOneWithoutEqp_itmInput
     eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
 
   export type eqp_itmUncheckedCreateWithoutUsrInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -46672,6 +53725,7 @@ export namespace Prisma {
     DtaAlt?: Date | string
     MtvDel?: string | null
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutEqp_itmInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
   }
@@ -46836,6 +53890,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_mtvCreateWithoutUsrInput = {
+    PsqTpoId: number
+    PsqMtv: string
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutPsq_mtvInput
+  }
+
+  export type psq_mtvUncheckedCreateWithoutUsrInput = {
+    PsqTpoId: number
+    PsqMtvId?: number
+    PsqMtv: string
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_mtvCreateOrConnectWithoutUsrInput = {
+    where: psq_mtvWhereUniqueInput
+    create: XOR<psq_mtvCreateWithoutUsrInput, psq_mtvUncheckedCreateWithoutUsrInput>
+  }
+
+  export type psq_mtvCreateManyUsrInputEnvelope = {
+    data: psq_mtvCreateManyUsrInput | psq_mtvCreateManyUsrInput[]
+    skipDuplicates?: boolean
+  }
+
   export type psq_prgCreateWithoutUsrInput = {
     PsqPrg: string
     PsqSqc: number
@@ -46870,30 +53951,44 @@ export namespace Prisma {
   export type psq_rspCreateWithoutUsrInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_tpo: psq_tpoCreateNestedOneWithoutPsq_rspInput
     psq: psqCreateNestedOneWithoutPsq_rspInput
     stt?: sttCreateNestedOneWithoutPsq_rspInput
     psq_prg: psq_prgCreateNestedOneWithoutPsq_rspInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspUncheckedCreateWithoutUsrInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutPsq_rspInput
   }
 
   export type psq_rspCreateOrConnectWithoutUsrInput = {
@@ -46906,8 +54001,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_rsp_ftoCreateWithoutUsrInput = {
+    PqsRspFtoUrl?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutPsq_rsp_ftoInput
+    psq_rsp: psq_rspCreateNestedOneWithoutPsq_rsp_ftoInput
+  }
+
+  export type psq_rsp_ftoUncheckedCreateWithoutUsrInput = {
+    PqsRspFto_id?: number
+    PsqRspId: number
+    PqsRspFtoUrl?: string | null
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoCreateOrConnectWithoutUsrInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    create: XOR<psq_rsp_ftoCreateWithoutUsrInput, psq_rsp_ftoUncheckedCreateWithoutUsrInput>
+  }
+
+  export type psq_rsp_ftoCreateManyUsrInputEnvelope = {
+    data: psq_rsp_ftoCreateManyUsrInput | psq_rsp_ftoCreateManyUsrInput[]
+    skipDuplicates?: boolean
+  }
+
   export type psq_tpoCreateWithoutUsrInput = {
     PsqTpo: string
+    icone?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
     psq_prg?: psq_prgCreateNestedManyWithoutPsq_tpoInput
@@ -46918,6 +54041,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedCreateWithoutUsrInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -46935,14 +54059,47 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type psq_tpo_itmCreateWithoutUsrInput = {
+    BrtId: number
+    PsqTpoId: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    eqp_itm: eqp_itmCreateNestedOneWithoutPsq_tpo_itmInput
+    stt?: sttCreateNestedOneWithoutPsq_tpo_itmInput
+  }
+
+  export type psq_tpo_itmUncheckedCreateWithoutUsrInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmCreateOrConnectWithoutUsrInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    create: XOR<psq_tpo_itmCreateWithoutUsrInput, psq_tpo_itmUncheckedCreateWithoutUsrInput>
+  }
+
+  export type psq_tpo_itmCreateManyUsrInputEnvelope = {
+    data: psq_tpo_itmCreateManyUsrInput | psq_tpo_itmCreateManyUsrInput[]
+    skipDuplicates?: boolean
+  }
+
   export type rcgCreateWithoutUsrInput = {
+    RcgIdOrg?: number | null
     DtaOpe: Date | string
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
@@ -46954,8 +54111,6 @@ export namespace Prisma {
     emp: empCreateNestedOneWithoutRcgInput
     eqp_itm_rcg_CrrIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_CrrIdToeqp_itmInput
     eqp_itm_rcg_VclIdToeqp_itm: eqp_itmCreateNestedOneWithoutRcg_rcg_VclIdToeqp_itmInput
-    rcg?: rcgCreateNestedOneWithoutOther_rcgInput
-    other_rcg?: rcgCreateNestedManyWithoutRcgInput
     stt_rcg_SttIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttIdTosttInput
     stt_rcg_SttRcgIdTostt?: sttCreateNestedOneWithoutRcg_rcg_SttRcgIdTosttInput
   }
@@ -46967,6 +54122,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -46974,6 +54130,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -46983,7 +54141,6 @@ export namespace Prisma {
     SttIdChk?: number | null
     DtaAlt?: Date | string
     MtvDel?: string | null
-    other_rcg?: rcgUncheckedCreateNestedManyWithoutRcgInput
   }
 
   export type rcgCreateOrConnectWithoutUsrInput = {
@@ -46993,6 +54150,35 @@ export namespace Prisma {
 
   export type rcgCreateManyUsrInputEnvelope = {
     data: rcgCreateManyUsrInput | rcgCreateManyUsrInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type trnCreateWithoutUsrInput = {
+    Trn: string
+    TrnIni: Date | string
+    TrnFin: Date | string
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    stt?: sttCreateNestedOneWithoutTrnInput
+  }
+
+  export type trnUncheckedCreateWithoutUsrInput = {
+    TrnId?: number
+    Trn: string
+    TrnIni: Date | string
+    TrnFin: Date | string
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type trnCreateOrConnectWithoutUsrInput = {
+    where: trnWhereUniqueInput
+    create: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput>
+  }
+
+  export type trnCreateManyUsrInputEnvelope = {
+    data: trnCreateManyUsrInput | trnCreateManyUsrInput[]
     skipDuplicates?: boolean
   }
 
@@ -47090,13 +54276,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
-    usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
     trn?: trnCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutUsrInput = {
@@ -47116,13 +54305,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
-    usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
     trn?: trnUncheckedCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutUsrInput = {
@@ -47169,15 +54361,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutOther_usrInput = {
@@ -47202,9 +54397,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
   }
@@ -47231,15 +54429,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutUsrInput = {
@@ -47263,12 +54464,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutUsrInput = {
@@ -47278,35 +54482,6 @@ export namespace Prisma {
 
   export type usrCreateManyUsrInputEnvelope = {
     data: usrCreateManyUsrInput | usrCreateManyUsrInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type trnCreateWithoutUsrInput = {
-    Trn: string
-    TrnIni: Date | string
-    TrnFin: Date | string
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-    stt?: sttCreateNestedOneWithoutTrnInput
-  }
-
-  export type trnUncheckedCreateWithoutUsrInput = {
-    TrnId?: number
-    Trn: string
-    TrnIni: Date | string
-    TrnFin: Date | string
-    SttId?: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-  }
-
-  export type trnCreateOrConnectWithoutUsrInput = {
-    where: trnWhereUniqueInput
-    create: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput>
-  }
-
-  export type trnCreateManyUsrInputEnvelope = {
-    data: trnCreateManyUsrInput | trnCreateManyUsrInput[]
     skipDuplicates?: boolean
   }
 
@@ -47438,6 +54613,22 @@ export namespace Prisma {
     data: XOR<psqUpdateManyMutationInput, psqUncheckedUpdateManyWithoutUsrInput>
   }
 
+  export type psq_mtvUpsertWithWhereUniqueWithoutUsrInput = {
+    where: psq_mtvWhereUniqueInput
+    update: XOR<psq_mtvUpdateWithoutUsrInput, psq_mtvUncheckedUpdateWithoutUsrInput>
+    create: XOR<psq_mtvCreateWithoutUsrInput, psq_mtvUncheckedCreateWithoutUsrInput>
+  }
+
+  export type psq_mtvUpdateWithWhereUniqueWithoutUsrInput = {
+    where: psq_mtvWhereUniqueInput
+    data: XOR<psq_mtvUpdateWithoutUsrInput, psq_mtvUncheckedUpdateWithoutUsrInput>
+  }
+
+  export type psq_mtvUpdateManyWithWhereWithoutUsrInput = {
+    where: psq_mtvScalarWhereInput
+    data: XOR<psq_mtvUpdateManyMutationInput, psq_mtvUncheckedUpdateManyWithoutUsrInput>
+  }
+
   export type psq_prgUpsertWithWhereUniqueWithoutUsrInput = {
     where: psq_prgWhereUniqueInput
     update: XOR<psq_prgUpdateWithoutUsrInput, psq_prgUncheckedUpdateWithoutUsrInput>
@@ -47470,6 +54661,22 @@ export namespace Prisma {
     data: XOR<psq_rspUpdateManyMutationInput, psq_rspUncheckedUpdateManyWithoutUsrInput>
   }
 
+  export type psq_rsp_ftoUpsertWithWhereUniqueWithoutUsrInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    update: XOR<psq_rsp_ftoUpdateWithoutUsrInput, psq_rsp_ftoUncheckedUpdateWithoutUsrInput>
+    create: XOR<psq_rsp_ftoCreateWithoutUsrInput, psq_rsp_ftoUncheckedCreateWithoutUsrInput>
+  }
+
+  export type psq_rsp_ftoUpdateWithWhereUniqueWithoutUsrInput = {
+    where: psq_rsp_ftoWhereUniqueInput
+    data: XOR<psq_rsp_ftoUpdateWithoutUsrInput, psq_rsp_ftoUncheckedUpdateWithoutUsrInput>
+  }
+
+  export type psq_rsp_ftoUpdateManyWithWhereWithoutUsrInput = {
+    where: psq_rsp_ftoScalarWhereInput
+    data: XOR<psq_rsp_ftoUpdateManyMutationInput, psq_rsp_ftoUncheckedUpdateManyWithoutUsrInput>
+  }
+
   export type psq_tpoUpsertWithWhereUniqueWithoutUsrInput = {
     where: psq_tpoWhereUniqueInput
     update: XOR<psq_tpoUpdateWithoutUsrInput, psq_tpoUncheckedUpdateWithoutUsrInput>
@@ -47486,6 +54693,22 @@ export namespace Prisma {
     data: XOR<psq_tpoUpdateManyMutationInput, psq_tpoUncheckedUpdateManyWithoutUsrInput>
   }
 
+  export type psq_tpo_itmUpsertWithWhereUniqueWithoutUsrInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    update: XOR<psq_tpo_itmUpdateWithoutUsrInput, psq_tpo_itmUncheckedUpdateWithoutUsrInput>
+    create: XOR<psq_tpo_itmCreateWithoutUsrInput, psq_tpo_itmUncheckedCreateWithoutUsrInput>
+  }
+
+  export type psq_tpo_itmUpdateWithWhereUniqueWithoutUsrInput = {
+    where: psq_tpo_itmWhereUniqueInput
+    data: XOR<psq_tpo_itmUpdateWithoutUsrInput, psq_tpo_itmUncheckedUpdateWithoutUsrInput>
+  }
+
+  export type psq_tpo_itmUpdateManyWithWhereWithoutUsrInput = {
+    where: psq_tpo_itmScalarWhereInput
+    data: XOR<psq_tpo_itmUpdateManyMutationInput, psq_tpo_itmUncheckedUpdateManyWithoutUsrInput>
+  }
+
   export type rcgUpsertWithWhereUniqueWithoutUsrInput = {
     where: rcgWhereUniqueInput
     update: XOR<rcgUpdateWithoutUsrInput, rcgUncheckedUpdateWithoutUsrInput>
@@ -47500,6 +54723,22 @@ export namespace Prisma {
   export type rcgUpdateManyWithWhereWithoutUsrInput = {
     where: rcgScalarWhereInput
     data: XOR<rcgUpdateManyMutationInput, rcgUncheckedUpdateManyWithoutUsrInput>
+  }
+
+  export type trnUpsertWithWhereUniqueWithoutUsrInput = {
+    where: trnWhereUniqueInput
+    update: XOR<trnUpdateWithoutUsrInput, trnUncheckedUpdateWithoutUsrInput>
+    create: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput>
+  }
+
+  export type trnUpdateWithWhereUniqueWithoutUsrInput = {
+    where: trnWhereUniqueInput
+    data: XOR<trnUpdateWithoutUsrInput, trnUncheckedUpdateWithoutUsrInput>
+  }
+
+  export type trnUpdateManyWithWhereWithoutUsrInput = {
+    where: trnScalarWhereInput
+    data: XOR<trnUpdateManyMutationInput, trnUncheckedUpdateManyWithoutUsrInput>
   }
 
   export type empUpsertWithoutUsrInput = {
@@ -47613,13 +54852,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
-    usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
     trn?: trnUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutUsrInput = {
@@ -47639,13 +54881,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
-    usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
     trn?: trnUncheckedUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
   }
 
   export type usr_tpoUpsertWithoutUsrInput = {
@@ -47704,15 +54949,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutOther_usrInput = {
@@ -47737,9 +54985,12 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
   }
@@ -47760,22 +55011,6 @@ export namespace Prisma {
     data: XOR<usrUpdateManyMutationInput, usrUncheckedUpdateManyWithoutUsrInput>
   }
 
-  export type trnUpsertWithWhereUniqueWithoutUsrInput = {
-    where: trnWhereUniqueInput
-    update: XOR<trnUpdateWithoutUsrInput, trnUncheckedUpdateWithoutUsrInput>
-    create: XOR<trnCreateWithoutUsrInput, trnUncheckedCreateWithoutUsrInput>
-  }
-
-  export type trnUpdateWithWhereUniqueWithoutUsrInput = {
-    where: trnWhereUniqueInput
-    data: XOR<trnUpdateWithoutUsrInput, trnUncheckedUpdateWithoutUsrInput>
-  }
-
-  export type trnUpdateManyWithWhereWithoutUsrInput = {
-    where: trnScalarWhereInput
-    data: XOR<trnUpdateManyMutationInput, trnUncheckedUpdateManyWithoutUsrInput>
-  }
-
   export type usrCreateWithoutUsr_tpoInput = {
     UsrNme: string
     UsrLgn?: string | null
@@ -47793,15 +55028,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
     frn?: frnCreateNestedManyWithoutUsrInput
     psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
     rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
     emp: empCreateNestedOneWithoutUsrInput
     stt?: sttCreateNestedOneWithoutUsrInput
     usr: usrCreateNestedOneWithoutOther_usrInput
     other_usr?: usrCreateNestedManyWithoutUsrInput
-    trn?: trnCreateNestedManyWithoutUsrInput
   }
 
   export type usrUncheckedCreateWithoutUsr_tpoInput = {
@@ -47825,12 +55063,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
     frn?: frnUncheckedCreateNestedManyWithoutUsrInput
     psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
     rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
-    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
     trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
   }
 
   export type usrCreateOrConnectWithoutUsr_tpoInput = {
@@ -47859,13 +55100,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
     frn?: frnCreateNestedManyWithoutSttInput
     psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
-    usr?: usrCreateNestedManyWithoutSttInput
     trn?: trnCreateNestedManyWithoutSttInput
+    usr?: usrCreateNestedManyWithoutSttInput
   }
 
   export type sttUncheckedCreateWithoutUsr_tpoInput = {
@@ -47885,13 +55129,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
     frn?: frnUncheckedCreateNestedManyWithoutSttInput
     psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
     psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
     psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
     psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
     rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
-    usr?: usrUncheckedCreateNestedManyWithoutSttInput
     trn?: trnUncheckedCreateNestedManyWithoutSttInput
+    usr?: usrUncheckedCreateNestedManyWithoutSttInput
   }
 
   export type sttCreateOrConnectWithoutUsr_tpoInput = {
@@ -47942,13 +55189,16 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
     frn?: frnUpdateManyWithoutSttNestedInput
     psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
-    usr?: usrUpdateManyWithoutSttNestedInput
     trn?: trnUpdateManyWithoutSttNestedInput
+    usr?: usrUpdateManyWithoutSttNestedInput
   }
 
   export type sttUncheckedUpdateWithoutUsr_tpoInput = {
@@ -47968,13 +55218,1036 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
     frn?: frnUncheckedUpdateManyWithoutSttNestedInput
     psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
+    rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
+    usr?: usrUncheckedUpdateManyWithoutSttNestedInput
+  }
+
+  export type sttCreateWithoutPsq_rsp_ftoInput = {
+    SttNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutSttInput
+    emp?: empCreateNestedManyWithoutSttInput
+    emp_und?: emp_undCreateNestedManyWithoutSttInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutSttInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutSttInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutSttInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutSttInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
+    frn?: frnCreateNestedManyWithoutSttInput
+    psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
+    psq_prg?: psq_prgCreateNestedManyWithoutSttInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
+    rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
+    usr?: usrCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
+  }
+
+  export type sttUncheckedCreateWithoutPsq_rsp_ftoInput = {
+    SttId?: number
+    SttNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutSttInput
+    emp?: empUncheckedCreateNestedManyWithoutSttInput
+    emp_und?: emp_undUncheckedCreateNestedManyWithoutSttInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutSttInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutSttInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutSttInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutSttInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
+    frn?: frnUncheckedCreateNestedManyWithoutSttInput
+    psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
+    rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
+    usr?: usrUncheckedCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
+  }
+
+  export type sttCreateOrConnectWithoutPsq_rsp_ftoInput = {
+    where: sttWhereUniqueInput
+    create: XOR<sttCreateWithoutPsq_rsp_ftoInput, sttUncheckedCreateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type usrCreateWithoutPsq_rsp_ftoInput = {
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
+    frn?: frnCreateNestedManyWithoutUsrInput
+    psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
+    rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
+    emp: empCreateNestedOneWithoutUsrInput
+    stt?: sttCreateNestedOneWithoutUsrInput
+    usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
+    usr: usrCreateNestedOneWithoutOther_usrInput
+    other_usr?: usrCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrUncheckedCreateWithoutPsq_rsp_ftoInput = {
+    EmpId: number
+    UsrTpoId: number
+    UsrId?: number
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
+    frn?: frnUncheckedCreateNestedManyWithoutUsrInput
+    psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
+    rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
+    trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrCreateOrConnectWithoutPsq_rsp_ftoInput = {
+    where: usrWhereUniqueInput
+    create: XOR<usrCreateWithoutPsq_rsp_ftoInput, usrUncheckedCreateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type psq_rspCreateWithoutPsq_rsp_ftoInput = {
+    UndId: number
+    DtaOpe: Date | string
+    TrnId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
+    PsqRsp: number
+    PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    psq_tpo: psq_tpoCreateNestedOneWithoutPsq_rspInput
+    psq: psqCreateNestedOneWithoutPsq_rspInput
+    stt?: sttCreateNestedOneWithoutPsq_rspInput
+    usr: usrCreateNestedOneWithoutPsq_rspInput
+    psq_prg: psq_prgCreateNestedOneWithoutPsq_rspInput
+  }
+
+  export type psq_rspUncheckedCreateWithoutPsq_rsp_ftoInput = {
+    UndId: number
+    DtaOpe: Date | string
+    TrnId: number
+    PsqId: number
+    PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
+    PsqPrgId: number
+    PsqRspId?: number
+    PsqRsp: number
+    PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rspCreateOrConnectWithoutPsq_rsp_ftoInput = {
+    where: psq_rspWhereUniqueInput
+    create: XOR<psq_rspCreateWithoutPsq_rsp_ftoInput, psq_rspUncheckedCreateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type sttUpsertWithoutPsq_rsp_ftoInput = {
+    update: XOR<sttUpdateWithoutPsq_rsp_ftoInput, sttUncheckedUpdateWithoutPsq_rsp_ftoInput>
+    create: XOR<sttCreateWithoutPsq_rsp_ftoInput, sttUncheckedCreateWithoutPsq_rsp_ftoInput>
+    where?: sttWhereInput
+  }
+
+  export type sttUpdateToOneWithWhereWithoutPsq_rsp_ftoInput = {
+    where?: sttWhereInput
+    data: XOR<sttUpdateWithoutPsq_rsp_ftoInput, sttUncheckedUpdateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type sttUpdateWithoutPsq_rsp_ftoInput = {
+    SttNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutSttNestedInput
+    emp?: empUpdateManyWithoutSttNestedInput
+    emp_und?: emp_undUpdateManyWithoutSttNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutSttNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutSttNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutSttNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutSttNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
+    frn?: frnUpdateManyWithoutSttNestedInput
+    psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
+    rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
+    usr?: usrUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
+  }
+
+  export type sttUncheckedUpdateWithoutPsq_rsp_ftoInput = {
+    SttId?: IntFieldUpdateOperationsInput | number
+    SttNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutSttNestedInput
+    emp?: empUncheckedUpdateManyWithoutSttNestedInput
+    emp_und?: emp_undUncheckedUpdateManyWithoutSttNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutSttNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutSttNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutSttNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutSttNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
+    frn?: frnUncheckedUpdateManyWithoutSttNestedInput
+    psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
     rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
     rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
-    usr?: usrUncheckedUpdateManyWithoutSttNestedInput
     trn?: trnUncheckedUpdateManyWithoutSttNestedInput
+    usr?: usrUncheckedUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
+  }
+
+  export type usrUpsertWithoutPsq_rsp_ftoInput = {
+    update: XOR<usrUpdateWithoutPsq_rsp_ftoInput, usrUncheckedUpdateWithoutPsq_rsp_ftoInput>
+    create: XOR<usrCreateWithoutPsq_rsp_ftoInput, usrUncheckedCreateWithoutPsq_rsp_ftoInput>
+    where?: usrWhereInput
+  }
+
+  export type usrUpdateToOneWithWhereWithoutPsq_rsp_ftoInput = {
+    where?: usrWhereInput
+    data: XOR<usrUpdateWithoutPsq_rsp_ftoInput, usrUncheckedUpdateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type usrUpdateWithoutPsq_rsp_ftoInput = {
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
+    frn?: frnUpdateManyWithoutUsrNestedInput
+    psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
+    emp?: empUpdateOneRequiredWithoutUsrNestedInput
+    stt?: sttUpdateOneRequiredWithoutUsrNestedInput
+    usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
+    usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
+    other_usr?: usrUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrUncheckedUpdateWithoutPsq_rsp_ftoInput = {
+    EmpId?: IntFieldUpdateOperationsInput | number
+    UsrTpoId?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
+    psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
+    trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
+  }
+
+  export type psq_rspUpsertWithoutPsq_rsp_ftoInput = {
+    update: XOR<psq_rspUpdateWithoutPsq_rsp_ftoInput, psq_rspUncheckedUpdateWithoutPsq_rsp_ftoInput>
+    create: XOR<psq_rspCreateWithoutPsq_rsp_ftoInput, psq_rspUncheckedCreateWithoutPsq_rsp_ftoInput>
+    where?: psq_rspWhereInput
+  }
+
+  export type psq_rspUpdateToOneWithWhereWithoutPsq_rsp_ftoInput = {
+    where?: psq_rspWhereInput
+    data: XOR<psq_rspUpdateWithoutPsq_rsp_ftoInput, psq_rspUncheckedUpdateWithoutPsq_rsp_ftoInput>
+  }
+
+  export type psq_rspUpdateWithoutPsq_rsp_ftoInput = {
+    UndId?: IntFieldUpdateOperationsInput | number
+    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
+    PsqRsp?: IntFieldUpdateOperationsInput | number
+    PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_tpo?: psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq?: psqUpdateOneRequiredWithoutPsq_rspNestedInput
+    stt?: sttUpdateOneRequiredWithoutPsq_rspNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_prg?: psq_prgUpdateOneRequiredWithoutPsq_rspNestedInput
+  }
+
+  export type psq_rspUncheckedUpdateWithoutPsq_rsp_ftoInput = {
+    UndId?: IntFieldUpdateOperationsInput | number
+    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    TrnId?: IntFieldUpdateOperationsInput | number
+    PsqId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
+    PsqPrgId?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PsqRsp?: IntFieldUpdateOperationsInput | number
+    PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type eqp_itmCreateWithoutPsq_tpo_itmInput = {
+    BrtId?: number | null
+    CbtId?: number | null
+    EqpItmCdg: string
+    EqpItmPlc?: string | null
+    EqpItmAnoMdl?: string | null
+    EqpItmTmh: string
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    emp_und: emp_undCreateNestedOneWithoutEqp_itmInput
+    eqp_fbr: eqp_fbrCreateNestedOneWithoutEqp_itmInput
+    eqp_mdl: eqp_mdlCreateNestedOneWithoutEqp_itmInput
+    eqp_tpo: eqp_tpoCreateNestedOneWithoutEqp_itmInput
+    frn: frnCreateNestedOneWithoutEqp_itmInput
+    stt?: sttCreateNestedOneWithoutEqp_itmInput
+    usr: usrCreateNestedOneWithoutEqp_itmInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutEqp_itmInput
+    rcg_rcg_CrrIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
+    rcg_rcg_VclIdToeqp_itm?: rcgCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
+  }
+
+  export type eqp_itmUncheckedCreateWithoutPsq_tpo_itmInput = {
+    UndId: number
+    BrtId?: number | null
+    FrnId: number
+    EqpTpoId: number
+    EqpFbrId: number
+    EqpMdlId: number
+    EqpItmId?: number
+    CbtId?: number | null
+    EqpItmCdg: string
+    EqpItmPlc?: string | null
+    EqpItmAnoMdl?: string | null
+    EqpItmTmh: string
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutEqp_itmInput
+    rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput
+    rcg_rcg_VclIdToeqp_itm?: rcgUncheckedCreateNestedManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput
+  }
+
+  export type eqp_itmCreateOrConnectWithoutPsq_tpo_itmInput = {
+    where: eqp_itmWhereUniqueInput
+    create: XOR<eqp_itmCreateWithoutPsq_tpo_itmInput, eqp_itmUncheckedCreateWithoutPsq_tpo_itmInput>
+  }
+
+  export type sttCreateWithoutPsq_tpo_itmInput = {
+    SttNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutSttInput
+    emp?: empCreateNestedManyWithoutSttInput
+    emp_und?: emp_undCreateNestedManyWithoutSttInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutSttInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutSttInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutSttInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutSttInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
+    frn?: frnCreateNestedManyWithoutSttInput
+    psq?: psqCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutSttInput
+    psq_prg?: psq_prgCreateNestedManyWithoutSttInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
+    usr?: usrCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
+  }
+
+  export type sttUncheckedCreateWithoutPsq_tpo_itmInput = {
+    SttId?: number
+    SttNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutSttInput
+    emp?: empUncheckedCreateNestedManyWithoutSttInput
+    emp_und?: emp_undUncheckedCreateNestedManyWithoutSttInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutSttInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutSttInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutSttInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutSttInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
+    frn?: frnUncheckedCreateNestedManyWithoutSttInput
+    psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutSttInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
+    usr?: usrUncheckedCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
+  }
+
+  export type sttCreateOrConnectWithoutPsq_tpo_itmInput = {
+    where: sttWhereUniqueInput
+    create: XOR<sttCreateWithoutPsq_tpo_itmInput, sttUncheckedCreateWithoutPsq_tpo_itmInput>
+  }
+
+  export type usrCreateWithoutPsq_tpo_itmInput = {
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
+    frn?: frnCreateNestedManyWithoutUsrInput
+    psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
+    emp: empCreateNestedOneWithoutUsrInput
+    stt?: sttCreateNestedOneWithoutUsrInput
+    usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
+    usr: usrCreateNestedOneWithoutOther_usrInput
+    other_usr?: usrCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrUncheckedCreateWithoutPsq_tpo_itmInput = {
+    EmpId: number
+    UsrTpoId: number
+    UsrId?: number
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
+    frn?: frnUncheckedCreateNestedManyWithoutUsrInput
+    psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
+    trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrCreateOrConnectWithoutPsq_tpo_itmInput = {
+    where: usrWhereUniqueInput
+    create: XOR<usrCreateWithoutPsq_tpo_itmInput, usrUncheckedCreateWithoutPsq_tpo_itmInput>
+  }
+
+  export type eqp_itmUpsertWithoutPsq_tpo_itmInput = {
+    update: XOR<eqp_itmUpdateWithoutPsq_tpo_itmInput, eqp_itmUncheckedUpdateWithoutPsq_tpo_itmInput>
+    create: XOR<eqp_itmCreateWithoutPsq_tpo_itmInput, eqp_itmUncheckedCreateWithoutPsq_tpo_itmInput>
+    where?: eqp_itmWhereInput
+  }
+
+  export type eqp_itmUpdateToOneWithWhereWithoutPsq_tpo_itmInput = {
+    where?: eqp_itmWhereInput
+    data: XOR<eqp_itmUpdateWithoutPsq_tpo_itmInput, eqp_itmUncheckedUpdateWithoutPsq_tpo_itmInput>
+  }
+
+  export type eqp_itmUpdateWithoutPsq_tpo_itmInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmCdg?: StringFieldUpdateOperationsInput | string
+    EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
+    EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
+    EqpItmTmh?: StringFieldUpdateOperationsInput | string
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    emp_und?: emp_undUpdateOneRequiredWithoutEqp_itmNestedInput
+    eqp_fbr?: eqp_fbrUpdateOneRequiredWithoutEqp_itmNestedInput
+    eqp_mdl?: eqp_mdlUpdateOneRequiredWithoutEqp_itmNestedInput
+    eqp_tpo?: eqp_tpoUpdateOneRequiredWithoutEqp_itmNestedInput
+    frn?: frnUpdateOneRequiredWithoutEqp_itmNestedInput
+    stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
+    usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
+    rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
+  }
+
+  export type eqp_itmUncheckedUpdateWithoutPsq_tpo_itmInput = {
+    UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    FrnId?: IntFieldUpdateOperationsInput | number
+    EqpTpoId?: IntFieldUpdateOperationsInput | number
+    EqpFbrId?: IntFieldUpdateOperationsInput | number
+    EqpMdlId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmCdg?: StringFieldUpdateOperationsInput | string
+    EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
+    EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
+    EqpItmTmh?: StringFieldUpdateOperationsInput | string
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
+    rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
+  }
+
+  export type sttUpsertWithoutPsq_tpo_itmInput = {
+    update: XOR<sttUpdateWithoutPsq_tpo_itmInput, sttUncheckedUpdateWithoutPsq_tpo_itmInput>
+    create: XOR<sttCreateWithoutPsq_tpo_itmInput, sttUncheckedCreateWithoutPsq_tpo_itmInput>
+    where?: sttWhereInput
+  }
+
+  export type sttUpdateToOneWithWhereWithoutPsq_tpo_itmInput = {
+    where?: sttWhereInput
+    data: XOR<sttUpdateWithoutPsq_tpo_itmInput, sttUncheckedUpdateWithoutPsq_tpo_itmInput>
+  }
+
+  export type sttUpdateWithoutPsq_tpo_itmInput = {
+    SttNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutSttNestedInput
+    emp?: empUpdateManyWithoutSttNestedInput
+    emp_und?: emp_undUpdateManyWithoutSttNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutSttNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutSttNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutSttNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutSttNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
+    frn?: frnUpdateManyWithoutSttNestedInput
+    psq?: psqUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutSttNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
+    usr?: usrUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
+  }
+
+  export type sttUncheckedUpdateWithoutPsq_tpo_itmInput = {
+    SttId?: IntFieldUpdateOperationsInput | number
+    SttNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutSttNestedInput
+    emp?: empUncheckedUpdateManyWithoutSttNestedInput
+    emp_und?: emp_undUncheckedUpdateManyWithoutSttNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutSttNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutSttNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutSttNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutSttNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
+    frn?: frnUncheckedUpdateManyWithoutSttNestedInput
+    psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutSttNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
+    usr?: usrUncheckedUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
+  }
+
+  export type usrUpsertWithoutPsq_tpo_itmInput = {
+    update: XOR<usrUpdateWithoutPsq_tpo_itmInput, usrUncheckedUpdateWithoutPsq_tpo_itmInput>
+    create: XOR<usrCreateWithoutPsq_tpo_itmInput, usrUncheckedCreateWithoutPsq_tpo_itmInput>
+    where?: usrWhereInput
+  }
+
+  export type usrUpdateToOneWithWhereWithoutPsq_tpo_itmInput = {
+    where?: usrWhereInput
+    data: XOR<usrUpdateWithoutPsq_tpo_itmInput, usrUncheckedUpdateWithoutPsq_tpo_itmInput>
+  }
+
+  export type usrUpdateWithoutPsq_tpo_itmInput = {
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
+    frn?: frnUpdateManyWithoutUsrNestedInput
+    psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
+    emp?: empUpdateOneRequiredWithoutUsrNestedInput
+    stt?: sttUpdateOneRequiredWithoutUsrNestedInput
+    usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
+    usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
+    other_usr?: usrUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrUncheckedUpdateWithoutPsq_tpo_itmInput = {
+    EmpId?: IntFieldUpdateOperationsInput | number
+    UsrTpoId?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
+    psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
+    trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
+  }
+
+  export type sttCreateWithoutPsq_mtvInput = {
+    SttNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutSttInput
+    emp?: empCreateNestedManyWithoutSttInput
+    emp_und?: emp_undCreateNestedManyWithoutSttInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutSttInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutSttInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutSttInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutSttInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutSttInput
+    frn?: frnCreateNestedManyWithoutSttInput
+    psq?: psqCreateNestedManyWithoutSttInput
+    psq_prg?: psq_prgCreateNestedManyWithoutSttInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutSttInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutSttInput
+    rcg_rcg_SttIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    rcg_rcg_SttRcgIdTostt?: rcgCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnCreateNestedManyWithoutSttInput
+    usr?: usrCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoCreateNestedManyWithoutSttInput
+  }
+
+  export type sttUncheckedCreateWithoutPsq_mtvInput = {
+    SttId?: number
+    SttNme: string
+    SttIdAtu?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutSttInput
+    emp?: empUncheckedCreateNestedManyWithoutSttInput
+    emp_und?: emp_undUncheckedCreateNestedManyWithoutSttInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutSttInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutSttInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutSttInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutSttInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutSttInput
+    frn?: frnUncheckedCreateNestedManyWithoutSttInput
+    psq?: psqUncheckedCreateNestedManyWithoutSttInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutSttInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutSttInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutSttInput
+    rcg_rcg_SttIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttIdTosttInput
+    rcg_rcg_SttRcgIdTostt?: rcgUncheckedCreateNestedManyWithoutStt_rcg_SttRcgIdTosttInput
+    trn?: trnUncheckedCreateNestedManyWithoutSttInput
+    usr?: usrUncheckedCreateNestedManyWithoutSttInput
+    usr_tpo?: usr_tpoUncheckedCreateNestedManyWithoutSttInput
+  }
+
+  export type sttCreateOrConnectWithoutPsq_mtvInput = {
+    where: sttWhereUniqueInput
+    create: XOR<sttCreateWithoutPsq_mtvInput, sttUncheckedCreateWithoutPsq_mtvInput>
+  }
+
+  export type usrCreateWithoutPsq_mtvInput = {
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
+    frn?: frnCreateNestedManyWithoutUsrInput
+    psq?: psqCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
+    rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
+    emp: empCreateNestedOneWithoutUsrInput
+    stt?: sttCreateNestedOneWithoutUsrInput
+    usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
+    usr: usrCreateNestedOneWithoutOther_usrInput
+    other_usr?: usrCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrUncheckedCreateWithoutPsq_mtvInput = {
+    EmpId: number
+    UsrTpoId: number
+    UsrId?: number
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
+    frn?: frnUncheckedCreateNestedManyWithoutUsrInput
+    psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
+    rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
+    trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrCreateOrConnectWithoutPsq_mtvInput = {
+    where: usrWhereUniqueInput
+    create: XOR<usrCreateWithoutPsq_mtvInput, usrUncheckedCreateWithoutPsq_mtvInput>
+  }
+
+  export type sttUpsertWithoutPsq_mtvInput = {
+    update: XOR<sttUpdateWithoutPsq_mtvInput, sttUncheckedUpdateWithoutPsq_mtvInput>
+    create: XOR<sttCreateWithoutPsq_mtvInput, sttUncheckedCreateWithoutPsq_mtvInput>
+    where?: sttWhereInput
+  }
+
+  export type sttUpdateToOneWithWhereWithoutPsq_mtvInput = {
+    where?: sttWhereInput
+    data: XOR<sttUpdateWithoutPsq_mtvInput, sttUncheckedUpdateWithoutPsq_mtvInput>
+  }
+
+  export type sttUpdateWithoutPsq_mtvInput = {
+    SttNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutSttNestedInput
+    emp?: empUpdateManyWithoutSttNestedInput
+    emp_und?: emp_undUpdateManyWithoutSttNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutSttNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutSttNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutSttNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutSttNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutSttNestedInput
+    frn?: frnUpdateManyWithoutSttNestedInput
+    psq?: psqUpdateManyWithoutSttNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutSttNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutSttNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutSttNestedInput
+    rcg_rcg_SttIdTostt?: rcgUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    rcg_rcg_SttRcgIdTostt?: rcgUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUpdateManyWithoutSttNestedInput
+    usr?: usrUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUpdateManyWithoutSttNestedInput
+  }
+
+  export type sttUncheckedUpdateWithoutPsq_mtvInput = {
+    SttId?: IntFieldUpdateOperationsInput | number
+    SttNme?: StringFieldUpdateOperationsInput | string
+    SttIdAtu?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutSttNestedInput
+    emp?: empUncheckedUpdateManyWithoutSttNestedInput
+    emp_und?: emp_undUncheckedUpdateManyWithoutSttNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutSttNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutSttNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutSttNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutSttNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutSttNestedInput
+    frn?: frnUncheckedUpdateManyWithoutSttNestedInput
+    psq?: psqUncheckedUpdateManyWithoutSttNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutSttNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutSttNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutSttNestedInput
+    rcg_rcg_SttIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttNestedInput
+    rcg_rcg_SttRcgIdTostt?: rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttNestedInput
+    trn?: trnUncheckedUpdateManyWithoutSttNestedInput
+    usr?: usrUncheckedUpdateManyWithoutSttNestedInput
+    usr_tpo?: usr_tpoUncheckedUpdateManyWithoutSttNestedInput
+  }
+
+  export type usrUpsertWithoutPsq_mtvInput = {
+    update: XOR<usrUpdateWithoutPsq_mtvInput, usrUncheckedUpdateWithoutPsq_mtvInput>
+    create: XOR<usrCreateWithoutPsq_mtvInput, usrUncheckedCreateWithoutPsq_mtvInput>
+    where?: usrWhereInput
+  }
+
+  export type usrUpdateToOneWithWhereWithoutPsq_mtvInput = {
+    where?: usrWhereInput
+    data: XOR<usrUpdateWithoutPsq_mtvInput, usrUncheckedUpdateWithoutPsq_mtvInput>
+  }
+
+  export type usrUpdateWithoutPsq_mtvInput = {
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
+    frn?: frnUpdateManyWithoutUsrNestedInput
+    psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
+    emp?: empUpdateOneRequiredWithoutUsrNestedInput
+    stt?: sttUpdateOneRequiredWithoutUsrNestedInput
+    usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
+    usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
+    other_usr?: usrUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrUncheckedUpdateWithoutPsq_mtvInput = {
+    EmpId?: IntFieldUpdateOperationsInput | number
+    UsrTpoId?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
+    psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
+    trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type emp_undCreateManyEmpInput = {
@@ -47997,6 +56270,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -48004,6 +56278,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -48079,13 +56355,17 @@ export namespace Prisma {
   }
 
   export type rcgUpdateWithoutEmpInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -48096,8 +56376,6 @@ export namespace Prisma {
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
@@ -48109,6 +56387,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48116,6 +56395,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48126,7 +56407,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutEmpInput = {
@@ -48135,6 +56415,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48142,6 +56423,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48171,15 +56454,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutEmpInput = {
@@ -48203,12 +56489,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateManyWithoutEmpInput = {
@@ -48227,11 +56516,13 @@ export namespace Prisma {
   }
 
   export type eqp_itmCreateManyEmp_undInput = {
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -48257,6 +56548,7 @@ export namespace Prisma {
     EmpId: number
     DtaOpe: Date | string
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -48264,6 +56556,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -48277,6 +56571,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutEmp_undInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48290,16 +56586,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutEmp_undInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48309,16 +56608,19 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutEmp_undInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48357,13 +56659,17 @@ export namespace Prisma {
   }
 
   export type rcgUpdateWithoutEmp_undInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -48374,8 +56680,6 @@ export namespace Prisma {
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
@@ -48387,6 +56691,7 @@ export namespace Prisma {
     EmpId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48394,6 +56699,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48404,7 +56711,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutEmp_undInput = {
@@ -48413,6 +56719,7 @@ export namespace Prisma {
     EmpId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48420,6 +56727,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48434,10 +56743,12 @@ export namespace Prisma {
 
   export type eqp_itmCreateManyEqp_fbrInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -48461,6 +56772,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutEqp_fbrInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48474,16 +56787,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutEqp_fbrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48493,16 +56809,19 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutEqp_fbrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48559,6 +56878,16 @@ export namespace Prisma {
     MtvDel?: string | null
   }
 
+  export type psq_tpo_itmCreateManyEqp_itmInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
   export type rcgCreateManyEqp_itm_rcg_CrrIdToeqp_itmInput = {
     RcgId?: number
     RcgIdOrg?: number | null
@@ -48566,12 +56895,15 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrCnc: number
     DtaIni: Date | string
     DtaFin?: Date | string | null
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -48590,6 +56922,7 @@ export namespace Prisma {
     EmpId: number
     DtaOpe: Date | string
     UndId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -48597,6 +56930,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -48636,14 +56971,47 @@ export namespace Prisma {
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type psq_tpo_itmUpdateWithoutEqp_itmInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    stt?: sttUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+  }
+
+  export type psq_tpo_itmUncheckedUpdateWithoutEqp_itmInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type rcgUpdateWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -48654,8 +57022,6 @@ export namespace Prisma {
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
@@ -48668,12 +57034,15 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48684,7 +57053,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmInput = {
@@ -48694,12 +57062,15 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48713,13 +57084,17 @@ export namespace Prisma {
   }
 
   export type rcgUpdateWithoutEqp_itm_rcg_VclIdToeqp_itmInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -48730,8 +57105,6 @@ export namespace Prisma {
     emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
@@ -48743,6 +57116,7 @@ export namespace Prisma {
     EmpId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48750,6 +57124,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48760,7 +57136,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmInput = {
@@ -48769,6 +57144,7 @@ export namespace Prisma {
     EmpId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -48776,6 +57152,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -48790,10 +57168,12 @@ export namespace Prisma {
 
   export type eqp_itmCreateManyEqp_mdlInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -48805,6 +57185,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutEqp_mdlInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48818,16 +57200,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutEqp_mdlInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48837,16 +57222,19 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutEqp_mdlInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48859,10 +57247,12 @@ export namespace Prisma {
 
   export type eqp_itmCreateManyEqp_tpoInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -48895,6 +57285,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutEqp_tpoInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48908,16 +57300,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutEqp_tpoInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -48927,16 +57322,19 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutEqp_tpoInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49013,10 +57411,12 @@ export namespace Prisma {
 
   export type eqp_itmCreateManyFrnInput = {
     UndId: number
+    BrtId?: number | null
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -49028,6 +57428,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutFrnInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49041,16 +57443,19 @@ export namespace Prisma {
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutFrnInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49060,16 +57465,19 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutFrnInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49083,12 +57491,18 @@ export namespace Prisma {
   export type psq_rspCreateManyPsqInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -49098,41 +57512,61 @@ export namespace Prisma {
   export type psq_rspUpdateWithoutPsqInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_tpo?: psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput
     stt?: sttUpdateOneRequiredWithoutPsq_rspNestedInput
     usr?: usrUpdateOneRequiredWithoutPsq_rspNestedInput
     psq_prg?: psq_prgUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateWithoutPsqInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateManyWithoutPsqInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49142,12 +57576,18 @@ export namespace Prisma {
   export type psq_rspCreateManyPsq_prgInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -49157,41 +57597,96 @@ export namespace Prisma {
   export type psq_rspUpdateWithoutPsq_prgInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_tpo?: psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput
     psq?: psqUpdateOneRequiredWithoutPsq_rspNestedInput
     stt?: sttUpdateOneRequiredWithoutPsq_rspNestedInput
     usr?: usrUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateWithoutPsq_prgInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput
+  }
+
+  export type psq_rspUncheckedUpdateManyWithoutPsq_prgInput = {
+    UndId?: IntFieldUpdateOperationsInput | number
+    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    TrnId?: IntFieldUpdateOperationsInput | number
+    PsqId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PsqRsp?: IntFieldUpdateOperationsInput | number
+    PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type psq_rspUncheckedUpdateManyWithoutPsq_prgInput = {
-    UndId?: IntFieldUpdateOperationsInput | number
-    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
-    PsqId?: IntFieldUpdateOperationsInput | number
-    PsqTpoId?: IntFieldUpdateOperationsInput | number
-    PsqRspId?: IntFieldUpdateOperationsInput | number
-    PsqRsp?: IntFieldUpdateOperationsInput | number
-    PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+  export type psq_rsp_ftoCreateManyPsq_rspInput = {
+    PqsRspFto_id?: number
+    PqsRspFtoUrl?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoUpdateWithoutPsq_rspInput = {
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    stt?: sttUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateWithoutPsq_rspInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -49211,12 +57706,18 @@ export namespace Prisma {
   export type psq_rspCreateManyPsq_tpoInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
     SttId?: number
     UsrIdAlt: number
     DtaAlt?: Date | string
@@ -49257,143 +57758,62 @@ export namespace Prisma {
   export type psq_rspUpdateWithoutPsq_tpoInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq?: psqUpdateOneRequiredWithoutPsq_rspNestedInput
     stt?: sttUpdateOneRequiredWithoutPsq_rspNestedInput
     usr?: usrUpdateOneRequiredWithoutPsq_rspNestedInput
     psq_prg?: psq_prgUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateWithoutPsq_tpoInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateManyWithoutPsq_tpoInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
-    UsrIdAlt?: IntFieldUpdateOperationsInput | number
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type rcgCreateManyRcgInput = {
-    RcgId?: number
-    EmpId: number
-    DtaOpe: Date | string
-    UndId: number
-    VclId: number
-    CrrId: number
-    CrrCnc: number
-    DtaIni: Date | string
-    DtaFin?: Date | string | null
-    SocIni?: number | null
-    SocFin?: number | null
-    RcgKwh?: Decimal | DecimalJsLike | number | string | null
-    OdoIni?: Decimal | DecimalJsLike | number | string | null
-    OdoFin?: Decimal | DecimalJsLike | number | string | null
-    SttRcgId?: number
-    FlhId?: number
-    FlhDsc?: string | null
-    SttId?: number
-    SttIdChk?: number | null
-    UsrIdAlt: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-  }
-
-  export type rcgUpdateWithoutRcgInput = {
-    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    CrrCnc?: IntFieldUpdateOperationsInput | number
-    DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    SocIni?: NullableIntFieldUpdateOperationsInput | number | null
-    SocFin?: NullableIntFieldUpdateOperationsInput | number | null
-    RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    FlhId?: IntFieldUpdateOperationsInput | number
-    FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    emp_und?: emp_undUpdateOneRequiredWithoutRcgNestedInput
-    emp?: empUpdateOneRequiredWithoutRcgNestedInput
-    eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
-    eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
-    stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
-    stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
-    usr?: usrUpdateOneRequiredWithoutRcgNestedInput
-  }
-
-  export type rcgUncheckedUpdateWithoutRcgInput = {
-    RcgId?: IntFieldUpdateOperationsInput | number
-    EmpId?: IntFieldUpdateOperationsInput | number
-    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    UndId?: IntFieldUpdateOperationsInput | number
-    VclId?: IntFieldUpdateOperationsInput | number
-    CrrId?: IntFieldUpdateOperationsInput | number
-    CrrCnc?: IntFieldUpdateOperationsInput | number
-    DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    SocIni?: NullableIntFieldUpdateOperationsInput | number | null
-    SocFin?: NullableIntFieldUpdateOperationsInput | number | null
-    RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    SttRcgId?: IntFieldUpdateOperationsInput | number
-    FlhId?: IntFieldUpdateOperationsInput | number
-    FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
-    UsrIdAlt?: IntFieldUpdateOperationsInput | number
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
-  }
-
-  export type rcgUncheckedUpdateManyWithoutRcgInput = {
-    RcgId?: IntFieldUpdateOperationsInput | number
-    EmpId?: IntFieldUpdateOperationsInput | number
-    DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    UndId?: IntFieldUpdateOperationsInput | number
-    VclId?: IntFieldUpdateOperationsInput | number
-    CrrId?: IntFieldUpdateOperationsInput | number
-    CrrCnc?: IntFieldUpdateOperationsInput | number
-    DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    SocIni?: NullableIntFieldUpdateOperationsInput | number | null
-    SocFin?: NullableIntFieldUpdateOperationsInput | number | null
-    RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
-    SttRcgId?: IntFieldUpdateOperationsInput | number
-    FlhId?: IntFieldUpdateOperationsInput | number
-    FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
-    SttId?: IntFieldUpdateOperationsInput | number
-    SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49465,11 +57885,13 @@ export namespace Prisma {
 
   export type eqp_itmCreateManySttInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -49525,6 +57947,15 @@ export namespace Prisma {
     MtvDel?: string | null
   }
 
+  export type psq_mtvCreateManySttInput = {
+    PsqTpoId: number
+    PsqMtvId?: number
+    PsqMtv: string
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
   export type psq_prgCreateManySttInput = {
     PsqTpoId: number
     PsqPrgId?: number
@@ -49538,13 +57969,28 @@ export namespace Prisma {
   export type psq_rspCreateManySttInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoCreateManySttInput = {
+    PqsRspFto_id?: number
+    PsqRspId: number
+    PqsRspFtoUrl?: string | null
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -49553,6 +57999,17 @@ export namespace Prisma {
   export type psq_tpoCreateManySttInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmCreateManySttInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -49565,6 +58022,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -49572,6 +58030,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -49590,6 +58050,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -49597,12 +58058,24 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     FlhId?: number
     FlhDsc?: string | null
     SttId?: number
     SttIdChk?: number | null
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type trnCreateManySttInput = {
+    TrnId?: number
+    Trn: string
+    TrnIni: Date | string
+    TrnFin: Date | string
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -49626,16 +58099,6 @@ export namespace Prisma {
   export type usr_tpoCreateManySttInput = {
     UsrTpoId?: number
     UsrTpoNme: string
-    UsrIdAlt: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-  }
-
-  export type trnCreateManySttInput = {
-    TrnId?: number
-    Trn: string
-    TrnIni: Date | string
-    TrnFin: Date | string
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -49846,6 +58309,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutSttInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49859,17 +58324,20 @@ export namespace Prisma {
     frn?: frnUpdateOneRequiredWithoutEqp_itmNestedInput
     usr?: usrUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutSttInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -49878,17 +58346,20 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutSttInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50044,6 +58515,32 @@ export namespace Prisma {
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type psq_mtvUpdateWithoutSttInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    usr?: usrUpdateOneRequiredWithoutPsq_mtvNestedInput
+  }
+
+  export type psq_mtvUncheckedUpdateWithoutSttInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtvId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_mtvUncheckedUpdateManyWithoutSttInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtvId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type psq_prgUpdateWithoutSttInput = {
     PsqPrg?: StringFieldUpdateOperationsInput | string
     PsqSqc?: IntFieldUpdateOperationsInput | number
@@ -50078,42 +58575,88 @@ export namespace Prisma {
   export type psq_rspUpdateWithoutSttInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_tpo?: psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput
     psq?: psqUpdateOneRequiredWithoutPsq_rspNestedInput
     usr?: usrUpdateOneRequiredWithoutPsq_rspNestedInput
     psq_prg?: psq_prgUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateWithoutSttInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateManyWithoutSttInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUpdateWithoutSttInput = {
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    usr?: usrUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+    psq_rsp?: psq_rspUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateWithoutSttInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateManyWithoutSttInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50121,6 +58664,7 @@ export namespace Prisma {
 
   export type psq_tpoUpdateWithoutSttInput = {
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_prg?: psq_prgUpdateManyWithoutPsq_tpoNestedInput
@@ -50131,6 +58675,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateWithoutSttInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50141,19 +58686,53 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateManyWithoutSttInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmUpdateWithoutSttInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    eqp_itm?: eqp_itmUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+    usr?: usrUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+  }
+
+  export type psq_tpo_itmUncheckedUpdateWithoutSttInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyWithoutSttInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type rcgUpdateWithoutStt_rcg_SttIdTosttInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -50165,8 +58744,6 @@ export namespace Prisma {
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
   }
@@ -50178,6 +58755,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50185,6 +58763,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -50194,7 +58774,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutStt_rcg_SttIdTosttInput = {
@@ -50204,6 +58783,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50211,6 +58791,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -50223,13 +58805,17 @@ export namespace Prisma {
   }
 
   export type rcgUpdateWithoutStt_rcg_SttRcgIdTosttInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -50241,8 +58827,6 @@ export namespace Prisma {
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     usr?: usrUpdateOneRequiredWithoutRcgNestedInput
   }
@@ -50254,6 +58838,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50261,6 +58846,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -50270,7 +58857,6 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutStt_rcg_SttRcgIdTosttInput = {
@@ -50280,6 +58866,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50287,12 +58874,43 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type trnUpdateWithoutSttInput = {
+    Trn?: StringFieldUpdateOperationsInput | string
+    TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
+    TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    usr?: usrUpdateOneRequiredWithoutTrnNestedInput
+  }
+
+  export type trnUncheckedUpdateWithoutSttInput = {
+    TrnId?: IntFieldUpdateOperationsInput | number
+    Trn?: StringFieldUpdateOperationsInput | string
+    TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
+    TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type trnUncheckedUpdateManyWithoutSttInput = {
+    TrnId?: IntFieldUpdateOperationsInput | number
+    Trn?: StringFieldUpdateOperationsInput | string
+    TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
+    TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50315,15 +58933,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutSttInput = {
@@ -50347,12 +58968,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateManyWithoutSttInput = {
@@ -50395,35 +59019,6 @@ export namespace Prisma {
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type trnUpdateWithoutSttInput = {
-    Trn?: StringFieldUpdateOperationsInput | string
-    TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    usr?: usrUpdateOneRequiredWithoutTrnNestedInput
-  }
-
-  export type trnUncheckedUpdateWithoutSttInput = {
-    TrnId?: IntFieldUpdateOperationsInput | number
-    Trn?: StringFieldUpdateOperationsInput | string
-    TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
-    UsrIdAlt?: IntFieldUpdateOperationsInput | number
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type trnUncheckedUpdateManyWithoutSttInput = {
-    TrnId?: IntFieldUpdateOperationsInput | number
-    Trn?: StringFieldUpdateOperationsInput | string
-    TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
-    UsrIdAlt?: IntFieldUpdateOperationsInput | number
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type cbtCreateManyUsrInput = {
     CbtId?: number
     CbtNme: string
@@ -50442,11 +59037,13 @@ export namespace Prisma {
 
   export type eqp_itmCreateManyUsrInput = {
     UndId: number
+    BrtId?: number | null
     FrnId: number
     EqpTpoId: number
     EqpFbrId: number
     EqpMdlId: number
     EqpItmId?: number
+    CbtId?: number | null
     EqpItmCdg: string
     EqpItmPlc?: string | null
     EqpItmAnoMdl?: string | null
@@ -50502,6 +59099,15 @@ export namespace Prisma {
     MtvDel?: string | null
   }
 
+  export type psq_mtvCreateManyUsrInput = {
+    PsqTpoId: number
+    PsqMtvId?: number
+    PsqMtv: string
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
   export type psq_prgCreateManyUsrInput = {
     PsqTpoId: number
     PsqPrgId?: number
@@ -50515,13 +59121,28 @@ export namespace Prisma {
   export type psq_rspCreateManyUsrInput = {
     UndId: number
     DtaOpe: Date | string
-    TrnId?: number | null
+    TrnId: number
     PsqId: number
     PsqTpoId: number
+    BrtId?: number | null
+    EqpItmId?: number | null
     PsqPrgId: number
     PsqRspId?: number
     PsqRsp: number
     PsqDth?: string | null
+    PsqMtvId?: number | null
+    GpsLat?: string | null
+    GpsLon?: string | null
+    GpsAlt?: string | null
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_rsp_ftoCreateManyUsrInput = {
+    PqsRspFto_id?: number
+    PsqRspId: number
+    PqsRspFtoUrl?: string | null
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -50530,6 +59151,17 @@ export namespace Prisma {
   export type psq_tpoCreateManyUsrInput = {
     PsqTpoId?: number
     PsqTpo: string
+    icone?: string | null
+    SttId?: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type psq_tpo_itmCreateManyUsrInput = {
+    PsqTpoItmId?: number
+    BrtId: number
+    PsqTpoId: number
+    EqpItmId: number
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -50542,6 +59174,7 @@ export namespace Prisma {
     DtaOpe: Date | string
     UndId: number
     VclId: number
+    CbtId?: number | null
     CrrId: number
     CrrCnc: number
     DtaIni: Date | string
@@ -50549,6 +59182,8 @@ export namespace Prisma {
     SocIni?: number | null
     SocFin?: number | null
     RcgKwh?: Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: number | null
+    PrsBar?: number | null
     OdoIni?: Decimal | DecimalJsLike | number | string | null
     OdoFin?: Decimal | DecimalJsLike | number | string | null
     SttRcgId?: number
@@ -50556,6 +59191,16 @@ export namespace Prisma {
     FlhDsc?: string | null
     SttId?: number
     SttIdChk?: number | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+  }
+
+  export type trnCreateManyUsrInput = {
+    TrnId?: number
+    Trn: string
+    TrnIni: Date | string
+    TrnFin: Date | string
+    SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
   }
@@ -50570,16 +59215,6 @@ export namespace Prisma {
     UsrEml: string
     UsrPwd: string
     UsrFto?: string | null
-    SttId?: number
-    DtaAlt?: Date | string
-    MtvDel?: string | null
-  }
-
-  export type trnCreateManyUsrInput = {
-    TrnId?: number
-    Trn: string
-    TrnIni: Date | string
-    TrnFin: Date | string
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
@@ -50636,6 +59271,8 @@ export namespace Prisma {
   }
 
   export type eqp_itmUpdateWithoutUsrInput = {
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50649,17 +59286,20 @@ export namespace Prisma {
     frn?: frnUpdateOneRequiredWithoutEqp_itmNestedInput
     stt?: sttUpdateOneRequiredWithoutEqp_itmNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateWithoutUsrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50668,17 +59308,20 @@ export namespace Prisma {
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutEqp_itmNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutEqp_itmNestedInput
     rcg_rcg_CrrIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_CrrIdToeqp_itmNestedInput
     rcg_rcg_VclIdToeqp_itm?: rcgUncheckedUpdateManyWithoutEqp_itm_rcg_VclIdToeqp_itmNestedInput
   }
 
   export type eqp_itmUncheckedUpdateManyWithoutUsrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
     FrnId?: IntFieldUpdateOperationsInput | number
     EqpTpoId?: IntFieldUpdateOperationsInput | number
     EqpFbrId?: IntFieldUpdateOperationsInput | number
     EqpMdlId?: IntFieldUpdateOperationsInput | number
     EqpItmId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     EqpItmCdg?: StringFieldUpdateOperationsInput | string
     EqpItmPlc?: NullableStringFieldUpdateOperationsInput | string | null
     EqpItmAnoMdl?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50834,6 +59477,32 @@ export namespace Prisma {
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type psq_mtvUpdateWithoutUsrInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    stt?: sttUpdateOneRequiredWithoutPsq_mtvNestedInput
+  }
+
+  export type psq_mtvUncheckedUpdateWithoutUsrInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtvId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_mtvUncheckedUpdateManyWithoutUsrInput = {
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    PsqMtvId?: IntFieldUpdateOperationsInput | number
+    PsqMtv?: StringFieldUpdateOperationsInput | string
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type psq_prgUpdateWithoutUsrInput = {
     PsqPrg?: StringFieldUpdateOperationsInput | string
     PsqSqc?: IntFieldUpdateOperationsInput | number
@@ -50868,42 +59537,88 @@ export namespace Prisma {
   export type psq_rspUpdateWithoutUsrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_tpo?: psq_tpoUpdateOneRequiredWithoutPsq_rspNestedInput
     psq?: psqUpdateOneRequiredWithoutPsq_rspNestedInput
     stt?: sttUpdateOneRequiredWithoutPsq_rspNestedInput
     psq_prg?: psq_prgUpdateOneRequiredWithoutPsq_rspNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateWithoutUsrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutPsq_rspNestedInput
   }
 
   export type psq_rspUncheckedUpdateManyWithoutUsrInput = {
     UndId?: IntFieldUpdateOperationsInput | number
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
-    TrnId?: NullableIntFieldUpdateOperationsInput | number | null
+    TrnId?: IntFieldUpdateOperationsInput | number
     PsqId?: IntFieldUpdateOperationsInput | number
     PsqTpoId?: IntFieldUpdateOperationsInput | number
+    BrtId?: NullableIntFieldUpdateOperationsInput | number | null
+    EqpItmId?: NullableIntFieldUpdateOperationsInput | number | null
     PsqPrgId?: IntFieldUpdateOperationsInput | number
     PsqRspId?: IntFieldUpdateOperationsInput | number
     PsqRsp?: IntFieldUpdateOperationsInput | number
     PsqDth?: NullableStringFieldUpdateOperationsInput | string | null
+    PsqMtvId?: NullableIntFieldUpdateOperationsInput | number | null
+    GpsLat?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsLon?: NullableStringFieldUpdateOperationsInput | string | null
+    GpsAlt?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUpdateWithoutUsrInput = {
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    stt?: sttUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+    psq_rsp?: psq_rspUpdateOneRequiredWithoutPsq_rsp_ftoNestedInput
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateWithoutUsrInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_rsp_ftoUncheckedUpdateManyWithoutUsrInput = {
+    PqsRspFto_id?: IntFieldUpdateOperationsInput | number
+    PsqRspId?: IntFieldUpdateOperationsInput | number
+    PqsRspFtoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50911,6 +59626,7 @@ export namespace Prisma {
 
   export type psq_tpoUpdateWithoutUsrInput = {
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
     psq_prg?: psq_prgUpdateManyWithoutPsq_tpoNestedInput
@@ -50921,6 +59637,7 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateWithoutUsrInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -50931,19 +59648,53 @@ export namespace Prisma {
   export type psq_tpoUncheckedUpdateManyWithoutUsrInput = {
     PsqTpoId?: IntFieldUpdateOperationsInput | number
     PsqTpo?: StringFieldUpdateOperationsInput | string
+    icone?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmUpdateWithoutUsrInput = {
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    eqp_itm?: eqp_itmUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+    stt?: sttUpdateOneRequiredWithoutPsq_tpo_itmNestedInput
+  }
+
+  export type psq_tpo_itmUncheckedUpdateWithoutUsrInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type psq_tpo_itmUncheckedUpdateManyWithoutUsrInput = {
+    PsqTpoItmId?: IntFieldUpdateOperationsInput | number
+    BrtId?: IntFieldUpdateOperationsInput | number
+    PsqTpoId?: IntFieldUpdateOperationsInput | number
+    EqpItmId?: IntFieldUpdateOperationsInput | number
     SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type rcgUpdateWithoutUsrInput = {
+    RcgIdOrg?: NullableIntFieldUpdateOperationsInput | number | null
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
     DtaFin?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     FlhId?: IntFieldUpdateOperationsInput | number
@@ -50955,8 +59706,6 @@ export namespace Prisma {
     emp?: empUpdateOneRequiredWithoutRcgNestedInput
     eqp_itm_rcg_CrrIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_CrrIdToeqp_itmNestedInput
     eqp_itm_rcg_VclIdToeqp_itm?: eqp_itmUpdateOneRequiredWithoutRcg_rcg_VclIdToeqp_itmNestedInput
-    rcg?: rcgUpdateOneWithoutOther_rcgNestedInput
-    other_rcg?: rcgUpdateManyWithoutRcgNestedInput
     stt_rcg_SttIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttIdTosttNestedInput
     stt_rcg_SttRcgIdTostt?: sttUpdateOneRequiredWithoutRcg_rcg_SttRcgIdTosttNestedInput
   }
@@ -50968,6 +59717,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -50975,6 +59725,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -50984,7 +59736,6 @@ export namespace Prisma {
     SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    other_rcg?: rcgUncheckedUpdateManyWithoutRcgNestedInput
   }
 
   export type rcgUncheckedUpdateManyWithoutUsrInput = {
@@ -50994,6 +59745,7 @@ export namespace Prisma {
     DtaOpe?: DateTimeFieldUpdateOperationsInput | Date | string
     UndId?: IntFieldUpdateOperationsInput | number
     VclId?: IntFieldUpdateOperationsInput | number
+    CbtId?: NullableIntFieldUpdateOperationsInput | number | null
     CrrId?: IntFieldUpdateOperationsInput | number
     CrrCnc?: IntFieldUpdateOperationsInput | number
     DtaIni?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -51001,6 +59753,8 @@ export namespace Prisma {
     SocIni?: NullableIntFieldUpdateOperationsInput | number | null
     SocFin?: NullableIntFieldUpdateOperationsInput | number | null
     RcgKwh?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    TmpAmb?: NullableIntFieldUpdateOperationsInput | number | null
+    PrsBar?: NullableIntFieldUpdateOperationsInput | number | null
     OdoIni?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     OdoFin?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     SttRcgId?: IntFieldUpdateOperationsInput | number
@@ -51008,78 +59762,6 @@ export namespace Prisma {
     FlhDsc?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     SttIdChk?: NullableIntFieldUpdateOperationsInput | number | null
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type usrUpdateWithoutUsrInput = {
-    UsrNme?: StringFieldUpdateOperationsInput | string
-    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
-    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
-    UsrEml?: StringFieldUpdateOperationsInput | string
-    UsrPwd?: StringFieldUpdateOperationsInput | string
-    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    cbt?: cbtUpdateManyWithoutUsrNestedInput
-    eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
-    eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
-    eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
-    eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
-    eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
-    frn?: frnUpdateManyWithoutUsrNestedInput
-    psq?: psqUpdateManyWithoutUsrNestedInput
-    psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
-    psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
-    psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
-    rcg?: rcgUpdateManyWithoutUsrNestedInput
-    emp?: empUpdateOneRequiredWithoutUsrNestedInput
-    stt?: sttUpdateOneRequiredWithoutUsrNestedInput
-    usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
-    other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
-  }
-
-  export type usrUncheckedUpdateWithoutUsrInput = {
-    EmpId?: IntFieldUpdateOperationsInput | number
-    UsrTpoId?: IntFieldUpdateOperationsInput | number
-    UsrId?: IntFieldUpdateOperationsInput | number
-    UsrNme?: StringFieldUpdateOperationsInput | string
-    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
-    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
-    UsrEml?: StringFieldUpdateOperationsInput | string
-    UsrPwd?: StringFieldUpdateOperationsInput | string
-    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
-    SttId?: IntFieldUpdateOperationsInput | number
-    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
-    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
-    cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
-    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
-    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
-    eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
-    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
-    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
-    frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
-    psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
-    psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
-    psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
-    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
-    rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
-    trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
-  }
-
-  export type usrUncheckedUpdateManyWithoutUsrInput = {
-    EmpId?: IntFieldUpdateOperationsInput | number
-    UsrTpoId?: IntFieldUpdateOperationsInput | number
-    UsrId?: IntFieldUpdateOperationsInput | number
-    UsrNme?: StringFieldUpdateOperationsInput | string
-    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
-    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
-    UsrEml?: StringFieldUpdateOperationsInput | string
-    UsrPwd?: StringFieldUpdateOperationsInput | string
-    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
-    SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -51108,6 +59790,84 @@ export namespace Prisma {
     Trn?: StringFieldUpdateOperationsInput | string
     TrnIni?: DateTimeFieldUpdateOperationsInput | Date | string
     TrnFin?: DateTimeFieldUpdateOperationsInput | Date | string
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type usrUpdateWithoutUsrInput = {
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
+    frn?: frnUpdateManyWithoutUsrNestedInput
+    psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
+    emp?: empUpdateOneRequiredWithoutUsrNestedInput
+    stt?: sttUpdateOneRequiredWithoutUsrNestedInput
+    usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
+    other_usr?: usrUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrUncheckedUpdateWithoutUsrInput = {
+    EmpId?: IntFieldUpdateOperationsInput | number
+    UsrTpoId?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
+    psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
+    trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrUncheckedUpdateManyWithoutUsrInput = {
+    EmpId?: IntFieldUpdateOperationsInput | number
+    UsrTpoId?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
@@ -51145,15 +59905,18 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
     frn?: frnUpdateManyWithoutUsrNestedInput
     psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
     rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
     emp?: empUpdateOneRequiredWithoutUsrNestedInput
     stt?: sttUpdateOneRequiredWithoutUsrNestedInput
     usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
     other_usr?: usrUpdateManyWithoutUsrNestedInput
-    trn?: trnUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateWithoutUsr_tpoInput = {
@@ -51177,12 +59940,15 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
     psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
-    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
     trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
   }
 
   export type usrUncheckedUpdateManyWithoutUsr_tpoInput = {

@@ -24,7 +24,14 @@ import {
 import DialogStepsChecklist from "./DialogStepsChecklist";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Veiculo = { Onibus: string; RcgId?: number; FlhId?: number };
+type Veiculo = {
+  Onibus: string;
+  UndId?: number | null;
+  CbtId?: number | null;
+  RcgId?: number;
+  FlhId?: number;
+};
+
 type FormRecargaFinal = {
   percentualFinal: string;
   odometro: string;
@@ -33,6 +40,14 @@ type FormRecargaFinal = {
   descricaoFalha?: string;
   forcarSttRcgId6?: boolean;
   DtaFin?: string;
+};
+
+type VeiculoLista = {
+  Onibus: string;
+  UndId: number | null;
+  CbtId: number | null;
+  RcgId?: number;
+  FlhId?: number;
 };
 
 const Abastecimento = () => {
@@ -52,11 +67,24 @@ const Abastecimento = () => {
     }
     return null;
   });
-  const [todosVeiculos, setTodosVeiculos] = useState<
-    { Onibus: string; UndId: number }[]
-  >([]);
+  const [todosVeiculos, setTodosVeiculos] = useState<VeiculoLista[]>([]);
   const [selecionados, setSelecionados] = useState<Veiculo[]>([]);
   const [loading, setLoading] = useState(true);
+  const [cbtIdPostoSelecionado] = useState<number | null>(() => {
+    if (typeof window !== "undefined") {
+      const eletro = localStorage.getItem("eletropostoSelecionado");
+      if (!eletro) return null;
+
+      try {
+        const parsed = JSON.parse(eletro);
+        const numero = Number(parsed.CbtId);
+        return Number.isNaN(numero) ? null : numero;
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  });
 
   const baseUrl =
     typeof window !== "undefined"
@@ -73,43 +101,45 @@ const Abastecimento = () => {
         if (!res.ok) throw new Error("Erro ao buscar veículos");
         const data = await res.json();
 
-        // Lista completa para o Select
-        const livresTodos = data.filter(
-          (item: { Situacao: string }) => item.Situacao === "LIVRE"
+        const livresTodosSelect = data.filter(
+          (item: { Situacao: string; CbtId: number | null }) =>
+            item.Situacao === "LIVRE" &&
+            (!cbtIdPostoSelecionado || item.CbtId === cbtIdPostoSelecionado),
         );
-        setTodosVeiculos(livresTodos);
+
+        setTodosVeiculos(livresTodosSelect);
 
         // Filtra os veículos pelo eletroposto selecionado
         const livresFiltrados = data.filter(
           (item: { Situacao: string; UndId: number }) =>
             item.Situacao === "LIVRE" &&
-            (!postoSelecionado || item.UndId === postoSelecionado)
+            (!postoSelecionado || item.UndId === postoSelecionado),
         );
 
         const checklistFiltro = data.filter(
           (item: { Situacao: string; UndId: number; Checklist: string }) =>
             item.Situacao === "INICIADA" &&
             item.Checklist === "PENDENTE" &&
-            (!postoSelecionado || item.UndId === postoSelecionado)
+            (!postoSelecionado || item.UndId === postoSelecionado),
         );
 
         const carregandoFiltrados = data.filter(
           (item: { Situacao: string; UndId: number; Checklist: string }) =>
             item.Situacao === "INICIADA" &&
             item.Checklist === "REALIZADO" &&
-            (!postoSelecionado || item.UndId === postoSelecionado)
+            (!postoSelecionado || item.UndId === postoSelecionado),
         );
 
         // Remove veículos repetidos entre as listas
         const livresUnicos = livresFiltrados.filter(
           (v: Veiculo) =>
             !carregandoFiltrados.some((c: Veiculo) => c.Onibus === v.Onibus) &&
-            !checklistFiltro.some((c: Veiculo) => c.Onibus === v.Onibus)
+            !checklistFiltro.some((c: Veiculo) => c.Onibus === v.Onibus),
         );
 
         const carregandoUnicos = carregandoFiltrados.filter(
           (v: Veiculo) =>
-            !checklistFiltro.some((c: Veiculo) => c.Onibus === v.Onibus)
+            !checklistFiltro.some((c: Veiculo) => c.Onibus === v.Onibus),
         );
 
         setLivres(livresUnicos);
@@ -126,7 +156,7 @@ const Abastecimento = () => {
     fetchVeiculos();
     const interval = setInterval(fetchVeiculos, 2000); // a cada 2s
     return () => clearInterval(interval);
-  }, [baseUrl, postoSelecionado]);
+  }, [baseUrl, cbtIdPostoSelecionado]);
 
   // Irá salvar o veículo no localStorage
   function selecionarVeiculo(veiculo: Veiculo) {
@@ -144,7 +174,7 @@ const Abastecimento = () => {
   function iniciarCarregamento(veiculo: Veiculo) {
     setLivres((prev) => prev.filter((v) => v.Onibus !== veiculo.Onibus));
     setChecklistPendente((prev) =>
-      prev.filter((v) => v.Onibus !== veiculo.Onibus)
+      prev.filter((v) => v.Onibus !== veiculo.Onibus),
     );
     setCarregando((prev) => [
       ...prev.filter((v) => v.Onibus !== veiculo.Onibus),
@@ -157,10 +187,10 @@ const Abastecimento = () => {
     handleSubmit(
       { preventDefault: () => {} } as React.FormEvent<HTMLFormElement>,
       item,
-      dados
+      dados,
     ).then(() => {
       setChecklistPendente((prev) =>
-        prev.filter((v) => v.Onibus !== item.Onibus)
+        prev.filter((v) => v.Onibus !== item.Onibus),
       );
       setCarregando((prev) => [
         ...prev.filter((v) => v.Onibus !== item.Onibus),
@@ -172,7 +202,7 @@ const Abastecimento = () => {
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>,
     onibusItem: Veiculo,
-    dados?: FormRecargaFinal
+    dados?: FormRecargaFinal,
   ) {
     e.preventDefault();
     console.log("Submit chamado para ônibus:", onibusItem.Onibus);
@@ -192,18 +222,18 @@ const Abastecimento = () => {
           SocFin: dados?.percentualFinal
             ? Number(dados.percentualFinal)
             : percentualFinal[onibusItem.Onibus]
-            ? Number(percentualFinal[onibusItem.Onibus])
-            : null,
+              ? Number(percentualFinal[onibusItem.Onibus])
+              : null,
           RcgKwh: dados?.energia
             ? Number(dados.energia)
             : energia[onibusItem.Onibus]
-            ? Number(energia[onibusItem.Onibus])
-            : null,
+              ? Number(energia[onibusItem.Onibus])
+              : null,
           OdoFin: dados?.odometro
             ? Number(dados.odometro.replace(/\./g, ""))
             : odometro[onibusItem.Onibus]
-            ? Number(odometro[onibusItem.Onibus].replace(/\./g, ""))
-            : null,
+              ? Number(odometro[onibusItem.Onibus].replace(/\./g, ""))
+              : null,
           FlhId: dados?.houveFalha === "sim" ? 1 : 0,
           FlhDsc: dados?.descricaoFalha ?? null,
           //SttRcgId: 6,
@@ -226,7 +256,7 @@ const Abastecimento = () => {
       setCarregando((prev) =>
         prev
           .map((v) => (v.Onibus === onibusItem.Onibus ? recargaAtualizada : v))
-          .concat(novaRecarga ? [novaRecarga] : [])
+          .concat(novaRecarga ? [novaRecarga] : []),
       );
 
       console.log("Recarga finalizada com sucesso!");
@@ -252,13 +282,13 @@ const Abastecimento = () => {
               <Select
                 onValueChange={(value) => {
                   const onibusSelecionado = todosVeiculos.find(
-                    (v) => v.Onibus === value
+                    (v) => v.Onibus === value,
                   );
                   if (onibusSelecionado) {
                     // Adiciona no livres se ainda não existir
                     setLivres((prev) => {
                       const existe = prev.find(
-                        (v) => v.Onibus === onibusSelecionado.Onibus
+                        (v) => v.Onibus === onibusSelecionado.Onibus,
                       );
                       if (existe) return prev;
                       return [...prev, onibusSelecionado];
@@ -298,9 +328,9 @@ const Abastecimento = () => {
                         (l, idx, self) =>
                           !carregando.find((c) => c.Onibus === l.Onibus) &&
                           !checklistPendente.find(
-                            (c) => c.Onibus === l.Onibus
+                            (c) => c.Onibus === l.Onibus,
                           ) &&
-                          self.findIndex((x) => x.Onibus === l.Onibus) == idx // não fica com duplicidade
+                          self.findIndex((x) => x.Onibus === l.Onibus) == idx, // não fica com duplicidade
                       )
                       .map((item) => (
                         <motion.div
@@ -488,8 +518,8 @@ const Abastecimento = () => {
                               onChecklistCompleted={(veiculo) => {
                                 setChecklistPendente((prev) =>
                                   prev.filter(
-                                    (v) => v.Onibus !== veiculo.Onibus
-                                  )
+                                    (v) => v.Onibus !== veiculo.Onibus,
+                                  ),
                                 );
                                 setCarregando((prev) => [...prev, veiculo]);
                                 setOpenChecklist((prev) => ({

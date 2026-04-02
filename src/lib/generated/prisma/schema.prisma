@@ -68,7 +68,7 @@ model emp_und {
   EmpId    Int
   UndId    Int       @id @default(autoincrement())
   UndNme   String    @db.VarChar(150)
-  UndRdz   String?   @db.VarChar(15)
+  UndRdz   String?   @db.VarChar(150)
   UndReg   String?   @db.VarChar(50)
   GpsLtd   String?   @db.VarChar(50)
   GpsLgt   String?   @db.VarChar(50)
@@ -107,29 +107,32 @@ model eqp_fbr {
 
 model eqp_itm {
   UndId                  Int
+  BrtId                  Int?
   FrnId                  Int
   EqpTpoId               Int
   EqpFbrId               Int
   EqpMdlId               Int
-  EqpItmId               Int       @id @default(autoincrement())
-  EqpItmCdg              String    @db.VarChar(20)
-  EqpItmPlc              String?   @db.VarChar(20)
-  EqpItmAnoMdl           String?   @db.VarChar(20)
-  EqpItmTmh              String    @db.VarChar(20)
-  SttId                  Int       @default(1)
+  EqpItmId               Int           @id @default(autoincrement())
+  CbtId                  Int?
+  EqpItmCdg              String        @db.VarChar(100)
+  EqpItmPlc              String?       @db.VarChar(100)
+  EqpItmAnoMdl           String?       @db.VarChar(20)
+  EqpItmTmh              String        @db.VarChar(20)
+  SttId                  Int           @default(1)
   UsrIdAlt               Int
-  DtaAlt                 DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel                 String?   @db.VarChar(250)
-  emp_und                emp_und   @relation(fields: [UndId], references: [UndId], onUpdate: Restrict, map: "FK_EqpItm_EmpUnd_UndId")
-  eqp_fbr                eqp_fbr   @relation(fields: [EqpFbrId], references: [EqpFbrId], onUpdate: Restrict, map: "FK_EqpItm_EqpFbr_EqpFbrId")
-  eqp_mdl                eqp_mdl   @relation(fields: [EqpMdlId], references: [EqpMdlId], onUpdate: Restrict, map: "FK_EqpItm_EqpMdl_EqpMdlId")
-  eqp_tpo                eqp_tpo   @relation(fields: [EqpTpoId], references: [EqpTpoId], onUpdate: Restrict, map: "FK_EqpItm_EqpTpo_EqpTpoId")
-  frn                    frn       @relation(fields: [FrnId], references: [FrnId], onUpdate: Restrict, map: "FK_EqpItm_Fnd_FrnId")
-  stt                    stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_EqpItm_Stt_SttId")
-  usr                    usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_EqpItm_Usr_UsrId")
+  DtaAlt                 DateTime      @default(now()) @db.Timestamp(0)
+  MtvDel                 String?       @db.VarChar(250)
+  emp_und                emp_und       @relation(fields: [UndId], references: [UndId], onUpdate: Restrict, map: "FK_EqpItm_EmpUnd_UndId")
+  eqp_fbr                eqp_fbr       @relation(fields: [EqpFbrId], references: [EqpFbrId], onUpdate: Restrict, map: "FK_EqpItm_EqpFbr_EqpFbrId")
+  eqp_mdl                eqp_mdl       @relation(fields: [EqpMdlId], references: [EqpMdlId], onUpdate: Restrict, map: "FK_EqpItm_EqpMdl_EqpMdlId")
+  eqp_tpo                eqp_tpo       @relation(fields: [EqpTpoId], references: [EqpTpoId], onUpdate: Restrict, map: "FK_EqpItm_EqpTpo_EqpTpoId")
+  frn                    frn           @relation(fields: [FrnId], references: [FrnId], onUpdate: Restrict, map: "FK_EqpItm_Fnd_FrnId")
+  stt                    stt           @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_EqpItm_Stt_SttId")
+  usr                    usr           @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_EqpItm_Usr_UsrId")
   eqp_loc                eqp_loc[]
-  rcg_rcg_CrrIdToeqp_itm rcg[]     @relation("rcg_CrrIdToeqp_itm")
-  rcg_rcg_VclIdToeqp_itm rcg[]     @relation("rcg_VclIdToeqp_itm")
+  psq_tpo_itm            psq_tpo_itm[]
+  rcg_rcg_CrrIdToeqp_itm rcg[]         @relation("rcg_CrrIdToeqp_itm")
+  rcg_rcg_VclIdToeqp_itm rcg[]         @relation("rcg_VclIdToeqp_itm")
 
   @@index([SttId, EqpTpoId], map: "idx_eqp_itm_stt_tpo")
   @@index([UndId], map: "FK_EqpItm_EmpUnd_UndId")
@@ -259,24 +262,31 @@ model psq_prg {
 }
 
 model psq_rsp {
-  UndId    Int // Identificado da Unidade
-  DtaOpe   DateTime @db.Date // Data da Operação
-  TrnId    Int? // Identificador do Turno (1 para Diurno e 2 para Noturno)
-  PsqId    Int // Identificador da pesquisa
-  PsqTpoId Int // Identificador Tipo de pesquisa
-  PsqPrgId Int // Identificador pergunta da pesquisa
-  PsqRspId Int      @id @default(autoincrement()) // Identificador resposta da pesquisa
-  PsqRsp   Int // Pergunta da pesquisa
-  PsqDth   String?  @db.VarChar(250) // Detalhe da pesquisa
-  SttId    Int      @default(1) // Status Registro
-  UsrIdAlt Int // Id Usuário que cadastrou
-  DtaAlt   DateTime @default(now()) @db.Timestamp(0) // Data Cadastro
-  MtvDel   String?  @db.VarChar(250) // Motivo da delecao
-  psq_tpo  psq_tpo  @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_rsp_EqpItm_CrrId")
-  psq      psq      @relation(fields: [PsqId], references: [PsqId], onUpdate: Restrict, map: "FK_psq_rsp_Psq_PsqId")
-  stt      stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_rsp_Stt_SttId")
-  usr      usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_rsp_Usr_UsrId")
-  psq_prg  psq_prg  @relation(fields: [PsqPrgId], references: [PsqPrgId], onUpdate: Restrict, map: "FK_psq_rsp_psq_prg_PsqPrgId")
+  UndId       Int
+  DtaOpe      DateTime      @db.Date
+  TrnId       Int
+  PsqId       Int
+  PsqTpoId    Int
+  BrtId       Int?
+  EqpItmId    Int?
+  PsqPrgId    Int
+  PsqRspId    Int           @id @default(autoincrement())
+  PsqRsp      Int
+  PsqDth      String?       @db.VarChar(250)
+  PsqMtvId    Int?
+  GpsLat      String?       @db.VarChar(20)
+  GpsLon      String?       @db.VarChar(20)
+  GpsAlt      String?       @db.VarChar(20)
+  SttId       Int           @default(1)
+  UsrIdAlt    Int
+  DtaAlt      DateTime      @default(now()) @db.Timestamp(0)
+  MtvDel      String?       @db.VarChar(250)
+  psq_tpo     psq_tpo       @relation(fields: [PsqTpoId], references: [PsqTpoId], onUpdate: Restrict, map: "FK_psq_rsp_EqpItm_CrrId")
+  psq         psq           @relation(fields: [PsqId], references: [PsqId], onUpdate: Restrict, map: "FK_psq_rsp_Psq_PsqId")
+  stt         stt           @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_rsp_Stt_SttId")
+  usr         usr           @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_rsp_Usr_UsrId")
+  psq_prg     psq_prg       @relation(fields: [PsqPrgId], references: [PsqPrgId], onUpdate: Restrict, map: "FK_psq_rsp_psq_prg_PsqPrgId")
+  psq_rsp_fto psq_rsp_fto[]
 
   @@index([PsqTpoId], map: "FK_psq_rsp_EqpItm_CrrId")
   @@index([PsqId], map: "FK_psq_rsp_Psq_PsqId")
@@ -288,6 +298,7 @@ model psq_rsp {
 model psq_tpo {
   PsqTpoId Int       @id @default(autoincrement())
   PsqTpo   String    @db.VarChar(100)
+  icone    String?   @db.VarChar(50)
   SttId    Int       @default(1)
   UsrIdAlt Int
   DtaAlt   DateTime  @default(now()) @db.Timestamp(0)
@@ -308,6 +319,7 @@ model rcg {
   DtaOpe                     DateTime  @db.Date
   UndId                      Int
   VclId                      Int
+  CbtId                      Int?
   CrrId                      Int
   CrrCnc                     Int
   DtaIni                     DateTime  @db.DateTime(0)
@@ -315,6 +327,8 @@ model rcg {
   SocIni                     Int?
   SocFin                     Int?
   RcgKwh                     Decimal?  @db.Decimal(10, 3)
+  TmpAmb                     Int?
+  PrsBar                     Int?
   OdoIni                     Decimal?  @db.Decimal(10, 1)
   OdoFin                     Decimal?  @db.Decimal(10, 1)
   SttRcgId                   Int       @default(6)
@@ -329,8 +343,6 @@ model rcg {
   emp                        emp       @relation(fields: [EmpId], references: [EmpId], onUpdate: Restrict, map: "FK_Rcg_Emp_EmpId")
   eqp_itm_rcg_CrrIdToeqp_itm eqp_itm   @relation("rcg_CrrIdToeqp_itm", fields: [CrrId], references: [EqpItmId], onUpdate: Restrict, map: "FK_Rcg_EqpItm_CrrId")
   eqp_itm_rcg_VclIdToeqp_itm eqp_itm   @relation("rcg_VclIdToeqp_itm", fields: [VclId], references: [EqpItmId], onUpdate: Restrict, map: "FK_Rcg_EqpItm_VclId")
-  rcg                        rcg?      @relation("rcgTorcg", fields: [RcgIdOrg], references: [RcgId], onDelete: Restrict, onUpdate: Restrict, map: "FK_Rcg_Rcg_RcgId")
-  other_rcg                  rcg[]     @relation("rcgTorcg")
   stt_rcg_SttIdTostt         stt       @relation("rcg_SttIdTostt", fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Rcg_Stt_SttId")
   stt_rcg_SttRcgIdTostt      stt       @relation("rcg_SttRcgIdTostt", fields: [SttRcgId], references: [SttId], onUpdate: Restrict, map: "FK_Rcg_Stt_SttRcgId")
   usr                        usr       @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Rcg_Usr_UsrId")
@@ -347,12 +359,12 @@ model rcg {
 }
 
 model stt {
-  SttId                 Int       @id @default(autoincrement())
-  SttNme                String    @db.VarChar(50)
-  SttIdAtu              Int       @default(1)
+  SttId                 Int           @id @default(autoincrement())
+  SttNme                String        @db.VarChar(50)
+  SttIdAtu              Int           @default(1)
   UsrIdAlt              Int
-  DtaAlt                DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel                String?   @db.VarChar(250)
+  DtaAlt                DateTime      @default(now()) @db.Timestamp(0)
+  MtvDel                String?       @db.VarChar(250)
   cbt                   cbt[]
   emp                   emp[]
   emp_und               emp_und[]
@@ -363,67 +375,72 @@ model stt {
   eqp_tpo               eqp_tpo[]
   frn                   frn[]
   psq                   psq[]
+  psq_mtv               psq_mtv[]
   psq_prg               psq_prg[]
   psq_rsp               psq_rsp[]
+  psq_rsp_fto           psq_rsp_fto[]
   psq_tpo               psq_tpo[]
-  rcg_rcg_SttIdTostt    rcg[]     @relation("rcg_SttIdTostt")
-  rcg_rcg_SttRcgIdTostt rcg[]     @relation("rcg_SttRcgIdTostt")
+  psq_tpo_itm           psq_tpo_itm[]
+  rcg_rcg_SttIdTostt    rcg[]         @relation("rcg_SttIdTostt")
+  rcg_rcg_SttRcgIdTostt rcg[]         @relation("rcg_SttRcgIdTostt")
+  trn                   trn[]
   usr                   usr[]
   usr_tpo               usr_tpo[]
-  trn                   trn[]     @relation(map: "FK_trn_Stt_SttId")
 
   @@index([SttNme], map: "Idx_Stt")
 }
 
 model trn {
-  TrnId    Int      @id @default(autoincrement()) // Identificador turno
-  Trn      String   @db.VarChar(50) // Descrição do turno
-  TrnIni   DateTime @db.Time // Início do turno
-  TrnFin   DateTime @db.Time // Final do turno
-  SttId    Int      @default(1) // Status Registro
-  UsrIdAlt Int // Id Usuário que cadastrou
-  DtaAlt   DateTime @default(now()) @updatedAt @db.Timestamp(0) // Data Cadastro
-  MtvDel   String?  @db.VarChar(250) // Motivo da deleção
-
-  stt stt @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_trn_Stt_SttId")
-  usr usr @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_trn_Usr_UsrId")
+  TrnId    Int      @id @default(autoincrement())
+  Trn      String   @db.VarChar(50)
+  TrnIni   DateTime @db.Time(0)
+  TrnFin   DateTime @db.Time(0)
+  SttId    Int      @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  MtvDel   String?  @db.VarChar(250)
+  stt      stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_trn_Stt_SttId")
+  usr      usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_trn_Usr_UsrId")
 
   @@index([SttId], map: "FK_trn_Stt_SttId")
   @@index([UsrIdAlt], map: "FK_trn_Usr_UsrId")
 }
 
 model usr {
-  EmpId     Int
-  UsrTpoId  Int
-  UsrId     Int       @id @default(autoincrement())
-  UsrNme    String    @db.VarChar(150)
-  UsrLgn    String?   @unique(map: "IdxU_UsrLgn") @db.VarChar(20)
-  UsrCpf    String?   @unique(map: "IdxU_UsrCpf") @db.VarChar(15)
-  UsrEml    String    @unique(map: "IdxU_UsrEml") @db.VarChar(150)
-  UsrPwd    String    @db.VarChar(250)
-  UsrFto    String?   @default("avatar.png") @db.VarChar(250)
-  SttId     Int       @default(1)
-  UsrIdAlt  Int
-  DtaAlt    DateTime  @default(now()) @db.Timestamp(0)
-  MtvDel    String?   @db.VarChar(250)
-  cbt       cbt[]
-  eqp_fbr   eqp_fbr[]
-  eqp_itm   eqp_itm[]
-  eqp_loc   eqp_loc[]
-  eqp_mdl   eqp_mdl[]
-  eqp_tpo   eqp_tpo[]
-  frn       frn[]
-  psq       psq[]
-  psq_prg   psq_prg[]
-  psq_rsp   psq_rsp[]
-  psq_tpo   psq_tpo[]
-  rcg       rcg[]
-  emp       emp       @relation(fields: [EmpId], references: [EmpId], onUpdate: Restrict, map: "FK_Usr_Emp_EmpId")
-  stt       stt       @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Usr_Stt_SttId")
-  usr_tpo   usr_tpo   @relation(fields: [UsrTpoId], references: [UsrTpoId], onUpdate: Restrict, map: "FK_Usr_UsrTpo_UsrTpoId")
-  usr       usr       @relation("usrTousr", fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Usr_Usr_UsrId")
-  other_usr usr[]     @relation("usrTousr")
-  trn       trn[]     @relation(map: "FK_trn_Usr_UsrId")
+  EmpId       Int
+  UsrTpoId    Int
+  UsrId       Int           @id @default(autoincrement())
+  UsrNme      String        @db.VarChar(150)
+  UsrLgn      String?       @unique(map: "IdxU_UsrLgn") @db.VarChar(20)
+  UsrCpf      String?       @unique(map: "IdxU_UsrCpf") @db.VarChar(15)
+  UsrEml      String        @unique(map: "IdxU_UsrEml") @db.VarChar(150)
+  UsrPwd      String        @db.VarChar(250)
+  UsrFto      String?       @default("avatar.png") @db.VarChar(250)
+  SttId       Int           @default(1)
+  UsrIdAlt    Int
+  DtaAlt      DateTime      @default(now()) @db.Timestamp(0)
+  MtvDel      String?       @db.VarChar(250)
+  cbt         cbt[]
+  eqp_fbr     eqp_fbr[]
+  eqp_itm     eqp_itm[]
+  eqp_loc     eqp_loc[]
+  eqp_mdl     eqp_mdl[]
+  eqp_tpo     eqp_tpo[]
+  frn         frn[]
+  psq         psq[]
+  psq_mtv     psq_mtv[]
+  psq_prg     psq_prg[]
+  psq_rsp     psq_rsp[]
+  psq_rsp_fto psq_rsp_fto[]
+  psq_tpo     psq_tpo[]
+  psq_tpo_itm psq_tpo_itm[]
+  rcg         rcg[]
+  trn         trn[]
+  emp         emp           @relation(fields: [EmpId], references: [EmpId], onUpdate: Restrict, map: "FK_Usr_Emp_EmpId")
+  stt         stt           @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Usr_Stt_SttId")
+  usr_tpo     usr_tpo       @relation(fields: [UsrTpoId], references: [UsrTpoId], onUpdate: Restrict, map: "FK_Usr_UsrTpo_UsrTpoId")
+  usr         usr           @relation("usrTousr", fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Usr_Usr_UsrId")
+  other_usr   usr[]         @relation("usrTousr")
 
   @@index([EmpId], map: "FK_Usr_Emp_EmpId")
   @@index([UsrTpoId], map: "FK_Usr_UsrTpo_UsrTpoId")
@@ -444,9 +461,78 @@ model usr_tpo {
   @@index([SttId], map: "Idx_UsrTpo_SttId")
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model psq_rsp_fto {
+  PqsRspFto_id Int      @id @default(autoincrement())
+  PsqRspId     Int
+  PqsRspFtoUrl String?  @db.Text
+  SttId        Int      @default(1)
+  UsrIdAlt     Int
+  DtaAlt       DateTime @default(now()) @db.Timestamp(0)
+  MtvDel       String?  @db.VarChar(250)
+  stt          stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_psq_rsp_fto_Stt_SttId")
+  usr          usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_psq_rsp_fto_Usr_UsrId")
+  psq_rsp      psq_rsp  @relation(fields: [PsqRspId], references: [PsqRspId], onUpdate: Restrict, map: "FK_psq_rsp_fto_psq_prg_PsqRspId")
+
+  @@index([SttId], map: "FK_psq_rsp_fto_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_psq_rsp_fto_Usr_UsrId")
+  @@index([PsqRspId], map: "FK_psq_rsp_fto_psq_prg_PsqRspId")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model brt {
+  BrtId    Int      @id @default(autoincrement())
+  BrtNme   String   @db.VarChar(50)
+  SttIdAtu Int      @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime @default(now()) @db.Timestamp(0)
+  MtvDel   String?  @db.VarChar(250)
+
+  @@index([BrtNme], map: "Idx_Brt")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model psq_tpo_itm {
+  PsqTpoItmId Int      @id @default(autoincrement())
+  BrtId       Int
+  PsqTpoId    Int
+  EqpItmId    Int
+  SttId       Int      @default(1)
+  UsrIdAlt    Int
+  DtaAlt      DateTime @default(now()) @db.Timestamp(0)
+  MtvDel      String?  @db.VarChar(250)
+  eqp_itm     eqp_itm  @relation(fields: [EqpItmId], references: [EqpItmId], onUpdate: Restrict, map: "FK_PsqTpoItm_EqpItmId")
+  stt         stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_PsqTpoItm_Stt_SttId")
+  usr         usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_PsqTpoItm_Usr_UsrId")
+
+  @@index([EqpItmId], map: "FK_PsqTpoItm_EqpItmId")
+  @@index([SttId], map: "FK_PsqTpoItm_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_PsqTpoItm_Usr_UsrId")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model psq_mtv {
+  PsqTpoId Int
+  PsqMtvId Int      @id @default(autoincrement())
+  PsqMtv   String   @db.VarChar(50)
+  SttId    Int      @default(1)
+  UsrIdAlt Int
+  DtaAlt   DateTime @default(now()) @db.Timestamp(0)
+  MtvDel   String?  @db.VarChar(250)
+  stt      stt      @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_PsqMtv_Stt_SttId")
+  usr      usr      @relation(fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_PsqMtv_Usr_UsrId")
+
+  @@index([SttId], map: "FK_PsqMtv_Stt_SttId")
+  @@index([UsrIdAlt], map: "FK_PsqMtv_Usr_UsrId")
+}
+
 /// View: vw_onibus
 model VwOnibus {
   RcgIdOrg           Int?      @map("RcgIdOrg")
+  BrtId              Int       @map("BrtId")
+  CbtId              Int?      @map("CbtId")
+  TipoCombustivel    String?   @map("TipoCombustivel")
   EqpItmId           Int       @id @map("EqpItmId") // ID único
   Onibus             String    @map("Onibus")
   Situacao           String    @map("Situacao")
@@ -472,11 +558,14 @@ model VwOnibus {
 
 /// View: vw_carregador
 model VwCarregador {
-  UndId      Int     @map("UndId")
-  EqpItmId   Int     @map("EqpItmId")
-  Carregador String? @map("Carregador")
+  UndId           Int     @map("UndId")
+  Unidade         String? @map("Unidade")
+  CbtId           Int?    @map("CbtId")
+  TipoCombustivel String? @map("TipoCombustivel")
+  EqpItmId        Int     @map("EqpItmId")
+  Carregador      String? @map("Carregador")
 
-  @@id([UndId, EqpItmId]) // chave composta, pois não há campo único
+  @@id([UndId, EqpItmId])
   @@map("vw_carregador")
 }
 
@@ -493,10 +582,12 @@ model VwPesquisaPergunta {
 
 /// View: vw_posto_recarga
 model VwPostoRecarga {
-  UndId        Int     @id @map("UndId")
-  PostoRecarga String  @map("PostoRecarga")
-  Latitude     String? @map("Latitude")
-  Longitude    String? @map("Longitude")
+  UndId           Int     @id @map("UndId")
+  PostoRecarga    String? @map("PostoRecarga")
+  CbtId           Int?    @map("CbtId")
+  TipoCombustivel String? @map("TipoCombustivel")
+  Latitude        String? @map("Latitude")
+  Longitude       String? @map("Longitude")
 
   @@map("vw_posto_recarga")
 }

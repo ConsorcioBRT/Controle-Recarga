@@ -5,16 +5,23 @@ export async function GET(request: Request) {
   try {
     // Aqui vai pegar o UndId da query striing (?undId=x)
     const { searchParams } = new URL(request.url);
+    const cbtId = searchParams.get("cbtId");
     const undId = searchParams.get("undId");
-    if (!undId) {
-      return new NextResponse("Parâmetro UndId é obrigatório", { status: 400 });
+
+    if (!cbtId || !undId) {
+      return new NextResponse("Parâmetro CbtId e UndId são obrigatórios", {
+        status: 400,
+      });
     }
 
     // Aqui vai buscar todos os carregadores com o mesmo UndId
     const carregadores = await prisma.vwCarregador.findMany({
-      where: { UndId: Number(undId) },
+      where: { CbtId: Number(cbtId), UndId: Number(undId) },
       select: {
         UndId: true,
+        Unidade: true,
+        CbtId: true,
+        TipoCombustivel: true,
         EqpItmId: true,
         Carregador: true,
       },

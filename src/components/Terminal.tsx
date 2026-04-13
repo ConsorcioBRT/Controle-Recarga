@@ -75,7 +75,7 @@ const Home = () => {
         UndId: postoSelecionado,
         PostoRecarga: posto?.PostoRecarga ?? "",
         Contagem: qtd,
-      })
+      }),
     );
     router.push("/abastecimento");
   };
@@ -86,7 +86,7 @@ const Home = () => {
       <Header />
       <div className="flex flex-col items-center justify-center bg-white border border-gray-200 rounded-xl p-8 mt-40">
         <div className="flex flex-col items-start justify-center">
-          <Label className="text-xl mb-3">Qual o seu Eletroposto?</Label>
+          <Label className="text-xl mb-3">Qual o seu Posto de Recarga</Label>
           <Select onValueChange={(value) => setPostoSelecionado(Number(value))}>
             <SelectTrigger className="bg-white h-14 w-72 mb-10">
               <SelectValue placeholder="Eletropostos" />

@@ -1,9 +1,6 @@
 import { Prisma } from "@/src/lib/generated/prisma";
 import prisma from "@/src/lib/prisma";
-<<<<<<< HEAD
 import { pusherServer } from "@/src/lib/pusher-server";
-=======
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -167,11 +164,8 @@ export async function POST(request: Request) {
       });
     }
 
-<<<<<<< HEAD
     await pusherServer.trigger("veiculos", "atualizado", {});
 
-=======
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
     return NextResponse.json(novaRecarga);
   } catch (error) {
     console.error("Erro ao criar recarga:");
@@ -289,11 +283,8 @@ export async function PUT(request: Request) {
       data: dadosAtualizados,
     });
 
-<<<<<<< HEAD
     await pusherServer.trigger("veiculos", "atualizado", {});
 
-=======
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
     console.log("Recarga atualizada:", recargaAtualizada);
     return NextResponse.json({ recargaAtualizada });
   } catch (error) {

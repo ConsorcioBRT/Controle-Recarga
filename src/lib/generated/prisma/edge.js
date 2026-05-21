@@ -680,7 +680,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Caiky\\consorciobrt\\src\\lib\\generated\\prisma",
+      "value": "C:\\Users\\Caiky Magalhães\\consorciobrt\\src\\lib\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -694,7 +694,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Caiky\\consorciobrt\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Caiky Magalhães\\consorciobrt\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

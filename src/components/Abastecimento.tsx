@@ -1,9 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import Pusher from "pusher-js";
-=======
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
 import Header from "./Header";
 import { Separator } from "./ui/separator";
 import {
@@ -158,7 +155,6 @@ const Abastecimento = () => {
     }
 
     fetchVeiculos();
-<<<<<<< HEAD
 
     const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
       cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER!,
@@ -182,10 +178,6 @@ const Abastecimento = () => {
       pusher.disconnect();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-=======
-    const interval = setInterval(fetchVeiculos, 2000); // a cada 2s
-    return () => clearInterval(interval);
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
   }, [baseUrl, cbtIdPostoSelecionado]);
 
   // Irá salvar o veículo no localStorage

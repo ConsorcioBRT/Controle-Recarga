@@ -1,8 +1,5 @@
 import prisma from "@/src/lib/prisma";
-<<<<<<< HEAD
 import { pusherServer } from "@/src/lib/pusher-server";
-=======
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -84,11 +81,8 @@ export async function PUT(request: Request) {
       data: { SttRcgId: novoStatus },
     });
 
-<<<<<<< HEAD
     await pusherServer.trigger("veiculos", "atualizado", {});
 
-=======
->>>>>>> b860acfc5f186391b6f87f15508dea0ac9cc324f
     return NextResponse.json({
       message: "Status atualizado com sucesso",
       atualizado,

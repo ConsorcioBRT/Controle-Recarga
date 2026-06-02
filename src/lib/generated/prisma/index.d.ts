@@ -125,6 +125,11 @@ export type psq_tpo_itm = $Result.DefaultSelection<Prisma.$psq_tpo_itmPayload>
  */
 export type psq_mtv = $Result.DefaultSelection<Prisma.$psq_mtvPayload>
 /**
+ * Model bioposto_afericao
+ * 
+ */
+export type bioposto_afericao = $Result.DefaultSelection<Prisma.$bioposto_afericaoPayload>
+/**
  * Model VwOnibus
  * View: vw_onibus
  */
@@ -494,6 +499,16 @@ export class PrismaClient<
     * ```
     */
   get psq_mtv(): Prisma.psq_mtvDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bioposto_afericao`: Exposes CRUD operations for the **bioposto_afericao** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bioposto_afericaos
+    * const bioposto_afericaos = await prisma.bioposto_afericao.findMany()
+    * ```
+    */
+  get bioposto_afericao(): Prisma.bioposto_afericaoDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.vwOnibus`: Exposes CRUD operations for the **VwOnibus** model.
@@ -1006,6 +1021,7 @@ export namespace Prisma {
     brt: 'brt',
     psq_tpo_itm: 'psq_tpo_itm',
     psq_mtv: 'psq_mtv',
+    bioposto_afericao: 'bioposto_afericao',
     VwOnibus: 'VwOnibus',
     VwCarregador: 'VwCarregador',
     VwPesquisaPergunta: 'VwPesquisaPergunta',
@@ -1029,7 +1045,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "cbt" | "emp" | "emp_und" | "eqp_fbr" | "eqp_itm" | "eqp_loc" | "eqp_mdl" | "eqp_tpo" | "frn" | "psq" | "psq_prg" | "psq_rsp" | "psq_tpo" | "rcg" | "stt" | "trn" | "usr" | "usr_tpo" | "psq_rsp_fto" | "brt" | "psq_tpo_itm" | "psq_mtv" | "vwOnibus" | "vwCarregador" | "vwPesquisaPergunta" | "vwPostoRecarga" | "vwTurnoAtual"
+      modelProps: "cbt" | "emp" | "emp_und" | "eqp_fbr" | "eqp_itm" | "eqp_loc" | "eqp_mdl" | "eqp_tpo" | "frn" | "psq" | "psq_prg" | "psq_rsp" | "psq_tpo" | "rcg" | "stt" | "trn" | "usr" | "usr_tpo" | "psq_rsp_fto" | "brt" | "psq_tpo_itm" | "psq_mtv" | "bioposto_afericao" | "vwOnibus" | "vwCarregador" | "vwPesquisaPergunta" | "vwPostoRecarga" | "vwTurnoAtual"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2485,6 +2501,72 @@ export namespace Prisma {
           }
         }
       }
+      bioposto_afericao: {
+        payload: Prisma.$bioposto_afericaoPayload<ExtArgs>
+        fields: Prisma.bioposto_afericaoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.bioposto_afericaoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.bioposto_afericaoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>
+          }
+          findFirst: {
+            args: Prisma.bioposto_afericaoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.bioposto_afericaoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>
+          }
+          findMany: {
+            args: Prisma.bioposto_afericaoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>[]
+          }
+          create: {
+            args: Prisma.bioposto_afericaoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>
+          }
+          createMany: {
+            args: Prisma.bioposto_afericaoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.bioposto_afericaoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>
+          }
+          update: {
+            args: Prisma.bioposto_afericaoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>
+          }
+          deleteMany: {
+            args: Prisma.bioposto_afericaoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.bioposto_afericaoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.bioposto_afericaoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bioposto_afericaoPayload>
+          }
+          aggregate: {
+            args: Prisma.Bioposto_afericaoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBioposto_afericao>
+          }
+          groupBy: {
+            args: Prisma.bioposto_afericaoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Bioposto_afericaoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.bioposto_afericaoCountArgs<ExtArgs>
+            result: $Utils.Optional<Bioposto_afericaoCountAggregateOutputType> | number
+          }
+        }
+      }
       VwOnibus: {
         payload: Prisma.$VwOnibusPayload<ExtArgs>
         fields: Prisma.VwOnibusFieldRefs
@@ -2929,6 +3011,7 @@ export namespace Prisma {
     brt?: brtOmit
     psq_tpo_itm?: psq_tpo_itmOmit
     psq_mtv?: psq_mtvOmit
+    bioposto_afericao?: bioposto_afericaoOmit
     vwOnibus?: VwOnibusOmit
     vwCarregador?: VwCarregadorOmit
     vwPesquisaPergunta?: VwPesquisaPerguntaOmit
@@ -3684,6 +3767,7 @@ export namespace Prisma {
    */
 
   export type UsrCountOutputType = {
+    bioposto_afericao: number
     cbt: number
     eqp_fbr: number
     eqp_itm: number
@@ -3704,6 +3788,7 @@ export namespace Prisma {
   }
 
   export type UsrCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bioposto_afericao?: boolean | UsrCountOutputTypeCountBioposto_afericaoArgs
     cbt?: boolean | UsrCountOutputTypeCountCbtArgs
     eqp_fbr?: boolean | UsrCountOutputTypeCountEqp_fbrArgs
     eqp_itm?: boolean | UsrCountOutputTypeCountEqp_itmArgs
@@ -3732,6 +3817,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the UsrCountOutputType
      */
     select?: UsrCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UsrCountOutputType without action
+   */
+  export type UsrCountOutputTypeCountBioposto_afericaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bioposto_afericaoWhereInput
   }
 
   /**
@@ -22353,6 +22445,7 @@ export namespace Prisma {
     UsrIdAlt?: boolean
     DtaAlt?: boolean
     MtvDel?: boolean
+    bioposto_afericao?: boolean | usr$bioposto_afericaoArgs<ExtArgs>
     cbt?: boolean | usr$cbtArgs<ExtArgs>
     eqp_fbr?: boolean | usr$eqp_fbrArgs<ExtArgs>
     eqp_itm?: boolean | usr$eqp_itmArgs<ExtArgs>
@@ -22397,6 +22490,7 @@ export namespace Prisma {
 
   export type usrOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"EmpId" | "UsrTpoId" | "UsrId" | "UsrNme" | "UsrLgn" | "UsrCpf" | "UsrEml" | "UsrPwd" | "UsrFto" | "SttId" | "UsrIdAlt" | "DtaAlt" | "MtvDel", ExtArgs["result"]["usr"]>
   export type usrInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bioposto_afericao?: boolean | usr$bioposto_afericaoArgs<ExtArgs>
     cbt?: boolean | usr$cbtArgs<ExtArgs>
     eqp_fbr?: boolean | usr$eqp_fbrArgs<ExtArgs>
     eqp_itm?: boolean | usr$eqp_itmArgs<ExtArgs>
@@ -22424,6 +22518,7 @@ export namespace Prisma {
   export type $usrPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "usr"
     objects: {
+      bioposto_afericao: Prisma.$bioposto_afericaoPayload<ExtArgs>[]
       cbt: Prisma.$cbtPayload<ExtArgs>[]
       eqp_fbr: Prisma.$eqp_fbrPayload<ExtArgs>[]
       eqp_itm: Prisma.$eqp_itmPayload<ExtArgs>[]
@@ -22800,6 +22895,7 @@ export namespace Prisma {
    */
   export interface Prisma__usrClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    bioposto_afericao<T extends usr$bioposto_afericaoArgs<ExtArgs> = {}>(args?: Subset<T, usr$bioposto_afericaoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     cbt<T extends usr$cbtArgs<ExtArgs> = {}>(args?: Subset<T, usr$cbtArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cbtPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     eqp_fbr<T extends usr$eqp_fbrArgs<ExtArgs> = {}>(args?: Subset<T, usr$eqp_fbrArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$eqp_fbrPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     eqp_itm<T extends usr$eqp_itmArgs<ExtArgs> = {}>(args?: Subset<T, usr$eqp_itmArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$eqp_itmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -23203,6 +23299,30 @@ export namespace Prisma {
      * Limit how many usrs to delete.
      */
     limit?: number
+  }
+
+  /**
+   * usr.bioposto_afericao
+   */
+  export type usr$bioposto_afericaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    where?: bioposto_afericaoWhereInput
+    orderBy?: bioposto_afericaoOrderByWithRelationInput | bioposto_afericaoOrderByWithRelationInput[]
+    cursor?: bioposto_afericaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Bioposto_afericaoScalarFieldEnum | Bioposto_afericaoScalarFieldEnum[]
   }
 
   /**
@@ -28610,6 +28730,992 @@ export namespace Prisma {
 
 
   /**
+   * Model bioposto_afericao
+   */
+
+  export type AggregateBioposto_afericao = {
+    _count: Bioposto_afericaoCountAggregateOutputType | null
+    _avg: Bioposto_afericaoAvgAggregateOutputType | null
+    _sum: Bioposto_afericaoSumAggregateOutputType | null
+    _min: Bioposto_afericaoMinAggregateOutputType | null
+    _max: Bioposto_afericaoMaxAggregateOutputType | null
+  }
+
+  export type Bioposto_afericaoAvgAggregateOutputType = {
+    BioPstAfrId: number | null
+    Manometro: number | null
+    Temperatura: number | null
+    UsrId: number | null
+  }
+
+  export type Bioposto_afericaoSumAggregateOutputType = {
+    BioPstAfrId: number | null
+    Manometro: number | null
+    Temperatura: number | null
+    UsrId: number | null
+  }
+
+  export type Bioposto_afericaoMinAggregateOutputType = {
+    BioPstAfrId: number | null
+    MomentoRegistro: string | null
+    DtaHra: Date | null
+    Manometro: number | null
+    Temperatura: number | null
+    UsrId: number | null
+  }
+
+  export type Bioposto_afericaoMaxAggregateOutputType = {
+    BioPstAfrId: number | null
+    MomentoRegistro: string | null
+    DtaHra: Date | null
+    Manometro: number | null
+    Temperatura: number | null
+    UsrId: number | null
+  }
+
+  export type Bioposto_afericaoCountAggregateOutputType = {
+    BioPstAfrId: number
+    MomentoRegistro: number
+    DtaHra: number
+    Manometro: number
+    Temperatura: number
+    UsrId: number
+    _all: number
+  }
+
+
+  export type Bioposto_afericaoAvgAggregateInputType = {
+    BioPstAfrId?: true
+    Manometro?: true
+    Temperatura?: true
+    UsrId?: true
+  }
+
+  export type Bioposto_afericaoSumAggregateInputType = {
+    BioPstAfrId?: true
+    Manometro?: true
+    Temperatura?: true
+    UsrId?: true
+  }
+
+  export type Bioposto_afericaoMinAggregateInputType = {
+    BioPstAfrId?: true
+    MomentoRegistro?: true
+    DtaHra?: true
+    Manometro?: true
+    Temperatura?: true
+    UsrId?: true
+  }
+
+  export type Bioposto_afericaoMaxAggregateInputType = {
+    BioPstAfrId?: true
+    MomentoRegistro?: true
+    DtaHra?: true
+    Manometro?: true
+    Temperatura?: true
+    UsrId?: true
+  }
+
+  export type Bioposto_afericaoCountAggregateInputType = {
+    BioPstAfrId?: true
+    MomentoRegistro?: true
+    DtaHra?: true
+    Manometro?: true
+    Temperatura?: true
+    UsrId?: true
+    _all?: true
+  }
+
+  export type Bioposto_afericaoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bioposto_afericao to aggregate.
+     */
+    where?: bioposto_afericaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bioposto_afericaos to fetch.
+     */
+    orderBy?: bioposto_afericaoOrderByWithRelationInput | bioposto_afericaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: bioposto_afericaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bioposto_afericaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bioposto_afericaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned bioposto_afericaos
+    **/
+    _count?: true | Bioposto_afericaoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Bioposto_afericaoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Bioposto_afericaoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Bioposto_afericaoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Bioposto_afericaoMaxAggregateInputType
+  }
+
+  export type GetBioposto_afericaoAggregateType<T extends Bioposto_afericaoAggregateArgs> = {
+        [P in keyof T & keyof AggregateBioposto_afericao]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBioposto_afericao[P]>
+      : GetScalarType<T[P], AggregateBioposto_afericao[P]>
+  }
+
+
+
+
+  export type bioposto_afericaoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bioposto_afericaoWhereInput
+    orderBy?: bioposto_afericaoOrderByWithAggregationInput | bioposto_afericaoOrderByWithAggregationInput[]
+    by: Bioposto_afericaoScalarFieldEnum[] | Bioposto_afericaoScalarFieldEnum
+    having?: bioposto_afericaoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Bioposto_afericaoCountAggregateInputType | true
+    _avg?: Bioposto_afericaoAvgAggregateInputType
+    _sum?: Bioposto_afericaoSumAggregateInputType
+    _min?: Bioposto_afericaoMinAggregateInputType
+    _max?: Bioposto_afericaoMaxAggregateInputType
+  }
+
+  export type Bioposto_afericaoGroupByOutputType = {
+    BioPstAfrId: number
+    MomentoRegistro: string
+    DtaHra: Date
+    Manometro: number
+    Temperatura: number
+    UsrId: number
+    _count: Bioposto_afericaoCountAggregateOutputType | null
+    _avg: Bioposto_afericaoAvgAggregateOutputType | null
+    _sum: Bioposto_afericaoSumAggregateOutputType | null
+    _min: Bioposto_afericaoMinAggregateOutputType | null
+    _max: Bioposto_afericaoMaxAggregateOutputType | null
+  }
+
+  type GetBioposto_afericaoGroupByPayload<T extends bioposto_afericaoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Bioposto_afericaoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Bioposto_afericaoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Bioposto_afericaoGroupByOutputType[P]>
+            : GetScalarType<T[P], Bioposto_afericaoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type bioposto_afericaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    BioPstAfrId?: boolean
+    MomentoRegistro?: boolean
+    DtaHra?: boolean
+    Manometro?: boolean
+    Temperatura?: boolean
+    UsrId?: boolean
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bioposto_afericao"]>
+
+
+
+  export type bioposto_afericaoSelectScalar = {
+    BioPstAfrId?: boolean
+    MomentoRegistro?: boolean
+    DtaHra?: boolean
+    Manometro?: boolean
+    Temperatura?: boolean
+    UsrId?: boolean
+  }
+
+  export type bioposto_afericaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"BioPstAfrId" | "MomentoRegistro" | "DtaHra" | "Manometro" | "Temperatura" | "UsrId", ExtArgs["result"]["bioposto_afericao"]>
+  export type bioposto_afericaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usr?: boolean | usrDefaultArgs<ExtArgs>
+  }
+
+  export type $bioposto_afericaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "bioposto_afericao"
+    objects: {
+      usr: Prisma.$usrPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      BioPstAfrId: number
+      MomentoRegistro: string
+      DtaHra: Date
+      Manometro: number
+      Temperatura: number
+      UsrId: number
+    }, ExtArgs["result"]["bioposto_afericao"]>
+    composites: {}
+  }
+
+  type bioposto_afericaoGetPayload<S extends boolean | null | undefined | bioposto_afericaoDefaultArgs> = $Result.GetResult<Prisma.$bioposto_afericaoPayload, S>
+
+  type bioposto_afericaoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<bioposto_afericaoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Bioposto_afericaoCountAggregateInputType | true
+    }
+
+  export interface bioposto_afericaoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['bioposto_afericao'], meta: { name: 'bioposto_afericao' } }
+    /**
+     * Find zero or one Bioposto_afericao that matches the filter.
+     * @param {bioposto_afericaoFindUniqueArgs} args - Arguments to find a Bioposto_afericao
+     * @example
+     * // Get one Bioposto_afericao
+     * const bioposto_afericao = await prisma.bioposto_afericao.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends bioposto_afericaoFindUniqueArgs>(args: SelectSubset<T, bioposto_afericaoFindUniqueArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Bioposto_afericao that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {bioposto_afericaoFindUniqueOrThrowArgs} args - Arguments to find a Bioposto_afericao
+     * @example
+     * // Get one Bioposto_afericao
+     * const bioposto_afericao = await prisma.bioposto_afericao.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends bioposto_afericaoFindUniqueOrThrowArgs>(args: SelectSubset<T, bioposto_afericaoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bioposto_afericao that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bioposto_afericaoFindFirstArgs} args - Arguments to find a Bioposto_afericao
+     * @example
+     * // Get one Bioposto_afericao
+     * const bioposto_afericao = await prisma.bioposto_afericao.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends bioposto_afericaoFindFirstArgs>(args?: SelectSubset<T, bioposto_afericaoFindFirstArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bioposto_afericao that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bioposto_afericaoFindFirstOrThrowArgs} args - Arguments to find a Bioposto_afericao
+     * @example
+     * // Get one Bioposto_afericao
+     * const bioposto_afericao = await prisma.bioposto_afericao.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends bioposto_afericaoFindFirstOrThrowArgs>(args?: SelectSubset<T, bioposto_afericaoFindFirstOrThrowArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bioposto_afericaos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bioposto_afericaoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bioposto_afericaos
+     * const bioposto_afericaos = await prisma.bioposto_afericao.findMany()
+     * 
+     * // Get first 10 Bioposto_afericaos
+     * const bioposto_afericaos = await prisma.bioposto_afericao.findMany({ take: 10 })
+     * 
+     * // Only select the `BioPstAfrId`
+     * const bioposto_afericaoWithBioPstAfrIdOnly = await prisma.bioposto_afericao.findMany({ select: { BioPstAfrId: true } })
+     * 
+     */
+    findMany<T extends bioposto_afericaoFindManyArgs>(args?: SelectSubset<T, bioposto_afericaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Bioposto_afericao.
+     * @param {bioposto_afericaoCreateArgs} args - Arguments to create a Bioposto_afericao.
+     * @example
+     * // Create one Bioposto_afericao
+     * const Bioposto_afericao = await prisma.bioposto_afericao.create({
+     *   data: {
+     *     // ... data to create a Bioposto_afericao
+     *   }
+     * })
+     * 
+     */
+    create<T extends bioposto_afericaoCreateArgs>(args: SelectSubset<T, bioposto_afericaoCreateArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bioposto_afericaos.
+     * @param {bioposto_afericaoCreateManyArgs} args - Arguments to create many Bioposto_afericaos.
+     * @example
+     * // Create many Bioposto_afericaos
+     * const bioposto_afericao = await prisma.bioposto_afericao.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends bioposto_afericaoCreateManyArgs>(args?: SelectSubset<T, bioposto_afericaoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Bioposto_afericao.
+     * @param {bioposto_afericaoDeleteArgs} args - Arguments to delete one Bioposto_afericao.
+     * @example
+     * // Delete one Bioposto_afericao
+     * const Bioposto_afericao = await prisma.bioposto_afericao.delete({
+     *   where: {
+     *     // ... filter to delete one Bioposto_afericao
+     *   }
+     * })
+     * 
+     */
+    delete<T extends bioposto_afericaoDeleteArgs>(args: SelectSubset<T, bioposto_afericaoDeleteArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Bioposto_afericao.
+     * @param {bioposto_afericaoUpdateArgs} args - Arguments to update one Bioposto_afericao.
+     * @example
+     * // Update one Bioposto_afericao
+     * const bioposto_afericao = await prisma.bioposto_afericao.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends bioposto_afericaoUpdateArgs>(args: SelectSubset<T, bioposto_afericaoUpdateArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bioposto_afericaos.
+     * @param {bioposto_afericaoDeleteManyArgs} args - Arguments to filter Bioposto_afericaos to delete.
+     * @example
+     * // Delete a few Bioposto_afericaos
+     * const { count } = await prisma.bioposto_afericao.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends bioposto_afericaoDeleteManyArgs>(args?: SelectSubset<T, bioposto_afericaoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bioposto_afericaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bioposto_afericaoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bioposto_afericaos
+     * const bioposto_afericao = await prisma.bioposto_afericao.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends bioposto_afericaoUpdateManyArgs>(args: SelectSubset<T, bioposto_afericaoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Bioposto_afericao.
+     * @param {bioposto_afericaoUpsertArgs} args - Arguments to update or create a Bioposto_afericao.
+     * @example
+     * // Update or create a Bioposto_afericao
+     * const bioposto_afericao = await prisma.bioposto_afericao.upsert({
+     *   create: {
+     *     // ... data to create a Bioposto_afericao
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bioposto_afericao we want to update
+     *   }
+     * })
+     */
+    upsert<T extends bioposto_afericaoUpsertArgs>(args: SelectSubset<T, bioposto_afericaoUpsertArgs<ExtArgs>>): Prisma__bioposto_afericaoClient<$Result.GetResult<Prisma.$bioposto_afericaoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bioposto_afericaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bioposto_afericaoCountArgs} args - Arguments to filter Bioposto_afericaos to count.
+     * @example
+     * // Count the number of Bioposto_afericaos
+     * const count = await prisma.bioposto_afericao.count({
+     *   where: {
+     *     // ... the filter for the Bioposto_afericaos we want to count
+     *   }
+     * })
+    **/
+    count<T extends bioposto_afericaoCountArgs>(
+      args?: Subset<T, bioposto_afericaoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Bioposto_afericaoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bioposto_afericao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Bioposto_afericaoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Bioposto_afericaoAggregateArgs>(args: Subset<T, Bioposto_afericaoAggregateArgs>): Prisma.PrismaPromise<GetBioposto_afericaoAggregateType<T>>
+
+    /**
+     * Group by Bioposto_afericao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bioposto_afericaoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends bioposto_afericaoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: bioposto_afericaoGroupByArgs['orderBy'] }
+        : { orderBy?: bioposto_afericaoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, bioposto_afericaoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBioposto_afericaoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the bioposto_afericao model
+   */
+  readonly fields: bioposto_afericaoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for bioposto_afericao.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__bioposto_afericaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    usr<T extends usrDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usrDefaultArgs<ExtArgs>>): Prisma__usrClient<$Result.GetResult<Prisma.$usrPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the bioposto_afericao model
+   */
+  interface bioposto_afericaoFieldRefs {
+    readonly BioPstAfrId: FieldRef<"bioposto_afericao", 'Int'>
+    readonly MomentoRegistro: FieldRef<"bioposto_afericao", 'String'>
+    readonly DtaHra: FieldRef<"bioposto_afericao", 'DateTime'>
+    readonly Manometro: FieldRef<"bioposto_afericao", 'Int'>
+    readonly Temperatura: FieldRef<"bioposto_afericao", 'Int'>
+    readonly UsrId: FieldRef<"bioposto_afericao", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * bioposto_afericao findUnique
+   */
+  export type bioposto_afericaoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * Filter, which bioposto_afericao to fetch.
+     */
+    where: bioposto_afericaoWhereUniqueInput
+  }
+
+  /**
+   * bioposto_afericao findUniqueOrThrow
+   */
+  export type bioposto_afericaoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * Filter, which bioposto_afericao to fetch.
+     */
+    where: bioposto_afericaoWhereUniqueInput
+  }
+
+  /**
+   * bioposto_afericao findFirst
+   */
+  export type bioposto_afericaoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * Filter, which bioposto_afericao to fetch.
+     */
+    where?: bioposto_afericaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bioposto_afericaos to fetch.
+     */
+    orderBy?: bioposto_afericaoOrderByWithRelationInput | bioposto_afericaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bioposto_afericaos.
+     */
+    cursor?: bioposto_afericaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bioposto_afericaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bioposto_afericaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bioposto_afericaos.
+     */
+    distinct?: Bioposto_afericaoScalarFieldEnum | Bioposto_afericaoScalarFieldEnum[]
+  }
+
+  /**
+   * bioposto_afericao findFirstOrThrow
+   */
+  export type bioposto_afericaoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * Filter, which bioposto_afericao to fetch.
+     */
+    where?: bioposto_afericaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bioposto_afericaos to fetch.
+     */
+    orderBy?: bioposto_afericaoOrderByWithRelationInput | bioposto_afericaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bioposto_afericaos.
+     */
+    cursor?: bioposto_afericaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bioposto_afericaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bioposto_afericaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bioposto_afericaos.
+     */
+    distinct?: Bioposto_afericaoScalarFieldEnum | Bioposto_afericaoScalarFieldEnum[]
+  }
+
+  /**
+   * bioposto_afericao findMany
+   */
+  export type bioposto_afericaoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * Filter, which bioposto_afericaos to fetch.
+     */
+    where?: bioposto_afericaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bioposto_afericaos to fetch.
+     */
+    orderBy?: bioposto_afericaoOrderByWithRelationInput | bioposto_afericaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing bioposto_afericaos.
+     */
+    cursor?: bioposto_afericaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bioposto_afericaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bioposto_afericaos.
+     */
+    skip?: number
+    distinct?: Bioposto_afericaoScalarFieldEnum | Bioposto_afericaoScalarFieldEnum[]
+  }
+
+  /**
+   * bioposto_afericao create
+   */
+  export type bioposto_afericaoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a bioposto_afericao.
+     */
+    data: XOR<bioposto_afericaoCreateInput, bioposto_afericaoUncheckedCreateInput>
+  }
+
+  /**
+   * bioposto_afericao createMany
+   */
+  export type bioposto_afericaoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many bioposto_afericaos.
+     */
+    data: bioposto_afericaoCreateManyInput | bioposto_afericaoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * bioposto_afericao update
+   */
+  export type bioposto_afericaoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a bioposto_afericao.
+     */
+    data: XOR<bioposto_afericaoUpdateInput, bioposto_afericaoUncheckedUpdateInput>
+    /**
+     * Choose, which bioposto_afericao to update.
+     */
+    where: bioposto_afericaoWhereUniqueInput
+  }
+
+  /**
+   * bioposto_afericao updateMany
+   */
+  export type bioposto_afericaoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update bioposto_afericaos.
+     */
+    data: XOR<bioposto_afericaoUpdateManyMutationInput, bioposto_afericaoUncheckedUpdateManyInput>
+    /**
+     * Filter which bioposto_afericaos to update
+     */
+    where?: bioposto_afericaoWhereInput
+    /**
+     * Limit how many bioposto_afericaos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * bioposto_afericao upsert
+   */
+  export type bioposto_afericaoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the bioposto_afericao to update in case it exists.
+     */
+    where: bioposto_afericaoWhereUniqueInput
+    /**
+     * In case the bioposto_afericao found by the `where` argument doesn't exist, create a new bioposto_afericao with this data.
+     */
+    create: XOR<bioposto_afericaoCreateInput, bioposto_afericaoUncheckedCreateInput>
+    /**
+     * In case the bioposto_afericao was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<bioposto_afericaoUpdateInput, bioposto_afericaoUncheckedUpdateInput>
+  }
+
+  /**
+   * bioposto_afericao delete
+   */
+  export type bioposto_afericaoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+    /**
+     * Filter which bioposto_afericao to delete.
+     */
+    where: bioposto_afericaoWhereUniqueInput
+  }
+
+  /**
+   * bioposto_afericao deleteMany
+   */
+  export type bioposto_afericaoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bioposto_afericaos to delete
+     */
+    where?: bioposto_afericaoWhereInput
+    /**
+     * Limit how many bioposto_afericaos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * bioposto_afericao without action
+   */
+  export type bioposto_afericaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bioposto_afericao
+     */
+    select?: bioposto_afericaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bioposto_afericao
+     */
+    omit?: bioposto_afericaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bioposto_afericaoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model VwOnibus
    */
 
@@ -33822,6 +34928,18 @@ export namespace Prisma {
   export type Psq_mtvScalarFieldEnum = (typeof Psq_mtvScalarFieldEnum)[keyof typeof Psq_mtvScalarFieldEnum]
 
 
+  export const Bioposto_afericaoScalarFieldEnum: {
+    BioPstAfrId: 'BioPstAfrId',
+    MomentoRegistro: 'MomentoRegistro',
+    DtaHra: 'DtaHra',
+    Manometro: 'Manometro',
+    Temperatura: 'Temperatura',
+    UsrId: 'UsrId'
+  };
+
+  export type Bioposto_afericaoScalarFieldEnum = (typeof Bioposto_afericaoScalarFieldEnum)[keyof typeof Bioposto_afericaoScalarFieldEnum]
+
+
   export const VwOnibusScalarFieldEnum: {
     RcgIdOrg: 'RcgIdOrg',
     BrtId: 'BrtId',
@@ -34128,6 +35246,13 @@ export namespace Prisma {
   };
 
   export type psq_mtvOrderByRelevanceFieldEnum = (typeof psq_mtvOrderByRelevanceFieldEnum)[keyof typeof psq_mtvOrderByRelevanceFieldEnum]
+
+
+  export const bioposto_afericaoOrderByRelevanceFieldEnum: {
+    MomentoRegistro: 'MomentoRegistro'
+  };
+
+  export type bioposto_afericaoOrderByRelevanceFieldEnum = (typeof bioposto_afericaoOrderByRelevanceFieldEnum)[keyof typeof bioposto_afericaoOrderByRelevanceFieldEnum]
 
 
   export const VwOnibusOrderByRelevanceFieldEnum: {
@@ -35900,6 +37025,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFilter<"usr"> | number
     DtaAlt?: DateTimeFilter<"usr"> | Date | string
     MtvDel?: StringNullableFilter<"usr"> | string | null
+    bioposto_afericao?: Bioposto_afericaoListRelationFilter
     cbt?: CbtListRelationFilter
     eqp_fbr?: Eqp_fbrListRelationFilter
     eqp_itm?: Eqp_itmListRelationFilter
@@ -35937,6 +37063,7 @@ export namespace Prisma {
     UsrIdAlt?: SortOrder
     DtaAlt?: SortOrder
     MtvDel?: SortOrderInput | SortOrder
+    bioposto_afericao?: bioposto_afericaoOrderByRelationAggregateInput
     cbt?: cbtOrderByRelationAggregateInput
     eqp_fbr?: eqp_fbrOrderByRelationAggregateInput
     eqp_itm?: eqp_itmOrderByRelationAggregateInput
@@ -35978,6 +37105,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFilter<"usr"> | number
     DtaAlt?: DateTimeFilter<"usr"> | Date | string
     MtvDel?: StringNullableFilter<"usr"> | string | null
+    bioposto_afericao?: Bioposto_afericaoListRelationFilter
     cbt?: CbtListRelationFilter
     eqp_fbr?: Eqp_fbrListRelationFilter
     eqp_itm?: Eqp_itmListRelationFilter
@@ -36389,6 +37517,69 @@ export namespace Prisma {
     UsrIdAlt?: IntWithAggregatesFilter<"psq_mtv"> | number
     DtaAlt?: DateTimeWithAggregatesFilter<"psq_mtv"> | Date | string
     MtvDel?: StringNullableWithAggregatesFilter<"psq_mtv"> | string | null
+  }
+
+  export type bioposto_afericaoWhereInput = {
+    AND?: bioposto_afericaoWhereInput | bioposto_afericaoWhereInput[]
+    OR?: bioposto_afericaoWhereInput[]
+    NOT?: bioposto_afericaoWhereInput | bioposto_afericaoWhereInput[]
+    BioPstAfrId?: IntFilter<"bioposto_afericao"> | number
+    MomentoRegistro?: StringFilter<"bioposto_afericao"> | string
+    DtaHra?: DateTimeFilter<"bioposto_afericao"> | Date | string
+    Manometro?: IntFilter<"bioposto_afericao"> | number
+    Temperatura?: IntFilter<"bioposto_afericao"> | number
+    UsrId?: IntFilter<"bioposto_afericao"> | number
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+  }
+
+  export type bioposto_afericaoOrderByWithRelationInput = {
+    BioPstAfrId?: SortOrder
+    MomentoRegistro?: SortOrder
+    DtaHra?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
+    usr?: usrOrderByWithRelationInput
+    _relevance?: bioposto_afericaoOrderByRelevanceInput
+  }
+
+  export type bioposto_afericaoWhereUniqueInput = Prisma.AtLeast<{
+    BioPstAfrId?: number
+    AND?: bioposto_afericaoWhereInput | bioposto_afericaoWhereInput[]
+    OR?: bioposto_afericaoWhereInput[]
+    NOT?: bioposto_afericaoWhereInput | bioposto_afericaoWhereInput[]
+    MomentoRegistro?: StringFilter<"bioposto_afericao"> | string
+    DtaHra?: DateTimeFilter<"bioposto_afericao"> | Date | string
+    Manometro?: IntFilter<"bioposto_afericao"> | number
+    Temperatura?: IntFilter<"bioposto_afericao"> | number
+    UsrId?: IntFilter<"bioposto_afericao"> | number
+    usr?: XOR<UsrScalarRelationFilter, usrWhereInput>
+  }, "BioPstAfrId">
+
+  export type bioposto_afericaoOrderByWithAggregationInput = {
+    BioPstAfrId?: SortOrder
+    MomentoRegistro?: SortOrder
+    DtaHra?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
+    _count?: bioposto_afericaoCountOrderByAggregateInput
+    _avg?: bioposto_afericaoAvgOrderByAggregateInput
+    _max?: bioposto_afericaoMaxOrderByAggregateInput
+    _min?: bioposto_afericaoMinOrderByAggregateInput
+    _sum?: bioposto_afericaoSumOrderByAggregateInput
+  }
+
+  export type bioposto_afericaoScalarWhereWithAggregatesInput = {
+    AND?: bioposto_afericaoScalarWhereWithAggregatesInput | bioposto_afericaoScalarWhereWithAggregatesInput[]
+    OR?: bioposto_afericaoScalarWhereWithAggregatesInput[]
+    NOT?: bioposto_afericaoScalarWhereWithAggregatesInput | bioposto_afericaoScalarWhereWithAggregatesInput[]
+    BioPstAfrId?: IntWithAggregatesFilter<"bioposto_afericao"> | number
+    MomentoRegistro?: StringWithAggregatesFilter<"bioposto_afericao"> | string
+    DtaHra?: DateTimeWithAggregatesFilter<"bioposto_afericao"> | Date | string
+    Manometro?: IntWithAggregatesFilter<"bioposto_afericao"> | number
+    Temperatura?: IntWithAggregatesFilter<"bioposto_afericao"> | number
+    UsrId?: IntWithAggregatesFilter<"bioposto_afericao"> | number
   }
 
   export type VwOnibusWhereInput = {
@@ -38463,6 +39654,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -38500,6 +39692,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -38528,6 +39721,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -38565,6 +39759,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -38948,6 +40143,65 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type bioposto_afericaoCreateInput = {
+    MomentoRegistro: string
+    DtaHra?: Date | string
+    Manometro: number
+    Temperatura: number
+    usr: usrCreateNestedOneWithoutBioposto_afericaoInput
+  }
+
+  export type bioposto_afericaoUncheckedCreateInput = {
+    BioPstAfrId?: number
+    MomentoRegistro: string
+    DtaHra?: Date | string
+    Manometro: number
+    Temperatura: number
+    UsrId: number
+  }
+
+  export type bioposto_afericaoUpdateInput = {
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
+    usr?: usrUpdateOneRequiredWithoutBioposto_afericaoNestedInput
+  }
+
+  export type bioposto_afericaoUncheckedUpdateInput = {
+    BioPstAfrId?: IntFieldUpdateOperationsInput | number
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type bioposto_afericaoCreateManyInput = {
+    BioPstAfrId?: number
+    MomentoRegistro: string
+    DtaHra?: Date | string
+    Manometro: number
+    Temperatura: number
+    UsrId: number
+  }
+
+  export type bioposto_afericaoUpdateManyMutationInput = {
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type bioposto_afericaoUncheckedUpdateManyInput = {
+    BioPstAfrId?: IntFieldUpdateOperationsInput | number
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
   }
 
   export type VwOnibusCreateInput = {
@@ -40901,9 +42155,19 @@ export namespace Prisma {
     UsrIdAlt?: SortOrder
   }
 
+  export type Bioposto_afericaoListRelationFilter = {
+    every?: bioposto_afericaoWhereInput
+    some?: bioposto_afericaoWhereInput
+    none?: bioposto_afericaoWhereInput
+  }
+
   export type Usr_tpoScalarRelationFilter = {
     is?: usr_tpoWhereInput
     isNot?: usr_tpoWhereInput
+  }
+
+  export type bioposto_afericaoOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type usrOrderByRelevanceInput = {
@@ -41226,6 +42490,53 @@ export namespace Prisma {
     PsqMtvId?: SortOrder
     SttId?: SortOrder
     UsrIdAlt?: SortOrder
+  }
+
+  export type bioposto_afericaoOrderByRelevanceInput = {
+    fields: bioposto_afericaoOrderByRelevanceFieldEnum | bioposto_afericaoOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type bioposto_afericaoCountOrderByAggregateInput = {
+    BioPstAfrId?: SortOrder
+    MomentoRegistro?: SortOrder
+    DtaHra?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
+  }
+
+  export type bioposto_afericaoAvgOrderByAggregateInput = {
+    BioPstAfrId?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
+  }
+
+  export type bioposto_afericaoMaxOrderByAggregateInput = {
+    BioPstAfrId?: SortOrder
+    MomentoRegistro?: SortOrder
+    DtaHra?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
+  }
+
+  export type bioposto_afericaoMinOrderByAggregateInput = {
+    BioPstAfrId?: SortOrder
+    MomentoRegistro?: SortOrder
+    DtaHra?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
+  }
+
+  export type bioposto_afericaoSumOrderByAggregateInput = {
+    BioPstAfrId?: SortOrder
+    Manometro?: SortOrder
+    Temperatura?: SortOrder
+    UsrId?: SortOrder
   }
 
   export type FloatNullableFilter<$PrismaModel = never> = {
@@ -44083,6 +45394,13 @@ export namespace Prisma {
     update?: XOR<XOR<usrUpdateToOneWithWhereWithoutTrnInput, usrUpdateWithoutTrnInput>, usrUncheckedUpdateWithoutTrnInput>
   }
 
+  export type bioposto_afericaoCreateNestedManyWithoutUsrInput = {
+    create?: XOR<bioposto_afericaoCreateWithoutUsrInput, bioposto_afericaoUncheckedCreateWithoutUsrInput> | bioposto_afericaoCreateWithoutUsrInput[] | bioposto_afericaoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: bioposto_afericaoCreateOrConnectWithoutUsrInput | bioposto_afericaoCreateOrConnectWithoutUsrInput[]
+    createMany?: bioposto_afericaoCreateManyUsrInputEnvelope
+    connect?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+  }
+
   export type cbtCreateNestedManyWithoutUsrInput = {
     create?: XOR<cbtCreateWithoutUsrInput, cbtUncheckedCreateWithoutUsrInput> | cbtCreateWithoutUsrInput[] | cbtUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: cbtCreateOrConnectWithoutUsrInput | cbtCreateOrConnectWithoutUsrInput[]
@@ -44226,6 +45544,13 @@ export namespace Prisma {
     connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
   }
 
+  export type bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput = {
+    create?: XOR<bioposto_afericaoCreateWithoutUsrInput, bioposto_afericaoUncheckedCreateWithoutUsrInput> | bioposto_afericaoCreateWithoutUsrInput[] | bioposto_afericaoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: bioposto_afericaoCreateOrConnectWithoutUsrInput | bioposto_afericaoCreateOrConnectWithoutUsrInput[]
+    createMany?: bioposto_afericaoCreateManyUsrInputEnvelope
+    connect?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+  }
+
   export type cbtUncheckedCreateNestedManyWithoutUsrInput = {
     create?: XOR<cbtCreateWithoutUsrInput, cbtUncheckedCreateWithoutUsrInput> | cbtCreateWithoutUsrInput[] | cbtUncheckedCreateWithoutUsrInput[]
     connectOrCreate?: cbtCreateOrConnectWithoutUsrInput | cbtCreateOrConnectWithoutUsrInput[]
@@ -44343,6 +45668,20 @@ export namespace Prisma {
     connectOrCreate?: usrCreateOrConnectWithoutUsrInput | usrCreateOrConnectWithoutUsrInput[]
     createMany?: usrCreateManyUsrInputEnvelope
     connect?: usrWhereUniqueInput | usrWhereUniqueInput[]
+  }
+
+  export type bioposto_afericaoUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<bioposto_afericaoCreateWithoutUsrInput, bioposto_afericaoUncheckedCreateWithoutUsrInput> | bioposto_afericaoCreateWithoutUsrInput[] | bioposto_afericaoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: bioposto_afericaoCreateOrConnectWithoutUsrInput | bioposto_afericaoCreateOrConnectWithoutUsrInput[]
+    upsert?: bioposto_afericaoUpsertWithWhereUniqueWithoutUsrInput | bioposto_afericaoUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: bioposto_afericaoCreateManyUsrInputEnvelope
+    set?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    disconnect?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    delete?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    connect?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    update?: bioposto_afericaoUpdateWithWhereUniqueWithoutUsrInput | bioposto_afericaoUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: bioposto_afericaoUpdateManyWithWhereWithoutUsrInput | bioposto_afericaoUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: bioposto_afericaoScalarWhereInput | bioposto_afericaoScalarWhereInput[]
   }
 
   export type cbtUpdateManyWithoutUsrNestedInput = {
@@ -44613,6 +45952,20 @@ export namespace Prisma {
     update?: usrUpdateWithWhereUniqueWithoutUsrInput | usrUpdateWithWhereUniqueWithoutUsrInput[]
     updateMany?: usrUpdateManyWithWhereWithoutUsrInput | usrUpdateManyWithWhereWithoutUsrInput[]
     deleteMany?: usrScalarWhereInput | usrScalarWhereInput[]
+  }
+
+  export type bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput = {
+    create?: XOR<bioposto_afericaoCreateWithoutUsrInput, bioposto_afericaoUncheckedCreateWithoutUsrInput> | bioposto_afericaoCreateWithoutUsrInput[] | bioposto_afericaoUncheckedCreateWithoutUsrInput[]
+    connectOrCreate?: bioposto_afericaoCreateOrConnectWithoutUsrInput | bioposto_afericaoCreateOrConnectWithoutUsrInput[]
+    upsert?: bioposto_afericaoUpsertWithWhereUniqueWithoutUsrInput | bioposto_afericaoUpsertWithWhereUniqueWithoutUsrInput[]
+    createMany?: bioposto_afericaoCreateManyUsrInputEnvelope
+    set?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    disconnect?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    delete?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    connect?: bioposto_afericaoWhereUniqueInput | bioposto_afericaoWhereUniqueInput[]
+    update?: bioposto_afericaoUpdateWithWhereUniqueWithoutUsrInput | bioposto_afericaoUpdateWithWhereUniqueWithoutUsrInput[]
+    updateMany?: bioposto_afericaoUpdateManyWithWhereWithoutUsrInput | bioposto_afericaoUpdateManyWithWhereWithoutUsrInput[]
+    deleteMany?: bioposto_afericaoScalarWhereInput | bioposto_afericaoScalarWhereInput[]
   }
 
   export type cbtUncheckedUpdateManyWithoutUsrNestedInput = {
@@ -45021,6 +46374,20 @@ export namespace Prisma {
     update?: XOR<XOR<usrUpdateToOneWithWhereWithoutPsq_mtvInput, usrUpdateWithoutPsq_mtvInput>, usrUncheckedUpdateWithoutPsq_mtvInput>
   }
 
+  export type usrCreateNestedOneWithoutBioposto_afericaoInput = {
+    create?: XOR<usrCreateWithoutBioposto_afericaoInput, usrUncheckedCreateWithoutBioposto_afericaoInput>
+    connectOrCreate?: usrCreateOrConnectWithoutBioposto_afericaoInput
+    connect?: usrWhereUniqueInput
+  }
+
+  export type usrUpdateOneRequiredWithoutBioposto_afericaoNestedInput = {
+    create?: XOR<usrCreateWithoutBioposto_afericaoInput, usrUncheckedCreateWithoutBioposto_afericaoInput>
+    connectOrCreate?: usrCreateOrConnectWithoutBioposto_afericaoInput
+    upsert?: usrUpsertWithoutBioposto_afericaoInput
+    connect?: usrWhereUniqueInput
+    update?: XOR<XOR<usrUpdateToOneWithWhereWithoutBioposto_afericaoInput, usrUpdateWithoutBioposto_afericaoInput>, usrUncheckedUpdateWithoutBioposto_afericaoInput>
+  }
+
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -45370,6 +46737,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
     eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
@@ -45406,6 +46774,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
@@ -45517,6 +46886,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
@@ -45553,6 +46923,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
@@ -45750,6 +47121,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -45785,6 +47157,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -46591,6 +47964,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
     eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
@@ -46627,6 +48001,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
@@ -46826,6 +48201,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
@@ -46862,6 +48238,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
@@ -47141,6 +48518,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
@@ -47177,6 +48555,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
@@ -47647,6 +49026,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
@@ -47683,6 +49063,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
@@ -47962,6 +49343,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -47998,6 +49380,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -48239,6 +49622,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -48275,6 +49659,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -48467,6 +49852,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -48503,6 +49889,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -48692,6 +50079,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -48728,6 +50116,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -48933,6 +50322,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -48969,6 +50359,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -49128,6 +50519,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -49164,6 +50556,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -49306,6 +50699,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -49342,6 +50736,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -49469,6 +50864,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -49505,6 +50901,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -49594,6 +50991,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -49630,6 +51028,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -49794,6 +51193,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -49830,6 +51230,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -49986,6 +51387,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -50022,6 +51424,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -50218,6 +51621,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -50254,6 +51658,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -50407,6 +51812,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -50443,6 +51849,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -50667,6 +52074,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -50703,6 +52111,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -50937,6 +52346,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -50973,6 +52383,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -51130,6 +52541,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -51166,6 +52578,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -51529,6 +52942,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -51565,6 +52979,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -51980,6 +53395,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -52016,6 +53432,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -52783,6 +54200,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -52818,6 +54236,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -53432,6 +54851,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -53468,6 +54888,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -53579,6 +55000,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -53615,6 +55037,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -53631,6 +55054,31 @@ export namespace Prisma {
     psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
     rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
     other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
+  }
+
+  export type bioposto_afericaoCreateWithoutUsrInput = {
+    MomentoRegistro: string
+    DtaHra?: Date | string
+    Manometro: number
+    Temperatura: number
+  }
+
+  export type bioposto_afericaoUncheckedCreateWithoutUsrInput = {
+    BioPstAfrId?: number
+    MomentoRegistro: string
+    DtaHra?: Date | string
+    Manometro: number
+    Temperatura: number
+  }
+
+  export type bioposto_afericaoCreateOrConnectWithoutUsrInput = {
+    where: bioposto_afericaoWhereUniqueInput
+    create: XOR<bioposto_afericaoCreateWithoutUsrInput, bioposto_afericaoUncheckedCreateWithoutUsrInput>
+  }
+
+  export type bioposto_afericaoCreateManyUsrInputEnvelope = {
+    data: bioposto_afericaoCreateManyUsrInput | bioposto_afericaoCreateManyUsrInput[]
+    skipDuplicates?: boolean
   }
 
   export type cbtCreateWithoutUsrInput = {
@@ -54353,6 +55801,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -54389,6 +55838,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -54421,6 +55871,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -54456,6 +55907,7 @@ export namespace Prisma {
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -54483,6 +55935,34 @@ export namespace Prisma {
   export type usrCreateManyUsrInputEnvelope = {
     data: usrCreateManyUsrInput | usrCreateManyUsrInput[]
     skipDuplicates?: boolean
+  }
+
+  export type bioposto_afericaoUpsertWithWhereUniqueWithoutUsrInput = {
+    where: bioposto_afericaoWhereUniqueInput
+    update: XOR<bioposto_afericaoUpdateWithoutUsrInput, bioposto_afericaoUncheckedUpdateWithoutUsrInput>
+    create: XOR<bioposto_afericaoCreateWithoutUsrInput, bioposto_afericaoUncheckedCreateWithoutUsrInput>
+  }
+
+  export type bioposto_afericaoUpdateWithWhereUniqueWithoutUsrInput = {
+    where: bioposto_afericaoWhereUniqueInput
+    data: XOR<bioposto_afericaoUpdateWithoutUsrInput, bioposto_afericaoUncheckedUpdateWithoutUsrInput>
+  }
+
+  export type bioposto_afericaoUpdateManyWithWhereWithoutUsrInput = {
+    where: bioposto_afericaoScalarWhereInput
+    data: XOR<bioposto_afericaoUpdateManyMutationInput, bioposto_afericaoUncheckedUpdateManyWithoutUsrInput>
+  }
+
+  export type bioposto_afericaoScalarWhereInput = {
+    AND?: bioposto_afericaoScalarWhereInput | bioposto_afericaoScalarWhereInput[]
+    OR?: bioposto_afericaoScalarWhereInput[]
+    NOT?: bioposto_afericaoScalarWhereInput | bioposto_afericaoScalarWhereInput[]
+    BioPstAfrId?: IntFilter<"bioposto_afericao"> | number
+    MomentoRegistro?: StringFilter<"bioposto_afericao"> | string
+    DtaHra?: DateTimeFilter<"bioposto_afericao"> | Date | string
+    Manometro?: IntFilter<"bioposto_afericao"> | number
+    Temperatura?: IntFilter<"bioposto_afericao"> | number
+    UsrId?: IntFilter<"bioposto_afericao"> | number
   }
 
   export type cbtUpsertWithWhereUniqueWithoutUsrInput = {
@@ -54941,6 +56421,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -54977,6 +56458,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -55020,6 +56502,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -55055,6 +56538,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -55301,6 +56785,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -55337,6 +56822,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -55496,6 +56982,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -55532,6 +57019,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -55723,6 +57211,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -55759,6 +57248,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -55924,6 +57414,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -55960,6 +57451,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -56049,6 +57541,7 @@ export namespace Prisma {
     UsrFto?: string | null
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoCreateNestedManyWithoutUsrInput
     cbt?: cbtCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
@@ -56085,6 +57578,7 @@ export namespace Prisma {
     UsrIdAlt: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedCreateNestedManyWithoutUsrInput
     cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
     eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
     eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
@@ -56196,6 +57690,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -56232,6 +57727,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -56240,6 +57736,152 @@ export namespace Prisma {
     eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
     frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
     psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUncheckedUpdateManyWithoutUsrNestedInput
+    trn?: trnUncheckedUpdateManyWithoutUsrNestedInput
+    other_usr?: usrUncheckedUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrCreateWithoutBioposto_afericaoInput = {
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoCreateNestedManyWithoutUsrInput
+    frn?: frnCreateNestedManyWithoutUsrInput
+    psq?: psqCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmCreateNestedManyWithoutUsrInput
+    rcg?: rcgCreateNestedManyWithoutUsrInput
+    trn?: trnCreateNestedManyWithoutUsrInput
+    emp: empCreateNestedOneWithoutUsrInput
+    stt?: sttCreateNestedOneWithoutUsrInput
+    usr_tpo: usr_tpoCreateNestedOneWithoutUsrInput
+    usr: usrCreateNestedOneWithoutOther_usrInput
+    other_usr?: usrCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrUncheckedCreateWithoutBioposto_afericaoInput = {
+    EmpId: number
+    UsrTpoId: number
+    UsrId?: number
+    UsrNme: string
+    UsrLgn?: string | null
+    UsrCpf?: string | null
+    UsrEml: string
+    UsrPwd: string
+    UsrFto?: string | null
+    SttId?: number
+    UsrIdAlt: number
+    DtaAlt?: Date | string
+    MtvDel?: string | null
+    cbt?: cbtUncheckedCreateNestedManyWithoutUsrInput
+    eqp_fbr?: eqp_fbrUncheckedCreateNestedManyWithoutUsrInput
+    eqp_itm?: eqp_itmUncheckedCreateNestedManyWithoutUsrInput
+    eqp_loc?: eqp_locUncheckedCreateNestedManyWithoutUsrInput
+    eqp_mdl?: eqp_mdlUncheckedCreateNestedManyWithoutUsrInput
+    eqp_tpo?: eqp_tpoUncheckedCreateNestedManyWithoutUsrInput
+    frn?: frnUncheckedCreateNestedManyWithoutUsrInput
+    psq?: psqUncheckedCreateNestedManyWithoutUsrInput
+    psq_mtv?: psq_mtvUncheckedCreateNestedManyWithoutUsrInput
+    psq_prg?: psq_prgUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp?: psq_rspUncheckedCreateNestedManyWithoutUsrInput
+    psq_rsp_fto?: psq_rsp_ftoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo?: psq_tpoUncheckedCreateNestedManyWithoutUsrInput
+    psq_tpo_itm?: psq_tpo_itmUncheckedCreateNestedManyWithoutUsrInput
+    rcg?: rcgUncheckedCreateNestedManyWithoutUsrInput
+    trn?: trnUncheckedCreateNestedManyWithoutUsrInput
+    other_usr?: usrUncheckedCreateNestedManyWithoutUsrInput
+  }
+
+  export type usrCreateOrConnectWithoutBioposto_afericaoInput = {
+    where: usrWhereUniqueInput
+    create: XOR<usrCreateWithoutBioposto_afericaoInput, usrUncheckedCreateWithoutBioposto_afericaoInput>
+  }
+
+  export type usrUpsertWithoutBioposto_afericaoInput = {
+    update: XOR<usrUpdateWithoutBioposto_afericaoInput, usrUncheckedUpdateWithoutBioposto_afericaoInput>
+    create: XOR<usrCreateWithoutBioposto_afericaoInput, usrUncheckedCreateWithoutBioposto_afericaoInput>
+    where?: usrWhereInput
+  }
+
+  export type usrUpdateToOneWithWhereWithoutBioposto_afericaoInput = {
+    where?: usrWhereInput
+    data: XOR<usrUpdateWithoutBioposto_afericaoInput, usrUncheckedUpdateWithoutBioposto_afericaoInput>
+  }
+
+  export type usrUpdateWithoutBioposto_afericaoInput = {
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUpdateManyWithoutUsrNestedInput
+    frn?: frnUpdateManyWithoutUsrNestedInput
+    psq?: psqUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUpdateManyWithoutUsrNestedInput
+    psq_prg?: psq_prgUpdateManyWithoutUsrNestedInput
+    psq_rsp?: psq_rspUpdateManyWithoutUsrNestedInput
+    psq_rsp_fto?: psq_rsp_ftoUpdateManyWithoutUsrNestedInput
+    psq_tpo?: psq_tpoUpdateManyWithoutUsrNestedInput
+    psq_tpo_itm?: psq_tpo_itmUpdateManyWithoutUsrNestedInput
+    rcg?: rcgUpdateManyWithoutUsrNestedInput
+    trn?: trnUpdateManyWithoutUsrNestedInput
+    emp?: empUpdateOneRequiredWithoutUsrNestedInput
+    stt?: sttUpdateOneRequiredWithoutUsrNestedInput
+    usr_tpo?: usr_tpoUpdateOneRequiredWithoutUsrNestedInput
+    usr?: usrUpdateOneRequiredWithoutOther_usrNestedInput
+    other_usr?: usrUpdateManyWithoutUsrNestedInput
+  }
+
+  export type usrUncheckedUpdateWithoutBioposto_afericaoInput = {
+    EmpId?: IntFieldUpdateOperationsInput | number
+    UsrTpoId?: IntFieldUpdateOperationsInput | number
+    UsrId?: IntFieldUpdateOperationsInput | number
+    UsrNme?: StringFieldUpdateOperationsInput | string
+    UsrLgn?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrCpf?: NullableStringFieldUpdateOperationsInput | string | null
+    UsrEml?: StringFieldUpdateOperationsInput | string
+    UsrPwd?: StringFieldUpdateOperationsInput | string
+    UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
+    SttId?: IntFieldUpdateOperationsInput | number
+    UsrIdAlt?: IntFieldUpdateOperationsInput | number
+    DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
+    MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_loc?: eqp_locUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_mdl?: eqp_mdlUncheckedUpdateManyWithoutUsrNestedInput
+    eqp_tpo?: eqp_tpoUncheckedUpdateManyWithoutUsrNestedInput
+    frn?: frnUncheckedUpdateManyWithoutUsrNestedInput
+    psq?: psqUncheckedUpdateManyWithoutUsrNestedInput
+    psq_mtv?: psq_mtvUncheckedUpdateManyWithoutUsrNestedInput
     psq_prg?: psq_prgUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp?: psq_rspUncheckedUpdateManyWithoutUsrNestedInput
     psq_rsp_fto?: psq_rsp_ftoUncheckedUpdateManyWithoutUsrNestedInput
@@ -56446,6 +58088,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -56481,6 +58124,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -58925,6 +60569,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -58960,6 +60605,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -59017,6 +60663,14 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type bioposto_afericaoCreateManyUsrInput = {
+    BioPstAfrId?: number
+    MomentoRegistro: string
+    DtaHra?: Date | string
+    Manometro: number
+    Temperatura: number
   }
 
   export type cbtCreateManyUsrInput = {
@@ -59218,6 +60872,29 @@ export namespace Prisma {
     SttId?: number
     DtaAlt?: Date | string
     MtvDel?: string | null
+  }
+
+  export type bioposto_afericaoUpdateWithoutUsrInput = {
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type bioposto_afericaoUncheckedUpdateWithoutUsrInput = {
+    BioPstAfrId?: IntFieldUpdateOperationsInput | number
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type bioposto_afericaoUncheckedUpdateManyWithoutUsrInput = {
+    BioPstAfrId?: IntFieldUpdateOperationsInput | number
+    MomentoRegistro?: StringFieldUpdateOperationsInput | string
+    DtaHra?: DateTimeFieldUpdateOperationsInput | Date | string
+    Manometro?: IntFieldUpdateOperationsInput | number
+    Temperatura?: IntFieldUpdateOperationsInput | number
   }
 
   export type cbtUpdateWithoutUsrInput = {
@@ -59804,6 +61481,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -59839,6 +61517,7 @@ export namespace Prisma {
     SttId?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput
@@ -59897,6 +61576,7 @@ export namespace Prisma {
     UsrFto?: NullableStringFieldUpdateOperationsInput | string | null
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUpdateManyWithoutUsrNestedInput
     cbt?: cbtUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUpdateManyWithoutUsrNestedInput
@@ -59932,6 +61612,7 @@ export namespace Prisma {
     UsrIdAlt?: IntFieldUpdateOperationsInput | number
     DtaAlt?: DateTimeFieldUpdateOperationsInput | Date | string
     MtvDel?: NullableStringFieldUpdateOperationsInput | string | null
+    bioposto_afericao?: bioposto_afericaoUncheckedUpdateManyWithoutUsrNestedInput
     cbt?: cbtUncheckedUpdateManyWithoutUsrNestedInput
     eqp_fbr?: eqp_fbrUncheckedUpdateManyWithoutUsrNestedInput
     eqp_itm?: eqp_itmUncheckedUpdateManyWithoutUsrNestedInput

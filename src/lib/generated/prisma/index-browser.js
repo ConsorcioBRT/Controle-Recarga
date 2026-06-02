@@ -415,6 +415,15 @@ exports.Prisma.Psq_mtvScalarFieldEnum = {
   MtvDel: 'MtvDel'
 };
 
+exports.Prisma.Bioposto_afericaoScalarFieldEnum = {
+  BioPstAfrId: 'BioPstAfrId',
+  MomentoRegistro: 'MomentoRegistro',
+  DtaHra: 'DtaHra',
+  Manometro: 'Manometro',
+  Temperatura: 'Temperatura',
+  UsrId: 'UsrId'
+};
+
 exports.Prisma.VwOnibusScalarFieldEnum = {
   RcgIdOrg: 'RcgIdOrg',
   BrtId: 'BrtId',
@@ -636,6 +645,10 @@ exports.Prisma.psq_mtvOrderByRelevanceFieldEnum = {
   MtvDel: 'MtvDel'
 };
 
+exports.Prisma.bioposto_afericaoOrderByRelevanceFieldEnum = {
+  MomentoRegistro: 'MomentoRegistro'
+};
+
 exports.Prisma.VwOnibusOrderByRelevanceFieldEnum = {
   TipoCombustivel: 'TipoCombustivel',
   Onibus: 'Onibus',
@@ -691,6 +704,7 @@ exports.Prisma.ModelName = {
   brt: 'brt',
   psq_tpo_itm: 'psq_tpo_itm',
   psq_mtv: 'psq_mtv',
+  bioposto_afericao: 'bioposto_afericao',
   VwOnibus: 'VwOnibus',
   VwCarregador: 'VwCarregador',
   VwPesquisaPergunta: 'VwPesquisaPergunta',

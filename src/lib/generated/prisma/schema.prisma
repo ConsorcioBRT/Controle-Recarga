@@ -407,40 +407,41 @@ model trn {
 }
 
 model usr {
-  EmpId       Int
-  UsrTpoId    Int
-  UsrId       Int           @id @default(autoincrement())
-  UsrNme      String        @db.VarChar(150)
-  UsrLgn      String?       @unique(map: "IdxU_UsrLgn") @db.VarChar(20)
-  UsrCpf      String?       @unique(map: "IdxU_UsrCpf") @db.VarChar(15)
-  UsrEml      String        @unique(map: "IdxU_UsrEml") @db.VarChar(150)
-  UsrPwd      String        @db.VarChar(250)
-  UsrFto      String?       @default("avatar.png") @db.VarChar(250)
-  SttId       Int           @default(1)
-  UsrIdAlt    Int
-  DtaAlt      DateTime      @default(now()) @db.Timestamp(0)
-  MtvDel      String?       @db.VarChar(250)
-  cbt         cbt[]
-  eqp_fbr     eqp_fbr[]
-  eqp_itm     eqp_itm[]
-  eqp_loc     eqp_loc[]
-  eqp_mdl     eqp_mdl[]
-  eqp_tpo     eqp_tpo[]
-  frn         frn[]
-  psq         psq[]
-  psq_mtv     psq_mtv[]
-  psq_prg     psq_prg[]
-  psq_rsp     psq_rsp[]
-  psq_rsp_fto psq_rsp_fto[]
-  psq_tpo     psq_tpo[]
-  psq_tpo_itm psq_tpo_itm[]
-  rcg         rcg[]
-  trn         trn[]
-  emp         emp           @relation(fields: [EmpId], references: [EmpId], onUpdate: Restrict, map: "FK_Usr_Emp_EmpId")
-  stt         stt           @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Usr_Stt_SttId")
-  usr_tpo     usr_tpo       @relation(fields: [UsrTpoId], references: [UsrTpoId], onUpdate: Restrict, map: "FK_Usr_UsrTpo_UsrTpoId")
-  usr         usr           @relation("usrTousr", fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Usr_Usr_UsrId")
-  other_usr   usr[]         @relation("usrTousr")
+  EmpId             Int
+  UsrTpoId          Int
+  UsrId             Int                 @id @default(autoincrement())
+  UsrNme            String              @db.VarChar(150)
+  UsrLgn            String?             @unique(map: "IdxU_UsrLgn") @db.VarChar(20)
+  UsrCpf            String?             @unique(map: "IdxU_UsrCpf") @db.VarChar(15)
+  UsrEml            String              @unique(map: "IdxU_UsrEml") @db.VarChar(150)
+  UsrPwd            String              @db.VarChar(250)
+  UsrFto            String?             @default("avatar.png") @db.VarChar(250)
+  SttId             Int                 @default(1)
+  UsrIdAlt          Int
+  DtaAlt            DateTime            @default(now()) @db.Timestamp(0)
+  MtvDel            String?             @db.VarChar(250)
+  bioposto_afericao bioposto_afericao[]
+  cbt               cbt[]
+  eqp_fbr           eqp_fbr[]
+  eqp_itm           eqp_itm[]
+  eqp_loc           eqp_loc[]
+  eqp_mdl           eqp_mdl[]
+  eqp_tpo           eqp_tpo[]
+  frn               frn[]
+  psq               psq[]
+  psq_mtv           psq_mtv[]
+  psq_prg           psq_prg[]
+  psq_rsp           psq_rsp[]
+  psq_rsp_fto       psq_rsp_fto[]
+  psq_tpo           psq_tpo[]
+  psq_tpo_itm       psq_tpo_itm[]
+  rcg               rcg[]
+  trn               trn[]
+  emp               emp                 @relation(fields: [EmpId], references: [EmpId], onUpdate: Restrict, map: "FK_Usr_Emp_EmpId")
+  stt               stt                 @relation(fields: [SttId], references: [SttId], onUpdate: Restrict, map: "FK_Usr_Stt_SttId")
+  usr_tpo           usr_tpo             @relation(fields: [UsrTpoId], references: [UsrTpoId], onUpdate: Restrict, map: "FK_Usr_UsrTpo_UsrTpoId")
+  usr               usr                 @relation("usrTousr", fields: [UsrIdAlt], references: [UsrId], onUpdate: Restrict, map: "FK_Usr_Usr_UsrId")
+  other_usr         usr[]               @relation("usrTousr")
 
   @@index([EmpId], map: "FK_Usr_Emp_EmpId")
   @@index([UsrTpoId], map: "FK_Usr_UsrTpo_UsrTpoId")
@@ -525,6 +526,18 @@ model psq_mtv {
 
   @@index([SttId], map: "FK_PsqMtv_Stt_SttId")
   @@index([UsrIdAlt], map: "FK_PsqMtv_Usr_UsrId")
+}
+
+model bioposto_afericao {
+  BioPstAfrId     Int      @id @default(autoincrement())
+  MomentoRegistro String   @db.VarChar(100)
+  DtaHra          DateTime @default(now()) @db.DateTime(0)
+  Manometro       Int
+  Temperatura     Int
+  UsrId           Int
+  usr             usr      @relation(fields: [UsrId], references: [UsrId], onUpdate: Cascade, onDelete: Restrict, map: "FK_BioPostoAfericao_Usr_UsrId")
+
+  @@index([UsrId], map: "FK_BioPostoAfericao_Usr_UsrId")
 }
 
 /// View: vw_onibus

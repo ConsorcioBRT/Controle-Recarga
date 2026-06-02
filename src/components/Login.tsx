@@ -112,7 +112,11 @@ const Login = () => {
         }),
       );
 
-      router.push("/abastecimento");
+      if (postoSelecionado === 21) {
+        router.push("/aviso-manometro");
+      } else {
+        router.push("/abastecimento");
+      }
       return;
     } catch (error) {
       console.log("Erro no login:", error);

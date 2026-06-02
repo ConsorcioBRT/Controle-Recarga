@@ -10,6 +10,8 @@ export function middleware(req: NextRequest) {
     "/abastecimento",
     "/historico",
     "/checklist",
+    "/manometro",
+    "/aviso-manometro",
   ];
 
   const { pathname } = req.nextUrl;
@@ -37,5 +39,7 @@ export const config = {
     "/checklist-onibus/:path*",
     "/checklist-eletroposto/:path*",
     "/resetar-senha/:path*",
+    "/manometro/:path*",
+    "/aviso-manometro/:path*",
   ],
 };

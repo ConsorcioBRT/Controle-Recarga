@@ -420,6 +420,7 @@ model usr {
   UsrIdAlt    Int
   DtaAlt      DateTime      @default(now()) @db.Timestamp(0)
   MtvDel      String?       @db.VarChar(250)
+  bioposto_afericao bioposto_afericao[]
   cbt         cbt[]
   eqp_fbr     eqp_fbr[]
   eqp_itm     eqp_itm[]
@@ -525,6 +526,18 @@ model psq_mtv {
 
   @@index([SttId], map: "FK_PsqMtv_Stt_SttId")
   @@index([UsrIdAlt], map: "FK_PsqMtv_Usr_UsrId")
+}
+
+model bioposto_afericao {
+  BioPstAfrId     Int      @id @default(autoincrement())
+  MomentoRegistro String   @db.VarChar(100)
+  DtaHra          DateTime @default(now()) @db.DateTime(0)
+  Manometro       Int
+  Temperatura     Int
+  UsrId           Int
+  usr             usr      @relation(fields: [UsrId], references: [UsrId], onUpdate: Cascade, onDelete: Restrict, map: "FK_BioPostoAfericao_Usr_UsrId")
+
+  @@index([UsrId], map: "FK_BioPostoAfericao_Usr_UsrId")
 }
 
 
